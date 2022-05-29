@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this tool, please cite it as below."
+authors:
+- family-names: "Schlichtig"
+  given-names: "Michael"
+  oricd: "https://orcid.org/0000-0001-6600-6171"
+- family-names: "Wickert"
+  given-names: "Anna-Katharina"
+  orcid: "https://orcid.org/0000-0002-1441-2423"
+- family-names: "Krüger"
+  given-names: "Stefan"
+- family-names: "Bodden"
+  given-names: "Eric"
+  orcid: "https://orcid.org/0000-0003-3470-3647"
+- family-names: "Mezini"
+  given-names: "Mira"
+  orcid: "https://orcid.org/0000-0001-6563-7537"
+type: "misc"
+title: "CamBench - Cryptographic API Misuse Detection Tool Benchmark"
+doi: 10.48550/arXiv.2204.06447 
+url: "https://github.com/CROSSINGTUD/CamBench"
+note: "accepted at the MSR 2022 Registered Reports Track as a In-Principal Acceptance (IPA)"
+month:  5
+year: 2022
