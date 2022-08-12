@@ -1,0 +1,40 @@
+#[required]
+name:
+  StaticIVFSC1Case2
+
+#[required]
+api:
+  - javax.crypto;
+  - javax.crypto.spec.IvParameterSpec;
+
+#[required]
+description:
+  The byte array that is used for the creation of the iv is overwritten with a static value.
+
+#[required]
+violations:
+  - none
+
+#[required]
+location:
+  file:
+    - org/cambench/cap/flowsensitivity/staticiv/StaticIVFSC1Case2.java
+  method:
+    - main(String[] args)
+  line: [25]
+
+#[required]
+fix:
+  The overwrite of the byte array should be removed.
+
+#[optional]
+complexity:
+  complexity class 1
+
+#[optional]
+capabilities:
+  flow-sensitivity
+
+#[optional]
+context:
+  irrelevant

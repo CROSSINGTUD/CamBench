@@ -1,0 +1,34 @@
+#[optional]
+name:
+  Small Key Size Case 2
+
+#[required]
+api:
+  - java.security
+  - javax.crypto
+
+#[required]
+description:
+  The RSA algorithm is initialized with a key size (1024 bits) that is considered insecure.
+
+#[required]
+violations:
+  - missing/condition/value_or_state
+
+#[required]
+location:
+  file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize2.java
+  method: main(string[] args)
+  line: 15
+
+#[required]
+fix:
+  Initialize the RSA algorithm with keys of at least 2048 bits.
+
+#[optional]
+complexity:
+  complexity class 1
+
+#[optional]
+context:
+  relevant

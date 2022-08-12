@@ -1,0 +1,39 @@
+#[required]
+name:
+  BrokenCryptoBCase2
+
+#[required]
+api:
+  - javax.crypto.Cipher;
+  - javax.crypto.KeyGenerator;
+
+#[required]
+description:
+  An insecure cipher (RC2) is initialized for encryption.
+
+#[required]
+violations:
+  - use of insecure cipher
+
+#[required]
+location:
+  file:
+    - org/cambench/cap/basic/brokencrypto/BrokenCryptoBCae2.java
+  method:
+    - main(String[] args)
+  line: [11,12]
+
+#[required]
+fix:
+  Use a secure cipher for encryption (e.g. AES).
+
+#[optional]
+complexity:
+  complexity class 1
+
+#[optional]
+capabilities:
+
+#[optional]
+context:
+  relevant

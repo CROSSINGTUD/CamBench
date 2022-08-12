@@ -1,0 +1,38 @@
+#[required]
+name:
+  BrokenHashBCase3
+
+#[required]
+api:
+  - java.security.MessageDigest;
+
+#[required]
+description: |
+  A broken hash algorithm (MD5) is initialized to compute the hash value of some data.
+
+#[required]
+violations:
+  - use of broken hash algorithm
+
+#[required]
+location:
+  file:
+    - org/cambench/cap/basic/brokenhash/BrokenHashBCase1.java
+  method:
+    - main(String[] args)
+  line: [9]
+
+#[required]
+fix:
+  Use a hash algorithm that is not broken (e.g. SHA-256).
+
+#[optional]
+complexity:
+  complexity class 1
+
+#[optional]
+capabilities:
+
+#[optional]
+context:
+  irrelevant
