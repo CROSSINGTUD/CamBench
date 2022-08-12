@@ -18,3 +18,7 @@ If you want to contribute to CamBench, feel free to raise an issue or contact us
 - *presentations* contains the various slides we used to present CamBench
 
 [^1] Schlichtig, M., Wickert, A. K., Krüger, S., Bodden, E., & Mezini, M. (2022). CamBench--Cryptographic API Misuse Detection Tool Benchmark Suite. arXiv preprint [arXiv:2204.06447](https://arxiv.org/abs/2204.06447).
+
+## License
+
+The artwork and logos of the projects are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
