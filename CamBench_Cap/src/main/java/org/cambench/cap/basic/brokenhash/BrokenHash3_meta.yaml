@@ -1,10 +1,10 @@
 #[required]
 name:
-  BrokenHashBCase3
+  Broken Hash Function Basic Case 2
 
 #[required]
 api:
-  - java.security.MessageDigest;
+  - java.security.MessageDigest
 
 #[required]
 description: |
@@ -12,27 +12,27 @@ description: |
 
 #[required]
 violations:
-  - use of broken hash algorithm
+  - argument_state/string_format
 
 #[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokenhash/BrokenHashBCase1.java
-  method:
-    - main(String[] args)
-  line: [9]
+  root:
+    file: main/java/org/cambench/cap/basic/brokenhash/BrokenHash3.java
+    method: main(String[] args)
+    line: 9
+  misuse:
+    file: main/java/org/cambench/cap/basic/brokenhash/BrokenHash3.java
+    method: main(String[] args)
+    line: 10
 
 #[required]
 fix:
-  Use a hash algorithm that is not broken (e.g. SHA-256).
+  description:
+    Use a hash algorithm that is not broken (e.g. SHA-256).
+  file: main/java/org/cambench/cap/basic/brokenhash/CorrectedHash.java
 
 #[optional]
-complexity:
-  complexity class 1
+complexity: 1
 
 #[optional]
-capabilities:
-
-#[optional]
-context:
-  irrelevant
+context: relevant

@@ -4,8 +4,7 @@ name:
 
 #[required]
 api:
-  - java.security
-  - javax.crypto
+  - javax.crypto.cipher
 
 #[required]
 description:
@@ -13,21 +12,27 @@ description:
 
 #[required]
 violations:
-  - missing/condition/value_or_state
+  - argument_state/string_format
 
 #[required]
 location:
-  file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize1.java
-  method: main(string[] args)
-  line: 15
+  root:
+    file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 12
+  misuse:
+    file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 15
 
 #[required]
 fix:
-  Initialize the RSA algorithm with keys of at least 2048 bits.
+  description:
+    Initialize the RSA algorithm with keys of at least 2048 bits.
+  file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize_Corrected.java
 
 #[optional]
-complexity:
-  complexity class 1
+complexity: 1
 
 #[optional]
 context:

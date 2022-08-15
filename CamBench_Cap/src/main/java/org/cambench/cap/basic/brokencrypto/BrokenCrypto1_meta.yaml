@@ -1,11 +1,10 @@
 #[required]
 name:
-  BrokenCryptoBCase1
+  Broken Crypto Basic Case 1
 
 #[required]
 api:
-  - javax.crypto.Cipher;
-  - javax.crypto.KeyGenerator;
+  - javax.crypto.Cipher
 
 #[required]
 description:
@@ -14,26 +13,27 @@ description:
 
 #[required]
 violations:
-  - use of insecure cipher
+  - argument_state/string_format
 
 #[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokencrypto/BrokenCryptoBCase1.java
-  method:
-    - main(String[] args)
-  line: [11,12]
+  root:
+    file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 11
+  misuse:
+    file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 13
 
 #[required]
 fix:
-  Use a secure cipher for encryption (e.g. AES).
+  description:
+    Use a secure cipher for encryption (e.g. AES).
+  file: main/java/org/cambench/cap/basic/brokencrypto/CorrectedCrypto.java
 
 #[optional]
-complexity:
-  complexity class 1
-
-#[optional]
-capabilities:
+complexity: 1
 
 #[optional]
 context:
