@@ -1,20 +1,15 @@
-#[required]
 name:
   Static Initialization Vector Case 1
 
-#[required]
 api:
   - javax.crypto.cipher
 
-#[required]
 description:
   A static initialization vector (iv) is used to initialize a cipher (AES).
 
-#[required]
 violations:
   - argument_state/string_format
 
-#[required]
 location:
   root:
     file: main/java/org/cambench/cap/basic/staticiv/StaticIv1.java
@@ -25,16 +20,12 @@ location:
     method: main(String[] args)
     line: 17
 
-#[required]
 fix:
   description:
     Do not use a static string/byte array as iv. 
     Instead, use the SecureRandom class to generate a random byte array to be used as iv.
   file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
 
-#[optional]
 complexity: 1
 
-#[optional]
-context:
-  relevant
+context: relevant

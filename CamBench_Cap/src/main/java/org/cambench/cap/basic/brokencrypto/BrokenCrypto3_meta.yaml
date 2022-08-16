@@ -1,20 +1,17 @@
-#[required]
+
 name:
   Broken Crypto Basic Case 3
 
-#[required]
+
 api:
   - javax.crypto.Cipher
 
-#[required]
 description:
   An unsecure cipher (RC2) is initialized for encryption.
 
-#[required]
 violations:
   - argument_state/string_format
 
-#[required]
 location:
   root:
     file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto3.java
@@ -25,15 +22,11 @@ location:
     method: main(String[] args)
     line: 13
 
-#[required]
 fix:
   description:
     Use a secure cipher for encryption (e.g. AES).
   file: main/java/org/cambench/cap/basic/brokencrypto/CorrectedCrypto.java
 
-#[optional]
 complexity: 1
 
-#[optional]
-context:
-  relevant
+context: relevant
