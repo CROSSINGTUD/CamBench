@@ -2,13 +2,13 @@ name:
   Static Initialization Vector Case 2
 
 api:
-  - javax.crypto.cipher
+  - javax.crypto.Cipher
 
 description:
   A static initialization vector (iv) is used to initialize a cipher (AES).
 
 violations:
-  - argument_state/string_format
+  - argument_state
 
 location:
   root:

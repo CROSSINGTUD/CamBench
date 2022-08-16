@@ -14,7 +14,6 @@ public class StaticIv2 {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecureRandom secureRandom = new SecureRandom();
-        String ivString = "abcdefghijklmnop";
 
         byte[] ivBytes = new byte[16];
         secureRandom.nextBytes(ivBytes);

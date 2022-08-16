@@ -1,40 +1,24 @@
-#[required]
 name:
-  BrokenHashPSC1Case2
+  Broken Hash Function Path-sensitivity Case 2
 
-#[required]
 api:
   - java.security.MessageDigest;
 
-#[required]
-description: |
-  A broken hash algorithm (MD4) is initialized in a branch that is never reached.
+description:
+  A broken hash algorithm (MD4) is initialized in a conditional branch that is never reached.
   The reached branch initializes a safe hash algorithm (SHA-256), bearing no actual violation.
 
-#[required]
 violations:
-  - no violation
+  - argument_state/string_format
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokenhash/BrokenHashPSC1Case1.java
-  method:
-    - main(String[] args)
-  line: [15]
+  root:
+    file: main/java/org/cambench/cap/pathsensitivity/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 15
 
-#[required]
-fix:
-  Do not use a broken hash algorithm in any branch.
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: path-sensitivity
 
-#[optional]
-capabilities:
-  - path-sensitivity
-
-#[optional]
-context:
-  irrelevant
+context: irrelevant

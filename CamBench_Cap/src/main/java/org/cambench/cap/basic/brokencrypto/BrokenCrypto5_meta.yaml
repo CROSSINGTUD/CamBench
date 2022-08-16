@@ -5,7 +5,7 @@ api:
   - javax.crypto.Cipher;
 
 description:
-  An unsecure cipher (RC5) is initialized for encryption.
+  An insecure cipher (RC5) is initialized for encryption.
 
 violations:
   - argument_state/string_format

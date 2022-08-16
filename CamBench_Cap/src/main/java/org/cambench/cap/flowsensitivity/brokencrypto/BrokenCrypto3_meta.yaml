@@ -1,39 +1,24 @@
-#[required]
 name:
-  BrokenCryptoFSC1Case3
+  Broken Crypto Field-sensitive Case 3
 
-#[required]
 api:
-  - javax.crypto.Cipher;
-  - javax.crypto.KeyGenerator;
+  - javax.crypto.Cipher
 
-#[required]
 description:
-  An insecure cipher (RC2) is initialized for encryption.
+  An instance of a secure cipher (AES) is created and initialized, before it is overwritten with
+  an instance of an insecure cipher (RC2), but not initialized again.
 
-#[required]
 violations:
-  - use of insecure cipher
+  - argument_state/string_format
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokencrypto/BrokenCryptoFSC1Case3.java
-  method:
-    - main(String[] args)
-  line: [15]
+  root:
+    file: main/java/org/cambench/cap/flowsensitivity/brokencrypto/BrokenCrypto3.java
+    method: main(String[] args)
+    line: 13
 
-#[required]
-fix:
-  Use a secure cipher for encryption (e.g. AES).
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: field-sensitivity
 
-#[optional]
-capabilities:
-
-#[optional]
-context:
-  relevant
+context: irrrelevant

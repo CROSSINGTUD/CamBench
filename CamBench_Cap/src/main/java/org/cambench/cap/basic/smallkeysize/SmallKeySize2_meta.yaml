@@ -1,8 +1,8 @@
-main.java.org.cambench.capname:
+name:
   Small Key Size Case 2
 
 api:
-  - javax.crypto.cipher
+  - javax.crypto.Cipher
 
 description:
   The RSA algorithm is initialized with a key size (024 bits) that is considered insecure.

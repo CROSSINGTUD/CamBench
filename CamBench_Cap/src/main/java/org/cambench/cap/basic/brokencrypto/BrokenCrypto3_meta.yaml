@@ -7,7 +7,7 @@ api:
   - javax.crypto.Cipher
 
 description:
-  An unsecure cipher (RC2) is initialized for encryption.
+  An insecure cipher (RC2) is initialized for encryption.
 
 violations:
   - argument_state/string_format

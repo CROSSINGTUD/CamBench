@@ -1,8 +1,6 @@
 package main.java.org.cambench.cap.pathsensitivity.brokencrypto;
 
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -19,7 +17,6 @@ public class BrokenCrypto1 {
             cipher = Cipher.getInstance("Blowfish");
             keyGen = KeyGenerator.getInstance("Blowfish");
         }
-
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 }

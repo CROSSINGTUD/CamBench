@@ -1,39 +1,24 @@
-#[required]
 name:
-  BrokenCryptoBCase2
+  Broken Crypto Path-sensitivity Case 4
 
-#[required]
 api:
   - javax.crypto.Cipher;
-  - javax.crypto.KeyGenerator;
 
-#[required]
 description:
-  An insecure cipher (RC4) is initialized for encryption.
+  An instance of a secure cipher (AES) is used in the reachable branch of a conditional statement.
+  The other branch, which is never reached, gets an instance of an insecure cipher (RC4).
 
-#[required]
 violations:
-  - use of insecure cipher
+  - argument_state/string_format
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokencrypto/BrokenCryptoBCae2.java
-  method:
-    - main(String[] args)
-  line: [11,12]
+  root:
+    file: main/java/org/cambench/cap/pathsensitivity/brokencrypto/BrokenCrypto4.java
+    method: main(String[] args)
+    line: 17
 
-#[required]
-fix:
-  Use a secure cipher for encryption (e.g. AES).
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: path-sensitivity
 
-#[optional]
-capabilities:
-
-#[optional]
-context:
-  relevant
+context: irrelevant

@@ -1,40 +1,24 @@
-#[required]
 name:
-  StaticIVFSC1Case1
+  Static Initialization Vector Flow-sensitive Case 1
 
-#[required]
 api:
-  - javax.crypto;
-  - javax.crypto.spec.IvParameterSpec;
+  - javax.crypto.Cipher
 
-#[required]
 description:
-  The byte array that is used for the creation of the iv is overwritten with a static value.
+  The byte array that is used for the creation of the iv is overwritten with a static value
+  after the iv was created in an intended way.
 
-#[required]
 violations:
-  - none
+  - argument_state
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/flowsensitivity/staticiv/StaticIVFSC1Case1.java
-  method:
-    - main(String[] args)
-  line: [25]
+  root:
+    file: main/java/org/cambench/cap/flowsensitivity/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 25
 
-#[required]
-fix:
-  The overwrite of the byte array should be removed.
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: flow-sensitivity
 
-#[optional]
-capabilities:
-  flow-sensitivity
-
-#[optional]
-context:
-  irrelevant
+context: irrelevant

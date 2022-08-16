@@ -1,42 +1,25 @@
-#[required]
 name:
-  StaticIVBCase2
+  Static InitializationVector Path-sensitivity Case 1
 
-#[required]
 api:
-  - javax.crypto;
-  - javax.crypto.spec.IvParameterSpec;
+  - javax.crypto.cipher
 
-#[required]
 description:
-  The byte array for the iv initialization is created with a static value. 
-  The byte array is then overwritten with a random values in the if branch of the conditional clause, leading to 
-  a secure use, as the condition is always true.
+  The byte array for the iv initialization is created with static values.
+  The byte array is then overwritten with random values in the if branch of the conditional clause, 
+  which is always true.
 
-#[required]
 violations:
-  - none
+  - argument_state
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/pathsensitivity/staticiv/StaticIVBCase1.java
-  method:
-    - main(String[] args)
-  line: [14]
+  root:
+    file: main/java/org/cambench/cap/pathsensitivity/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 14
 
-#[required]
-fix:
-  The byte array should be created as an empty byte array and then only filled by using the SecureRandom class.
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: path-sensitivity
 
-#[optional]
-capabilities:
-  path-sensitivity
-
-#[optional]
-context:
-  irrrelevant
+context: irrelevant

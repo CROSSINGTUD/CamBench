@@ -1,8 +1,8 @@
-main.java.org.cambench.capname:
+name:
   Insecure Random Case 1
 
 api:
-  - javax.crypto.cipher
+  - javax.crypto.Cipher
 
 description:
   An initialization vector (iv) is created by using the Random class.

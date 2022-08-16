@@ -1,39 +1,24 @@
-#[required]
 name:
-  BrokenHashFSC1Case1
+  Broken Hash Function Field-sensitive Case 1
 
-#[required]
 api:
-  - java.security.MessageDigest;
+  - java.security.MessageDigest
 
-#[required]
-description: |
-  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+description:
+  An instance of secure MessageDigest (SHA-256) is created and used, before it is overwritten with
+  an instance of an insecure MessageDigest (MD2), but not used again.
 
-#[required]
 violations:
-  - use of broken hash algorithm
+  - argument_state/string_format
 
-#[required]
 location:
-  file:
-    - org/cambench/cap/basic/brokenhash/BrokenHashFSC1Case1.java
-  method:
-    - main(String[] args)
-  line: [9]
+  root:
+    file: main/java/org/cambench/cap/flowsensitivity/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 12
 
-#[required]
-fix:
-  Use a hash algorithm that is not broken (e.g. SHA-256).
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
+capabilities: field-sensitivity
 
-#[optional]
-capabilities:
-  - field-sensitivity
-  -
-#[optional]
-context:
-  irrelevant
+context: irrelevant

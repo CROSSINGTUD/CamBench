@@ -1,8 +1,8 @@
-main.java.org.cambench.capname:
+name:
   ECB Mode Case 1
 
 api:
-  - javax.crypto.cipher
+  - javax.crypto.Cipher
 
 description:
   The AES algorithm is configured and initialized with the ECB mode of operation.

@@ -1,35 +1,22 @@
-#[optional]
 name:
-  Small Key Size Path sensitive Case 1
+  Small Key Size Path-sensitive Case 1
 
-#[required]
 api:
-  - java.security
-  - javax.crypto
+  - javax.crypto.Cipher
 
-#[required]
 description:
-  The RSA algorithm is initialized with a sufficient key size (2048 bits) but
-  the else branch, of the condition (although never reached) sets the key size to 512 bit.
+  The RSA algorithm is initialized with a sufficient key size (2048 bits) in a conditional branch.
+  The other branch of the condition sets the key size to 512 bit, but is never reached.
 
-#[required]
 violations:
-  - none
+  - argument_state/number_range
 
-#[required]
 location:
-  file: main/java/org/cambench/cap/pathsensitivity/smallkeysize/SmallKeySize1.java
-  method: main(string[] args)
-  line: 18
+  root:
+    file: main/java/org/cambench/cap/pathsensitivity/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 15
 
-#[required]
-fix:
-  Initialize the RSA algorithm with keys of at least 2048 bits and remove unnecessary statements.
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
-
-#[optional]
-context:
-  relevant
+context: irrelevant

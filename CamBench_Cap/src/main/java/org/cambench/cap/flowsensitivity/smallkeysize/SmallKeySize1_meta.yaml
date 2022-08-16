@@ -1,35 +1,22 @@
-#[optional]
 name:
-  Small Key Size Flow sensitive Case 1
+  Small Key Size Flow-sensitive Case 1
 
-#[required]
 api:
-  - java.security
-  - javax.crypto
+  - javax.crypto.Cipher
 
-#[required]
 description:
   The key size is set to just 512 bit after the RSA algorithm is 
-  initialized with sufficient key size.
+  initialized with sufficient key size of 2048 bit, but it is not initialized again with the small key size.
 
-#[required]
 violations:
-  - none
+  - argument_state/number_range
 
-#[required]
 location:
-  file: main/java/org/cambench/cap/flowsensitivity/smallkeysize/SmallKeySize1.java
-  method: main(string[] args)
-  line: 19
+  root:
+    file: main/java/org/cambench/cap/flowsensitivity/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 16
 
-#[required]
-fix:
-  Initialize the RSA algorithm with keys of at least 2048 bits and remove unnecessary statements.
+complexity: 1
 
-#[optional]
-complexity:
-  complexity class 1
-
-#[optional]
-context:
-  relevant
+context: irrelevant
