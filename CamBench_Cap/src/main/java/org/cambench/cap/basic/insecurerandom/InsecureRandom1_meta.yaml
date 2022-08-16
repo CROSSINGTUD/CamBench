@@ -1,0 +1,30 @@
+main.java.org.cambench.capname:
+  Insecure Random Case 1
+
+api:
+  - javax.crypto.cipher
+
+description:
+  An initialization vector (iv) is created by using the Random class.
+
+violations:
+  - argument_state
+
+location:
+  root:
+    file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom1.java
+    method: main(string[] args)
+    line: 19
+  misuse:
+    file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom1.java
+    method: main(string[] args)
+    line: 23
+
+fix:
+  description:
+    Create the Initialization vector by using the SecureRandom class instead of the Random class.
+  file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+
+complexity: 1
+
+context: relevant
