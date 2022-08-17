@@ -1,0 +1,63 @@
+#[optional]
+#The out-spelled name of the test case
+name:
+  Broken Hash Algorithm Case 1
+
+#[required]
+#The api that is (mis)used in the test case
+api:
+  java.security.MessageDigest
+
+#[required]
+#A description of the test case.
+description:
+  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+
+#[required]
+#FUM based API misuse class
+violations:
+  - argument_state/string_format
+
+#[required]
+#Location of the misuse specified by the file, method and line of code.
+#A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
+#is not the main misuse itself or if the testcase contains no real misuse
+#(e.g. a variable that specifies a broken algorithm which is never used).
+location:
+  #[optional]
+  #The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
+  root:
+    file: main/java/org/cambench/cap/basic/brokenhash/root.java
+    method: initVariable()
+    line: 10
+  #[optional]
+  #The misuse, specified by a file, a method and a line. Set to none for false-positive test cases or correct test cases
+  misuse:
+    file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
+    method: main(String[] args)
+    line: 20
+
+#[optional]
+#Holds a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
+fix:
+  #[required]
+  description:
+    A description how to fix a misuse.
+  #[optional]
+  file: main/java/org/cambench/cap/basic/brokenhash/fixed.java
+  #[optional]
+  commit:
+
+#[optional]
+#The complexity class of the test case, values 1-3
+complexity: 1
+
+#[optional]
+#Lists all the analysis capabilities that are covered by the test case.
+capabilities:
+  - interprocedural
+
+#[optional]
+#Describes, whether the testcase states a relevant cryptographic misuse or not.
+#E.g. "irrelevant" for a false-positive test case where a variable that is never used holds a broken cipher
+context: irrelevant
