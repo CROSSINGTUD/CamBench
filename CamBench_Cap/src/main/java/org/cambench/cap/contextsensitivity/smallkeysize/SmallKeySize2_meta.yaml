@@ -1,0 +1,24 @@
+name:
+  Small Key Size Context-Sensitive Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  Two different key sizes (1024 and 2048) are stored in variables, the bigger key size is then used to
+  initialize the instance of the RSA algorithm for encryption.
+
+violations:
+  - argument_state/number_range
+
+location:
+  root:
+    file: main/java/org/cambench/cap/contextsensitivity/smallkeysize/SmallKeySize2.java
+    method: main(string[] args)
+    line: 14
+
+complexity: 1
+
+capabilities: context-sensitivity
+
+context: irrelevant

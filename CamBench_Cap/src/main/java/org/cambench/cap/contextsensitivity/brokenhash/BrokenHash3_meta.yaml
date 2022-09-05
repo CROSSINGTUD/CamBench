@@ -1,0 +1,24 @@
+name:
+  Broken Hash Function Basic Case 3
+
+api:
+  - java.security.MessageDigest
+
+description: |
+  A broken hash algorithm (MD5) and a secure one (SHA-256) are stored in variables.
+  The secure one is used to compute a hash value.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/contextsensitivity/brokenhash/BrokenHash3.java
+    method: main(String[] args)
+    line: 8
+
+complexity: 1
+
+capabilities: context-sensitivity
+
+context: irrelevant

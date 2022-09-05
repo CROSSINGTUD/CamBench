@@ -1,0 +1,24 @@
+name:
+  Broken Crypto Context-Sensitive Case 5
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The algo variables are set to an insecure (RC5) and a secure cipher (AES), respectively.
+  But only the latter one is utilized to initialize the cipher object.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/contextsensitivity/brokencrypto/BrokenCrypto5.java
+    method: main(String[] args)
+    line: 11
+
+complexity: 1
+
+capabilities: context-sensitivity
+
+context: irrelevant
