@@ -1,0 +1,32 @@
+name:
+  Small Key Size 2-Interprocedural Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The RSA algorithm is initialized with a key size (1024 bits) that is considered insecure.
+
+violations:
+  - argument_state/number_range
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural2/smallkeysize/SmallKeySize2.java
+    method: main(string[] args)
+    line: 13
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural2/smallkeysize/SmallKeySize2.java
+    method: method1(int keySize)
+    line: 24
+
+fix:
+  description:
+    Initialize the RSA algorithm with keys of at least 2048 bits.
+  file: main/java/org/cambench/cap/interprocedural2/smallkeysize/CorrectedKeySize.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant

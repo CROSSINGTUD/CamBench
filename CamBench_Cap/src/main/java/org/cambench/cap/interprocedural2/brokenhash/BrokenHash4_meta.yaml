@@ -1,0 +1,32 @@
+name:
+  Broken Hash Function 2-Interprocedural Case 4
+
+api:
+  - java.security.MessageDigest
+
+description:
+  A broken hash algorithm (SHA-1) is initialized to compute the hash value of some data.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural2/brokenhash/BrokenHash4.java
+    method: main(String[] args)
+    line: 9
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural2/brokenhash/BrokenHash4.java
+    method: method1(String algo, String data)
+    line: 16
+
+fix:
+  description:
+    Use a hash algorithm that is not broken (e.g. SHA-256).
+  file: main/java/org/cambench/cap/basic/interprocedural2/CorrectedHash.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant
