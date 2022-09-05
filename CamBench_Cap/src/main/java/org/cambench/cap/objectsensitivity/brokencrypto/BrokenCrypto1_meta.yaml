@@ -1,0 +1,33 @@
+name:
+  Broken Crypto Object-Sensitive Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An insecure cipher (Blowfish) is initialized for encryption.
+  Although not broken, there exist attacks on 64-bit ciphers, like sweet32.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 12
+  misuse:
+    file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 16
+
+fix:
+  description:
+    Use a secure cipher for encryption (e.g. AES).
+  file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/CorrectedCrypto.java
+
+complexity: 1
+
+capabilities: object-sensitivity
+
+context: relevant

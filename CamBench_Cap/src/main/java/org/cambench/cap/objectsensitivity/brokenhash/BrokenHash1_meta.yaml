@@ -1,0 +1,32 @@
+name:
+  Broken Hash Function Object-Sensitive Case 1
+
+api:
+  - java.security.MessageDigest
+
+description: |
+  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/objectsensitivity/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 8
+  misuse:
+    file: main/java/org/cambench/cap/objectsensitivity/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 12
+
+fix:
+  description:
+    Use a hash algorithm that is not broken (e.g. SHA-256).
+  file: main/java/org/cambench/cap/objectsensitivity/brokenhash/CorrectedHash.java
+
+complexity: 1
+
+capabilities: object-sensitivity
+
+context: relevant

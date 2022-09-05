@@ -1,0 +1,32 @@
+name:
+  Insecure Random Object-Sensitive Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An initialization vector (iv) is created by using the Random class.
+
+violations:
+  - argument_state
+
+location:
+  root:
+    file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/InsecureRandom1.java
+    method: main(string[] args)
+    line: 19
+  misuse:
+    file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/InsecureRandom1.java
+    method: main(string[] args)
+    line: 27
+
+fix:
+  description:
+    Create the Initialization vector by using the SecureRandom class instead of the Random class.
+  file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/CorrectedRandom.java
+
+complexity: 1
+
+capabilities: object-sensitivity
+
+context: relevant
