@@ -1,0 +1,32 @@
+name:
+  Broken Crypto 3-Interprocedural Case 5
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An insecure cipher (RC5) is initialized for encryption.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural3/brokencrypto/BrokenCrypto5.java
+    method: main(String[] args)
+    line: 12
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural3/brokencrypto/BrokenCrypto5.java
+    method: method2(String algorithm)
+    line: 24
+
+fix:
+  description:
+    Use a secure cipher for encryption (e.g. AES).
+  file: main/java/org/cambench/cap/interprocedural3/brokencrypto/CorrectedCrypto.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant

@@ -1,0 +1,33 @@
+name:
+  Static Initialization Vector 3-Interprocedural Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  A static initialization vector (iv) is used to initialize a cipher (AES).
+
+violations:
+  - argument_state
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural3/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 14
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural3/staticiv/StaticIv2.java
+    method: method2(byte[] ivBytes)
+    line: 29
+
+fix:
+  description:
+    Do not use a static string/byte array as iv.
+    Instead, use the SecureRandom class to generate a random byte array to be used as iv.
+  file: main/java/org/cambench/cap/interprocedural3/staticiv/CorrectedIv.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant

@@ -1,0 +1,32 @@
+name:
+  Insecure Random 3-Interprocedural Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An initialization vector (iv) is created by using the Random class.
+
+violations:
+  - argument_state
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural3/insecurerandom/InsecureRandom1.java
+    method: main(string[] args)
+    line: 17
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural3/insecurerandom/InsecureRandom1.java
+    method: method2(byte[] ivBytes)
+    line: 32
+
+fix:
+  description:
+    Create the Initialization vector by using the SecureRandom class instead of the Random class.
+  file: main/java/org/cambench/cap/interprocedural3/insecurerandom/CorrectedRandom.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant
