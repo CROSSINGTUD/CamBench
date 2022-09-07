@@ -1,0 +1,33 @@
+name:
+  Small Key Size Field-Sensitive Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  Two different key sizes (512 and 2048) are stored in an object's fields. The smaller size is then used to 
+  initialize an instance of the RSA algorithm.
+
+violations:
+  - argument_state/number_range
+
+location:
+  root:
+    file: main/java/org/cambench/cap/fieldsensitivity/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 15
+  misuse:
+    file: main/java/org/cambench/cap/fieldsensitivity/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 22
+
+fix:
+  description:
+    Initialize the RSA algorithm with keys of at least 2048 bits.
+  file: main/java/org/cambench/cap/fieldsensitivity/smallkeysize/CorrectedKeySize.java
+
+complexity: 1
+
+capabilities: field-sensitivity
+
+context: relevant

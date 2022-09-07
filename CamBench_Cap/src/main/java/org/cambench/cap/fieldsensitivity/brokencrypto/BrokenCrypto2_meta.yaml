@@ -1,0 +1,33 @@
+name:
+  Broken Crypto Field-Sensitive Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (DES) are stored in an object's fields. The insecure one is then used
+  to initialize the actual cipher object.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/fieldsensitivity/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 12
+  misuse:
+    file: main/java/org/cambench/cap/fieldsensitivity/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 17
+
+fix:
+  description:
+    Use a secure cipher for encryption (e.g. AES).
+  file: main/java/org/cambench/cap/fieldsensitivity/brokencrypto/CorrectedCrypto.java
+
+complexity: 1
+
+capabilities: field-sensitivity
+
+context: relevant

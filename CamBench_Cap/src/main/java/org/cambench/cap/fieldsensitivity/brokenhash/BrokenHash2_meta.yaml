@@ -1,0 +1,33 @@
+name:
+  Broken Hash Function Field-Sensitive Case 2
+
+api:
+  - java.security.MessageDigest
+
+description:
+  The names of a secure & an insecure hash algorithm (MD4) are stored in an object's fields. The insecure one
+  is then used to compute the hash of some data.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/fieldsensitivity/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 9
+  misuse:
+    file: main/java/org/cambench/cap/fieldsensitivity/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 14
+
+fix:
+  description:
+    Use a hash algorithm that is not broken (e.g. SHA-256).
+  file: main/java/org/cambench/cap/fieldsensitivity/brokenhash/CorrectedHash.java
+
+complexity: 1
+
+capabilities: field-sensitivity
+
+context: relevant
