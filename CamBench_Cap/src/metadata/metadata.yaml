@@ -1,15 +1,16 @@
 #[optional]
-#The out-spelled name of the test case
+#The out-spelled name of the test case.
 name:
   Broken Hash Algorithm Case 1
 
 #[required]
-#The api that is (mis)used in the test case
+#The api that is (mis)used in the test case.
 api:
   java.security.MessageDigest
 
-#[required]
+#[optional]
 #A description of the test case.
+#Stefan's Idea: Write descriptions once in the end to get synergies of having all.
 description:
   A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
 
@@ -30,12 +31,16 @@ location:
     file: main/java/org/cambench/cap/basic/brokenhash/root.java
     method: initVariable()
     line: 10
-  #[optional]
-  #The misuse, specified by a file, a method and a line. Set to none for false-positive test cases or correct test cases
-  misuse:
-    file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
-    method: main(String[] args)
-    line: 20
+  #[required]
+  #TODO UPDATE: The misuse, specified by a file, a method and a line. Set to none for false-positive test cases or correct test cases
+  #TODO discuss location of misuse
+  #misuse: true
+  #[required]
+  file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
+  #[required]
+  method: main(String[] args)
+  #[required]
+  line: 20
 
 #[optional]
 #Holds a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
@@ -49,15 +54,74 @@ fix:
   commit:
 
 #[optional]
-#The complexity class of the test case, values 1-3
-complexity: 1
+#Metrics of the test case.
+codemetrics:
+  #[optional]
+  # Lines of Code
+  loc:
+  #[optional]
+  #McCabes Cyclomatic Complexity
+  cc:
+
 
 #[optional]
 #Lists all the analysis capabilities that are covered by the test case.
 capabilities:
   - interprocedural
 
+
+####### to be replaced by on of the following options #######
 #[optional]
 #Describes, whether the testcase states a relevant cryptographic misuse or not.
 #E.g. "irrelevant" for a false-positive test case where a variable that is never used holds a broken cipher
+#TODO improve description and how to describe, e.g., rename into security-issue to clarify if the wrong usage is an actually problem -> to limit the scope of values
+#For a third value may think about a third option to have true and false only
+#One field for textual information
 context: irrelevant
+#############################################################
+
+
+##### Option 1 #####
+#[optional]
+#States, whether the testcase contains a security relevant misuse or not.
+security-issue: true
+
+#[optional]
+#A field to add a description/additional information about the issue(s) contained in the test case.
+issue-description:
+  A description of the issue(s) contained in the test case.
+###################
+
+##### Option 2 #####
+#[optional]
+security:
+  #[required]
+  #States, whether the testcase contains a security relevant misuse or not.
+  issue: true
+  #[optional]
+  #A field to add a description/additional information about the issue(s) contained in the test case.
+  issue-description:
+    A description of the issue(s) contained in the test case.
+####################
+
+
+####### description outcoursing #######
+#All description fields in the end, to have them in on place.
+
+#[optional]
+#A description of the test case.
+#Stefan's Idea: Write descriptions once in the end to get synergies of having all.
+description:
+  An insecure hash algorithm (MD5) is initialized to compute the hash value of some sensitive data.
+
+#[optional]
+#A field to add a description/additional information about the issue(s) contained in the test case.
+issue-description:
+  MD5 is an insecure hash algorithm and should therefore not be used in a cryptographic context.
+
+#[optional]
+#A description how to fix a misuse. Optional, but schould be included if a fix is included.
+fix-description:
+    Replace the insecure hash algorithm with a secure hash algorithm, e.g. SHA-256.
+
+###############################################
