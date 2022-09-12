@@ -10,38 +10,42 @@ api:
 
 #[optional]
 #A description of the test case.
-#Stefan's Idea: Write descriptions once in the end to get synergies of having all.
 description:
   A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
 
-#[required]
-#FUM based API misuse class
-violations:
-  - argument_state/string_format
 
 #[required]
-#Location of the misuse specified by the file, method and line of code.
-#A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
-#is not the main misuse itself or if the testcase contains no real misuse
-#(e.g. a variable that specifies a broken algorithm which is never used).
-location:
-  #[optional]
-  #The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
-  root:
-    file: main/java/org/cambench/cap/basic/brokenhash/root.java
-    method: initVariable()
-    line: 10
-  #[required]
-  #TODO UPDATE: The misuse, specified by a file, a method and a line. Set to none for false-positive test cases or correct test cases
-  #TODO discuss location of misuse
-  #misuse: true
-  #[required]
-  file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
-  #[required]
-  method: main(String[] args)
-  #[required]
-  line: 20
+crypto-usage:
+	#[required]
+	violation: true
+	#[required]
+	#FUM based API misuse class
+	FUM:
+		- argument_state/string_format
+	#[required]
+	#Location of the misuse specified by the file, method and line of code.
+	location:
+		#[required]
+		file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
+		#[required]
+		method: main(String[] args)
+		#[required]
+		line: 20
 
+		#A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
+		#is not the main misuse itself or if the testcase contains no real misuse
+		#(e.g. a variable that specifies a broken algorithm which is never used).
+		#[optional]
+		root:
+			[required]
+			#The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
+			location:
+				[required]
+				file: main/java/org/cambench/cap/basic/brokenhash/root.java
+				[required]
+				method: initVariable()
+				[required]
+				line: 10
 #[optional]
 #Holds a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
 fix:
@@ -78,21 +82,7 @@ capabilities:
 #For a third value may think about a third option to have true and false only
 #One field for textual information
 context: irrelevant
-#############################################################
 
-
-##### Option 1 #####
-#[optional]
-#States, whether the testcase contains a security relevant misuse or not.
-security-issue: true
-
-#[optional]
-#A field to add a description/additional information about the issue(s) contained in the test case.
-issue-description:
-  A description of the issue(s) contained in the test case.
-###################
-
-##### Option 2 #####
 #[optional]
 security:
   #[required]
@@ -102,26 +92,3 @@ security:
   #A field to add a description/additional information about the issue(s) contained in the test case.
   issue-description:
     A description of the issue(s) contained in the test case.
-####################
-
-
-####### description outcoursing #######
-#All description fields in the end, to have them in on place.
-
-#[optional]
-#A description of the test case.
-#Stefan's Idea: Write descriptions once in the end to get synergies of having all.
-description:
-  An insecure hash algorithm (MD5) is initialized to compute the hash value of some sensitive data.
-
-#[optional]
-#A field to add a description/additional information about the issue(s) contained in the test case.
-issue-description:
-  MD5 is an insecure hash algorithm and should therefore not be used in a cryptographic context.
-
-#[optional]
-#A description how to fix a misuse. Optional, but schould be included if a fix is included.
-fix-description:
-    Replace the insecure hash algorithm with a secure hash algorithm, e.g. SHA-256.
-
-###############################################
