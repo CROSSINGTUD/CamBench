@@ -13,39 +13,39 @@ api:
 description:
   A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
 
-
 #[required]
 crypto-usage:
-	#[required]
-	violation: true
-	#[required]
-	#FUM based API misuse class
-	FUM:
-		- argument_state/string_format
-	#[required]
-	#Location of the misuse specified by the file, method and line of code.
-	location:
-		#[required]
-		file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
-		#[required]
-		method: main(String[] args)
-		#[required]
-		line: 20
+  #[required]
+  violation: true
+  #[required]
+  #FUM based API misuse class
+  FUM:
+    - argument_state/string_format
+  #[required]
+  #Location of the misuse specified by the file, method and line of code.
+  location:
+    #[required]
+    file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
+    #[required]
+    method: main(String[] args)
+    #[required]
+    line: 20
 
-		#A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
-		#is not the main misuse itself or if the testcase contains no real misuse
-		#(e.g. a variable that specifies a broken algorithm which is never used).
-		#[optional]
-		root:
-			[required]
-			#The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
-			location:
-				[required]
-				file: main/java/org/cambench/cap/basic/brokenhash/root.java
-				[required]
-				method: initVariable()
-				[required]
-				line: 10
+    #A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
+    #is not the main misuse itself or if the testcase contains no real misuse
+    #(e.g. a variable that specifies a broken algorithm which is never used).
+    #[optional]
+    root:
+      #[required]
+      #The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
+      location:
+        #[required]
+        file: main/java/org/cambench/cap/basic/brokenhash/root.java
+        #[required]
+        method: initVariable()
+        #[required]
+        line: 10
+
 #[optional]
 #Holds a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
 fix:
@@ -67,21 +67,10 @@ codemetrics:
   #McCabes Cyclomatic Complexity
   cc:
 
-
 #[optional]
 #Lists all the analysis capabilities that are covered by the test case.
 capabilities:
   - interprocedural
-
-
-####### to be replaced by on of the following options #######
-#[optional]
-#Describes, whether the testcase states a relevant cryptographic misuse or not.
-#E.g. "irrelevant" for a false-positive test case where a variable that is never used holds a broken cipher
-#TODO improve description and how to describe, e.g., rename into security-issue to clarify if the wrong usage is an actually problem -> to limit the scope of values
-#For a third value may think about a third option to have true and false only
-#One field for textual information
-context: irrelevant
 
 #[optional]
 security:
