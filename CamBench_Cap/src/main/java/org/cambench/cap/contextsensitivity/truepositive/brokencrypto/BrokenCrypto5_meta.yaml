@@ -1,0 +1,41 @@
+name:
+  Broken Crypto Context-Sensitive True-Positive Basic Case 5
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The algo variables are set to an insecure (RC5) and a secure cipher (AES), respectively.
+  The insecure one is then utilized to initialize the cipher object.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/truepositive/brokencrypto/BrokenCrypto5.java
+    method: main(String[] args)
+    line: 16
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/truepositive/brokencrypto/BrokenCrypto5.java
+        method: main(String[] args)
+        line: 11
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with a proper configuration).
+  file: main/java/org/cambench/cap/contextsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 22
+  cc: 1
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the RC5 algorithm, which is vulnerable to different attacks.

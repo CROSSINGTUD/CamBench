@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Object-Sensitive True-Negative Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  Two objects are created that each contain a string with a the name of a hash algorithm
+  as value (MD2 and SHA-256, respectively). The object with the SHA string is then
+  used to create an instance of the cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 13
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 8
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: false

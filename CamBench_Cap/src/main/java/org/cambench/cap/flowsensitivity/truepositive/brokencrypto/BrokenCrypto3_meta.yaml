@@ -1,0 +1,42 @@
+name:
+  Broken Crypto Field-Sensitive True-Positive Case 3
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An instance of an insecure cipher (RC2) is created and initialized, before it is overwritten with
+  an instance of a secure cipher (AES), but not initialized again.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truepositive/brokencrypto/BrokenCrypto3.java
+    method: main(String[] args)
+    line: 13
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truepositive/brokencrypto/BrokenCrypto3.java
+        method: main(String[] args)
+        line: 11
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/flowsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 17
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the RC2 algorithm, which should not be utilized since brute-force
+    attacks on 64-bit ciphers are possible.

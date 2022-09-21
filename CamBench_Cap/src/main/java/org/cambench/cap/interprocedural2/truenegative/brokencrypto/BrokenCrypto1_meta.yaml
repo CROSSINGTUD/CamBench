@@ -1,0 +1,59 @@
+name:
+  Broken Crypto 2-Interprocedural True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The names of two algorithms (Blowfish and AES) are stored in a variable, the AES variable is then passed
+  to the method which initializes an instance of the passed algorithm.
+
+violations:
+  - argument_state/string_format
+
+location:
+  root:
+    file: main/java/org/cambench/cap/interprocedural2/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 12
+  misuse:
+    file: main/java/org/cambench/cap/interprocedural2/brokencrypto/BrokenCrypto1.java
+    method: method1(String algo)
+    line: 18
+
+crypto-usage:
+  #[required]
+  violation: true
+  #[required]
+  FUM:
+    - argument_state/string_format
+  #[required]
+  location:
+    #[required]
+    file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
+    #[required]
+    method: main(String[] args)
+    #[required]
+    line: 20
+
+    #[optional]
+    root:
+      #[required]
+      location:
+        #[required]
+        file: main/java/org/cambench/cap/basic/brokenhash/root.java
+        #[required]
+        method: initVariable()
+        #[required]
+        line: 10
+
+fix:
+  description:
+    Use a secure cipher for encryption (e.g. AES).
+  file: main/java/org/cambench/cap/interprocedural2/brokencrypto/CorrectedCrypto.java
+
+complexity: 1
+
+capabilities: interprocedural
+
+context: relevant

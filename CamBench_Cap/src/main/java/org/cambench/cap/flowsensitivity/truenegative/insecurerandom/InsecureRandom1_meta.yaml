@@ -1,0 +1,25 @@
+name:
+  Insecure Random Path-sensitive Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  The byte array for the initialization vector is filled with random values by using the SecureRandom class 
+  and used in the IV creation before it is overwritten using the standard Random class.
+
+violations:
+  - argument_state
+
+location:
+  root:
+    file: org/cambench/cap/flowsensitivity/truenegative/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 24
+
+complexity: 1
+
+capabilities:
+  - flow-sensitivity
+
+context: irrelevant

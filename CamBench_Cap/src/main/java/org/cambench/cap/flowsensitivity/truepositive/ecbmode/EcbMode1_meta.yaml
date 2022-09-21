@@ -1,0 +1,42 @@
+name:
+  ECB Mode Flow-Sensitive True-Positive Case 1
+
+api:
+  - java.security.Cipher
+
+description:
+  An instance of a secure cipher (AES) is initialized with ECB mode of operation
+  before it is overwritten with an instance configured for CBC mode of operation, but not initialized again.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 13
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 11
+
+fix:
+  description:
+    Edit the AES configuration to use the CBC mode of operation, instead of ECB mode.
+  file: main/java/org/cambench/cap/flowsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 17
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of cyphertext.
