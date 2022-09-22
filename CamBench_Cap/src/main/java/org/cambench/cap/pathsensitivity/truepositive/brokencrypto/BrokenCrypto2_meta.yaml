@@ -1,0 +1,42 @@
+name:
+  Broken Crypto Path-Sensitivity True-Positive Case 2
+
+api:
+  - javax.crypto.Cipher;
+
+description:
+  An instance of a an insecure cipher (DES) is used in the reachable branch of a conditional statement.
+  The other branch, which is never reached, gets an instance of a secure cipher (AES).
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokencrypto/BrokenCrypto2.java
+        method: main(String[] args)
+        line: 19
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 24
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

@@ -15,7 +15,7 @@ public class SmallKeySize1 {
         SizeClass1 sizeObject2 = new SizeClass1(2048);
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(sizeObject1.keySize);
+        keyGen.initialize(sizeObject2.keySize);
         KeyPair keyPair = keyGen.generateKeyPair();
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());

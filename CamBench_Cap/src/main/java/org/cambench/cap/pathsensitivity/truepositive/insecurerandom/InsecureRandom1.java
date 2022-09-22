@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.objectsensitivity.truenegative.insecurerandom;
+package main.java.org.cambench.cap.pathsensitivity.truepositive.insecurerandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -14,24 +14,18 @@ public class InsecureRandom1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-
-        RandomClass1 randomClass1 = new RandomClass1(new SecureRandom());
-        RandomClass1 randomClass2 = new RandomClass1(new Random());
-
         byte[] ivBytes = new byte[16];
-        Random random = randomClass1.randomGenerator;
-        random.nextBytes(ivBytes);
+        int choice = 0;
+
+        Random random = new Random();
+        SecureRandom secureRandom = new SecureRandom();
+
+        if(choice > 1)
+            secureRandom.nextBytes(ivBytes);
+        else
+            random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
-    }
-}
-
-class RandomClass1 {
-    Random randomGenerator;
-
-    public RandomClass1(Random randGenerator) {
-        randomGenerator = randGenerator;
     }
 }

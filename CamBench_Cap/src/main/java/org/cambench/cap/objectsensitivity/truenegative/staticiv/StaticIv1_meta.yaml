@@ -1,24 +1,28 @@
 name:
-  Static Initialization Vector Object-Sensitive Case 1
+  Static Initialization Vector Object-Sensitive True-Negative Case 1
 
 api:
   - javax.crypto.Cipher
 
 description:
-  A static initialization vector (iv) is used to initialize a cipher (AES).
+  Two objects are created that each store a byte array. One array is based on a static string, 
+  the other is filled with random values by using the SecureRandom class. 
+  The object containing the random array is then used to create an initialization vector for cipher initialization.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/staticiv/StaticIv1.java
-    method: main(String[] args)
-    line: 21
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/staticiv/StaticIv1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 26
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truenegative/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 21
 
 fix:
   description:
@@ -26,8 +30,12 @@ fix:
     Instead, use the SecureRandom class to generate a random byte array to be used as iv.
   file: main/java/org/cambench/cap/objectsensitivity/staticiv/CorrectedIv.java
 
-complexity: 1
+codemetrics:
+  loc: 40
+  cc: 1
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: false

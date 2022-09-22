@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.objectsensitivity.truenegative.staticiv;
+package main.java.org.cambench.cap.pathsensitivity.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -15,21 +15,13 @@ public class StaticIv2 {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecureRandom secureRandom = new SecureRandom();
 
-        byte[] randomBytes = new byte[16];
-        secureRandom.nextBytes(randomBytes);
+        int condition = 1;
+        byte[] ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
 
-        IvClass2 ivObject1 = new IvClass2(new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'});
-        IvClass2 ivObject2 = new IvClass2(randomBytes);
-        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
+        if(condition > 0)
+            secureRandom.nextBytes(ivBytes);
 
+        IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
-    }
-}
-
-class IvClass2 {
-    byte[] ivBytes;
-
-    public IvClass2(byte[] bytes){
-        ivBytes = bytes;
     }
 }

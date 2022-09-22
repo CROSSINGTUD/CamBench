@@ -1,0 +1,43 @@
+name:
+  Ecb Mode Path-sensitivity Case 1
+
+api:
+  - java.security.Cipher
+
+description:
+  An instance of a secure cipher (AES) is used with ECB mode of operation
+  in the reachable branch of a conditional statement.
+  The other branch, which is never reached, gets an instance of the cipher with CBC mode of operation configured.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 18
+
+fix:
+  description:
+    Replace the ECB mode of operation through another, secure mode, e.g. CBC mode.
+  file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 22
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of cyphertext.

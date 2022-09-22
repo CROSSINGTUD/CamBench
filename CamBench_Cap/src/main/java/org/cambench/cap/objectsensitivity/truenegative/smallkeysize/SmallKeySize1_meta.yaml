@@ -1,32 +1,34 @@
 name:
-  Small Key Size Object-Sensitive Case 1
+  Small Key Size Object-Sensitive True-Negative Case 1
 
 api:
   - javax.crypto.Cipher
 
 description:
-  The RSA algorithm is initialized with a key size (512 bits) that is considered insecure.
+  Two objects are created that each contain an integer that defines a keySize (512 and 2048). The object with
+  the key size of 2048 is then used to create a keyPair for the initialization of the RSA algorithm.
 
-violations:
-  - argument_state/number_range
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/SmallKeySize1.java
-    method: main(string[] args)
-    line: 14
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/SmallKeySize1.java
-    method: main(string[] args)
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truenegative/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
     line: 21
 
-fix:
-  description:
-    Initialize the RSA algorithm with keys of at least 2048 bits.
-  file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/CorrectedKeySize.java
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truenegative/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 14
 
-complexity: 1
+codemetrics:
+  loc: 31
+  cc: 1
 
-capabilities: object-Sensitivity
+capabilities:
+  - object-Sensitivity
 
-context: relevant
+security:
+  issue: false

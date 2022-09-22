@@ -1,0 +1,39 @@
+name:
+  Small Key Size Path-Sensitive True-Positive Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The RSA algorithm is initialized with an insufficient key size (512 bits) in a conditional branch.
+  The other branch of the condition sets the key size to 2048 bit, but is never reached.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 18
+
+fix:
+  description:
+    Increase the key size to the recommended value of 2048 bits or more for the RSA algorithm.
+  file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/CorrectedKeySize.java
+
+codemetrics:
+  loc: 23
+  cc: 2
+
+security:
+  issue: true
+  issue-description:
+    The size of the generated keys does not conform the recommended minimum of 2048 bits.
+    Smaller key sizes can lead to insecurities when using the RSA algorithm.

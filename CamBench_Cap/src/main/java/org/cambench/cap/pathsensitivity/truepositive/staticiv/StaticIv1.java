@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.objectsensitivity.truenegative.staticiv;
+package main.java.org.cambench.cap.pathsensitivity.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -9,27 +9,22 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-public class StaticIv2 {
+public class StaticIv1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         SecureRandom secureRandom = new SecureRandom();
 
-        byte[] randomBytes = new byte[16];
-        secureRandom.nextBytes(randomBytes);
+        int condition = 0;
+        String ivString = "abcdefghijklmnop";
+        byte[] ivBytes = new byte[16];
 
-        IvClass2 ivObject1 = new IvClass2(new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'});
-        IvClass2 ivObject2 = new IvClass2(randomBytes);
-        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
+        if(condition > 1)
+            secureRandom.nextBytes(ivBytes);
+        else
+            ivBytes = ivString.getBytes();
 
+        IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
-    }
-}
-
-class IvClass2 {
-    byte[] ivBytes;
-
-    public IvClass2(byte[] bytes){
-        ivBytes = bytes;
     }
 }

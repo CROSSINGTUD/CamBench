@@ -40,4 +40,4 @@ security:
   issue: true
   issue-description:
     The "Random" class is used to generate a random byte array, which can lead to insecurities.
-    For cryptography, the "SecureRandom" class should be used.
+    For cryptographic use cases, the "SecureRandom" class should be used.
