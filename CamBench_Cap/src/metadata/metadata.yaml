@@ -42,7 +42,7 @@ crypto-usage:
       #the containing method signature and the line of code.
       location:
         #[required]
-        #Path to the codefile of the test case.
+        #Path to the codefile that contains the root of a cryptographic API misuse.
         file: main/java/org/cambench/cap/basic/brokenhash/root.java
         #[required]
         #The method signature of the method that contains the root of a cryptographic API misuse.
@@ -55,20 +55,19 @@ crypto-usage:
 #Contains a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
 fix:
   #[required]
-  #Description on how to fix the misuse contained in the test case.
   description: A description how to fix a misuse.
   #[optional]
   #Path to the codefile that implements a fixed version of the test case.
   file: main/java/org/cambench/cap/basic/brokenhash/fixed.java
   #[optional]
   #The commit that fixes a cryptographic misuse.
-  commit: 
+  commit: github.com/path/to/commit
 
 #[optional]
 #Codemetrics of the test case.
 codemetrics:
   #[optional]
-  # Lines of Code
+  #Lines of Code
   loc: 25
   #[optional]
   #McCabes Cyclomatic Complexity
@@ -80,7 +79,6 @@ capabilities:
   - interprocedural
 
 #[optional]
-#Collection of mappings to add additional information about security issues in the test case.
 security:
   #[required]
   #States, whether the testcase contains a security relevant misuse or not.

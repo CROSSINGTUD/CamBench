@@ -1,0 +1,159 @@
+{
+  "title": "CamBench_Cap",
+  "description": "The CamBench metadata file format",
+  "required": [
+    "api",
+    "crypto-usage"
+  ],
+  "properties": {
+    "name": {
+      "description": "The full name of the test case.",
+      "type": "string"
+    },
+    "api": {
+      "description": "The api that is (mis)used in the test case.",
+      "type": "string"
+    },
+    "description": {
+      "description": "A description of the test case.",
+      "type": "string"
+    },
+    "crypto-usage": {
+      "description": "A description of the test case.",
+      "required": [
+        "violation",
+        "FUM",
+        "location"
+      ],
+      "properties": {
+        "violation": {
+          "description": "Specifies, if the test case contains a cryptographic misuse.",
+          "type": "boolean"
+        },
+        "FUM": {
+          "description": "Sequence of FUM based API misuse classes to categorize the API (mis-)use.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "description": "Location of the (mis-)use of the cryptographic API; specified by a path to a file, the containing method signature and the line of code.",
+          "required": [
+            "file",
+            "method",
+            "line"
+          ],
+          "properties": {
+            "file": {
+              "description": "Path to the codefile of the test case.",
+              "type": "string"
+            },
+            "method": {
+              "description": "The method signature of the method that contains the cryptographic API (mis-)use.",
+              "type": "string"
+            },
+            "line": {
+              "description": "The linenumber of the cryptographic API (mis-)use in the codefile.",
+              "type": "number"
+            },
+            "root": {
+              "description": "Contains the location of the root of a cryptographic misuse.",
+              "required": [
+                "location"
+              ],
+              "properties": {
+                "location": {
+                  "description": "Location of the (mis-)use of the cryptographic API; specified by a path to a file, the containing method signature and the line of code.",
+                  "required": [
+                    "file",
+                    "method",
+                    "line"
+                  ],
+                  "properties": {
+                    "file": {
+                      "description": "Path to the codefile that contains the root of a cryptographic API misuse.",
+                      "type": "string"
+                    },
+                    "method": {
+                      "description": "The method signature of the method that contains the root of a cryptographic API misuse.",
+                      "type": "string"
+                    },
+                    "line": {
+                      "description": "The linenumber of the root of a cryptographic API (mis-)use in the codefile.",
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fix": {
+      "description": "Contains a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "description": "Description on how to fix the misuse contained in the test case.",
+          "type": "string"
+        },
+        "file": {
+          "description": "Path to the codefile that implements a fixed version of the test case.",
+          "type": "string"
+        },
+        "commit": {
+          "description": "The commit that fixes a cryptographic misuse.",
+          "type": "string"
+        }
+      }
+    },
+    "codemetrics": {
+      "description": "Codemetrics of the test case.",
+      "properties": {
+        "loc": {
+          "description": "Lines of Code",
+          "type": "number"
+        },
+        "cc": {
+          "description": "McCabes Cyclomatic Complexity",
+          "type": "number"
+        }
+      }
+    },
+    "capabilities": {
+      "description": "Lists the analysis capabilities covered by the test case",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "enum": [
+        "field-sensitivity",
+        "flow-sensitivity",
+        "path-sensitivity",
+        "object-sensitivity",
+        "context-sensitivity",
+        "interprocedural"
+      ]
+    },
+    "security": {
+      "description": "Collection of mappings to add additional information about security issues in the test case.",
+      "required": [
+        "issue"
+      ],
+      "properties": {
+        "issue": {
+          "description": "States, whether the testcase contains a security relevant misuse or not.",
+          "type": "boolean"
+        },
+        "issue-description": {
+          "description": "A field to add a description/additional information about the issue(s) contained in the test case.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
