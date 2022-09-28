@@ -1,71 +1,77 @@
 #[optional]
-#The out-spelled name of the test case.
-name:
-  Broken Hash Algorithm Case 1
+#The full name of the test case.
+name: Broken Hash Algorithm Case 1
 
 #[required]
 #The api that is (mis)used in the test case.
-api:
-  java.security.MessageDigest
+api: java.security.MessageDigest
 
 #[optional]
 #A description of the test case.
-description:
-  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+description: A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
 
 #[required]
+#Collection of mappings that define the (mis-)usage of cryptography in the test case.
 crypto-usage:
   #[required]
+  #Specifies, if the test case contains a cryptographic misuse.
   violation: true
   #[required]
-  #FUM based API misuse class
+  #Sequence of FUM based API misuse classes to categorize the API (mis-)use.
   FUM:
     - argument_state/string_format
   #[required]
-  #Location of the misuse specified by the file, method and line of code.
+  #Location of the (mis-)use of the cryptographic API; specified by a path to a file,
+  #the containing method signature and the line of code.
   location:
     #[required]
+    #Path to the codefile of the test case.
     file: main/java/org/cambench/cap/basic/brokenhash/misuse.java
     #[required]
+    #The method signature of the method that contains the cryptographic API (mis-)use.
     method: main(String[] args)
     #[required]
+    #The linenumber of the cryptographic API (mis-)use in the codefile.
     line: 20
 
-    #A root can be added if the root cause of the misuse (e.g. a variable that specifies a broken algorithm)
-    #is not the main misuse itself or if the testcase contains no real misuse
-    #(e.g. a variable that specifies a broken algorithm which is never used).
     #[optional]
+    #Contains the location of the root of a cryptographic misuse.
     root:
       #[required]
-      #The root cause of a misuse (e.g. a variable that holds a wrong value), specified by a file, a method and a line.
+      #Location of the root cause of the cryptographic API misuse; specified by a path to a file,
+      #the containing method signature and the line of code.
       location:
         #[required]
+        #Path to the codefile that contains the root of a cryptographic API misuse.
         file: main/java/org/cambench/cap/basic/brokenhash/root.java
         #[required]
+        #The method signature of the method that contains the root of a cryptographic API misuse.
         method: initVariable()
         #[required]
+        #The linenumber of the root of a cryptographic API (mis-)use in the codefile.
         line: 10
 
 #[optional]
-#Holds a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
+#Contains a description on how to fix the misuse as well as an optional file and commit id to an implemented fix.
 fix:
   #[required]
-  description:
-    A description how to fix a misuse.
+  description: A description how to fix a misuse.
   #[optional]
+  #Path to the codefile that implements a fixed version of the test case.
   file: main/java/org/cambench/cap/basic/brokenhash/fixed.java
   #[optional]
-  commit:
+  #The commit that fixes a cryptographic misuse.
+  commit: github.com/path/to/commit
 
 #[optional]
-#Metrics of the test case.
+#Codemetrics of the test case.
 codemetrics:
   #[optional]
-  # Lines of Code
-  loc:
+  #Lines of Code
+  loc: 25
   #[optional]
   #McCabes Cyclomatic Complexity
-  cc:
+  cc: 1
 
 #[optional]
 #Lists all the analysis capabilities that are covered by the test case.
@@ -79,5 +85,4 @@ security:
   issue: true
   #[optional]
   #A field to add a description/additional information about the issue(s) contained in the test case.
-  issue-description:
-    A description of the issue(s) contained in the test case.
+  issue-description: A description of the issue(s) contained in the test case.
