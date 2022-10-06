@@ -5,11 +5,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenHash4 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        HashClass4 hashoOject1 = new HashClass4("SHA-1");
-        HashClass4 hashoOject2 = new HashClass4("SHA-256");
+        HashClass4 hashObject1 = new HashClass4("SHA-1");
+        HashClass4 hashObject2 = new HashClass4("SHA-256");
         String data = "some data here";
 
-        MessageDigest messageDigest = MessageDigest.getInstance(hashoOject2.algorithm);
+        MessageDigest messageDigest = MessageDigest.getInstance(hashObject2.algorithm);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }

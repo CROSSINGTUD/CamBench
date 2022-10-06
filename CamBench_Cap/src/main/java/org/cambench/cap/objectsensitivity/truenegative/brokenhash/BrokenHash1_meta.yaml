@@ -6,8 +6,8 @@ api:
 
 description:
   Two objects are created that each contain a string with a the name of a hash algorithm
-  as value (MD2 and SHA-256, respectively). The object with the SHA string is then
-  used to create an instance of the cipher.
+  as value (MD2 and SHA-256, respectively). The object with the SHA-256 string is then
+  used to create an instance of the algorithm.
 
 crypto-usage:
   violation: false
