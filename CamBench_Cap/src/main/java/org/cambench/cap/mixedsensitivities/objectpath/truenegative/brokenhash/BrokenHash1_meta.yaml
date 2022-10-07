@@ -1,0 +1,36 @@
+name:
+  Broken Hash Function Path- And Object-Sensitive True-Negative Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  Two objects are created that each contain a string with the name of a hash algorithm
+  as value (MD5 and SHA-256, respectively). The object with the SHA-256 string is then
+  used in the reachable branch of the conditional statement to create an instance of the algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 32
+  cc: 3
+
+capabilities:
+  - object-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,36 @@
+name:
+  ECB Mode Path- And Object-Sensitive True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  Two objects are created that each store a string with a configuration of the AES algorithm (one with EBC mode, 
+  the other with CBC mode). The object with the CBC configuration is then used in the
+  reachable branch of the conditional statement to get an instance of a cipher object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truenegative/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 24
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truenegative/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 11
+
+codemetrics:
+  loc: 34
+  cc: 3
+
+capabilities:
+  - object-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false
