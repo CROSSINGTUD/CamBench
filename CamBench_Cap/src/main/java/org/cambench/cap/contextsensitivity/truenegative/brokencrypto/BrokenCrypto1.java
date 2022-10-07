@@ -11,8 +11,8 @@ public class BrokenCrypto1 {
         String algo1 = Identity("Blowfish");
         String algo2 = Identity("AES/CBC/PKCS5Padding");
 
-        Cipher cipher = Cipher.getInstance(algo1);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo1);
+        Cipher cipher = Cipher.getInstance(algo2);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 
