@@ -1,0 +1,35 @@
+name:
+  Insecure Random Path- And Centext-Sensitive True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An object of class Random and one of class SecureRandom are created and stored in a variable each via the identity function.
+  The instance of the SecureRandom class is then chosen to create an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 23
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 34
+
+codemetrics:
+  loc: 40
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

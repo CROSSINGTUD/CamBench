@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Negative Case 2
+api:
+  - java.security.MessageDigest
+
+description:
+  The names of a broken hash algorithm (SHA-1) and a secure one (SHA-256) are stored in variables
+  via the identity function and depending on the conditional statement.
+  The variable with the secure algorithm name is then used to get an instance of the algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/brokenhash/BrokenHash2.java
+        method: main(String[] args)
+        line: 14
+
+codemetrics:
+  loc: 29
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,36 @@
+name:
+  Small Key Size Path- And Context-Sensitive True-Negative Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  Two different key sizes (1024 and 2048) are stored in different variables via the identity function, depending on the 
+  conditional statement.
+  The bigger key size is then used to create a key pair and initialize an instance of the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/smallkeysize/SmallKeySize2.java
+    method: main(String[] args)
+    line: 29
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/smallkeysize/SmallKeySize2.java
+        method: main(String[] args)
+        line: 18
+
+codemetrics:
+  loc: 35
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

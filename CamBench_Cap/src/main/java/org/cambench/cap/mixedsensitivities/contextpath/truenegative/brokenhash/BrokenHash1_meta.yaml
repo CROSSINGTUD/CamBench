@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Negative Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  The names of a broken hash algorithm (MD5) and a secure one (SHA-256) are stored in variables via the identity function.
+  The secure one is then used in the reachable branch of the conditional statement to get an instance of the algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 27
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false
