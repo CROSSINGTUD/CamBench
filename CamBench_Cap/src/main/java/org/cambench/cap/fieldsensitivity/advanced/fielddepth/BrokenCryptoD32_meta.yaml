@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Field-Sensitive Field-Depth-2 Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (Blowfish) are stored in variables that are at the end
+  of a chain of three fields (e.g. object.field.field.field). The chain of fields containing the insecure cipher is then used to
+  initialize the cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth/BrokenCryptoD22.java
+    method: main(String[] args)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth/BrokenCryptoD22.java
+        method: main(String[] args)
+        line: 16
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth/CorrectedCryptoD3.java
+
+codemetrics:
+  loc: 28
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.
