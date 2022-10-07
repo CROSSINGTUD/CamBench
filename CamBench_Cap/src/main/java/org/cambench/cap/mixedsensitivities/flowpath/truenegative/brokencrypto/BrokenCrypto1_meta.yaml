@@ -1,0 +1,35 @@
+name:
+  Broken Crypto Path- And Flow-Sensitive True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  A Cipher object is assigned with an instance of the insecure Blowfish cipher. The object is then re-assigned with
+  an instance of the AES cipher in the reachable branch of the conditional statement, before the cipher is initialized.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 23
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 11
+
+codemetrics:
+  loc: 25
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

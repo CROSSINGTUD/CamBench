@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Negative Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  A MessageDigest object is assigned with an instance of the MD5 algorithm. The object is then re-assigned with
+  an instance of the SHA-256 algorithm in the reachable branch of the conditional statement, before a hash value is computed.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 18
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 21
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false
