@@ -1,0 +1,35 @@
+name:
+  Broken Crypto Path- And Field-Sensitive True-Negative Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (DES) are stored in an object's fields. The secure one is then used
+  in the reachable branch of the conditional statement to get an instance of the cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 24
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/brokencrypto/BrokenCrypto2.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 30
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,35 @@
+name:
+  Small Key Size Path- And Field-Sensitive True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  Two different key sizes (512 and 2048) are stored in an object's fields, depending on a conditional statement.
+  The bigger key size is then used to create a key pair and initialize an instance of the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 30
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 23
+
+codemetrics:
+  loc: 36
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

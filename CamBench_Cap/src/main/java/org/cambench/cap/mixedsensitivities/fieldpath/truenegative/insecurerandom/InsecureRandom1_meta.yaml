@@ -1,0 +1,36 @@
+name:
+  Insecure Random Path- And Field-Sensitive True-Negative Case 1
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  An object of class Random and one of class SecureRandom are created and stored in another object's fields.
+  The instance of the SecureRandom class is then chosen in the reachable branch of the conditional statement
+  to create an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 34
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 19
+
+codemetrics:
+  loc: 41
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false
