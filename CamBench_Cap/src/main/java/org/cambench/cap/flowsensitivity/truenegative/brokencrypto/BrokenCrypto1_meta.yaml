@@ -1,24 +1,34 @@
 name:
-  Broken Crypto Field-sensitive Case 1
+  Broken Crypto Flow-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   An instance of a secure cipher (AES) is created and initialized, before it is overwritten with 
   an instance of an insecure cipher (Blowfish), but not initialized again.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/flowsensitivity/brokencrypto/BrokenCrypto1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
     line: 13
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 15
 
-capabilities: field-sensitivity
+codemetrics:
+  loc: 17
+  cc: 1
 
-context: irrelevant
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

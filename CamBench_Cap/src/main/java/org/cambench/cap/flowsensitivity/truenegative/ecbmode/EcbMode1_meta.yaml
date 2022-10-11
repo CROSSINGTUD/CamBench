@@ -1,24 +1,34 @@
 name:
-  ECB Mode Flow-sensitive Case 1
+  ECB Mode Flow-Sensitive True-Negative Case 1
 
 api:
-  - java.security.Cipher
+  java.security.Cipher
 
 description:
-  An instance of a secure cipher (AES) is initialized with CBC mode of operation
+  An instance of a secure cipher (AES) is initialized with the CBC mode of operation
   before it is overwritten with an instance configured for ECB mode of operation, but not initialized again.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/flowsensitivity/ecbmode/EcbMode1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 15
+    line: 13
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truenegative/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 15
 
-capabilities: flow-sensitivity
+codemetrics:
+  loc: 17
+  cc: 1
 
-context: irrelevant
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

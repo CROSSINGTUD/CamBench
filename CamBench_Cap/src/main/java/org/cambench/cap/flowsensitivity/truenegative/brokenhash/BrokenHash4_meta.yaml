@@ -1,24 +1,34 @@
 name:
-  Broken Hash Function Field-sensitive Case 4
+  Broken Hash Function Flow-Sensitive True-Negative Case 4
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
 description:
-  An instance of secure MessageDigest (SHA-256) is created and used, before it is overwritten with
+  An instance of a secure MessageDigest (SHA-256) is created and used, before it is overwritten with
   an instance of an insecure MessageDigest (SHA-1), but not used again.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/flowsensitivity/brokenhash/BrokenHash4.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokenhash/BrokenHash4.java
     method: main(String[] args)
-    line: 12
+    line: 13
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokenhash/BrokenHash4.java
+        method: main(String[] args)
+        line: 10
 
-capabilities: field-sensitivity
+codemetrics:
+  loc: 15
+  cc: 1
 
-context: irrelevant
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false
