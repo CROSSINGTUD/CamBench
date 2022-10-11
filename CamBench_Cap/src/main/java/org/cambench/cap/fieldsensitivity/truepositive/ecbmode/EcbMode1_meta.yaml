@@ -1,34 +1,43 @@
 name:
-  ECB Mode Filed-Sensitive Case 1
+  ECB Mode Filed-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  Two configurations of the AES algorithm are stored in an objects fields. 
+  Two configurations of the AES algorithm are stored in an object's fields. 
   One contains the secure CBC mode of operation, the other the insecure ECB mode. 
   The latter one is then used to initialize an instance of the AES cipher.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/fieldsensitivity/ecbmode/EcbMode1.java
-    method: main(string[] args)
-    line: 12
-  misuse:
-    file: main/java/org/cambench/cap/fieldsensitivity/ecbmode/EcbMode1.java
-    method: main(string[] args)
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
     line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/fieldsensitivity/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 12
 
 fix:
   description:
     Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
-  file: main/java/org/cambench/cap/fieldsensitivity/ecbmode/CorrectedEcbMode.java
+  file: main/java/org/cambench/cap/fieldsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
-complexity: 1
+codemetrics:
+  loc: 23
+  cc: 1
 
-capabilities: field-sensitivity
+capabilities:
+  - field-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.
