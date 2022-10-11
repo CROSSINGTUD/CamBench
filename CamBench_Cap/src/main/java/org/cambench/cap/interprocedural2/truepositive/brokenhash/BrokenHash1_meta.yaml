@@ -1,32 +1,41 @@
 name:
-  Broken Hash Function 2-Interprocedural Case 1
+  Broken Hash Function 2-Interprocedural True-Positive Case 1
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
 description:
-  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+  A broken hash algorithm (MD2) is passed as value to another method where a MessageDigest object is
+  initialized to compute the hash value of some data.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/interprocedural2/brokenhash/BrokenHash1.java
-    method: main(String[] args)
-    line: 9
-  misuse:
-    file: main/java/org/cambench/cap/interprocedural2/brokenhash/BrokenHash1.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truepositive/brokenhash/BrokenHash1.java
     method: method1(String algo, String data)
     line: 16
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
 fix:
   description:
-    Use a hash algorithm that is not broken (e.g. SHA-256).
-  file: main/java/org/cambench/cap/basic/interprocedural2/CorrectedHash.java
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/basic/interprocedural2/truepositive/CorrectedHash.java
 
-complexity: 1
+codemetrics:
+  loc: 19
+  cc: 2
 
-capabilities: interprocedural
+capabilities:
+  - interprocedural
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
