@@ -2,29 +2,36 @@ name:
   Broken Hash Function Basic Case 1
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
-description: |
+description:
   A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/basic/brokenhash/BrokenHash1.java
-    method: main(String[] args)
-    line: 9
-  misuse:
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
     file: main/java/org/cambench/cap/basic/brokenhash/BrokenHash1.java
     method: main(String[] args)
     line: 10
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
 fix:
   description:
-    Use a hash algorithm that is not broken (e.g. SHA-256).
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
   file: main/java/org/cambench/cap/basic/brokenhash/CorrectedHash.java
 
-complexity: 1
+codemetrics:
+  loc: 13
+  cc: 1
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

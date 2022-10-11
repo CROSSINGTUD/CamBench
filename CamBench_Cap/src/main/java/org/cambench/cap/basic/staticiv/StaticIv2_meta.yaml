@@ -1,31 +1,38 @@
 name:
-  Static Initialization Vector Case 2
+  Static Initialization Vector Basic Case 2
 
 api:
   - javax.crypto.Cipher
 
 description:
-  A static initialization vector (iv) is used to initialize a cipher (AES).
+  A static byte array is used as initialization vector (iv) to initialize a cipher (AES).
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
-    method: main(String[] args)
-    line: 14
-  misuse:
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
     file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
     method: main(String[] args)
     line: 17
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 14
+
 fix:
   description:
-    Do not use a static string/byte array as iv.
-    Instead, use the SecureRandom class to generate a random byte array to be used as iv.
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static byte array for iv creation.
   file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
 
-complexity: 1
+codemetrics:
+  loc: 21
+  cc: 1
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    A static byte array is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.
