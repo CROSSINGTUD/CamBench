@@ -1,24 +1,34 @@
 name:
-  Insecure Random Centext-Sensitive Case 1
+  Insecure Random Context-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   An instance of the Random class and one of the SecureRandom class are created.
   The latter one is then used to create an initialization vector (iv) for the cipher initialization.
 
-violations:
-  - argument_state
-
-location:
-  root:
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
     file: main/java/org/cambench/cap/contextsensitivity/insecurerandom/InsecureRandom1.java
-    method: main(string[] args)
-    line: 18
+    method: main(String[] args)
+    line: 26
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 18
 
-capabilities: context-sensitivity
+codemetrics:
+  loc: 32
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

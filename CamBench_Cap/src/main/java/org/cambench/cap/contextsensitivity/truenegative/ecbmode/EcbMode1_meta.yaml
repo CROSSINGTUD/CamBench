@@ -2,23 +2,33 @@ name:
   ECB Mode Context-Sensitive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  Two configurations (one with ECB and one with CBC mode of operation) are stored in variables. 
-  The seure CBC configuration is then used to initialize a cipher object for encryption.
+  Two configurations of the AES cipher (one with ECB and one with CBC mode of operation) are stored in variables. 
+  The secure CBC configuration is then used to initialize a cipher object for encryption.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
     file: main/java/org/cambench/cap/contextsensitivity/ecbmode/EcbMode1.java
-    method: main(string[] args)
-    line: 11
+    method: main(String[] args)
+    line: 16
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 11
 
-capabilities: context-sensitivity
+codemetrics:
+  loc: 22
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

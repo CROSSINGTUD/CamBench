@@ -1,24 +1,34 @@
 name:
-  Small Key Size Context-Sensitive Case 1
+  Small Key Size Context-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  Two different key sizes (512 and 2048) are stored in variables, the bigger key size is then used to
+  Two different key sizes (512 and 2048) are stored in variables. The bigger key size is then used to
   initialize the instance of the RSA algorithm for encryption.
 
-violations:
-  - argument_state/number_range
-
-location:
-  root:
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
     file: main/java/org/cambench/cap/contextsensitivity/smallkeysize/SmallKeySize1.java
-    method: main(string[] args)
-    line: 14
+    method: main(String[] args)
+    line: 21
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 14
 
-capabilities: context-sensitivity
+codemetrics:
+  loc: 27
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false
