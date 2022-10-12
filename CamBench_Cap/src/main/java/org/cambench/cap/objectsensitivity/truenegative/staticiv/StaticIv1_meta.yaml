@@ -24,12 +24,6 @@ crypto-usage:
         method: main(String[] args)
         line: 21
 
-fix:
-  description:
-    Do not use a static string/byte array as iv. 
-    Instead, use the SecureRandom class to generate a random byte array to be used as iv.
-  file: main/java/org/cambench/cap/objectsensitivity/staticiv/CorrectedIv.java
-
 codemetrics:
   loc: 40
   cc: 1

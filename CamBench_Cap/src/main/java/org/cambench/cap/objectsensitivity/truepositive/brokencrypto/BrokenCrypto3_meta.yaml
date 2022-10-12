@@ -1,32 +1,42 @@
 name:
-  Broken Crypto Object-Sensitive Case 3
+  Broken Crypto Object-Sensitive True-Positive Case 3
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  An insecure cipher (RC2) is initialized for encryption.
+  Two objects are created that each hold the name of a single cipher. One contains the insecure RC2 cipher, the other
+  the secure AES cipher. The object with the insecure cipher is then used to initialize a cipher object for encryption.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/BrokenCrypto3.java
-    method: main(String[] args)
-    line: 12
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/BrokenCrypto3.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokencrypto/BrokenCrypto3.java
     method: main(String[] args)
     line: 16
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokencrypto/BrokenCrypto3.java
+        method: main(String[] args)
+        line: 12
+
 fix:
   description:
-    Use a secure cipher for encryption (e.g. AES).
-  file: main/java/org/cambench/cap/objectsensitivity/brokencrypto/CorrectedCrypto.java
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
 
-complexity: 1
+codemetrics:
+  loc: 26
+  cc: 2
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the RC2 algorithm, which should not be utilized since brute-force
+    attacks on 64-bit ciphers are possible.
