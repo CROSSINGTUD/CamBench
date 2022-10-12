@@ -1,8 +1,8 @@
 name:
-  Static InitializationVector Path-Sensitivity True-Positive Case 2
+  Static InitializationVector Path-Sensitive True-Positive Case 2
 
 api:
-  - javax.crypto.cipher
+  javax.crypto.Cipher
 
 description:
   The byte array for the iv initialization is set to a static value in the if branch of the conditional clause, which
@@ -21,7 +21,7 @@ crypto-usage:
       location:
         file: main/javaorg/cambench/cap/pathsensitivity/truepositive/staticiv/StaticIv2.java
         method: main(String[] args)
-        line: 25
+        line: 24
 
 fix:
   description:

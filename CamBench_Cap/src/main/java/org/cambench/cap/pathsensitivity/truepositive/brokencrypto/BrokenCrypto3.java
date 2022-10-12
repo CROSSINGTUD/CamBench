@@ -11,11 +11,11 @@ public class BrokenCrypto3 {
         Cipher cipher;
         KeyGenerator keyGen;
         int condition = 0;
+
         if(condition > 1) {
             cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             keyGen = KeyGenerator.getInstance("AES");
-        }
-        else{
+        } else {
             cipher = Cipher.getInstance("RC2");
             keyGen = KeyGenerator.getInstance("RC2");
         }

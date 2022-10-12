@@ -1,21 +1,12 @@
 name:
-  Broken Hash Function Path-sensitivity True-Positive Case 2
+  Broken Hash Function Path-Sensitive True-Positive Case 2
 
 api:
-  - java.security.MessageDigest;
+  java.security.MessageDigest
 
 description:
   A secure hash algorithm (SHA-256) is initialized in a conditional branch that is never reached.
   The reached branch initializes an insecure hash algorithm (MD4).
-
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/pathsensitivity/brokenhash/BrokenHash1.java
-    method: main(String[] args)
-    line: 15
 
 crypto-usage:
   violation: true

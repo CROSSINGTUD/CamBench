@@ -1,22 +1,34 @@
 name:
-  Small Key Size Path-sensitive Case 2
+  Small Key Size Path-sensitive True-Negative Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   The RSA algorithm is initialized with a sufficient key size (2048 bits) in a conditional branch.
   The other branch of the condition sets the key size to 1024 bit, but is never reached.
 
-violations:
-  - argument_state/number_range
-
-location:
-  root:
-    file: main/java/org/cambench/cap/pathsensitivity/smallkeysize/SmallKeySize2.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/smallkeysize/SmallKeySize2.java
     method: main(string[] args)
-    line: 15
+    line: 20
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/smallkeysize/SmallKeySize2.java
+        method: main(string[] args)
+        line: 16
 
-context: irrelevant
+codemetrics:
+  loc: 22
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

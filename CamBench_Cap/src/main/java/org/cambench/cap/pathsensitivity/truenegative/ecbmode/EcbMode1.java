@@ -12,10 +12,11 @@ public class EcbMode1 {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         int choice = 1;
 
-        if(choice > 0)
+        if(choice > 0) {
             cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        else
+        } else {
             cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        }
 
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }

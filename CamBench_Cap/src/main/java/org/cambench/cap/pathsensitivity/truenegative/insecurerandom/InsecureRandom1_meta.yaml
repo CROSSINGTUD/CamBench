@@ -1,25 +1,35 @@
 name:
-  Insecure Random Path-sensitivity Case 1
+  Insecure Random Path-Sensitive True-Negative Case 1
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
 description:
   The byte array used for the creation of an initialization vector is filled with random values in a secure way in the
   reachable branch of the conditional statement. The other branch, which is not reached, uses the standard Random class
   to fill the byte array.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/pathsensitivity/insecurerandom/InsecureRandom1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 26
+    line: 30
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 26
 
-capabilities: path-sensitivity
+codemetrics:
+  loc: 32
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

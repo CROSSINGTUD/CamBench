@@ -19,10 +19,11 @@ public class StaticIv1 {
         String ivString = "abcdefghijklmnop";
         byte[] ivBytes = new byte[16];
 
-        if(condition > 1)
+        if(condition > 1) {
             secureRandom.nextBytes(ivBytes);
-        else
+        } else {
             ivBytes = ivString.getBytes();
+        }
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);

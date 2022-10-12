@@ -1,8 +1,8 @@
 name:
-  Insecure Random Path-Sensitivity True-Positive Case 1
+  Insecure Random Path-Sensitive True-Positive Case 1
 
 api:
-  - java.security.MessageDigest
+  java.security.Cipher
 
 description:
   The byte array used for the creation of an initialization vector is filled with random values in an insecure way 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 29
+    line: 30
 
     root:
       location:
@@ -31,7 +31,7 @@ fix:
   file: main/java/org/cambench/cap/pathsensitivity/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 31
+  loc: 32
   cc: 2
 
 capabilities:

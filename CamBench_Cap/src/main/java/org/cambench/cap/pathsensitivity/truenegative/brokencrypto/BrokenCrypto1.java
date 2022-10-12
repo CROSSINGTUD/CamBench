@@ -9,11 +9,11 @@ public class BrokenCrypto1 {
         Cipher cipher;
         KeyGenerator keyGen;
         int condition = 1;
+
         if(condition > 0) {
             cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             keyGen = KeyGenerator.getInstance("AES");
-        }
-        else{
+        } else {
             cipher = Cipher.getInstance("Blowfish");
             keyGen = KeyGenerator.getInstance("Blowfish");
         }
