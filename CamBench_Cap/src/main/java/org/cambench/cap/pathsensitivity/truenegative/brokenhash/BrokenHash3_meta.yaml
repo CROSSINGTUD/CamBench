@@ -1,24 +1,34 @@
 name:
-  Broken Hash Function Path-sensitivity Case 3
+  Broken Hash Function Path-Sensitive True-Negative Case 3
 
 api:
-  - java.security.MessageDigest;
+  java.security.MessageDigest
 
 description:
   A broken hash algorithm (MD5) is initialized in a conditional branch that is never reached.
   The reached branch initializes a safe hash algorithm (SHA-256), bearing no actual violation.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/pathsensitivity/brokenhash/BrokenHash3.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokenhash/BrokenHash3.java
     method: main(String[] args)
-    line: 15
+    line: 17
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokenhash/BrokenHash3.java
+        method: main(String[] args)
+        line: 15
 
-capabilities: path-sensitivity
+codemetrics:
+  loc: 20
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,32 +1,44 @@
 name:
-  Insecure Random Object-Sensitive Case 1
+  Insecure Random Object-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  An initialization vector (iv) is created by using the Random class.
+  Two objects are created that each contain a random generator (one of Class Random, one of class SecureRandom).
+  The Random object is selected to fill a byte array with random values, which is then used to create an initialization
+  vector for cipher initialization.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/InsecureRandom1.java
-    method: main(string[] args)
-    line: 19
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/InsecureRandom1.java
-    method: main(string[] args)
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
     line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 19
 
 fix:
   description:
-    Create the Initialization vector by using the SecureRandom class instead of the Random class.
-  file: main/java/org/cambench/cap/objectsensitivity/insecurerandom/CorrectedRandom.java
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/CorrectedRandom.java
 
-complexity: 1
+codemetrics:
+  loc: 37
+  cc: 2
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

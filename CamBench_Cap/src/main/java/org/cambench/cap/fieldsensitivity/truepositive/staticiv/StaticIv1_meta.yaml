@@ -1,34 +1,42 @@
 name:
-  Static Initialization Vector Field-Sensitive Case 1
+  Static Initialization Vector Field-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  A static and a non-static initialization vector (iv) are stored in an object's fields.
-  The static one is then utilized to initialize an instance of the AES algorithm.
+  A static (string-based) and a pseudorandom byte array are stored in an object's fields.
+  The static one is then utilized to create an initialization vector and initialize an instance of the AES algorithm.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/fieldsensitivity/staticiv/StaticIv1.java
-    method: main(String[] args)
-    line: 22
-  misuse:
-    file: main/java/org/cambench/cap/fieldsensitivity/staticiv/StaticIv1.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 27
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/fieldsensitivity/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 22
+
 fix:
   description:
-    Do not use a static string/byte array as iv. 
-    Instead, use the SecureRandom class to generate a random byte array to be used as iv.
-  file: main/java/org/cambench/cap/fieldsensitivity/staticiv/CorrectedIv.java
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static byte array for iv creation.
+  file: main/java/org/cambench/cap/fieldsensitivity/truepositive/staticiv/CorrectedIv.java
 
-complexity: 1
+codemetrics:
+  loc: 33
+  cc: 1
 
-capabilities: field-sensitivity
+capabilities:
+  - field-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    A static byte array is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

@@ -1,32 +1,42 @@
 name:
-  Broken Crypto 2-Interprocedural Case 3
+  Broken Crypto 2-Interprocedural True-Positive Case 3
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  An insecure cipher (RC2) is initialized for encryption.
+  A string containing the name of an insecure cipher (RC2) is
+  passed to a method and used to initialize a cipher object for encryption.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/interprocedural2/brokencrypto/BrokenCrypto3.java
-    method: main(String[] args)
-    line: 12
-  misuse:
-    file: main/java/org/cambench/cap/interprocedural2/brokencrypto/BrokenCrypto3.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/BrokenCrypto3.java
     method: method1(String algo)
     line: 18
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/BrokenCrypto3.java
+        method: main(String[] args)
+        line: 12
+
 fix:
   description:
-    Use a secure cipher for encryption (e.g. AES).
-  file: main/java/org/cambench/cap/interprocedural2/brokencrypto/CorrectedCrypto.java
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/CorrectedCrypto.java
 
-complexity: 1
+codemetrics:
+  loc: 20
+  cc: 2
 
-capabilities: interprocedural
+capabilities:
+  - interprocedural
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the RC2 algorithm, which should not be utilized since brute-force
+    attacks on 64-bit ciphers are possible.

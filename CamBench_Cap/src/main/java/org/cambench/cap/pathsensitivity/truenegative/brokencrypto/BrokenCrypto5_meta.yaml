@@ -1,24 +1,34 @@
 name:
-  Broken Crypto Path-sensitivity Case 5
+  Broken Crypto Path-Sensitive true-Negative Case 5
 
 api:
-  - javax.crypto.Cipher;
+  javax.crypto.Cipher
 
 description:
   An instance of a secure cipher (AES) is used in the reachable branch of a conditional statement.
   The other branch, which is never reached, gets an instance of an insecure cipher (RC5).
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/pathsensitivity/brokencrypto/BrokenCrypto5.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokencrypto/BrokenCrypto5.java
     method: main(String[] args)
-    line: 17
+    line: 20
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokencrypto/BrokenCrypto5.java
+        method: main(String[] args)
+        line: 17
 
-capabilities: path-sensitivity
+codemetrics:
+  loc: 22
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

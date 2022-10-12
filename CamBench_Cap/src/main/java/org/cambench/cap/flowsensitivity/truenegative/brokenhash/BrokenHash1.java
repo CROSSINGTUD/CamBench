@@ -9,6 +9,7 @@ public class BrokenHash1 {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
+
         messageDigest = MessageDigest.getInstance("MD2");
     }
 }

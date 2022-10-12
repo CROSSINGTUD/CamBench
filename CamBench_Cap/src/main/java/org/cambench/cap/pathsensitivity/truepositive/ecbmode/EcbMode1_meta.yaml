@@ -1,8 +1,8 @@
 name:
-  Ecb Mode Path-sensitivity Case 1
+  Ecb Mode Path-Sensitive True-Positive Case 1
 
 api:
-  - java.security.Cipher
+  java.security.Cipher
 
 description:
   An instance of a secure cipher (AES) is used with ECB mode of operation
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 20
+    line: 21
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:
-  loc: 22
+  loc: 23
   cc: 2
 
 capabilities:

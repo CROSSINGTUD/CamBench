@@ -1,32 +1,43 @@
 name:
-  Insecure Random 2-Interprocedural Case 1
+  Insecure Random 2-Interprocedural True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  An initialization vector (iv) is created by using the Random class.
+  A byte array is filled with values by using the Random class. The array is passed to a method
+  where it is used to create an initialization vector for cipher initialization.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/interprocedural2/insecurerandom/InsecureRandom1.java
-    method: main(string[] args)
-    line: 17
-  misuse:
-    file: main/java/org/cambench/cap/interprocedural2/insecurerandom/InsecureRandom1.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
     line: 27
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 17
+
 fix:
   description:
-    Create the Initialization vector by using the SecureRandom class instead of the Random class.
-  file: main/java/org/cambench/cap/interprocedural2/insecurerandom/CorrectedRandom.java
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/insecurerandom/CorrectedRandom.java
 
-complexity: 1
+codemetrics:
+  loc: 29
+  cc: 2
 
-capabilities: interprocedural
+capabilities:
+  - interprocedural
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

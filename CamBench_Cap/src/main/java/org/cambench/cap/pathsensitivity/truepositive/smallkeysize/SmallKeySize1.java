@@ -12,12 +12,14 @@ public class SmallKeySize1 {
         Cipher cipher = Cipher.getInstance("RSA");
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         int condition = 0;
-        if(condition > 1)
-            keyGen.initialize(2048);
-        else
-            keyGen.initialize(512);
-        KeyPair keyPair = keyGen.generateKeyPair();
 
+        if(condition > 1) {
+            keyGen.initialize(2048);
+        } else {
+            keyGen.initialize(512);
+        }
+
+        KeyPair keyPair = keyGen.generateKeyPair();
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
 }

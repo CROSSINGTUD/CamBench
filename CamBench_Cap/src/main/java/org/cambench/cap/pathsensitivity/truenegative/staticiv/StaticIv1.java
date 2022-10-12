@@ -1,8 +1,13 @@
 package main.java.org.cambench.cap.pathsensitivity.truenegative.staticiv;
 
-import javax.crypto.*;
-import java.security.*;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class StaticIv1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
@@ -14,10 +19,11 @@ public class StaticIv1 {
         String ivString = "abcdefghijklmnop";
         byte[] ivBytes = new byte[16];
 
-        if(condition > 0)
+        if(condition > 0) {
             secureRandom.nextBytes(ivBytes);
-        else
+        } else {
             ivBytes = ivString.getBytes();
+        }
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);

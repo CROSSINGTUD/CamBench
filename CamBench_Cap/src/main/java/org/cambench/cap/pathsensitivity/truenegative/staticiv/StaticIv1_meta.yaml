@@ -1,24 +1,34 @@
 name:
-  Static InitializationVector Path-sensitivity Case 1
+  Static Initialization Vector Path-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.cipher
+  javax.crypto.cipher
 
 description:
-  The byte array for the iv initialization is generated in the if branch of the conditional clause, 
-  which is always true. The else branch overwrites the byte array with a static value, but is effectively never reached.
+  The byte array used for iv creation is filled with pseudorandom values in the reachable branch of the conditional clause.
+  The other branch overwrites the byte array with a static value, but is never reached.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/javaorg/cambench/cap/pathsensitivity/staticiv/StaticIv1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/javaorg/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 20
+    line: 29
 
-complexity: 1
+    root:
+      location:
+        file: main/javaorg/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 25
 
-capabilities: path-sensitivity
+codemetrics:
+  loc: 31
+  cc: 2
 
-context: irrelevant
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

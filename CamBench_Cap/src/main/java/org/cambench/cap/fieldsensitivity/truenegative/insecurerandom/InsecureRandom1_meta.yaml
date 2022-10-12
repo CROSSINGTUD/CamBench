@@ -6,7 +6,7 @@ api:
 
 description:
   An object of class Random and one of class SecureRandom are created and stored in another object's fields.
-  The instance of the Random class is then utilized to create an initialization vector (iv) for a cipher.
+  The instance of the SecureRandom class is then utilized to create an initialization vector (iv) for a cipher.
 
 crypto-usage:
   violation: false

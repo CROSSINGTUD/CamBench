@@ -1,24 +1,34 @@
 name:
-  Static Initialization Vector Flow-sensitive Case 1
+  Static Initialization Vector Flow-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   The byte array that is used for the creation of the iv is overwritten with a static value
   after the iv was created in an intended way.
 
-violations:
-  - argument_state
-
-location:
-  root:
-    file: main/java/org/cambench/cap/flowsensitivity/staticiv/StaticIv1.java
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 25
+    line: 23
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truenegative/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 25
 
-capabilities: flow-sensitivity
+codemetrics:
+  loc: 27
+  cc: 1
 
-context: irrelevant
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

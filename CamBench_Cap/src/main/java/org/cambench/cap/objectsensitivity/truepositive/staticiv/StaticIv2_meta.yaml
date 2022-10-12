@@ -1,33 +1,43 @@
 name:
-  Static Initialization Vector Object-Sensitive Case 1
+  Static Initialization Vector Object-Sensitive True-Positive Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  A static initialization vector (iv) is used to initialize a cipher (AES).
+  Two objects are created that each contain a byte array. One byte array is filled with random values, the other
+  with static values. The static array is then used for creating an initialization vector for
+  cipher initialization.
 
-violations:
-  - argument_state
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 26
 
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/staticiv/StaticIv2.java
-    method: main(String[] args)
-    line: 21
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/staticiv/StaticIv2.java
-    method: main(String[] args)
-    line: 25
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 21
 
 fix:
   description:
-    Do not use a static string/byte array as iv.
-    Instead, use the SecureRandom class to generate a random byte array to be used as iv.
-  file: main/java/org/cambench/cap/objectsensitivity/staticiv/CorrectedIv.java
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/staticiv/CorrectedIv.java
 
-complexity: 1
+codemetrics:
+  loc: 35
+  cc: 2
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

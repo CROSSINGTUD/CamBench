@@ -1,0 +1,41 @@
+name:
+  Static Initialization Vector 3-Interprocedural True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A static string is passed over two methods where it is then used to create an initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/interprocedural3/truepositive/staticiv/StaticIv1.java
+    method: method1(String ivString)
+    line: 29
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural3/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 14
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 31
+  cc: 3
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

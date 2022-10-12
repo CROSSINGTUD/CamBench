@@ -1,32 +1,43 @@
 name:
-  ECB Mode Object-Sensitive Case 1
+  ECB Mode Object-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  The AES algorithm is configured and initialized with the ECB mode of operation.
+  Two objects are created that each contain a configuration for the AES cipher. One with the ECB mode of operation,
+  the other with CBC mode of operation. The object with the insecure ECB configuration is then utilized to
+  initialize a cipher object for encryption.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/ecbmode/EcbMode1.java
-    method: main(string[] args)
-    line: 11
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/ecbmode/EcbMode1.java
-    method: main(string[] args)
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
     line: 16
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 11
 
 fix:
   description:
     Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
-  file: main/java/org/cambench/cap/objectsensitivity/ecbmode/CorrectedEcbMode.java
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
-complexity: 1
+codemetrics:
+  loc: 26
+  cc: 2
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

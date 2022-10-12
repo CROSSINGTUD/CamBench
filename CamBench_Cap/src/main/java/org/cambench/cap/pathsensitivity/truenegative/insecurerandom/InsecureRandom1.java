@@ -20,10 +20,11 @@ public class InsecureRandom1 {
         Random random = new Random();
         SecureRandom secureRandom = new SecureRandom();
 
-        if(choice > 0)
+        if(choice > 0) {
             secureRandom.nextBytes(ivBytes);
-        else
+        } else {
             random.nextBytes(ivBytes);
+        }
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);

@@ -8,10 +8,10 @@ public class BrokenHash2 {
         MessageDigest messageDigest;
         String data = "some data here";
         int condition = 1;
+
         if(condition > 0) {
             messageDigest = MessageDigest.getInstance("SHA-256");
-        }
-        else {
+        } else {
             messageDigest = MessageDigest.getInstance("MD4");
         }
         messageDigest.update(data.getBytes());

@@ -1,8 +1,8 @@
 name:
-  Broken Crypto Path-Sensitivity True-Positive Case 5
+  Broken Crypto Path-Sensitive True-Positive Case 5
 
 api:
-  - javax.crypto.Cipher;
+  javax.crypto.Cipher
 
 description:
   An instance of a an insecure cipher (RC5) is used in the reachable branch of a conditional statement.

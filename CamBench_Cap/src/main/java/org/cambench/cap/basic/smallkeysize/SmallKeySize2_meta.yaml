@@ -1,30 +1,38 @@
 name:
-  Small Key Size Case 2
+  Small Key Size Basic Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   The RSA algorithm is initialized with a key size (1024 bits) that is considered insecure.
 
-violations:
-  - argument_state/number_range
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize2.java
+    method: main(String[] args)
+    line: 18
 
-location:
-  root:
-    file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize2.java
-    method: main(string[] args)
-    line: 12
-  misuse:
-    file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize2.java
-    method: main(string[] args)
-    line: 15
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize2.java
+        method: main(String[] args)
+        line: 12
 
 fix:
   description:
-    Initialize the RSA algorithm with keys of at least 2048 bits.
+    Increase the key size to the recommended value of 2048 bits or more for the RSA algorithm.
   file: main/java/org/cambench/cap/basic/smallkeysize/CorrectedKeySize.java
 
-complexity: 1
+codemetrics:
+  loc: 20
+  cc: 1
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    The size of the generated keys does not conform the recommended minimum of 2048 bits.
+    Smaller key sizes can lead to insecurities when using the RSA algorithm.

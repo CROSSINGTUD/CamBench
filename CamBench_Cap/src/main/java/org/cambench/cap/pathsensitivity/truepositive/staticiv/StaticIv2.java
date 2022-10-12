@@ -16,10 +16,13 @@ public class StaticIv2 {
         SecureRandom secureRandom = new SecureRandom();
 
         int condition = 1;
-        byte[] ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
+        byte[] ivBytes = new byte[16];
 
-        if(condition > 0)
+        if(condition > 0) {
             secureRandom.nextBytes(ivBytes);
+        } else {
+            ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
+        }
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);

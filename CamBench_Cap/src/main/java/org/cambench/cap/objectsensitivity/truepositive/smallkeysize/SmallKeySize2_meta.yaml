@@ -1,32 +1,42 @@
 name:
-  Small Key Size Object-Sensitive Case 2
+  Small Key Size Object-Sensitive True-Positive Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  The RSA algorithm is initialized with a key size (1024 bits) that is considered insecure.
+  Two objects are created each contain an integer defining a key size in bits (1024 and 2048). The smaller
+  key size is then used to create a KeyPair for initialization of the RSA algorithm.
 
-violations:
-  - argument_state/number_range
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/SmallKeySize2.java
-    method: main(string[] args)
-    line: 14
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/SmallKeySize2.java
-    method: main(string[] args)
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/smallkeysize/SmallKeySize2.java
+    method: main(String[] args)
     line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/smallkeysize/SmallKeySize2.java
+        method: main(String[] args)
+        line: 14
 
 fix:
   description:
-    Initialize the RSA algorithm with keys of at least 2048 bits.
+    Increase the key size to the recommended value of 2048 bits or more for the RSA algorithm.
   file: main/java/org/cambench/cap/objectsensitivity/smallkeysize/CorrectedKeySize.java
 
-complexity: 1
+codemetrics:
+  loc: 31
+  cc: 2
 
-capabilities: object-Sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    The size of the generated keys does not conform the recommended minimum of 2048 bits.
+    Smaller key sizes can lead to insecurities when using the RSA algorithm.

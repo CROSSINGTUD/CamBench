@@ -1,25 +1,35 @@
 name:
-  Static Initialization Vector Context-Sensitive Case 2
+  Static Initialization Vector Context-Sensitive True-Negative Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   A static and a random byte array are stored in a variable, respectively.
   The random iv is then used to create an initialization vector for the initialization
   of an instance of the AES cipher.
 
-violations:
-  - argument_state
-
-location:
-  root:
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
     file: main/java/org/cambench/cap/contextsensitivity/staticiv/StaticIv2.java
     method: main(String[] args)
-    line: 21
+    line: 25
 
-complexity: 1
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 21
 
-capabilities: context-sensitivity
+codemetrics:
+  loc: 29
+  cc: 2
 
-context: relevant
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

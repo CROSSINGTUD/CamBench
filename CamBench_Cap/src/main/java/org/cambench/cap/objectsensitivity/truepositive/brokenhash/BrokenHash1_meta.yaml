@@ -1,32 +1,42 @@
 name:
-  Broken Hash Function Object-Sensitive Case 1
+  Broken Hash Function Object-Sensitive True-Positive Case 1
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
-description: |
-  A broken hash algorithm (MD2) is initialized to compute the hash value of some data.
+description:
+  Two objects are created that each hold the name of a hash algorithm. One contains the insecure MD2 algorithm, the other one
+  the secure SHA-256 algorithm. The object with the insecure hash algorithm is then used 
+  to initialize a MessageDigest object that is used to generate the hash of some data.
 
-violations:
-  - argument_state/string_format
-
-location:
-  root:
-    file: main/java/org/cambench/cap/objectsensitivity/brokenhash/BrokenHash1.java
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 8
-  misuse:
-    file: main/java/org/cambench/cap/objectsensitivity/brokenhash/BrokenHash1.java
-    method: main(String[] args)
-    line: 12
+    line: 13
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 8
 
 fix:
   description:
-    Use a hash algorithm that is not broken (e.g. SHA-256).
-  file: main/java/org/cambench/cap/objectsensitivity/brokenhash/CorrectedHash.java
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokenhash/CorrectedHash.java
 
-complexity: 1
+codemetrics:
+  loc: 24
+  cc: 2
 
-capabilities: object-sensitivity
+capabilities:
+  - object-sensitivity
 
-context: relevant
+security:
+  issue: true
+  issue-description:
+    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
