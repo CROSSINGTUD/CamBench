@@ -13,20 +13,20 @@ crypto-usage:
   FUM:
     - argument_state
   location:
-    file: main/javaorg/cambench/cap/pathsensitivity/truepositive/staticiv/StaticIv1.java
+    file: main/java/org/cambench/cap/pathsensitivity/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 29
 
     root:
       location:
-        file: main/javaorg/cambench/cap/pathsensitivity/truepositive/staticiv/StaticIv1.java
+        file: main/java/org/cambench/cap/pathsensitivity/truepositive/staticiv/StaticIv1.java
         method: main(String[] args)
         line: 25
 
 fix:
   description:
     Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
-  file: main/javaorg/cambench/cap/pathsensitivity/truepositive/staticiv/CorrectedIv.java
+  file: main/java/org/cambench/cap/pathsensitivity/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
   loc: 31

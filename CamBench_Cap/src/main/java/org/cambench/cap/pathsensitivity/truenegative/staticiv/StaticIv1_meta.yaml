@@ -13,13 +13,13 @@ crypto-usage:
   FUM:
     - argument_state
   location:
-    file: main/javaorg/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 29
 
     root:
       location:
-        file: main/javaorg/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
         method: main(String[] args)
         line: 25
 
