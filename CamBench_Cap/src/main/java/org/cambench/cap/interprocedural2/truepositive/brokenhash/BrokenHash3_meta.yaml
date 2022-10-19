@@ -26,7 +26,7 @@ crypto-usage:
 fix:
   description:
     Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
-  file: main/java/org/cambench/cap/basic/interprocedural2/truepositive/CorrectedHash.java
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/CorrectedHash.java
 
 codemetrics:
   loc: 19
