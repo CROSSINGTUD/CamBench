@@ -1,0 +1,44 @@
+name:
+  Static InitializationVector Path-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The byte array for the iv initialization is set to a static array in the reachable branch of the conditional statement.
+  In the other branch, which is never reached, the byte array is filled with random values.
+  The byte array is then passed to a method where it is used to create an initialization vector.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/staticiv/StaticIv2.java
+    method: method1(byte[] ivBytes)
+    line: 33
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 22
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 35
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

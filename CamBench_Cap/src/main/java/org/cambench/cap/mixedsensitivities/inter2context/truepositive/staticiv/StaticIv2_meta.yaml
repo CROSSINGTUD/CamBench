@@ -1,0 +1,45 @@
+name:
+  Static Initialization Vector 2-Interprocedural Context-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A static and a random byte array are stored in a variable by using the Identity function.
+  The static iv is then passed to a method and used to create an initialization vector for the initialization
+  of an instance of the AES cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/staticiv/StaticIv2.java
+    method: method1(byte[] ivBytes)
+    line: 32
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 19
+
+fix:
+  description:
+    Replace the static initialization vector (iv) with a random iv.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/staticiv/CorrectedIv.java
+  commit:
+
+codemetrics:
+  loc: 34
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Using a static initialization vector (iv) can lead to vulnerabilities regarding the encryption of data.
+    Therefore, an iv should always be a random value.

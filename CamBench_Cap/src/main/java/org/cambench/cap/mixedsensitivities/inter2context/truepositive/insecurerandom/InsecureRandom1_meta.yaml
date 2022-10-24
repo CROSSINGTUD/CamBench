@@ -1,0 +1,44 @@
+name:
+  Insecure Random 2-Interprocedural Context-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  An instance of the Random class and one of the SecureRandom class are created by using the Identity function.
+  The first one is then used to create a byte array with random values
+  which is then passed to a method and used to create an initialization vector.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/insecurerandom/InsecureRandom1.java
+    method: method1(byte[] ivBytes)
+    line: 26
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 19
+
+fix:
+  description:
+    Instead of the standard Random class, use the SecureRandom class to generate in initialization vector.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 32
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The initialization vector (iv) that is used to initialize an instance of a cipher is created with the standard 
+    Random class, which should not be used in a cryptographic context.

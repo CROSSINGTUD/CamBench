@@ -1,0 +1,44 @@
+name:
+  Broken Crypto 2-Interprocedural Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each hold the name of a single cipher. One contains the insecure Blowfisch cipher, the other
+  the secure AES cipher. The object with the insecure cipher is then passed to a method and 
+  used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String algo)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 30
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.

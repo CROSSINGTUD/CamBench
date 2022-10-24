@@ -2,10 +2,10 @@ name:
   Insecure Random Basic Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
-  An initialization vector (iv) is created by using the Random class to fill a byte array with random bytes.
+  An initialization vector (iv) is created with a byte array that was filled by using the standard Random class.
 
 crypto-usage:
   violation: true
@@ -14,7 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 23
+    line: 21
 
     root:
       location:

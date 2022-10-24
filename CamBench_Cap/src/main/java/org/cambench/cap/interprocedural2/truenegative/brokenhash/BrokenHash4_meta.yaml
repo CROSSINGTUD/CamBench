@@ -1,0 +1,34 @@
+name:
+  Broken Hash Function 2-Interprocedural True-Negative Case 4
+
+api:
+  java.security.MessageDigest
+
+description:
+  The name of a broken hash algorithm (SHA-1) is passed as value to another method where a MessageDigest object is
+  initialized based on a secure algorithm to compute the hash value of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truenegative/brokenhash/BrokenHash4.java
+    method: method1(String algo, String data)
+    line: 16
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truenegative/brokenhash/BrokenHash4.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 19
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: false

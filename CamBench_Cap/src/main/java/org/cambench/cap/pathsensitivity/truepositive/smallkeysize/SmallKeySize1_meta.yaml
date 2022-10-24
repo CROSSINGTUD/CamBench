@@ -32,6 +32,9 @@ codemetrics:
   loc: 25
   cc: 2
 
+capabilities:
+  - path-sensitivity
+
 security:
   issue: true
   issue-description:

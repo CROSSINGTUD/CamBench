@@ -1,0 +1,44 @@
+name:
+  Broken Crypto 2-Interprocedural Path-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A string containing the name of an insecure cipher (Blowfish) is passed to a method and initialized
+  and used to create an instance of that cipher in the reachable branch of a conditional statement.
+  The other branch, which is never reached, passes the name of a secure cipher (AES) to that method.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String algoName, String algoConfig)
+    line: 23
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 16
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 25
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.

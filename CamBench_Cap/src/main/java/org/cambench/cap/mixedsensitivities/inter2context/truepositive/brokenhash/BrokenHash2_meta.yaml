@@ -1,0 +1,41 @@
+name:
+  Broken Hash Function 2-Interprocedural Context-Sensitive True-Positive Basic Case 2
+
+api:
+  java.security.MessageDigest
+
+description:
+  A broken hash algorithm (SHA-1) and a secure one (SHA-256) are stored in variables using the Identity function.
+  The insecure one is then passed to a method and used to compute a hash value.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash2.java
+    method: method1(String algo, String data)
+    line: 20
+
+    root:
+      file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash2.java
+      method: main(String[] args)
+      line: 8
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure one, e.g. SHA-256.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 23
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The hash algorithm MD4 is broken and should therefore not be used to compute hash values.

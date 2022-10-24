@@ -13,13 +13,13 @@ crypto-usage:
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash1.java
+    file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash3.java
     method: method2(String algorithm, String dataString)
     line: 22
 
     root:
       location:
-        file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash1.java
+        file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash3.java
         method: main(String[] args)
         line: 9
 

@@ -1,0 +1,39 @@
+name:
+  Password Based Encryption Parameters Basic Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The salt used to create a PBEParameterSpec object is a static value.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 11
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 8
+
+fix:
+  description:
+    Replace the static array that is used as salt with an array that was filled with random values
+    from the SecureRandom class.
+  file: main/java/org/cambench/cap/basic/pbeparameters/CorrectedPBE.java
+
+codemetrics:
+  loc: 13
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    The salt that is used for the PBEParameterSpec is a small static value, which is predictable and can
+    therefore lead to security issues.

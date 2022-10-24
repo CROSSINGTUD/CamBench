@@ -1,0 +1,34 @@
+name:
+  Broken Crypto 2-Interprocedural True-Negative Case 5
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A string containing the name of an insecure cipher (RC5) is
+  passed to a method where a secure cipher is initialized for encryption.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truenegative/brokencrypto/BrokenCrypto5.java
+    method: method1(String algo)
+    line: 18
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truenegative/brokencrypto/BrokenCrypto5.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 20
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: false

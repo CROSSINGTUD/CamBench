@@ -1,0 +1,34 @@
+name:
+  Static Initialization Vector 2-Interprocedural True-Negative Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A static byte array is passed to a method where another byte array (filled by using SecureRandom) is
+  used to create an initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truenegative/staticiv/StaticIv2.java
+    method: method1(String ivString)
+    line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truenegative/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 15
+
+codemetrics:
+  loc: 31
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: false

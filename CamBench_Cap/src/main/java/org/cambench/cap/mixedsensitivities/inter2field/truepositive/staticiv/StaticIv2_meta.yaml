@@ -1,0 +1,43 @@
+name:
+  Static Initialization Vector 2-Interprocedural Field-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A static and a pseudorandom byte array are stored in an object's fields.
+  The static one is then passed to a method and utilized to create an initialization vector and 
+  initialize an instance of the AES algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/staticiv/StaticIv2.java
+    method: method1(byte[] ivBytes)
+    line: 31
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 20
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static byte array for iv creation.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 37
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static byte array is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

@@ -1,0 +1,44 @@
+name:
+  ECB Mode 2-Interprocedural Filed-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm are stored in an object's fields. 
+  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
+  The latter one is then passed to a method and used to initialize an instance of the AES cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/ecbmode/EcbMode1.java
+    method: method1(String algoConfig)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - interprocedural
+  - field-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.
