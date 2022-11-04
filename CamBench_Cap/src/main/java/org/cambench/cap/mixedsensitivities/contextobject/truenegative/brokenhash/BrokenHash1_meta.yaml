@@ -1,0 +1,36 @@
+name:
+  Broken Hash Function Context- & Object-Sensitive True-Negative Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two objects are created that each contain a string with a the name of a hash algorithm
+  as value (MD5 and SHA-256, respectively) by calling the GetObject method. The object with the SHA-256 string is then
+  used to create an instance of the algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 12
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 8
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - object-sensitivity
+
+security:
+  issue: false

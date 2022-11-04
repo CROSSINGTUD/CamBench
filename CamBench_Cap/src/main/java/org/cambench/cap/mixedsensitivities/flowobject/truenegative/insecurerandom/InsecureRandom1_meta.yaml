@@ -1,0 +1,35 @@
+name:
+  Insecure Random Flow- & Object-Sensitive True-Negative Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects are created that each contain an instance of class Random. One of these instances is 
+  then replaced by an instance of class SecureRandom and used to create an initialization vector for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 28
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 26
+
+codemetrics:
+  loc: 35
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: false

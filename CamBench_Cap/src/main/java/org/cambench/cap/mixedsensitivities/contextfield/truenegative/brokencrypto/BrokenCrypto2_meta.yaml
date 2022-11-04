@@ -1,0 +1,35 @@
+name:
+  Broken Crypto Context- & Field-Sensitive True-Negative Case 2
+
+api:
+  - javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (DES) are stored in an object's fields by using the Identity function.
+  The secure one is then used to initialize the actual cipher object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truenegative/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truenegative/brokencrypto/BrokenCrypto2.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 27
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - field-sensitivity
+
+security:
+  issue: false

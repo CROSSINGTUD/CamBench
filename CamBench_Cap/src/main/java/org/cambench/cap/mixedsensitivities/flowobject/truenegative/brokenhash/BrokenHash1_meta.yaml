@@ -1,0 +1,36 @@
+name:
+  Broken Hash Function Flow- & Object-Sensitive True-Negative Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two objects are created that each contain a string that is set to the name of a an insecure hash algorithm
+  (MD5). One of these strings is then re-assigned with the name of a secure 
+  hash algorithm and used to create an instance of the algorithm and calculate the hash value of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 10
+
+codemetrics:
+  loc: 23
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: false

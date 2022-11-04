@@ -1,0 +1,35 @@
+name:
+  Static Initialization Vector Flow- & Object-Sensitive True-Negative Case 2
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects are created that each a static byte array. One of these arrays is replaced with a
+  random byte array and then used to create an initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 23
+
+codemetrics:
+  loc: 34
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: false

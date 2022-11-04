@@ -1,6 +1,6 @@
 package main.java.org.cambench.cap.patterns.mixed;
 
-public class ContextObject {
+public class ContextObjectSensitivity {
 
     public static void main(String[] args) {
         DataObject dataObject1 = getDataObject("secret value");

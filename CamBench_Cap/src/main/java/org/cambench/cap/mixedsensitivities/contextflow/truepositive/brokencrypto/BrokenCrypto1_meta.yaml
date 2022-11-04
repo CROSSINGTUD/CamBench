@@ -1,0 +1,45 @@
+name:
+  Broken Crypto Context- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The algo variables are set to the names of an insecure (Blowfish) and a secure cipher (AES) by using the
+  identity function.
+  The insecure one is then utilized to initialize the cipher object before the variable is re-assigned with the name
+  of a secure cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 14
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 11
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with a proper configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 24
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.
