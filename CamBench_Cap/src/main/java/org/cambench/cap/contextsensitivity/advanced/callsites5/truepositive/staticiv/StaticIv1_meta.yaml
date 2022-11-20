@@ -1,0 +1,43 @@
+name:
+  Static Initialization Vector 5-Callsites True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Five byte arrays (static or filled with random values) are stored in variables by using the Identity function.
+  One variable containing a static array is then used as initialization vector.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 25
+
+fix:
+  description:
+    Replace the static initialization vector (iv) with a random iv.
+  file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/staticiv/CorrectedIv.java
+  commit:
+
+codemetrics:
+  loc: 32
+  cc: 1
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Using a static initialization vector (iv) can lead to vulnerabilities regarding the encryption of data. 
+    Therefore, an iv should always be a random value.

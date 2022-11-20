@@ -1,0 +1,34 @@
+name:
+  Password Based Encryption Parameters 2-Interprocedural True-Negative Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  A static byte array is passed to a method where a new byte array is filled with random values
+  and then used as salt for an PBEParameterSpec object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truenegative/pbeparameters/PBEParameters1.java
+    method: method1(byte[] saltArray, int iterationCount)
+    line: 19
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truenegative/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 21
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: false

@@ -8,6 +8,6 @@ public class PBEParameters1 {
         byte[] salt = {123};
         int iterations = 20000;
 
-        PBEParameterSpec pbeParameterSpecSpec = new PBEParameterSpec(salt,iterations);
+        PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterations);
     }
 }

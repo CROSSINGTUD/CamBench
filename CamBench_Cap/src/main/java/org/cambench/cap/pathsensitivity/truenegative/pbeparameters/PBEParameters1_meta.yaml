@@ -1,0 +1,35 @@
+name:
+  Password Based Encryption Parameters Path-Sensitive True-Negative Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The salt used to create a PBEParameterSpec object created by using the SecureRandom class
+  in the reachable branch of the conditional statement, while the unreachable branch would have set the salt
+  to static value.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 14
+
+codemetrics:
+  loc: 22
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

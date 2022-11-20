@@ -1,0 +1,34 @@
+name:
+  Password Based Encryption Parameters Flow-Sensitive True-Negative Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  A byte array containing random values is used as salt for an PBEParameterSpec object. After the object is created, 
+  the byte array is set to a static value, but not again used as salt.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truenegative/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truenegative/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 17
+
+codemetrics:
+  loc: 19
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

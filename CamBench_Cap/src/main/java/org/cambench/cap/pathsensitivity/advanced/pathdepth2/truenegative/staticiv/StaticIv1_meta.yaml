@@ -1,0 +1,35 @@
+name:
+  Static Initialization Vector Path-Sensitive Path-Depth-2 True-Negative Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  The byte array used for iv creation is filled with pseudorandom values in the 
+  reachable branch of a nested conditional statement with depth 2.
+  In every other branch, of which none are reached, a static byte array would have been used.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truenegative/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 31
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truenegative/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 25
+
+codemetrics:
+  loc: 34
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

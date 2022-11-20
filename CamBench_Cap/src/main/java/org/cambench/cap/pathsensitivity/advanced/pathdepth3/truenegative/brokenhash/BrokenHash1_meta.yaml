@@ -1,0 +1,36 @@
+name:
+  Broken Hash Path-Sensitive Path-Depth-3 True-Negative Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  An instance of a secure hash algorithm (SHA-256) is used in the reachable 
+  branch of a nested conditional statement with depth 3.
+  In every other branch, of which none are reached, 
+  an instance of a broken hash algorithm (MD2, MD5, SHA.1) would have been used.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truenegative/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 30
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truenegative/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 22
+
+codemetrics:
+  loc: 34
+  cc: 4
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

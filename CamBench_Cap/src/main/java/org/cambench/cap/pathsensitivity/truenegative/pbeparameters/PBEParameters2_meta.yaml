@@ -1,0 +1,35 @@
+name:
+  Password Based Encryption Parameters Path-Sensitive True-Negative Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The PBEParameterSpec is created with a sufficient iteration count, 
+  that is set in the reachable branch of the conditional statement. The unreachable branch would have
+  set it to an insufficiently small value.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/truenegative/pbeparameters/PBEParameters2.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/truenegative/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 15
+
+codemetrics:
+  loc: 22
+  cc: 2
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

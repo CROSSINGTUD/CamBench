@@ -1,0 +1,32 @@
+name:
+  Password Based Encryption Parameters Path-Sensitive Path-Depth-3 True-Negative Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The salt used to create a PBEParameterSpec object created by using the SecureRandom class
+  in the reachable branch of a nested conditional statement with depth 3.
+  In every other branch, of which none are reached, the salt would have been set to a static value.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truenegative/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 28
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truenegative/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 18
+
+codemetrics:
+  loc: 30
+  cc: 4
+
+capabilities:
+  - path-sensitivity

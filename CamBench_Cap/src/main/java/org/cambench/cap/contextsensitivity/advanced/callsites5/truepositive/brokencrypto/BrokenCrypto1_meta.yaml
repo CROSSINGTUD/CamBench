@@ -1,0 +1,42 @@
+name:
+  Broken Crypto Context-Sensitive 5-Callsites True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Five variables are set to the names of different secure & insecure ciphers by using the Identity function.
+  One variable containing an insecure value is then utilized to initialize the cipher object.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 18
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 13
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with a proper configuration).
+  file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.

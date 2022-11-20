@@ -12,7 +12,7 @@ public class ObjectPathSensitivity {
         if(condition > 0) {
             output = "The output is: " + dataObject1.internalData;
         } else {
-            output = "The output is: " + dataObject1.internalData;
+            output = "The output is: " + dataObject2.internalData;
         }
 
         System.out.println(output);
