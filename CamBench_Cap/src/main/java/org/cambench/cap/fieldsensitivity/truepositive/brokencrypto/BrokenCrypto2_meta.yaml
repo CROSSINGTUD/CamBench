@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The names of a secure & an insecure cipher (DES) are stored in an object's fields. The insecure one is then used
+  The names of a secure (AES) & an insecure cipher (DES) are stored in an object's fields. The insecure one is then used
   to initialize the actual cipher object.
 
 crypto-usage:
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truepositive/brokencrypto/BrokenCrypto2.java
     method: main(String[] args)
-    line: 17
+    line: 15
 
     root:
       location:
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/fieldsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
 
 codemetrics:
-  loc: 23
+  loc: 24
   cc: 1
 
 capabilities:

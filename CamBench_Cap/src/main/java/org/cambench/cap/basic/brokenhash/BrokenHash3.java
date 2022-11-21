@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenHash3 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         String data = "some data here";
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance("MD2");
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }

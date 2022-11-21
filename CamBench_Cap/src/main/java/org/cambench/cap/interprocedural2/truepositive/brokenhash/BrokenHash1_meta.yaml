@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  A broken hash algorithm (MD2) is passed as value to another method where a MessageDigest object is
+  A broken hash algorithm (MD5) is passed as value to another method where a MessageDigest object is
   initialized to compute the hash value of some data.
 
 crypto-usage:
@@ -38,4 +38,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

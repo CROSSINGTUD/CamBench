@@ -2,7 +2,7 @@ name:
   Broken Crypto Object-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   Two objects are created that each have a string with a the name of a cryptographic cipher 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truenegative/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
-    line: 16
+    line: 14
 
     root:
       location:

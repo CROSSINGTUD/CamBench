@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenHash1 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String algo = "MD2";
+        String algo = "MD5";
         String data = "some data here";
         method1(algo, data);
     }

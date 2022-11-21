@@ -13,8 +13,9 @@ public class CorrectedHash {
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
-}
-class HashClass{
-    public String hashAlgo1;
-    public String HashAlgo2;
+
+    public static class HashClass{
+        public String hashAlgo1;
+        public String HashAlgo2;
+    }
 }

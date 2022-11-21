@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  A broken hash algorithm (MD4) is passed as value over two methods and used to initialize a MessageDigest object
+  A broken hash algorithm (SHA-1) is passed as value over two methods and used to initialize a MessageDigest object
   which is then utilized to compute the hash value of some data.
 
 crypto-usage:
@@ -38,4 +38,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+    SHA-1 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

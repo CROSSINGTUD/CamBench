@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  Two objects are created that each hold the name of a hash algorithm. One contains the insecure MD2 algorithm, the other one
+  Two objects are created that each hold the name of a hash algorithm. One contains the insecure MD5 algorithm, the other one
   the secure SHA-256 algorithm. The object with the insecure hash algorithm is then used 
   to initialize a MessageDigest object that is used to generate the hash of some data.
 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 13
+    line: 12
 
     root:
       location:
@@ -39,4 +39,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

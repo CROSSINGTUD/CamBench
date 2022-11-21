@@ -12,7 +12,7 @@ public class BrokenHash1 {
         if(condition > 0) {
             messageDigest = MessageDigest.getInstance("SHA-256");
         } else {
-            messageDigest = MessageDigest.getInstance("MD2");
+            messageDigest = MessageDigest.getInstance("MD5");
         }
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());

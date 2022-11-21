@@ -2,10 +2,10 @@ name:
   Broken Hash Function Field-Sensitive True-Negative Case 2
 
 api:
-  - java.security.MessageDigest
+  java.security.MessageDigest
 
 description:
-  The names of a secure & an insecure hash algorithm (MD4) are stored in an object's fields. The secure one
+  The names of a secure (SHA-256) & an insecure hash algorithm (SHA-1) are stored in an object's fields. The secure one
   is then used to compute the hash of some data.
 
 crypto-usage:

@@ -5,7 +5,7 @@ api:
   - java.security.MessageDigest
 
 description:
-  A broken hash algorithm (MD2) and a secure one (SHA-256) are stored in variables.
+  A broken hash algorithm (MD5) and a secure one (SHA-256) are stored in variables.
   The insecure one is used to compute a hash value.
 
 crypto-usage:
@@ -37,4 +37,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    The hash algorithm MD2 is considered broken and should therefore not be used to compute hash values.
+    The hash algorithm MD5 is considered broken and should therefore not be used to compute hash values.

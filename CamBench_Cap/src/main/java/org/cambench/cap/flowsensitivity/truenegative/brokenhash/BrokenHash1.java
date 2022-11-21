@@ -10,6 +10,6 @@ public class BrokenHash1 {
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
 
-        messageDigest = MessageDigest.getInstance("MD2");
+        messageDigest = MessageDigest.getInstance("MD5");
     }
 }

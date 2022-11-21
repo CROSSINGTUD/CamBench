@@ -5,20 +5,20 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenHash2 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        HashClass2 hashoOject1 = new HashClass2("MD4");
-        HashClass2 hashoOject2 = new HashClass2("SHA-256");
+        HashClass hashObject1 = new HashClass("SHA-1");
+        HashClass hashObject2 = new HashClass("SHA-256");
         String data = "some data here";
 
-        MessageDigest messageDigest = MessageDigest.getInstance(hashoOject1.algorithm);
+        MessageDigest messageDigest = MessageDigest.getInstance(hashObject1.algorithm);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
-}
 
-class HashClass2 {
-    String algorithm;
+    public static class HashClass {
+        String algorithm;
 
-    public HashClass2(String algo){
-        algorithm = algo;
+        public HashClass(String algo){
+            algorithm = algo;
+        }
     }
 }

@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  A broken hash algorithm (MD4) is initialized in a conditional branch that is never reached.
+  A broken hash algorithm (SHA-1) is initialized in a conditional branch that is never reached.
   The reached branch initializes a safe hash algorithm (SHA-256), bearing no actual violation.
 
 crypto-usage:

@@ -8,19 +8,19 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCrypto2 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        CryptoClass2 cryptoClass1 = new CryptoClass2("AES/CBC/PKCS5Padding");
-        CryptoClass2 cryptoClass2 = new CryptoClass2("DES");
+        CryptoClass cryptoClass1 = new CryptoClass("AES/CBC/PKCS5Padding");
+        CryptoClass cryptoClass2 = new CryptoClass("DES");
 
         Cipher cipher = Cipher.getInstance(cryptoClass1.algorithm);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
 
-class CryptoClass2 {
-    String algorithm;
+    public static class CryptoClass {
+        String algorithm;
 
-    public CryptoClass2(String algo) {
-        algorithm = algo;
+        public CryptoClass(String algo) {
+            algorithm = algo;
+        }
     }
 }

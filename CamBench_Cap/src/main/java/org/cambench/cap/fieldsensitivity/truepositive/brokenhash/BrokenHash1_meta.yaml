@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  The names of a secure & an insecure hash algorithm (MD2) are stored in an object's fields. The insecure one 
+  The names of a secure (SHA-256) & an insecure hash algorithm (MD5) are stored in an object's fields. The insecure one 
   is then used to get a MessageDigest object and compute the hash of some data.
 
 crypto-usage:
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 14
+    line: 13
 
     root:
       location:
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/fieldsensitivity/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
-  loc: 21
+  loc: 22
   cc: 1
 
 capabilities:
@@ -38,4 +38,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

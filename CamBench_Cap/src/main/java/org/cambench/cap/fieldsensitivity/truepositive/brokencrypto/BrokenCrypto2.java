@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCrypto2 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        CryptoClass2 cryptoClass = new CryptoClass2();
+        CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.cipher1 = "DES";
         cryptoClass.cipher2 = "AES";
 
@@ -16,8 +16,9 @@ public class BrokenCrypto2 {
         KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass.cipher1);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
-class CryptoClass2{
-    public String cipher1;
-    public String cipher2;
+
+    public static class CryptoClass{
+        public String cipher1;
+        public String cipher2;
+    }
 }

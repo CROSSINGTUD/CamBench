@@ -14,12 +14,12 @@ public class CorrectedCrypto {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
 
-class CryptoClass {
-    String algorithm;
+    public static class CryptoClass {
+        String algorithm;
 
-    public CryptoClass(String algo) {
-        algorithm = algo;
+        public CryptoClass(String algo) {
+            algorithm = algo;
+        }
     }
 }

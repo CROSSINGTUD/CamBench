@@ -6,7 +6,7 @@ api:
 
 description:
   A secure hash algorithm (SHA-256) is initialized in a conditional branch that is never reached.
-  The reached branch initializes an insecure hash algorithm (MD2).
+  The reached branch initializes an insecure hash algorithm (MD5).
 
 crypto-usage:
   violation: true
@@ -38,4 +38,4 @@ capabilities:
 security:
   issue: true
   issue-description:
-    MD2 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
