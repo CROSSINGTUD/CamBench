@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Flow-sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   After the iv for cipher initialization is created with a static byte array, 
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 23
+    line: 22
 
     root:
       location:

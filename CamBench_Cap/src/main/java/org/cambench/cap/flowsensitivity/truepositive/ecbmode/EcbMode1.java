@@ -8,10 +8,12 @@ import java.security.NoSuchAlgorithmException;
 
 public class EcbMode1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        String algorithm = "AES/ECB/PKCS5Padding";
+
+        Cipher cipher = Cipher.getInstance(algorithm);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        algorithm = "AES/CBC/PKCS5Padding";
     }
 }

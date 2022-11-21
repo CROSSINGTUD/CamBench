@@ -2,11 +2,11 @@ name:
   Static Initialization Vector Flow-Sensitive True-Negative Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
-  The byte array that is used for the creation of the iv is overwritten with a static value
-  after the iv was created in an intended way.
+  A byte array is initialized and set to a static value. It is then filled with random numbers from the
+  SecureRandom class and used as initialization vector.
 
 crypto-usage:
   violation: false
@@ -21,10 +21,10 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 25
+        line: 19
 
 codemetrics:
-  loc: 27
+  loc: 26
   cc: 1
 
 capabilities:

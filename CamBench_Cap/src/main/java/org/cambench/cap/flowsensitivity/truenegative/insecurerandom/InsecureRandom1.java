@@ -19,7 +19,9 @@ public class InsecureRandom1 {
         Random random = new Random();
         SecureRandom secureRandom = new SecureRandom();
 
+        random.nextBytes(ivBytes);
         secureRandom.nextBytes(ivBytes);
+
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         random.nextBytes(ivBytes);
 

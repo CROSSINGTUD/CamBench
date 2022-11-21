@@ -17,11 +17,10 @@ public class StaticIv1 {
         String ivString = "abcdefghijklmnop";
 
         byte[] ivBytes = new byte[16];
+        ivBytes = ivString.getBytes();
         secureRandom.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
-
-        ivBytes = ivString.getBytes();
     }
 }

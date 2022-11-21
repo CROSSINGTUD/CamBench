@@ -5,8 +5,8 @@ api:
   javax.crypto.Cipher
 
 description:
-  An instance of a secure cipher (AES) is created and initialized, before it is overwritten with 
-  an instance of an insecure cipher (Blowfish), but not initialized again.
+  A variable is set to the name of an insecure cipher (Blowfish). The variable is then re-assigned with the name
+  of a secure cipher (AES) and used to create a cipher object.
 
 crypto-usage:
   violation: false
@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
-    line: 13
+    line: 14
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokencrypto/BrokenCrypto1.java
         method: main(String[] args)
-        line: 15
+        line: 11
 
 codemetrics:
-  loc: 17
+  loc: 18
   cc: 1
 
 capabilities:

@@ -11,11 +11,12 @@ public class SmallKeySize2 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance("RSA");
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(1024);
+
+        int keySize = 1024;
+        keyGen.initialize(keySize);
         KeyPair keyPair = keyGen.generateKeyPair();
 
+        keySize = 2048;
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
-
-        keyGen.initialize(2048);
     }
 }

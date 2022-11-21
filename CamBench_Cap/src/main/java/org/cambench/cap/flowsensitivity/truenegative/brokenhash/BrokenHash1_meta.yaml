@@ -5,8 +5,8 @@ api:
   java.security.MessageDigest
 
 description:
-  An instance of a secure MessageDigest (SHA-256) is created and used, before it is overwritten with
-  an instance of an insecure MessageDigest (MD5), but not used again.
+  A variable is set to the name of an insecure hash algorithm (MD5). The variable is then re-assigned with the name
+  of a secure hash algorithm (SHA-256) and used to create an instance of that algorithm.
 
 crypto-usage:
   violation: false
@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 13
+    line: 12
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/brokenhash/BrokenHash1.java
         method: main(String[] args)
-        line: 10
+        line: 8
 
 codemetrics:
-  loc: 15
+  loc: 16
   cc: 1
 
 capabilities:

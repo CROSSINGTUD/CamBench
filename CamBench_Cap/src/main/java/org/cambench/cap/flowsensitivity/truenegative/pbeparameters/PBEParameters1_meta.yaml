@@ -5,8 +5,8 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  A byte array containing random values is used as salt for an PBEParameterSpec object. After the object is created, 
-  the byte array is set to a static value, but not again used as salt.
+  A byte array is set to a static value. It is then re-assigned with a byte array filled with random values and used 
+  as salt for a PBEParameterSpec object.
 
 crypto-usage:
   violation: false
@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/pbeparameters/PBEParameters1.java
     method: main(String[] args)
-    line: 15
+    line: 16
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/pbeparameters/PBEParameters1.java
         method: main(String[] args)
-        line: 17
+        line: 12
 
 codemetrics:
-  loc: 19
+  loc: 18
   cc: 1
 
 capabilities:

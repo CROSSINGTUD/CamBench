@@ -5,8 +5,8 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  A sufficient value of 20000 is used as integration count for an PBEParameterSpec object. After the object is created, 
-  the value is set to 10, but not again used as integration count.
+  A variable is set to a small integer (10) before it is re-assigned with a much bigger value (20.000) and used
+  as iteration count for a PBEParameterSpec object.
 
 crypto-usage:
   violation: false
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/pbeparameters/PBEParameters2.java
     method: main(String[] args)
-    line: 14
+    line: 15
 
     root:
       location:
@@ -24,7 +24,7 @@ crypto-usage:
         line: 12
 
 codemetrics:
-  loc: 18
+  loc: 17
   cc: 1
 
 capabilities:

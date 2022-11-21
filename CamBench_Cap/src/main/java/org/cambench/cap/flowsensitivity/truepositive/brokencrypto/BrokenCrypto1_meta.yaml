@@ -2,11 +2,11 @@ name:
   Broken Crypto Field-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
-  An instance of an insecure cipher (Blowfish) is created and initialized, before it is overwritten with 
-  an instance of a secure cipher (AES), but not initialized again.
+  A variable is set to the name of an insecure cipher (Blowfish) and used to create a cipher object.
+  The variable is then re-assigned with the name of a secure cipher (AES).
 
 crypto-usage:
   violation: true
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/flowsensitivity/truepositive/brokencrypto/CorrectedCrypto.java
 
 codemetrics:
-  loc: 17
+  loc: 19
   cc: 1
 
 capabilities:

@@ -2,7 +2,7 @@ name:
   Insecure Random Flow-Sensitive True-Positive Case 1
 
 api:
-  - java.security.MessageDigest
+  javax.crypto.spec.IvParameterSpec
 
 description:
   The byte array for the initialization vector is filled with random values by using the Random class 
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: org/cambench/cap/flowsensitivity/truepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 26
+    line: 23
 
     root:
       location:

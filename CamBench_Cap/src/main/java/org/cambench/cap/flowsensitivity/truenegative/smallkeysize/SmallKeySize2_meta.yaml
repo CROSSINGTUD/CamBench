@@ -2,11 +2,11 @@ name:
   Small Key Size Flow-Sensitive True-Negative Case 2
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
-  The key size is set to just 1024 bit after the RSA algorithm is
-  initialized with a sufficient key size of 2048 bit, but it is not initialized again with the small key size.
+  A variable is initialized with a value of 1024. Then it is re-assigned with a value of 2048 and used as
+  key size for RSA key generation.
 
 crypto-usage:
   violation: false
@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/smallkeysize/SmallKeySize2.java
     method: main(String[] args)
-    line: 14
+    line: 17
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/smallkeysize/SmallKeySize2.java
         method: main(String[] args)
-        line: 19
+        line: 15
 
 codemetrics:
-  loc: 21
+  loc: 22
   cc: 1
 
 capabilities:

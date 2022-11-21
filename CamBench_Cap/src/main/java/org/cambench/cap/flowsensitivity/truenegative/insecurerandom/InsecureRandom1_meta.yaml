@@ -2,11 +2,12 @@ name:
   Insecure Random Flow-Sensitive True-Negative Case 1
 
 api:
-  java.security.MessageDigest
+  javax.crypto.spec.IvParameterSpec
 
 description:
-  The byte array for the initialization vector is filled with random values by using the SecureRandom class 
-  and used in the IV creation before it is overwritten using the standard Random class.
+  An object of class Random and used to fill a byte array with random values.
+  The array is then filled again by using an object of class SecureRandom, before the array is utilized as
+  initialization vector.
 
 crypto-usage:
   violation: false
@@ -15,16 +16,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truenegative/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 26
+    line: 25
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 24
+        line: 22
 
 codemetrics:
-  loc: 28
+  loc: 30
   cc: 1
 
 capabilities:

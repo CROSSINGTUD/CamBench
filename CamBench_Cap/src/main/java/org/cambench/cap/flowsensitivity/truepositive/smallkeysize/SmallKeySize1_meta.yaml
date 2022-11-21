@@ -2,7 +2,7 @@ name:
   Small Key Size Flow-sensitive Case 1
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   The key size is set to 2048 bit after the RSA algorithm is 
@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/flowsensitivity/truepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 17
+    line: 16
 
     root:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truepositive/smallkeysize/SmallKeySize1.java
         method: main(String[] args)
-        line: 14
+        line: 15
 
 fix:
   description:
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/flowsensitivity/truepositive/smallkeysize/CorrectedKeySize.java
 
 codemetrics:
-  loc: 21
+  loc: 22
   cc: 1
 
 security:
