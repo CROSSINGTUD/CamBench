@@ -1,6 +1,8 @@
 package main.java.org.cambench.cap.pathsensitivity.truenegative.brokencrypto;
 
-import javax.crypto.*;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 

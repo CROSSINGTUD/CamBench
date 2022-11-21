@@ -21,10 +21,10 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/smallkeysize/SmallKeySize1.java
         method: main(String[] args)
-        line: 16
+        line: 19
 
 codemetrics:
-  loc: 18
+  loc: 21
   cc: 1
 
 capabilities:

@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokencrypto/BrokenCrypto2.java
     method: main(String[] args)
-    line: 20
+    line: 16
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/truenegative/brokencrypto/BrokenCrypto2.java
         method: main(String[] args)
-        line: 17
+        line: 19
 
 codemetrics:
-  loc: 22
+  loc: 24
   cc: 2
 
 capabilities:

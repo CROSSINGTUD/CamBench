@@ -15,16 +15,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truenegative/smallkeysize/SmallKeySize2.java
     method: main(string[] args)
-    line: 20
+    line: 17
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/truenegative/smallkeysize/SmallKeySize2.java
         method: main(string[] args)
-        line: 16
+        line: 19
 
 codemetrics:
-  loc: 22
+  loc: 25
   cc: 2
 
 capabilities:
