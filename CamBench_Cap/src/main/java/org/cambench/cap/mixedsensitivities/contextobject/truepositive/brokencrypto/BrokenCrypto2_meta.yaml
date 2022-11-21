@@ -1,0 +1,44 @@
+name:
+  Broken Crypto Context- & Object-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects that each have a string with a the name of a cryptographic cipher
+  as value (DES and AES, respectively) are created by calling the GetObject method. 
+  The object with the DES string is then used to create an instance of the cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 14
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenepositive/brokencrypto/BrokenCrypto2.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 28
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

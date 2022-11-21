@@ -1,0 +1,43 @@
+name:
+  Broken Hash Function Context- & Object-Sensitive True-Positive Case 2
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two objects that each contain a string with a the name of a hash algorithm
+  as value (SHA-1 and SHA-256, respectively) are created by calling the GetObject method. 
+  The object with the SHA-1 string is then used to create an instance of the algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenegative/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 12
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenegative/brokenhash/BrokenHash2.java
+        method: main(String[] args)
+        line: 8
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truenegative/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    SHA-1 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

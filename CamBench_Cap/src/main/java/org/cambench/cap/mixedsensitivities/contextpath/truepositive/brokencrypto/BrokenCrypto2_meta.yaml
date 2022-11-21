@@ -1,0 +1,44 @@
+name:
+  Broken Crypto Path- And Context-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The names of an insecure (DES) and a secure cipher (AES) are saved into by using the
+  Identity function and depending on the branches of the conditional statement.
+  Then the variable containing the Blowfish algorithm is used to get an instance of the cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 23
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/BrokenCrypto2.java
+        method: main(String[] args)
+        line: 16
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 31
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.
