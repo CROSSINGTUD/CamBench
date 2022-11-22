@@ -5,9 +5,9 @@ api:
   javax.crypto.spec.IvParameterSpec
 
 description:
-  A static (string-based) and a pseudorandom byte array are stored in an object's fields.
-  The static one is then utilized to create an initialization vector and initialize an instance of the AES algorithm
-  before it is overwritten with a pseudorandom byte array.
+  Two static (string-based) byte arrays are stored in an object's fields.
+  One of them is replaced with a byte array that was filled by using SecureRandom before the other array is used
+  to create in initialization vector.
 
 crypto-usage:
   violation: true
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 25
+    line: 26
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 35
+  loc: 34
   cc: 1
 
 capabilities:

@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.objectsensitivity.truepositive.ecbmode;
+package main.java.org.cambench.cap.flowsensitivity.advanced.valueswap.truenegative.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -6,20 +6,19 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-public class CorrectedEcbMode {
+public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        ConfigClass algoConfig1 = new ConfigClass("AES/CBC/PKCS5Padding");
+        String algorithm1 = "Blowfish";
+        String algorithm2 = "AES/CBC/PKCS5Padding";
+        String swapper;
 
-        Cipher cipher = Cipher.getInstance(algoConfig1.algorithmConfig);
+        swapper = algorithm1;
+        algorithm1 = algorithm2;
+        algorithm2 = swapper;
+        algorithm2 = algorithm1;
+
+        Cipher cipher = Cipher.getInstance(algorithm2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
-    }
-
-    public static class ConfigClass {
-        String algorithmConfig;
-
-        public ConfigClass(String algoConfig){
-            algorithmConfig = algoConfig;
-        }
     }
 }

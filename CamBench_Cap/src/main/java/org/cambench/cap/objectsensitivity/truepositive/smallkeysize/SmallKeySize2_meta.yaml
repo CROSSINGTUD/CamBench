@@ -2,7 +2,7 @@ name:
   Small Key Size Object-Sensitive True-Positive Case 2
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two objects are created each contain an integer defining a key size in bits (1024 and 2048). The smaller
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truepositive/smallkeysize/SmallKeySize2.java
     method: main(String[] args)
-    line: 21
+    line: 18
 
     root:
       location:

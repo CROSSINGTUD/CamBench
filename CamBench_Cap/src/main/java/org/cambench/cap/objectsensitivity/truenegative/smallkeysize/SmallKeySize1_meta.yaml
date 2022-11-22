@@ -2,7 +2,7 @@ name:
   Small Key Size Object-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two objects are created that each contain an integer that defines a keySize (512 and 2048). The object with
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truenegative/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 21
+    line: 18
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
 
 codemetrics:
   loc: 31
-  cc: 1
+  cc: 2
 
 capabilities:
   - object-Sensitivity

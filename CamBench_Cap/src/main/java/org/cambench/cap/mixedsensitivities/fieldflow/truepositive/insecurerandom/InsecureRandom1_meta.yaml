@@ -5,9 +5,9 @@ api:
   javax.crypto.spec.IvParameterSpec
 
 description:
-  An object of class Random and one of class SecureRandom are created and stored in another object's fields.
-  The instance of the Random class is then utilized to create an initialization vector (iv) for a cipher before it is
-  replaced with an object of the SecureRandom class.
+  Two objects of class Random are created and stored in another object's fields.
+  One field is re-assigned with an object of the SecureRandom class.
+  The other field is then utilized to create an initialization vector (iv) for a cipher.
 
 crypto-usage:
   violation: true
@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 26
+    line: 27
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 24
+        line: 25
 
 fix:
   description:
@@ -31,7 +31,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 36
+  loc: 35
   cc: 1
 
 capabilities:

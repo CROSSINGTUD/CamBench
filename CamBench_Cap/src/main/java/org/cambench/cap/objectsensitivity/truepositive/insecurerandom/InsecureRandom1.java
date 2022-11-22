@@ -23,15 +23,14 @@ public class InsecureRandom1 {
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class RandomClass1 {
-    Random randomGenerator;
+    public static class RandomClass1 {
+        Random randomGenerator;
 
-    public RandomClass1(Random randGenerator) {
-        randomGenerator = randGenerator;
+        public RandomClass1(Random randGenerator) {
+            randomGenerator = randGenerator;
+        }
     }
 }

@@ -15,23 +15,22 @@ public class InsecureRandom1 {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
-        RandomClass1 randomClass1 = new RandomClass1(new SecureRandom());
-        RandomClass1 randomClass2 = new RandomClass1(new Random());
+        RandomClass randomClass1 = new RandomClass(new SecureRandom());
+        RandomClass randomClass2 = new RandomClass(new Random());
 
         byte[] ivBytes = new byte[16];
         Random random = randomClass1.randomGenerator;
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class RandomClass1 {
-    Random randomGenerator;
+    public static class RandomClass {
+        Random randomGenerator;
 
-    public RandomClass1(Random randGenerator) {
-        randomGenerator = randGenerator;
+        public RandomClass(Random randGenerator) {
+            randomGenerator = randGenerator;
+        }
     }
 }

@@ -20,12 +20,11 @@ public class StaticIv1 {
 
         IvClass1 ivClass = new IvClass1();
         ivClass.ivBytes1 = "abcdefghijklmnop".getBytes();
+        ivClass.ivBytes2 = "klmnopqrstuvwxyz".getBytes();
         ivClass.ivBytes2 = randomBytes;
 
         IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes1);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
-
-        ivClass.ivBytes1 = randomBytes;
     }
 
     public static class IvClass1{

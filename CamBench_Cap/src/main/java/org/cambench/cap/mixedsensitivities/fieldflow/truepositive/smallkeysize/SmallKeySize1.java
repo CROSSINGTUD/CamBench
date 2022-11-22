@@ -13,6 +13,7 @@ public class SmallKeySize1 {
 
         SizeClass1 sizeClass = new SizeClass1();
         sizeClass.keySize1 = 512;
+        sizeClass.keySize2 = 1024;
         sizeClass.keySize2 = 2048;
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
@@ -20,7 +21,6 @@ public class SmallKeySize1 {
         KeyPair keyPair = keyGen.generateKeyPair();
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
-        sizeClass.keySize1 = 2048;
     }
 
     public static class SizeClass1{

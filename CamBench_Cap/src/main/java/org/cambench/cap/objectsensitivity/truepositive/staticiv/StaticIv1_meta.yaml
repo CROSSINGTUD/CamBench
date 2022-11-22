@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Object-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   Two objects are created that each contain a byte array. One byte array is filled with random values, the other
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 26
+    line: 24
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/objectsensitivity/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 40
+  loc: 39
   cc: 3
 
 capabilities:

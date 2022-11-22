@@ -2,7 +2,7 @@ name:
   ECB Mode Object-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   Two objects are created that each store a string with a configuration of the AES algorithm (one with EBC mode, 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 16
+    line: 14
 
     root:
       location:
@@ -26,7 +26,7 @@ crypto-usage:
 
 codemetrics:
   loc: 26
-  cc: 1
+  cc: 2
 
 capabilities:
   - object-sensitivity

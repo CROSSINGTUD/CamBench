@@ -18,18 +18,18 @@ public class StaticIv2 {
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
 
-        IvClass2 ivObject1 = new IvClass2(new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'});
-        IvClass2 ivObject2 = new IvClass2(randomBytes);
-        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
+        IvClass ivObject1 = new IvClass(new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'});
+        IvClass ivObject2 = new IvClass(randomBytes);
 
+        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class IvClass2 {
-    byte[] ivBytes;
+    public static class IvClass {
+        byte[] ivBytes;
 
-    public IvClass2(byte[] bytes){
-        ivBytes = bytes;
+        public IvClass(byte[] bytes){
+            ivBytes = bytes;
+        }
     }
 }

@@ -2,7 +2,7 @@ name:
   Insecure Random Object-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   Two objects are created that each contain a random generator (one of Class Random, one of class SecureRandom).
@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 27
+    line: 25
 
     root:
       location:
         file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 19
+        line: 23
 
 fix:
   description:
@@ -31,7 +31,7 @@ fix:
   file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 37
+  loc: 36
   cc: 2
 
 capabilities:
