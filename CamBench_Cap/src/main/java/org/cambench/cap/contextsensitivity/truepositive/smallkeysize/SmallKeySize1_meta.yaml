@@ -2,7 +2,7 @@ name:
   Small Key Size Context-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two different key sizes (512 and 2048) are stored in variables, the smaller key size is then used to
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/truepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 21
+    line: 18
 
     root:
       file: main/java/org/cambench/cap/contextsensitivity/truepositive/smallkeysize/SmallKeySize1.java

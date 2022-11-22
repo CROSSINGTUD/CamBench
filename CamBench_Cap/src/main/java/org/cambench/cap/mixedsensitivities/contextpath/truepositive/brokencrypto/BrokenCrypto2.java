@@ -13,11 +13,11 @@ public class BrokenCrypto2 {
         int condition = 1;
 
         if(condition > 0){
-            algo1 = Identity("DES");
+            algo1 = Identity("Blowfish");
             algo2 = Identity("AES/CBC/PKCS5Padding");
         } else {
             algo1 = Identity("AES/CBC/PKCS5Padding");
-            algo2 = Identity("DES");
+            algo2 = Identity("Blowfish");
         }
 
         Cipher cipher = Cipher.getInstance(algo1);

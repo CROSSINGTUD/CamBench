@@ -12,7 +12,7 @@ public class SmallKeySize2 {
         Cipher cipher = Cipher.getInstance("RSA");
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
 
-        SizeClass2 sizeClass = new SizeClass2();
+        SizeClass sizeClass = new SizeClass();
         sizeClass.keySize1 = 1024;
         sizeClass.keySize2 = 2048;
 
@@ -23,12 +23,13 @@ public class SmallKeySize2 {
         } else {
             keyGen.initialize(sizeClass.keySize1);
         }
-        KeyPair keyPair = keyGen.generateKeyPair();
 
+        KeyPair keyPair = keyGen.generateKeyPair();
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
-}
-class SizeClass2{
-    public int keySize1;
-    public int keySize2;
+
+    public static class SizeClass{
+        public int keySize1;
+        public int keySize2;
+    }
 }

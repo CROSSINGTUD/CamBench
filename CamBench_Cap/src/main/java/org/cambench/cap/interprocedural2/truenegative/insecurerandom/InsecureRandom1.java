@@ -28,7 +28,6 @@ public class InsecureRandom1 {
         secureRandom.nextBytes(secureBytes);
 
         IvParameterSpec iv = new IvParameterSpec(secureBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 }

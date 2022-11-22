@@ -2,7 +2,7 @@ name:
   Insecure Random 2-Interprocedural Flow-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A byte array is filled with values by using the SecureRandom class before the values are overwritten by using the 
@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
-    line: 31
+    line: 29
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 20
+        line: 21
 
 fix:
   description:
@@ -31,7 +31,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 33
+  loc: 32
   cc: 2
 
 capabilities:

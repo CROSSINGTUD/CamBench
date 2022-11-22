@@ -2,7 +2,7 @@ name:
   ECB Mode Filed-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   Two configurations of the AES algorithm are stored in an objects fields. 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 17
+    line: 15
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
         line: 12
 
 codemetrics:
-  loc: 23
+  loc: 24
   cc: 1
 
 capabilities:

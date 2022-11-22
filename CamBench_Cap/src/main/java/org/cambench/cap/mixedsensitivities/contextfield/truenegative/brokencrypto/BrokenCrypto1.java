@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        CryptoClass1 cryptoClass = new CryptoClass1();
+        CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.cipher1 = Identity("Blowfish");
         cryptoClass.cipher2 = Identity("AES/CBC/PKCS5Padding");
 
@@ -20,8 +20,9 @@ public class BrokenCrypto1 {
     public static String Identity(String s){
         return s;
     }
-}
- class CryptoClass1{
-    public String cipher1;
-    public String cipher2;
+
+    public static  class CryptoClass{
+        public String cipher1;
+        public String cipher2;
+    }
 }

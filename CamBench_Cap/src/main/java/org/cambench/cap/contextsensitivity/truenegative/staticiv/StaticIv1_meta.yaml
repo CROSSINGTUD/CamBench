@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Context-Sensitive True-Negative Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A random and a static, string based byte array are stored in a variable, respectively.
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 25
+    line: 24
 
     root:
       location:

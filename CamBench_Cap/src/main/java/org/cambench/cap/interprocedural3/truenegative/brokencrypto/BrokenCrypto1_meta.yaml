@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  A string containing the name of an insecure cipher (Blowfish) is 
+  A string containing the name of an insecure cipher (DES) is 
   passed over two methods but is not used to initialize a cipher object for encryption.
 
 crypto-usage:
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural3/truepositive/brokencrypto/BrokenCrypto1.java
     method: method2(String algorithm)
-    line: 24
+    line: 22
 
     root:
       location:

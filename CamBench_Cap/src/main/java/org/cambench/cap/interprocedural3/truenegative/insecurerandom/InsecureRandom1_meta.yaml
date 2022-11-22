@@ -2,7 +2,7 @@ name:
   Insecure Random 3-Interprocedural True-Negative Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A byte array is filled with values by using the Random class. The array is passed over two methods
@@ -24,7 +24,7 @@ crypto-usage:
         line: 18
 
 codemetrics:
-  loc: 39
+  loc: 38
   cc: 3
 
 capabilities:

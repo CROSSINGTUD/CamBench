@@ -2,7 +2,7 @@ name:
   Insecure Random 2-Interprocedural Path-Sensitive True-Positive Case 1
 
 api:
-  java.security.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   The byte array used for the creation of an initialization vector is filled with random values in an insecure way 
@@ -17,7 +17,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
-    line: 34
+    line: 32
 
     root:
       location:
@@ -32,7 +32,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 36
+  loc: 35
   cc: 3
 
 capabilities:

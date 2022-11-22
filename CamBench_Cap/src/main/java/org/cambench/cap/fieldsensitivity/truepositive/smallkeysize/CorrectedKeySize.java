@@ -20,8 +20,9 @@ public class CorrectedKeySize {
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
-}
-class SizeClass{
-    public int keySize1;
-    public int keySize2;
+
+    public static class SizeClass{
+        public int keySize1;
+        public int keySize2;
+    }
 }

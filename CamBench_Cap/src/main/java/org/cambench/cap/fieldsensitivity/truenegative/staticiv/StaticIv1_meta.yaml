@@ -2,11 +2,11 @@ name:
   Static Initialization Vector Field-Sensitive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
-  A static and a random, non-static initialization vector (iv) are stored in an object's fields.
-  The random iv one is then utilized to initialize an instance of the AES algorithm.
+  A static and a random, non-static byte array are stored in an object's fields.
+  The random array is then utilized as initialization vector to initialize an instance of the AES algorithm.
 
 crypto-usage:
   violation: false
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 27
+    line: 25
 
     root:
       location:

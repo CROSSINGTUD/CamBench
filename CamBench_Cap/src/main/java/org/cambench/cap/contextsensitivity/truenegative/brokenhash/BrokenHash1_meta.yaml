@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 13
+    line: 12
 
     root:
       location:

@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The names of a secure & an insecure cipher (Blowfish) are each stored in the fields of two objects. 
+  The names of a secure & an insecure cipher (DES) are each stored in the fields of two objects. 
   One of the fields containing an insecure cipher is then used to initialize the actual cipher object.
 
 crypto-usage:
@@ -39,5 +39,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

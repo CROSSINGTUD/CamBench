@@ -6,8 +6,8 @@ api:
 
 description:
   Two objects are created in each branch of the conditional statement that each have a string with 
-  the name of a cryptographic cipher as value (DES and AES, respectively). The object containing the DES string is then
-  used to create an instance of the cipher.
+  the name of a cryptographic cipher as value (Blowfish and AES, respectively). 
+  The object containing the Blowfish string is then used to create an instance of the cipher.
 
 crypto-usage:
   violation: true
@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
-    to be broken.
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.

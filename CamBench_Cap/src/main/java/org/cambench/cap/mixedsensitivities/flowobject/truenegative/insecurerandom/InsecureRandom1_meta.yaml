@@ -6,7 +6,8 @@ api:
 
 description:
   Two objects are created that each contain an instance of class Random. One of these instances is 
-  then replaced by an instance of class SecureRandom and used to create an initialization vector for a cipher.
+  then replaced by an instance of class SecureRandom and used to fill a byte array with random values
+  which is utilized as initialization vector for a cipher.
 
 crypto-usage:
   violation: false
@@ -15,16 +16,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 28
+    line: 27
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 26
+        line: 20
 
 codemetrics:
-  loc: 35
+  loc: 34
   cc: 1
 
 capabilities:

@@ -2,7 +2,7 @@ name:
   Small Key Size 3-Interprocedural True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   A small key size (512 bits) is passed as argument over two methods and then used to generate a KeyPair for the RSA algorithm.
@@ -14,7 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural3/truepositive/smallkeysize/SmallKeySize1.java
     method: method2(int keySize)
-    line: 29
+    line: 26
 
     root:
       location:

@@ -22,7 +22,7 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 19
+        line: 23
 
 fix:
   description:

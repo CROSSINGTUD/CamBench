@@ -5,9 +5,9 @@ api:
   javax.crypto.Cipher
 
 description:
-  The algo variables are set to the names of an insecure (Blowfish) and a secure cipher (AES) by using the
+  The algo variables are set to the names of an insecure (DES) and a secure cipher (AES) by using the
   Identity function.
-  Then the variable with the Blowfish algorithm is used in the reachable branch of the 
+  Then the variable with the DES algorithm is used in the reachable branch of the 
   conditional statement to get an instance of the cipher.
 
 crypto-usage:
@@ -41,5 +41,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

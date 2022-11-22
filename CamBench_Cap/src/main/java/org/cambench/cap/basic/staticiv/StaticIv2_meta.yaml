@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Basic Case 2
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A static byte array is used as initialization vector (iv) to initialize a cipher (AES).
@@ -20,7 +20,7 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
         method: main(String[] args)
-        line: 14
+        line: 16
 
 fix:
   description:

@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class EcbMode1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        ConfigClass1 configClass = new ConfigClass1();
+        ConfigClass configClass = new ConfigClass();
         configClass.algoConfig1 = Identity("AES/ECB/PKCS5Padding");
         configClass.algoConfig2 = Identity("AES/CBC/PKCS5Padding");
 
@@ -20,8 +20,9 @@ public class EcbMode1 {
     public static String Identity(String s){
         return s;
     }
-}
-class ConfigClass1{
-   public String algoConfig1;
-   public String algoConfig2;
+
+    public static class ConfigClass{
+        public String algoConfig1;
+        public String algoConfig2;
+    }
 }

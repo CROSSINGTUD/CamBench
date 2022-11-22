@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash1.java
     method: method1(String algo, String data)
-    line: 20
+    line: 19
 
     root:
       file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash1.java

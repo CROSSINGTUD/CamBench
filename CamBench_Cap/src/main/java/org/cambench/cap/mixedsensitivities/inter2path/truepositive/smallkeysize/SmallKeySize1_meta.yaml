@@ -2,7 +2,7 @@ name:
   Small Key Size 2-Interprocedural Path-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   A small key size (512 bit) is passed to a method in the reachable branch of the conditional statement, where it is used
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 27
+    line: 25
 
     root:
       location:

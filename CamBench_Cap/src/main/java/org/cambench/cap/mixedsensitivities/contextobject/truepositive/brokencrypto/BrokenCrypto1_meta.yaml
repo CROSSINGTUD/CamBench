@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

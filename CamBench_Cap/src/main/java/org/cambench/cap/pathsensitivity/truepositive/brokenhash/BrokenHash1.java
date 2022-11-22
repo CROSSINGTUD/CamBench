@@ -14,6 +14,7 @@ public class BrokenHash1 {
         } else {
             messageDigest = MessageDigest.getInstance("MD5");
         }
+
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }

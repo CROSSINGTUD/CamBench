@@ -10,8 +10,8 @@ public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         CryptoClass cryptoClass1 = new CryptoClass();
         CryptoClass cryptoClass2 = new CryptoClass();
-        cryptoClass1.algorithm = "Blowfish";
-        cryptoClass2.algorithm = "Blowfish";
+        cryptoClass1.algorithm = "DES";
+        cryptoClass2.algorithm = "DES";
         cryptoClass1.algorithm = "AES/CBC/PKCS5Padding";
 
         Cipher cipher = Cipher.getInstance(cryptoClass1.algorithm);

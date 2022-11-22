@@ -2,7 +2,7 @@ name:
   ECB Mode Context-Sensitive True-Positive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.Cipher
 
 description:
   Two configurations (one with ECB and one with CBC mode of operation) are stored in variables. 
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/truepositive/ecbmode/EcbMode1.java
     method: main(string[] args)
-    line: 16
+    line: 14
 
     root:
       file: main/java/org/cambench/cap/contextsensitivity/truepositive/ecbmode/EcbMode1.java

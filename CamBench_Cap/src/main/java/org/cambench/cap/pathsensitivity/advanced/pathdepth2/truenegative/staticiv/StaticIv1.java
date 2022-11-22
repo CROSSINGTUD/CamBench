@@ -25,7 +25,7 @@ public class StaticIv1 {
                 ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
             }
         } else {
-            ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
+            ivBytes = "abcdefghijklmnop".getBytes();
         }
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);

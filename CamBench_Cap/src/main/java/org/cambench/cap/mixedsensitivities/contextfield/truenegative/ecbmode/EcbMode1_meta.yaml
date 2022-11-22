@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 17
+    line: 15
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
         line: 12
 
 codemetrics:
-  loc: 27
+  loc: 28
   cc: 2
 
 capabilities:

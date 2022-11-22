@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class CorrectedEcbMode {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        ConfigClass1 configClass = new ConfigClass1();
+        ConfigClass configClass = new ConfigClass();
         configClass.algoConfig1 = "AES/CBC/PKCS5Padding";
 
         method1(configClass.algoConfig1);
@@ -19,8 +19,9 @@ public class CorrectedEcbMode {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
-class ConfigClass{
-    public String algoConfig1;
-    public String algoConfig2;
+
+    public static class ConfigClass{
+        public String algoConfig1;
+        public String algoConfig2;
+    }
 }

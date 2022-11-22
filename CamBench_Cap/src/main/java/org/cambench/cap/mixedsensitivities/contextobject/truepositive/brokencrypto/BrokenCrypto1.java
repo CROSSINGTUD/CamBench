@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         CryptoClass cryptoClass1 = GetObject("AES/CBC/PKCS5Padding");
-        CryptoClass cryptoClass2 = GetObject("Blowfish");
+        CryptoClass cryptoClass2 = GetObject("DES");
 
         Cipher cipher = Cipher.getInstance(cryptoClass2.algorithm);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

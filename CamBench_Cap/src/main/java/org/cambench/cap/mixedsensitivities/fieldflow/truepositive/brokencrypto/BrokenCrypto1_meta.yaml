@@ -6,8 +6,8 @@ api:
 
 description:
   The names of two insecure ciphers (Blowfish and DES) are stored in an object's fields. 
-  The field containing the DES value is then sanitized by re-assigning it with the name of a secure
-  algorithm (AES) before the other field is used to create an instance of the Blowfish cipher.
+  The field containing the Blowfish value is then sanitized by re-assigning it with the name of a secure
+  algorithm (AES) before the other field is used to create an instance of the DES cipher.
 
 crypto-usage:
   violation: true
@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

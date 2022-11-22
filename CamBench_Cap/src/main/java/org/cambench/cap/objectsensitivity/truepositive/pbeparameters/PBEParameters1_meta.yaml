@@ -5,7 +5,7 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  Two objects are created each contain a byte array; one with a static value the other with random values. The static
+  Two objects are created that each contain a byte array; one with a static value the other with random values. The static
   array is then used as salt for an PBEParameterSpec object.
 
 crypto-usage:

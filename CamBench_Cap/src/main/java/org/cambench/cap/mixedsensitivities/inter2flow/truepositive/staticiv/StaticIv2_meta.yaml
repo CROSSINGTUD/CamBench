@@ -2,7 +2,7 @@ name:
   Static Initialization Vector 2-Interprocedural Flow-Sensitive True-Positive Case 2
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A static byte array is passed to a method where it is used to create an initialization vector for cipher initialization
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/staticiv/StaticIv2.java
     method: method1(byte[] ivBytes)
-    line: 28
+    line: 26
 
     root:
       location:
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 30
+  loc: 29
   cc: 2
 
 capabilities:

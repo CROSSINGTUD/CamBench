@@ -2,7 +2,7 @@ name:
   Static Initialization Vector 2-Interprocedural Path-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   The byte array for the iv initialization is set to a static value based on a string in the reachable branch of the conditional statement.
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/staticiv/StaticIv1.java
     method: method1(byte[] ivBytes)
-    line: 34
+    line: 32
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 36
+  loc: 35
   cc: 3
 
 capabilities:

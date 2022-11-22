@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Path- And Field-Sensitive Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A static and a random, non-static initialization vector (iv) are stored in an object's fields, 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 33
+    line: 32
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
         line: 29
 
 codemetrics:
-  loc: 39
+  loc: 40
   cc: 2
 
 capabilities:

@@ -25,7 +25,7 @@ crypto-usage:
         line: 18
 
 codemetrics:
-  loc: 34
+  loc: 33
   cc: 2
 
 capabilities:

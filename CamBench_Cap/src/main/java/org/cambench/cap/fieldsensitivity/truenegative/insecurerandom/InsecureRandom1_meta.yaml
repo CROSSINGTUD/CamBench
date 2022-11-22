@@ -2,7 +2,7 @@ name:
   Insecure Random Field-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   An object of class Random and one of class SecureRandom are created and stored in another object's fields.
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truenegative/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 28
+    line: 26
 
     root:
       location:
@@ -24,7 +24,7 @@ crypto-usage:
         line: 19
 
 codemetrics:
-  loc: 35
+  loc: 34
   cc: 1
 
 capabilities:

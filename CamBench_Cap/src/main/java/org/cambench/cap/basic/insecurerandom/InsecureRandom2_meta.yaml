@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
     method: main(String[] args)
-    line: 21
+    line: 22
 
     root:
       location:

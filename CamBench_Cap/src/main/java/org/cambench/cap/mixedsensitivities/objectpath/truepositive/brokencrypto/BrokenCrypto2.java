@@ -14,11 +14,11 @@ public class BrokenCrypto2 {
         int condition = 1;
 
         if(condition < 2){
-            cryptoClass1 = new CryptoClass("DES");
+            cryptoClass1 = new CryptoClass("Blowfish");
             cryptoClass2 = new CryptoClass("AES/CBC/PKCS5Padding");
         } else {
             cryptoClass1 = new CryptoClass("AES/CBC/PKCS5Padding");
-            cryptoClass2 = new CryptoClass("DES");
+            cryptoClass2 = new CryptoClass("Blowfish");
         }
 
         Cipher cipher = Cipher.getInstance(cryptoClass1.algorithm);

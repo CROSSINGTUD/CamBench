@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenCrypto1 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algo = "Blowfish";
+        String algo = "DES";
         method1(algo);
     }
 

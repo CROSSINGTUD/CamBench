@@ -2,7 +2,7 @@ name:
   Small Key Size Path- And Field-Sensitive True-Negative Case 2
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two different key sizes (1024 and 2048) are stored in an object's fields.
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truenegative/smallkeysize/SmallKeySize2.java
     method: main(String[] args)
-    line: 28
+    line: 22
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
         line: 16
 
 codemetrics:
-  loc: 34
+  loc: 35
   cc: 2
 
 capabilities:

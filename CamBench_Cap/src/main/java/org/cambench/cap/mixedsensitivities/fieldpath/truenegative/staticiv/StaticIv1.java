@@ -18,7 +18,7 @@ public class StaticIv1 {
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
 
-        IvClass1 ivClass = new IvClass1();
+        IvClass ivClass = new IvClass();
         int condition = 1;
 
         if(condition > 1) {
@@ -28,12 +28,13 @@ public class StaticIv1 {
             ivClass.ivBytes1 = randomBytes;
             ivClass.ivBytes2 = "abcdefghijklmnop".getBytes();
         }
-        IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes1);
 
+        IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes1);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
-class IvClass1{
-    public byte[] ivBytes1;
-    public byte[] ivBytes2;
+
+    public static class IvClass{
+        public byte[] ivBytes1;
+        public byte[] ivBytes2;
+    }
 }

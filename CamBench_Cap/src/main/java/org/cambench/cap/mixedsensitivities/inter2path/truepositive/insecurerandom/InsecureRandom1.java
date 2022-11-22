@@ -23,7 +23,6 @@ public class InsecureRandom1 {
         } else {
             random.nextBytes(ivBytes);
         }
-
         method1(ivBytes);
     }
 

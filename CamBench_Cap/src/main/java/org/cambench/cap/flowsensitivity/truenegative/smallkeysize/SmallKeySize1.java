@@ -14,6 +14,7 @@ public class SmallKeySize1 {
 
         int keySize = 512;
         keySize = 2048;
+
         keyGen.initialize(keySize);
         KeyPair keyPair = keyGen.generateKeyPair();
 

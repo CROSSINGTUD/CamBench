@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class CorrectedKeySize {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        SizeClass1 sizeClass = new SizeClass1();
+        SizeClass sizeClass = new SizeClass();
         sizeClass.keySize1 = 2048;
 
         method1(sizeClass.keySize1);
@@ -23,8 +23,9 @@ public class CorrectedKeySize {
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
-}
-class SizeClass{
-    public int keySize1;
-    public int keySize2;
+
+    public static class SizeClass{
+        public int keySize1;
+        public int keySize2;
+    }
 }

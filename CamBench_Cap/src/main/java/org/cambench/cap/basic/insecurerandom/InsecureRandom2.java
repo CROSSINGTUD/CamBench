@@ -20,7 +20,6 @@ public class InsecureRandom2 {
         secureRandom.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 }

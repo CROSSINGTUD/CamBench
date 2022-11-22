@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/brokenhash/BrokenHash1.java
     method: method1(String algo, String data)
-    line: 18
+    line: 17
 
     root:
       location:
@@ -29,8 +29,8 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
-  loc: 25
-  cc: 1
+  loc: 27
+  cc: 2
 
 capabilities:
   - interprocedural

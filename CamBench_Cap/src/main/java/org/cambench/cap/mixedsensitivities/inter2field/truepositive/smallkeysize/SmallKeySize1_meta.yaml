@@ -2,7 +2,7 @@ name:
   Small Key Size 2-Interprocedural Field-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two different key sizes (512 and 2048) are stored in an object's fields. The smaller size is then passed to a method
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 25
+    line: 23
 
     root:
       location:
@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/smallkeysize/CorrectedKeySize.java
 
 codemetrics:
-  loc: 31
+  loc: 33
   cc: 1
 
 capabilities:

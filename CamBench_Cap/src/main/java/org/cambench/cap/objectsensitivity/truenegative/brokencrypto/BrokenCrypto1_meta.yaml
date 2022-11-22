@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each have a string with a the name of a cryptographic cipher 
-  as value (Blowfish and AES, respectively). The object with the AES string is then 
+  as value (DES and AES, respectively). The object with the AES string is then 
   used to create an instance of the cipher.
 
 crypto-usage:

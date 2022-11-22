@@ -22,11 +22,11 @@ public class CorrectedIv {
         ivClass.ivBytes1 = randomBytes;
 
         IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes1);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
-class IvClass{
-    public byte[] ivBytes1;
-    public byte[] ivBytes2;
+
+    public static class IvClass{
+        public byte[] ivBytes1;
+        public byte[] ivBytes2;
+    }
 }

@@ -2,7 +2,7 @@ name:
   Small Key Size 2-Interprocedural Flow-Sensitive True-Positive Case 2
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   A variable is set to a sufficient key size (2048 bits) before it is overwritten with a small key size (1024 bits) and
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/smallkeysize/SmallKeySize2.java
     method: method1(int keySize)
-    line: 25
+    line: 22
 
     root:
       location:

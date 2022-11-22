@@ -29,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 25
+  loc: 24
   cc: 1
 
 security:

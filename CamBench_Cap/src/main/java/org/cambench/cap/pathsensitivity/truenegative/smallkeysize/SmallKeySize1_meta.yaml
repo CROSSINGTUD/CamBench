@@ -2,7 +2,7 @@ name:
   Small Key Size Path-Sensitive True-Negative Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   The RSA algorithm is initialized with a sufficient key size (2048 bits) in a conditional branch.

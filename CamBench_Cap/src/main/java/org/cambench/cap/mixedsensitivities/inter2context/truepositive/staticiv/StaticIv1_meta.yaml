@@ -6,7 +6,7 @@ api:
 
 description:
   A static and a random byte array are stored in a variable by using the Identity function.
-  The static iv is then passed to a method and used to create an initialization vector for the initialization
+  The static array is then passed to a method and used to create an initialization vector for the initialization
   of an instance of the AES cipher.
 
 crypto-usage:
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/staticiv/StaticIv1.java
     method: method1(byte[] ivBytes)
-    line: 32
+    line: 31
 
     root:
       location:

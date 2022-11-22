@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/ecbmode/EcbMode1.java
     method: method1(String algo, String algoConfig)
-    line: 21
+    line: 19
 
     root:
       location:

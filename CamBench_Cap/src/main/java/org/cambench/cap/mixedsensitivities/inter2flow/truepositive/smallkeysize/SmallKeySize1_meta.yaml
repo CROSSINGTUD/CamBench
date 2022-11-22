@@ -2,7 +2,7 @@ name:
   Small Key Size 2-Interprocedural Flow-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   A variable containing a small key size (512 bits) is passed as argument to a method and used 
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 25
+    line: 22
 
     root:
       location:

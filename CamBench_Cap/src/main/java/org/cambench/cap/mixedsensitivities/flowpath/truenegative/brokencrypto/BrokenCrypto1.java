@@ -8,18 +8,19 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("Blowfish");
+        Cipher cipher;
         KeyGenerator keyGen;
+        String algorithm = "DES";
         int condition = 1;
 
         if(condition == 1){
-            cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            keyGen = KeyGenerator.getInstance("AES");
+            algorithm = "AES/CBC/PKCS5Padding";
         } else {
-            cipher = Cipher.getInstance("Blowfish");
-            keyGen = KeyGenerator.getInstance("Blowfish");
+            algorithm = "Blowfish";
         }
 
+        cipher = Cipher.getInstance(algorithm);
+        keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 }

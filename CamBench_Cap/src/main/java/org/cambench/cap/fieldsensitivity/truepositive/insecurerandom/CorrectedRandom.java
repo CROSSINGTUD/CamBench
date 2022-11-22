@@ -23,12 +23,11 @@ public class CorrectedRandom {
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class RandomClass{
-    public Random randomGenerator1;
-    public Random randomGenerator2;
+    public static class RandomClass{
+        public Random randomGenerator1;
+        public Random randomGenerator2;
+    }
 }

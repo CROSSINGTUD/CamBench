@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  A string containing the name of an insecure cipher (Blowfish) is passed to a method and initialized
+  A string containing the name of an insecure cipher (DES) is passed to a method and initialized
   and used to create an instance of that cipher in the reachable branch of a conditional statement.
   The other branch, which is never reached, passes the name of a secure cipher (AES) to that method.
 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokencrypto/BrokenCrypto1.java
     method: method1(String algoName, String algoConfig)
-    line: 23
+    line: 21
 
     root:
       location:
@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

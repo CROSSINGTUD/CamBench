@@ -22,7 +22,6 @@ public class StaticIv1 {
         } else {
             ivBytes = ivString.getBytes();
         }
-
         method1(ivBytes);
     }
 

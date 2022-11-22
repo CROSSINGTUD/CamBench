@@ -18,8 +18,7 @@ public class EcbMode1 {
     }
 
     public static void method1(String algoConfig) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
-        Cipher cipher;
-        cipher = Cipher.getInstance(algoConfig);
+        Cipher cipher = Cipher.getInstance(algoConfig);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }

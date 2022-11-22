@@ -20,8 +20,8 @@ public class StaticIv1 {
 
         byte[] ivBytes1 = Identity("abcdefghijklmnop".getBytes());
         byte[] ivBytes2 = Identity(randomBytes);
-        IvParameterSpec iv = new IvParameterSpec(ivBytes1);
 
+        IvParameterSpec iv = new IvParameterSpec(ivBytes1);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 

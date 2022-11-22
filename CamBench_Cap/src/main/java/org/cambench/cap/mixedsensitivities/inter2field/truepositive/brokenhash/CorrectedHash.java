@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class CorrectedHash {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        HashClass1 hashClass = new HashClass1();
+        HashClass hashClass = new HashClass();
         hashClass.hashAlgo1 = "SHA-256";
         String data = "some data here";
 
@@ -17,8 +17,9 @@ public class CorrectedHash {
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
-}
-class HashClass{
-    public String hashAlgo1;
-    public String HashAlgo2;
+
+    public static class HashClass{
+        public String hashAlgo1;
+        public String hashAlgo2;
+    }
 }

@@ -16,8 +16,8 @@ public class BrokenCrypto1 {
             cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             keyGen = KeyGenerator.getInstance("AES");
         } else {
-            cipher = Cipher.getInstance("Blowfish");
-            keyGen = KeyGenerator.getInstance("Blowfish");
+            cipher = Cipher.getInstance("DES");
+            keyGen = KeyGenerator.getInstance("DES");
         }
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }

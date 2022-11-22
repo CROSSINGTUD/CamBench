@@ -13,10 +13,12 @@ public class StaticIv1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-        SecureRandom secureRandom = new SecureRandom();
         String ivString = "abcdefghijklmnop";
-        byte[] ivBytes = new byte[16];
+
+        byte[] ivBytes = ivString.getBytes();
         byte[] randomBytes = new byte[16];
+
+        SecureRandom secureRandom = new SecureRandom();
         secureRandom.nextBytes(randomBytes);
 
         int condition = 1;

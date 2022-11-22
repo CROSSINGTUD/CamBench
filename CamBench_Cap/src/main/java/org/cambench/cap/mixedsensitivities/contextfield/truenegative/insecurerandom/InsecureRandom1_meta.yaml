@@ -17,7 +17,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truenegative/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 28
+    line: 26
 
     root:
       location:
@@ -26,7 +26,7 @@ crypto-usage:
         line: 19
 
 codemetrics:
-  loc: 39
+  loc: 38
   cc: 2
 
 capabilities:

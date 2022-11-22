@@ -26,15 +26,14 @@ public class CorrectedRandom {
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class RandomClass {
-    Random randomGenerator;
+    public static class RandomClass {
+        Random randomGenerator;
 
-    public RandomClass (Random randGenerator) {
-        randomGenerator = randGenerator;
+        public RandomClass (Random randGenerator) {
+            randomGenerator = randGenerator;
+        }
     }
 }

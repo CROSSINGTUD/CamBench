@@ -2,7 +2,7 @@ name:
   Insecure Random 2-Interprocedural Context-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   An instance of the Random class and one of the SecureRandom class are created by using the Identity function.
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
-    line: 26
+    line: 32
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 32
+  loc: 35
   cc: 3
 
 capabilities:

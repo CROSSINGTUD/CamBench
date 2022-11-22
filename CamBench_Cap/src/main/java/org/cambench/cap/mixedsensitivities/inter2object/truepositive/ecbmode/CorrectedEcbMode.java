@@ -18,12 +18,12 @@ public class CorrectedEcbMode {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
 
-class ConfigClass {
-    String algorithmConfig;
+    public static class ConfigClass {
+        String algorithmConfig;
 
-    public ConfigClass(String algoConfig){
-        algorithmConfig = algoConfig;
+        public ConfigClass(String algoConfig){
+            algorithmConfig = algoConfig;
+        }
     }
 }

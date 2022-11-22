@@ -5,24 +5,27 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenHash2 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        HashClass2 hashClass = new HashClass2();
-        hashClass.hashAlgo1 = "SHA-1";
-        hashClass.hashAlgo2 = "SHA-256";
+        HashClass hashClass = new HashClass();
 
         String data = "some data here";
         int condition = 1;
         MessageDigest messageDigest;
 
-        if(condition >0){
-            messageDigest = MessageDigest.getInstance(hashClass.hashAlgo2);
+        if(condition < 1){
+            hashClass.hashAlgo1 = "SHA-1";
+            hashClass.hashAlgo2 = "SHA-256";
         } else {
-            messageDigest = MessageDigest.getInstance(hashClass.hashAlgo1);
+            hashClass.hashAlgo1 = "SHA-256";
+            hashClass.hashAlgo2 = "SHA-1";
         }
+
+        messageDigest = MessageDigest.getInstance(hashClass.hashAlgo1);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
-}
-class HashClass2{
-    public String hashAlgo1;
-    public String hashAlgo2;
+
+    public static class HashClass {
+        public String hashAlgo1;
+        public String hashAlgo2;
+    }
 }

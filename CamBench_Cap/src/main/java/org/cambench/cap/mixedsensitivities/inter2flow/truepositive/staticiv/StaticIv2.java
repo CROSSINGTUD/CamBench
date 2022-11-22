@@ -24,7 +24,6 @@ public class StaticIv2 {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 }

@@ -10,7 +10,7 @@ public class BrokenCrypto2 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo = "AES/CBC/PKCS5Padding";
-        algo = "DES";
+        algo = "Blowfish";
         method1(algo);
     }
 

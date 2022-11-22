@@ -18,8 +18,8 @@ public class SmallKeySize1 {
         } else {
             keyGen.initialize(512);
         }
-        KeyPair keyPair = keyGen.generateKeyPair();
 
+        KeyPair keyPair = keyGen.generateKeyPair();
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
 }

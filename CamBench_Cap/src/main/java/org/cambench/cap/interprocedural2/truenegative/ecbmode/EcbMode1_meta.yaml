@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural2/truenegative/ecbmode/EcbMode1.java
     method: method1(String algo, String algoConfig)
-    line: 19
+    line: 17
 
     root:
       location:

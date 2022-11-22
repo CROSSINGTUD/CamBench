@@ -21,10 +21,10 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/interprocedural2/truenegative/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 15
+        line: 16
 
 codemetrics:
-  loc: 31
+  loc: 30
   cc: 2
 
 capabilities:

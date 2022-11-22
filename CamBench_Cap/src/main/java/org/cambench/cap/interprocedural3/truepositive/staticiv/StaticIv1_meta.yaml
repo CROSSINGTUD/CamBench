@@ -2,10 +2,11 @@ name:
   Static Initialization Vector 3-Interprocedural True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
-  A static string is passed over two methods where it is then used to create an initialization vector for cipher initialization.
+  A static, string based byte array is passed over two methods where it is then used 
+  to create an initialization vector for cipher initialization.
 
 crypto-usage:
   violation: true
@@ -14,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural3/truepositive/staticiv/StaticIv1.java
     method: method1(String ivString)
-    line: 29
+    line: 27
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural3/truepositive/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 14
+        line: 15
 
 fix:
   description:
@@ -28,7 +29,7 @@ fix:
   file: main/java/org/cambench/cap/interprocedural2/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 31
+  loc: 30
   cc: 3
 
 capabilities:

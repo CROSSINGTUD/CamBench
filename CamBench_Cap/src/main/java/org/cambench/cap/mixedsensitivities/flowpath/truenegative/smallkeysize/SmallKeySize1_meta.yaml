@@ -2,11 +2,11 @@ name:
   Small Key Size Path- And Flow-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
-  A KeyGenerator is initialized with a keySize of 512 bits.
-  The KeyGenerator is then again initialized in the reachable branch of the conditional statement with a keySize of 2048
+  A variable is set to a keySize of 512 bits.
+  The variable is re-assigned in the reachable branch of the conditional statement with a keySize of 2048
   bits, before it is used to generate a KeyPair for the RSA algorithm.
 
 crypto-usage:
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 24
+    line: 23
 
     root:
       location:
@@ -25,7 +25,7 @@ crypto-usage:
         line: 14
 
 codemetrics:
-  loc: 26
+  loc: 27
   cc: 2
 
 capabilities:

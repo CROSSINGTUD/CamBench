@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Field-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A static (string-based) and a pseudorandom byte array are stored in an object's fields.
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 27
+    line: 25
 
     root:
       location:

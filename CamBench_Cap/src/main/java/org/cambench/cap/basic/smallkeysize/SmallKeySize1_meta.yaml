@@ -2,7 +2,7 @@ name:
   Small Key Size Basic Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   The RSA algorithm is initialized with a key size (512 bits) that is considered insecure.
@@ -14,13 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 18
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/basic/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 12
+    line: 15
 
 fix:
   description:

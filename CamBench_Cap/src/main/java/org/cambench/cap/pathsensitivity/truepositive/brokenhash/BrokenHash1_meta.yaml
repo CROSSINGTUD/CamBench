@@ -15,13 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 17
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokenhash/BrokenHash1.java
-        method: main(String[] args)
-        line: 15
+    line: 15
 
 fix:
   description:

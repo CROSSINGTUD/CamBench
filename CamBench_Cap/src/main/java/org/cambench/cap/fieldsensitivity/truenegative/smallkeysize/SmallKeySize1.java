@@ -11,7 +11,7 @@ public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance("RSA");
 
-        SizeClass1 sizeClass = new SizeClass1();
+        SizeClass sizeClass = new SizeClass();
         sizeClass.keySize1 = 512;
         sizeClass.keySize2 = 2048;
 
@@ -21,8 +21,9 @@ public class SmallKeySize1 {
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
     }
-}
-class SizeClass1{
-    public int keySize1;
-    public int keySize2;
+
+    public static class SizeClass{
+        public int keySize1;
+        public int keySize2;
+    }
 }

@@ -12,8 +12,8 @@ import java.util.Random;
 
 public class InsecureRandom1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-        RandomClass1 randomClass1 = new RandomClass1(new SecureRandom());
-        RandomClass1 randomClass2 = new RandomClass1(new Random());
+        RandomClass randomClass1 = new RandomClass(new SecureRandom());
+        RandomClass randomClass2 = new RandomClass(new Random());
 
         method1(randomClass2.randomGenerator);
     }
@@ -27,15 +27,14 @@ public class InsecureRandom1 {
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class RandomClass1 {
-    Random randomGenerator;
+    public static class RandomClass {
+        Random randomGenerator;
 
-    public RandomClass1(Random randGenerator) {
-        randomGenerator = randGenerator;
+        public RandomClass (Random randGenerator) {
+            randomGenerator = randGenerator;
+        }
     }
 }

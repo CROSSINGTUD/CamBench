@@ -15,7 +15,7 @@ public class InsecureRandom1 {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
-        RandomClass1 randomClass = new RandomClass1();
+        RandomClass randomClass = new RandomClass();
         randomClass.randomGenerator1 = Identity(new Random());
         randomClass.randomGenerator2 = Identity(new SecureRandom());
 
@@ -24,16 +24,15 @@ public class InsecureRandom1 {
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 
     public static Random Identity(Random r){
         return r;
     }
-}
 
-class RandomClass1{
-    public Random randomGenerator1;
-    public Random randomGenerator2;
+    public static class RandomClass{
+        public Random randomGenerator1;
+        public Random randomGenerator2;
+    }
 }

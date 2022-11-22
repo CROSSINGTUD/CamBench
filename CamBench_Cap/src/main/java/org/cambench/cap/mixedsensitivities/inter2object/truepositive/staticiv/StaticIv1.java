@@ -16,8 +16,8 @@ public class StaticIv1 {
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
 
-        IvClass1 ivObject1 = new IvClass1("abcdefghijklmnop");
-        IvClass1 ivObject2 = new IvClass1(randomBytes);
+        IvClass ivObject1 = new IvClass("abcdefghijklmnop");
+        IvClass ivObject2 = new IvClass(randomBytes);
 
         method1(ivObject1.ivBytes);
     }
@@ -27,19 +27,18 @@ public class StaticIv1 {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
-
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class IvClass1 {
-    byte[] ivBytes;
+    public static class IvClass {
+        byte[] ivBytes;
 
-    public IvClass1(String ivString){
-        ivBytes = ivString.getBytes();
-    }
+        public IvClass(String ivString){
+            ivBytes = ivString.getBytes();
+        }
 
-    public IvClass1(byte[] bytes){
-        ivBytes = bytes;
+        public IvClass(byte[] bytes){
+            ivBytes = bytes;
+        }
     }
 }

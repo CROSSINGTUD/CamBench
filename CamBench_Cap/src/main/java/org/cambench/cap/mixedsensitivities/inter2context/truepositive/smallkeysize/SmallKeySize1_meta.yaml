@@ -2,7 +2,7 @@ name:
   Small Key Size 2-Interprocedural Context-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two different key sizes (512 and 2048) are stored in variables by using the Identity function. 
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 28
+    line: 25
 
     root:
       file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/smallkeysize/SmallKeySize1.java

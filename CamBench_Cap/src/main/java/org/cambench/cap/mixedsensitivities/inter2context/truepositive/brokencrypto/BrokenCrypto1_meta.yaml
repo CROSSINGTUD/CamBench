@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The algo variables are set to an insecure (Blowfish) and a secure cipher (AES), respectively, 
+  The algo variables are set to an insecure (DES) and a secure cipher (AES), respectively, 
   by using the Identity function.
   The insecure one is then utilized to initialize the cipher object.
 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokencrypto/BrokenCrypto1.java
     method: method1(String algo)
-    line: 23
+    line: 21
 
     root:
       location:
@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

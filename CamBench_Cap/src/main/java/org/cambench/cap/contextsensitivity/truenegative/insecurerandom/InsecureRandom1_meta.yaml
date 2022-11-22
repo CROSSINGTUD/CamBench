@@ -2,7 +2,7 @@ name:
   Insecure Random Context-Sensitive True-Negative Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec;
 
 description:
   An instance of the Random class and one of the SecureRandom class are created.
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 26
+    line: 24
 
     root:
       location:
@@ -24,7 +24,7 @@ crypto-usage:
         line: 18
 
 codemetrics:
-  loc: 32
+  loc: 31
   cc: 2
 
 capabilities:

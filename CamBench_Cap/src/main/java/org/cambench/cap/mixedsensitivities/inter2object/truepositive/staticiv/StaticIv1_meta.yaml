@@ -2,7 +2,7 @@ name:
   Static Initialization Vector 2-Interprocedural Object-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   Two objects are created that each contain a byte array. One byte array is filled with random values, the other
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/staticiv/StaticIv1.java
     method: method1(byte[] ivBytes)
-    line: 31
+    line: 29
 
     root:
       location:
@@ -30,8 +30,8 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
-  loc: 45
-  cc: 3
+  loc: 44
+  cc: 4
 
 capabilities:
   - interprocedural

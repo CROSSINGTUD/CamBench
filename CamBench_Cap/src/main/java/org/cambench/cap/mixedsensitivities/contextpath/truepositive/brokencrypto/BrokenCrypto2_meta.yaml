@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The names of an insecure (DES) and a secure cipher (AES) are saved into by using the
+  The names of an insecure (Blowfish) and a secure cipher (AES) are saved into by using the
   Identity function and depending on the branches of the conditional statement.
   Then the variable containing the Blowfish algorithm is used to get an instance of the cipher.
 
@@ -40,5 +40,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
-    to be broken.
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.

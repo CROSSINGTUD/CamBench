@@ -18,6 +18,6 @@ public class EcbMode1 {
             cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         }
 
-        cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
+        cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey());
     }
 }

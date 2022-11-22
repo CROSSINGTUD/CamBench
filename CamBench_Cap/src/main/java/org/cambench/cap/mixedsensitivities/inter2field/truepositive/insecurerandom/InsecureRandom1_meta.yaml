@@ -2,7 +2,7 @@ name:
   Insecure Random 2-Interprocedural Field-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   An object of class Random and one of class SecureRandom are created and stored in another object's fields.
@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(Random randomGenerator)
-    line: 32
+    line: 30
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 16
+        line: 28
 
 fix:
   description:
@@ -31,7 +31,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2field/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
-  loc: 39
+  loc: 38
   cc: 1
 
 capabilities:

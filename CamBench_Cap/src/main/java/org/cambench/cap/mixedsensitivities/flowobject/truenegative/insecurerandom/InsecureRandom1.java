@@ -22,8 +22,7 @@ public class InsecureRandom1 {
         randomClass1.randomGenerator = new SecureRandom();
 
         byte[] ivBytes = new byte[16];
-        Random random = randomClass1.randomGenerator;
-        random.nextBytes(ivBytes);
+        randomClass1.randomGenerator.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);

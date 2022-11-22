@@ -18,8 +18,9 @@ public class CorrectedCrypto {
         KeyGenerator keyGen = KeyGenerator.getInstance(algo);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
-}
-class CryptoClass{
-    public String cipher1;
-    public String cipher2;
+
+    public static class CryptoClass{
+        public String cipher1;
+        public String cipher2;
+    }
 }

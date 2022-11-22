@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Path-Sensitive True-Negative Case 1
 
 api:
-  javax.crypto.cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   The byte array used for iv creation is filled with pseudorandom values in the reachable branch of the conditional clause.
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 29
+    line: 28
 
     root:
       location:

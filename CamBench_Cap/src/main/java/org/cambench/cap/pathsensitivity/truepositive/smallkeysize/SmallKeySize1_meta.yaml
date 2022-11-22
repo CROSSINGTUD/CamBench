@@ -2,7 +2,7 @@ name:
   Small Key Size Path-Sensitive True-Positive Case 1
 
 api:
-  javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   The RSA algorithm is initialized with an insufficient key size (512 bits) in a conditional branch.
@@ -15,13 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 23
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 19
+    line: 19
 
 fix:
   description:

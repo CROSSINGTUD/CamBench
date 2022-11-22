@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Path- And Flow-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A byte array is created and filled with the byte representation of a static string. In the reachable branch of the
@@ -16,16 +16,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 30
+    line: 31
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 17
+        line: 18
 
 codemetrics:
-  loc: 32
+  loc: 34
   cc: 2
 
 capabilities:

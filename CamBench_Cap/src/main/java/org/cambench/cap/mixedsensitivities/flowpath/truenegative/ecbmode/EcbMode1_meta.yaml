@@ -2,12 +2,12 @@ name:
   ECB Mode Path- And Flow-Sensitive True-Negative Case 1
 
 api:
-  - java.security.Cipher
+  java.security.Cipher
 
 description:
-  A Cipher object is assigned with an instance of the AES cipher with the insecure ECB mode configured. 
-  The object is then re-assigned in the reachable branch of the conditional statement with an instance 
-  of the AES cipher with the secure CBC mode configured, before the cipher is initialized.
+  A variable is set to a configuration of the AES cipher with the insecure ECB mode used. 
+  The variable is then re-assigned in the reachable branch of the conditional statement with a new configuration 
+  of the AES cipher that uses the secure CBC mode, before the cipher is initialized.
 
 crypto-usage:
   violation: false
@@ -16,16 +16,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 21
+    line: 22
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truenegative/ecbmode/EcbMode1.java
         method: main(String[] args)
-        line: 11
+        line: 12
 
 codemetrics:
-  loc: 23
+  loc: 25
   cc: 2
 
 capabilities:

@@ -21,7 +21,7 @@ crypto-usage:
       location:
         file: main/java/org/cambench/cap/flowsensitivity/truenegative/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 19
+        line: 20
 
 codemetrics:
   loc: 26

@@ -19,7 +19,7 @@ public class StaticIv2 {
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
 
-        IvClass2 ivClass = new IvClass2();
+        IvClass ivClass = new IvClass();
         ivClass.ivBytes1 = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
         ivClass.ivBytes2 = randomBytes;
 
@@ -32,8 +32,9 @@ public class StaticIv2 {
         }
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
-class IvClass2{
-    public byte[] ivBytes1;
-    public byte[] ivBytes2;
+
+    public static class IvClass{
+        public byte[] ivBytes1;
+        public byte[] ivBytes2;
+    }
 }

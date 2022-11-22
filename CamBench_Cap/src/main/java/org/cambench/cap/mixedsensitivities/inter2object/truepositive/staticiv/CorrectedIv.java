@@ -17,7 +17,6 @@ public class CorrectedIv {
         secureRandom.nextBytes(randomBytes);
 
         IvClass ivObject = new IvClass(randomBytes);
-
         method1(ivObject.ivBytes);
     }
 
@@ -29,12 +28,12 @@ public class CorrectedIv {
 
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
-}
 
-class IvClass {
-    byte[] ivBytes;
+    public static class IvClass {
+        byte[] ivBytes;
 
-    public IvClass(byte[] bytes){
-        ivBytes = bytes;
+        public IvClass(byte[] bytes){
+            ivBytes = bytes;
+        }
     }
 }

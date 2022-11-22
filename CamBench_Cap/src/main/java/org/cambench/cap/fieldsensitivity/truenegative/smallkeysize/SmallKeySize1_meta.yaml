@@ -2,7 +2,7 @@ name:
   Small Key Size Field-Sensitive True-Negative Case 1
 
 api:
-  - javax.crypto.Cipher
+  java.security.KeyPairGenerator
 
 description:
   Two different key sizes (512 and 2048) are stored in an object's fields. The bigger key size is then used to create
@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/truenegative/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 22
+    line: 19
 
     root:
       location:
@@ -24,7 +24,7 @@ crypto-usage:
         line: 15
 
 codemetrics:
-  loc: 28
+  loc: 29
   cc: 1
 
 capabilities:

@@ -17,16 +17,16 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 16
+    line: 17
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truenegative/ecbmode/EcbMode1.java
         method: main(String[] args)
-        line: 11
+        line: 13
 
 codemetrics:
-  loc: 26
+  loc: 25
   cc: 1
 
 capabilities:

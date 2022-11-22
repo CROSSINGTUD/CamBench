@@ -5,8 +5,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenHash1 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        HashClass1 hashClass1 = new HashClass1();
-        HashClass1 hashClass2 = new HashClass1();
+        HashClass hashClass1 = new HashClass();
+        HashClass hashClass2 = new HashClass();
         hashClass1.hashAlgo1 = "MD5";
         hashClass1.hashAlgo2 = "SHA-256";
         hashClass2.hashAlgo1 = "SHA-256";
@@ -18,7 +18,7 @@ public class BrokenHash1 {
         System.out.println(messageDigest.digest());
     }
 
-    public static class HashClass1{
+    public static class HashClass{
         public String hashAlgo1;
         public String hashAlgo2;
     }

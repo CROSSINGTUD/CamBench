@@ -2,7 +2,7 @@ name:
   Static Initialization Vector Basic Case 1
 
 api:
-  - javax.crypto.Cipher
+  javax.crypto.spec.IvParameterSpec
 
 description:
   A static value is used as initialization vector (iv) to initialize a cipher (AES).
@@ -15,12 +15,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/basic/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 17
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/basic/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 14
 
 fix:
   description:

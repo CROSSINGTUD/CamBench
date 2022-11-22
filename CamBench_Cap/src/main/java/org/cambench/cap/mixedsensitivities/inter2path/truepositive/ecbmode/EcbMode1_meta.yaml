@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/ecbmode/EcbMode1.java
     method: method1(String algoConfig)
-    line: 24
+    line: 21
 
     root:
       location:
@@ -30,7 +30,7 @@ fix:
   file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:
-  loc: 26
+  loc: 25
   cc: 3
 
 capabilities:

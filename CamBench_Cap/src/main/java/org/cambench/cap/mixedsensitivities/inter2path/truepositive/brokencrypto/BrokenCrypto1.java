@@ -13,7 +13,7 @@ public class BrokenCrypto1 {
         if(condition > 1) {
             method1("AES","AES/CBC/PKCS5Padding");
         } else {
-            method1("Blowfish","Blowfish");
+            method1("DES","DES");
         }
     }
 

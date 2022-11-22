@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  An insecure cipher (Blowfish) is initialized for encryption.
+  An insecure cipher (DES) is initialized for encryption.
 
 crypto-usage:
   violation: true
@@ -14,13 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
-    line: 13
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 11
+    line: 11
 
 fix:
   description:
@@ -34,5 +28,5 @@ codemetrics:
 security:
   issue: true
   issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.
