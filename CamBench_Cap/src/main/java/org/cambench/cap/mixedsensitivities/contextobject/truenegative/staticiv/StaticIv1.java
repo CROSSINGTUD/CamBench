@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.mixedsensitivities.contextobject.truepositive.staticiv;
+package main.java.org.cambench.cap.mixedsensitivities.contextobject.truenegative.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -21,7 +21,7 @@ public class StaticIv1 {
         IvClass ivObject1 = GetObject("abcdefghijklmnop".getBytes());
         IvClass ivObject2 = GetObject(randomBytes);
 
-        IvParameterSpec iv = new IvParameterSpec(ivObject1.ivBytes);
+        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 

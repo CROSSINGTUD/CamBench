@@ -11,7 +11,7 @@ public class BrokenCrypto1 {
         CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.selfObject = new CryptoClass();
         cryptoClass.selfObject.cipher1 = "AES/CBC/PKCS5Padding";
-        cryptoClass.selfObject.cipher2 = "Blowfish";
+        cryptoClass.selfObject.cipher2 = "DES";
 
         Cipher cipher = Cipher.getInstance(cryptoClass.selfObject.cipher2);
         KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass.selfObject.cipher2);

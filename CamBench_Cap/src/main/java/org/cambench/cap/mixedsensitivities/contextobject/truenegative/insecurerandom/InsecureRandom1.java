@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.mixedsensitivities.contextobject.truepositive.insecurerandom;
+package main.java.org.cambench.cap.mixedsensitivities.contextobject.truenegative.insecurerandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

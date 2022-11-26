@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.mixedsensitivities.contextobject.truepositive.ecbmode;
+package main.java.org.cambench.cap.mixedsensitivities.contextobject.truenegative.ecbmode;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -6,8 +6,9 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-public class CorrectedEcbMode {
+public class EcbMode1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
+        ConfigClass algoConfig1 = GetObject("AES/ECB/PKCS5Padding");
         ConfigClass algoConfig2 = GetObject("AES/CBC/PKCS5Padding");
 
         Cipher cipher = Cipher.getInstance(algoConfig2.algorithmConfig);

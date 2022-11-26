@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.mixedsensitivities.contextobject.truepositive.smallkeysize;
+package main.java.org.cambench.cap.mixedsensitivities.contextobject.truenegative.smallkeysize;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
@@ -7,10 +7,11 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
-public class CorrectedKeySize {
+public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance("RSA");
 
+        SizeClass sizeObject1 = GetObject(512);
         SizeClass sizeObject2 = GetObject(2048);
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");

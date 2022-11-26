@@ -12,7 +12,7 @@ public class EcbMode1 {
         configClass.algoConfig1 = Identity("AES/ECB/PKCS5Padding");
         configClass.algoConfig2 = Identity("AES/CBC/PKCS5Padding");
 
-        Cipher cipher = Cipher.getInstance(configClass.algoConfig1);
+        Cipher cipher = Cipher.getInstance(configClass.algoConfig2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }

@@ -1,4 +1,4 @@
-package main.java.org.cambench.cap.mixedsensitivities.contextobject.truepositive.brokenhash;
+package main.java.org.cambench.cap.mixedsensitivities.contextobject.truenegative.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,7 +9,7 @@ public class BrokenHash1 {
         HashClass hashObject2 = GetObject("SHA-256");
         String data = "some data here";
 
-        MessageDigest messageDigest = MessageDigest.getInstance(hashObject1.algorithm);
+        MessageDigest messageDigest = MessageDigest.getInstance(hashObject2.algorithm);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
