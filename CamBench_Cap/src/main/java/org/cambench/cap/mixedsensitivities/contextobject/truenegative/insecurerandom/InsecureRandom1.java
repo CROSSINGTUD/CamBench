@@ -19,7 +19,7 @@ public class InsecureRandom1 {
         RandomClass randomClass2 = GetObject(new Random());
 
         byte[] ivBytes = new byte[16];
-        Random random = randomClass2.randomGenerator;
+        Random random = randomClass1.randomGenerator;
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
