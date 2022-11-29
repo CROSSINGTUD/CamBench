@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Context- & Field-Sensitive False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure & an insecure hash algorithm (MD5) are stored in an object's fields by using the Identity function. 
+  The secure one is then used to compute the hash of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 13
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - field-sensitivity
+
+security:
+  issue: false

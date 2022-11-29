@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Negative Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure & an insecure hash algorithm (MD5) are stored in an object's fields. TThe secure one is then used
+  in the reachable branch of the conditional statement to get an instance of the hash algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 30
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

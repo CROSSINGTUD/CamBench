@@ -1,0 +1,34 @@
+name:
+  Password Based Encryption Parameters Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  Two different byte arrays (one static, one with random values) are stored in variables by using the Identity function.
+  The random array is then as salt for a PBEParameterSpec object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/falsepositive/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/falsepositive/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 23
+  cc: 1
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

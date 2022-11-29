@@ -1,0 +1,37 @@
+name:
+  Insecure Random Context- & Field-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec;
+
+description:
+  An object of class Random and one of class SecureRandom are created and stored in another object's fields by 
+  using the Identity function.
+  The instance of the SecureRandom class is then utilized to fill a byte array that is used to create
+  an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 26
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 19
+
+codemetrics:
+  loc: 38
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - field-sensitivity
+
+security:
+  issue: false

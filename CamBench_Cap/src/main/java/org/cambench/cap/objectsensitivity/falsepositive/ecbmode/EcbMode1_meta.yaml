@@ -1,0 +1,35 @@
+name:
+  ECB Mode Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each store a string with a configuration of the AES algorithm (one with EBC mode, 
+  the other with CBC mode). The object with the CBC configuration is then used to initialize a cipher object.
+
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/falsepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 14
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/falsepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 11
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: false

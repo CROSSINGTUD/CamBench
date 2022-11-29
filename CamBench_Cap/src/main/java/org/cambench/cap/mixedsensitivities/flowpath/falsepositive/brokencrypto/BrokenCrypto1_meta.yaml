@@ -1,0 +1,35 @@
+name:
+  Broken Crypto Path- And Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A variable is assigned with the name of the insecure DES cipher. The variable is then re-assigned with
+  an instance of the AES cipher in the reachable branch of the conditional statement, before the cipher is initialized.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 13
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false
