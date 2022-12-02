@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  The RSA algorithm is initialized with a key size (512 bits) that is considered insecure.
+  The RSA algorithm is initialized with a key size (1024 bits) that is considered insecure.
 
 crypto-usage:
   violation: true

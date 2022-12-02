@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
 
         SizeClass sizeObject1 = new SizeClass(512);
         SizeClass sizeObject2 = new SizeClass(2048);

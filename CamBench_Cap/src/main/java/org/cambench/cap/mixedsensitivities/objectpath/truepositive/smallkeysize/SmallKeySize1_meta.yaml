@@ -5,8 +5,8 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  Two objects are created that each contain an integer that defines a keySize (512 and 2048). The object with
-  the key size of 512 is then used in the reachable branch of the conditional statement to 
+  Two objects are created that each contain an integer that defines a keySize (1024 and 2048). The object with
+  the key size of 1024 is then used in the reachable branch of the conditional statement to 
   create a keyPair for the initialization of the RSA algorithm.
 
 crypto-usage:

@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  Two different key sizes (512 and 2048) are stored in an object's fields that is stored in an object's
+  Two different key sizes (1024 and 2048) are stored in an object's fields that is stored in an object's
   field itself (getting a field-depth of 2, e.g. object.field.field). The smaller size is then used to 
   create a KeyPair and initialize an instance of the RSA algorithm.
 

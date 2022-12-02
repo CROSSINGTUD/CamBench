@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  The RSA algorithm is initialized with an insufficient key size (512 bits) in a conditional branch.
+  The RSA algorithm is initialized with an insufficient key size (1024 bits) in a conditional branch.
   The other branch of the condition sets the key size to 2048 bit, but is never reached.
 
 crypto-usage:

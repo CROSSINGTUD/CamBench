@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  A variable containing a small key size (512 bits) is passed as argument to a method and used 
+  A variable containing a small key size (1024 bits) is passed as argument to a method and used 
   to generate a KeyPair for the RSA algorithm, before the variable is set to an appropriate key size (2048 bits).
 
 crypto-usage:

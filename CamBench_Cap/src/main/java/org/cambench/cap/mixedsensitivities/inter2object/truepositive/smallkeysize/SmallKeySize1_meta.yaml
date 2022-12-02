@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  Two objects are created each contain an integer defining a key size in bits (512 and 2048). The smaller
+  Two objects are created each contain an integer defining a key size in bits (1024 and 2048). The smaller
   key size is then passed to a method and used to create a KeyPair for initialization of the RSA algorithm.
 
 crypto-usage:

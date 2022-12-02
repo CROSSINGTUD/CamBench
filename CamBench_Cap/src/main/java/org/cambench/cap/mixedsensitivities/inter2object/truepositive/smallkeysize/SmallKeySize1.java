@@ -9,14 +9,14 @@ import java.security.NoSuchAlgorithmException;
 
 public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        SizeClass sizeObject1 = new SizeClass(512);
+        SizeClass sizeObject1 = new SizeClass(1024);
         SizeClass sizeObject2 = new SizeClass(2048);
 
         method1(sizeObject1.keySize);
     }
 
     public static void method1(int keySize) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(keySize);
         KeyPair keyPair = keyGen.generateKeyPair();

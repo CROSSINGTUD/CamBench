@@ -6,7 +6,7 @@ api:
 
 description:
   The key size is set to 2048 bit after the RSA algorithm is 
-  initialized with an insufficient key size of 512 bit, but it is not initialized again with the bigger key size.
+  initialized with an insufficient key size of 1024 bit, but it is not initialized again with the bigger key size.
 
 crypto-usage:
   violation: true

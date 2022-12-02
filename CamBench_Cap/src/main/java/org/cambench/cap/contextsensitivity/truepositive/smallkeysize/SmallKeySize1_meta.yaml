@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  Two different key sizes (512 and 2048) are stored in variables, the smaller key size is then used to
+  Two different key sizes (1024 and 2048) are stored in variables, the smaller key size is then used to
   initialize the instance of the RSA algorithm for encryption.
 
 crypto-usage:
@@ -37,5 +37,5 @@ capabilities:
 security:
   issue: true
   issue-description:
-    The key-pair that is used for the RSA algorithm is initialized with a too small size (512 bits).
+    The key-pair that is used for the RSA algorithm is initialized with a too small size (1024 bits).
     As recommended by NIST, RSA keys should be at least of 2048 bits.

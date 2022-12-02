@@ -5,7 +5,7 @@ api:
   java.security.KeyPairGenerator
 
 description:
-  A small key size (512 bit) is passed to a method in the reachable branch of the conditional statement, where it is used
+  A small key size (1024 bit) is passed to a method in the reachable branch of the conditional statement, where it is used
   to crate a KeyPair for the RSA algorithm.
   In the other branch of the conditional statement, which is never reached, a more secure key size (2048 bit) is passed to the method.
 
