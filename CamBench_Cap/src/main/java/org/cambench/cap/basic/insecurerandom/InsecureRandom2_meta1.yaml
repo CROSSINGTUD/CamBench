@@ -25,8 +25,8 @@ crypto-usage:
 
 fix:
   description:
-    Replace the used object of the "Random" class with an object of the "SecureRandom" class
-    to generate a byte array for an iv.
+    Do not use a constant seed. If needed, use the setSeed() method with an unpredictable value (e.g. by calling 
+    nextInt() first).
   file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
 
 codemetrics:
@@ -36,5 +36,6 @@ codemetrics:
 security:
   issue: true
   issue-description:
-    The "Random" class is used to generate a random byte array, which can lead to insecurities.
-    For cryptographic use cases, the "SecureRandom" class should be used.
+    The object of class SecureRandom is used with a small, static seed. Since the seed can be guessed, generated values
+    are not unpredictable anymore and should not be used with IVParameterSpec, 
+    where an unpredictable value is recommended.

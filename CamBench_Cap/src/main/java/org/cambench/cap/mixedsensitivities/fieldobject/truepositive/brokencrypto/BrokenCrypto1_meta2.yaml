@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Field- & Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.KeyGenerator
+
+description:
+  The names of a secure & an insecure cipher (DES) are each stored in the fields of two objects. 
+  One of the fields containing an insecure cipher is then used to get an instance of the KeyGenerator.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 19
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 16
+
+fix:
+  description:
+    Replace the insecure algorithm with a secure one (e.g. AES, depending on the algorithm used for the cipher object).
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The KeyGenerator is initialized with an insecure algorithm. Since insecure algorithms should not be utilized
+    to create cipher objects, they also should not be utilized to create the according keys.
