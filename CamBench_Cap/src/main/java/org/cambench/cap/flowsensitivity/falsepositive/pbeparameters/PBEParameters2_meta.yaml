@@ -1,0 +1,34 @@
+name:
+  Password Based Encryption Parameters Flow-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  A variable is set to a small integer (10) before it is re-assigned with a much bigger value (20.000) and used
+  as iteration count for a PBEParameterSpec object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/falsepositive/pbeparameters/PBEParameters2.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 17
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

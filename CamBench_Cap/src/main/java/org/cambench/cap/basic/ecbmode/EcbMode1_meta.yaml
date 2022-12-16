@@ -1,0 +1,32 @@
+name:
+  ECB Mode Basic Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The AES algorithm is configured and initialized with the ECB mode of operation.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/basic/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 11
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+  file: main/java/org/cambench/cap/basic/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 15
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

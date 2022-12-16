@@ -1,0 +1,44 @@
+name:
+  Ecb Mode 2-Interprocedural Path-Sensitive True-Positive Case 1
+
+api:
+  java.security.Cipher
+
+description:
+  A configuration for the AES cipher using the ECB mode is passed to a method in the reachable branch of a conditional 
+  statement, where it is used initialize a cipher object with this configuration.
+  The other branch passes a secure configuration (using CBC mode) to the same method, but is never reached.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/ecbmode/EcbMode1.java
+    method: method1(String algoConfig)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 16
+
+fix:
+  description:
+    Replace the ECB mode of operation through another, secure mode, e.g. CBC mode.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 25
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of cyphertext.

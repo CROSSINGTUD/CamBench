@@ -1,0 +1,32 @@
+name:
+  Static Initialization Vector Basic Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static value is used as initialization vector (iv) to initialize a cipher (AES).
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 17
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 21
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

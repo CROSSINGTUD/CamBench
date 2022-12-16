@@ -1,0 +1,32 @@
+name:
+  Broken Crypto Basic Case 3
+
+api:
+  javax.crypto.Cipher
+
+description:
+  An insecure cipher (RC2) is initialized for encryption.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto3.java
+    method: main(String[] args)
+    line: 11
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/basic/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 15
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the RC2 algorithm, which should not be utilized since brute-force
+    attacks on 64-bit ciphers are possible.

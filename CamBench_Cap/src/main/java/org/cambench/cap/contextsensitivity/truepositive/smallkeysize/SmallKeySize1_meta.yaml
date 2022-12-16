@@ -1,0 +1,41 @@
+name:
+  Small Key Size Context-Sensitive True-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Two different key sizes (1024 and 2048) are stored in variables, the smaller key size is then used to
+  initialize the instance of the RSA algorithm for encryption.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/truepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 18
+
+    root:
+      file: main/java/org/cambench/cap/contextsensitivity/truepositive/smallkeysize/SmallKeySize1.java
+      method: main(String[] args)
+      line: 14
+
+fix:
+  description:
+    Increase the key size to the recommended value of 2048 bits or more for the RSA algorithm.
+  file: main/java/org/cambench/cap/contextsensitivity/truepositive/smallkeysize/CorrectedKeySize.java
+
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The key-pair that is used for the RSA algorithm is initialized with a too small size (1024 bits).
+    As recommended by NIST, RSA keys should be at least of 2048 bits.

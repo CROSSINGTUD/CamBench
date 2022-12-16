@@ -1,0 +1,34 @@
+name:
+  Insecure Random Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec;
+
+description:
+  An instance of the Random class and one of the SecureRandom class are created.
+  The latter one is then used to create an initialization vector (iv) for the cipher initialization.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 24
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 18
+
+codemetrics:
+  loc: 31
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

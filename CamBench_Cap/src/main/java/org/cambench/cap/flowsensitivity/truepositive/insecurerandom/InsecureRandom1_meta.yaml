@@ -1,0 +1,43 @@
+name:
+  Insecure Random Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  The byte array for the initialization vector is filled with random values by using the Random class 
+  and used in the IV creation before it is overwritten using the SecureRandom class.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: org/cambench/cap/flowsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 23
+
+    root:
+      location:
+        file: org/cambench/cap/flowsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 22
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class 
+    to generate a byte array for an iv.
+  file: org/cambench/cap/flowsensitivity/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 28
+  cc: 1
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

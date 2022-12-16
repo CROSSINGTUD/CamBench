@@ -1,0 +1,35 @@
+name:
+  ECB Mode Filed-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm are stored in an objects fields. 
+  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
+  The CBC configuration is then used to initialize an instance of the AES cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: false

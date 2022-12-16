@@ -1,0 +1,20 @@
+package main.java.org.cambench.cap.mixedsensitivities.inter2flow.truepositive.brokenhash;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class BrokenHash2 {
+
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        String algo = "SHA-256";
+        String data = "some data here";
+        algo = "SHA-1";
+        method1(algo, data);
+    }
+
+    public static void method1(String algo, String data) throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance(algo);
+        messageDigest.update(data.getBytes());
+        System.out.println(messageDigest.digest());
+    }
+}
