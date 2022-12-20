@@ -1,0 +1,34 @@
+name:
+  Static Initialization Vector 5-Callsites False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Five byte arrays (static or filled with random values) are stored in variables by using the Identity function.
+  One variable containing a random array is then used as initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/falsepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 25
+
+codemetrics:
+  loc: 32
+  cc: 1
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: false

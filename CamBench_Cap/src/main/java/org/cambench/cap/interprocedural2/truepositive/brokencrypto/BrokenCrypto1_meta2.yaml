@@ -1,0 +1,42 @@
+name:
+  Broken Crypto 2-Interprocedural True-Positive Case 1
+
+api:
+  javax.crypto.KeyGenerator
+
+description:
+  A string containing the name of an insecure cipher (DES) is
+  passed to a method and used to get an instance of the KeyGenerator.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String algo)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Replace the insecure algorithm with a secure one (e.g. AES, depending on the algorithm used for the cipher object).
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 20
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    The KeyGenerator is initialized with an insecure algorithm. Since insecure algorithms should not be utilized
+    to create cipher objects, they also should not be utilized to create the according keys.

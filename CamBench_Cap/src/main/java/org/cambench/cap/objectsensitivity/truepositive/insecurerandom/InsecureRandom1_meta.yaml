@@ -1,0 +1,44 @@
+name:
+  Insecure Random Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects are created that each contain a random generator (one of Class Random, one of class SecureRandom).
+  The Random object is selected to fill a byte array with random values, which is then used to create an initialization
+  vector for cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 25
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 23
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/objectsensitivity/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 36
+  cc: 2
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

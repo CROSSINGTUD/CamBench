@@ -1,0 +1,45 @@
+name:
+  Broken Crypto Context- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.KeyGenerator
+
+description:
+  The algo variables are set to the names of an insecure (DES) and a secure cipher (AES) by using the
+  identity function.
+  The insecure one is then utilized to get an instance of the KeyGenerator before the variable 
+  is re-assigned with the name of a secure cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 11
+
+fix:
+  description:
+    Replace the insecure algorithm with a secure one (e.g. AES, depending on the algorithm used for the cipher object).
+  file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 24
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The KeyGenerator is initialized with an insecure algorithm. Since insecure algorithms should not be utilized
+    to create cipher objects, they also should not be utilized to create the according keys.

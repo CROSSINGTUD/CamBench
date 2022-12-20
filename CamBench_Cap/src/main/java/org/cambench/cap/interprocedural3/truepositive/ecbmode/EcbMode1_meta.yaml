@@ -1,0 +1,42 @@
+name:
+  ECB Mode 3-Interprocedural True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A configuration for the AES algorithm containing the ECB mode of operation is passed over two methods where a cipher
+  object is then initialized with this configuration.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural3/truepositive/ecbmode/EcbMode1.java
+    method: method2(String algorithm, String algorithmConfig)
+    line: 24
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural3/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 13
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+  file: main/java/org/cambench/cap/interprocedural3/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 28
+  cc: 3
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

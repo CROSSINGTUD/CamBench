@@ -1,0 +1,41 @@
+name:
+  Insecure Random Basic Case 2
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A byte array is filled with random bytes by using the SecureRandom class with a predictable seed.
+  This byte array is then utilized to create an initialization vector.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
+        method: main(String[] args)
+        line: 19
+
+fix:
+  description:
+    Do not use a constant seed. If needed, use the setSeed() method with an unpredictable value (e.g. by calling 
+    nextInt() first).
+  file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 25
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    The object of class SecureRandom is used with a small, static seed. Since the seed can be guessed, generated values
+    are not unpredictable anymore and should not be used with IVParameterSpec, 
+    where an unpredictable value is recommended.

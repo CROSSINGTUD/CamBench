@@ -1,0 +1,45 @@
+name:
+  Insecure Random 2-Interprocedural Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A byte array is filled with values by using the SecureRandom class before the values are overwritten by using the 
+  standard Random class. The array is then passed to a method where it is used to create an 
+  initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
+    method: method1(byte[] ivBytes)
+    line: 29
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 21
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 32
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

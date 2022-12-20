@@ -1,0 +1,44 @@
+name:
+  Small Key Size Field- & Flow-Sensitive True-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Two different key sizes (512 and 1024) are stored in an object's fields. The field containing 512 is
+  then re-assigned with a value of 2048 before the other field is used as key size to create a KeyPair for
+  the RSA algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 15
+
+fix:
+  description:
+    Initialize the RSA algorithm with keys of at least 2048 bits.
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/smallkeysize/CorrectedKeySize.java
+
+codemetrics:
+  loc: 30
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The size of the generated keys does not conform the recommended minimum of 2048 bits.
+    Smaller key sizes can lead to insecurities when using the RSA algorithm.

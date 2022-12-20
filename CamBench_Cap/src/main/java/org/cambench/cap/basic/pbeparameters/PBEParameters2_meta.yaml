@@ -1,0 +1,39 @@
+name:
+  Password Based Encryption Parameters Basic Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The PBEParameterSpec is created with a small iteration count.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters2.java
+    method: main(String[] args)
+    line: 14
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Increase the iteration count to a value of at least 1000.
+  file: main/java/org/cambench/cap/basic/pbeparameters/CorrectedPBE.java
+
+codemetrics:
+  loc: 16
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    The iteration count that is used for the PBEParameterSpec is a small value, which is not sufficient.
+    Since the iteration count is meant to increase the difficulty of attacks, its value should be at least
+    1000, as recommended by RFC 2898.

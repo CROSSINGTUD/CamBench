@@ -1,0 +1,34 @@
+name:
+  Broken Hash Function Flow-Sensitive False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  A variable is set to the name of an insecure hash algorithm (MD5). The variable is then re-assigned with the name
+  of a secure hash algorithm (SHA-256) and used to create an instance of that algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/falsepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 12
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 8
+
+codemetrics:
+  loc: 16
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

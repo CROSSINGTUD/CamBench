@@ -1,0 +1,43 @@
+name:
+  Password Based Encryption Parameters Flow-Sensitive True-Positive Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  A small value of 10 is used as integration count for an PBEParameterSpec object. After the object is created, 
+  the value is increased to 20.000, but not again used as integration count.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/truepositive/pbeparameters/PBEParameters2.java
+    method: main(String[] args)
+    line: 14
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/truepositive/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Increase the iteration count to a value of at least 1000.
+  file: main/java/org/cambench/cap/flowsensitivity/truepositive/pbeparameters/CorrectedPBE.java
+
+codemetrics:
+  loc: 18
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The iteration count that is used for the PBEParameterSpec is a small value, which is not sufficient.
+    Since the iteration count is meant to increase the difficulty of attacks, its value should be at least
+    1000, as recommended by RFC 2898.

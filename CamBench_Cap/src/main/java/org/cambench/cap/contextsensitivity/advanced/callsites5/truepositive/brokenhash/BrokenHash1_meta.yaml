@@ -1,0 +1,40 @@
+name:
+  Broken Hash Function Context-Sensitive 5-Callsites True-Positive Basic Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Five variables are set to the names of different secure & insecure hash functions by using the Identity function.
+  One variable containing an insecure value is then utilized to compute the hash value of some data.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 15
+
+    root:
+      file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokenhash/BrokenHash1.java
+      method: main(String[] args)
+      line: 12
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure one, e.g. SHA-256.
+  file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 23
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The hash algorithm MD2 is considered broken and should therefore not be used to compute hash values.

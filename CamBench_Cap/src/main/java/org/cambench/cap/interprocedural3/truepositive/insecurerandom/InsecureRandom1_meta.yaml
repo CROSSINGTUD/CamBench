@@ -1,0 +1,43 @@
+name:
+  Insecure Random 3-Interprocedural True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A byte array is filled with values by using the Random class. The array is passed over two methods
+  where it is then used to create an initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/interprocedural3/truepositive/insecurerandom/InsecureRandom1.java
+    method: method2(byte[] ivBytes)
+    line: 30
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural3/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 17
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/interprocedural3/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 33
+  cc: 3
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

@@ -1,0 +1,44 @@
+name:
+  Broken Crypto Field- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.KeyGenerator
+
+description:
+  The names of two insecure ciphers (Blowfish and DES) are stored in an object's fields. 
+  The field containing the Blowfish value is then sanitized by re-assigning it with the name of a secure
+  algorithm (AES) before the other field is used to get an instance of the KeyGenerator.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Replace the insecure algorithm with a secure one (e.g. AES, depending on the algorithm used for the cipher object).
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 25
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The KeyGenerator is initialized with an insecure algorithm. Since insecure algorithms should not be utilized
+    to create cipher objects, they also should not be utilized to create the according keys.
