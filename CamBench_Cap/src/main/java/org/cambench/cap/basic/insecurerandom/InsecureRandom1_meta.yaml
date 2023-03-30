@@ -1,0 +1,39 @@
+name:
+  Insecure Random Basic Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An initialization vector (iv) is created with a byte array that was filled by using the standard Random class.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 21
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 19
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

@@ -1,0 +1,35 @@
+name:
+  Small Key Size Path-Sensitive Path-Depth-2 False-Positive Case 1
+
+api:
+  - java.security.KeyPairGenerator
+
+description:
+  A sufficient key size (2048 bits) for the RSA algorithm is set in the reachable 
+  branch of a nested conditional statement with depth 2 and then used to create a KeyPair.
+  In every other branch, of which none are reached, an insufficient KeySize (512 and 1024 bit) would have been used.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/smallkeysize/SmallKeySize1.java
+    method: main(string[] args)
+    line: 27
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/smallkeysize/SmallKeySize1.java
+        method: main(string[] args)
+        line: 19
+
+codemetrics:
+  loc: 32
+  cc: 3
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,36 @@
+name:
+  ECB Mode Path- And Flow-Sensitive False-Positive Case 1
+
+api:
+  java.security.Cipher
+
+description:
+  A variable is set to a configuration of the AES cipher with the insecure ECB mode used. 
+  The variable is then re-assigned in the reachable branch of the conditional statement with a new configuration 
+  of the AES cipher that uses the secure CBC mode, before the cipher is initialized.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 12
+
+codemetrics:
+  loc: 25
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

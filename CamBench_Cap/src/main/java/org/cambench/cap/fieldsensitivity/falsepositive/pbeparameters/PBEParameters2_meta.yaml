@@ -1,0 +1,34 @@
+name:
+  Password Based Encryption Parameters Field-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  Two integers (10 and 20.000) are stored in an object's fields.
+  The bigger value is then used as iteration count for a PBEParameterSpec object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/pbeparameters/PBEParameters2.java
+    method: main(String[] args)
+    line: 16
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 13
+
+codemetrics:
+  loc: 23
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Object-Sensitive Multiple-Objects True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Five objects are created that each hold the name of a single cipher. One contains a secure cipher, the other
+  different insecure ciphers. 
+  The object with the insecure DES cipher is then used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/advanced/multipleobjects/advanced/multipleobjects/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 17
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/objectsensitivity/advanced/multipleobjects/advanced/multipleobjects/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 14
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/objectsensitivity/advanced/multipleobjects/advanced/multipleobjects/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 29
+  cc: 2
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

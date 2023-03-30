@@ -1,0 +1,35 @@
+name:
+  Broken Hash Function Flow-Sensitive Value-Swap False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two variables are created, one containing the name of an insecure hash algorithm (MD5) the other one containing
+  a secure one (SHA-256). The values are swapped by using a third variable, s.t. in the end both original variables hold
+  the secure algorithm name. One of them is then used to create an instance of that algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 18
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 9
+
+codemetrics:
+  loc: 22
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

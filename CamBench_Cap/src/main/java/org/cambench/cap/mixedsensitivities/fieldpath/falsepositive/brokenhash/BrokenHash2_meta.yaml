@@ -1,0 +1,36 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Negative Case 2
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure (SHA-256) & an insecure hash algorithm (SHA-1) are stored in an object's fields, depending
+  on the conditional statement.
+  A secure one is then used to get an instance of the hash algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash2.java
+        method: main(String[] args)
+        line: 19
+
+codemetrics:
+  loc: 31
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,35 @@
+name:
+  Insecure Random Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An object of class Random and used to fill a byte array with random values.
+  The array is then filled again by using an object of class SecureRandom, before the array is utilized as
+  initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 25
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 22
+
+codemetrics:
+  loc: 30
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

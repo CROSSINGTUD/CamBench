@@ -1,0 +1,42 @@
+name:
+  Broken Crypto 3-Interprocedural True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A string containing the name of an insecure cipher (DES) is 
+  passed over two methods and used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/interprocedural3/truepositive/brokencrypto/BrokenCrypto1.java
+    method: method2(String algorithm)
+    line: 22
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural3/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/interprocedural3/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 26
+  cc: 3
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

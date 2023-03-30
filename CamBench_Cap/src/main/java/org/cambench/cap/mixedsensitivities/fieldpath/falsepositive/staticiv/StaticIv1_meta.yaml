@@ -1,0 +1,36 @@
+name:
+  Static Initialization Vector Path- And Field-Sensitive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static and a random, non-static initialization vector (iv) are stored in an object's fields, 
+  depending on the conditional statement.
+  The random iv is then utilized to initialize an instance of the AES algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 32
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 29
+
+codemetrics:
+  loc: 40
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

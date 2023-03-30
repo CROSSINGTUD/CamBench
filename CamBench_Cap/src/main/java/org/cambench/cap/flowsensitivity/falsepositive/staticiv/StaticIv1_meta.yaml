@@ -1,0 +1,34 @@
+name:
+  Static Initialization Vector Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A byte array is initialized and set to a static value. It is then filled with random numbers from the
+  SecureRandom class and used as initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 23
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 20
+
+codemetrics:
+  loc: 26
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,42 @@
+name:
+  Password Based Encryption Parameters 2-Interprocedural True-Positive Case 2
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  A small integer is passed to a method where it is used as integration count for an PBEParameterSpec object.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/interprocedural2/truepositive/pbeparameters/PBEParameters2.java
+    method: method1(byte[] saltArray, int iterationCount)
+    line: 18
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/interprocedural2/truepositive/pbeparameters/PBEParameters2.java
+        method: main(String[] args)
+        line: 12
+
+fix:
+  description:
+    Increase the iteration count to a value of at least 1000.
+  file: main/java/org/cambench/cap/interprocedural2/truepositive/pbeparameters/CorrectedPBE.java
+
+codemetrics:
+  loc: 20
+  cc: 2
+
+capabilities:
+  - interprocedural
+
+security:
+  issue: true
+  issue-description:
+    The iteration count that is used for the PBEParameterSpec is a small value, which is not sufficient.
+    Since the iteration count is meant to increase the difficulty of attacks, its value should be at least
+    1000, as recommended by RFC 2898.

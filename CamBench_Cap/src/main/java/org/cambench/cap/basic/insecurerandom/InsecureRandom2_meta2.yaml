@@ -1,0 +1,33 @@
+name:
+  Insecure Random Basic Case 2
+
+api:
+  java.security.SecureRandom
+
+description:
+  An object of class SecureRandom is provided with a small and predictable seed.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
+    method: main(String[] args)
+    line: 19
+
+fix:
+  description:
+    Do not use a constant seed. If needed, use the setSeed() method with an unpredictable value (e.g. by calling
+    nextInt() first).
+  file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 25
+  cc: 1
+
+security:
+  issue: true
+  issue-description:
+    The object of class SecureRandom is used with a small, static seed. Since the seed can be guessed, generated values
+    are not unpredictable anymore.

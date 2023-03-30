@@ -1,0 +1,44 @@
+name:
+  Small Key Size Path- And Object-Sensitive True-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Two objects are created that each contain an integer that defines a keySize (1024 and 2048). The object with
+  the key size of 1024 is then used in the reachable branch of the conditional statement to 
+  create a keyPair for the initialization of the RSA algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 20
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/smallkeysize/SmallKeySize1.java
+        method: main(String[] args)
+        line: 15
+
+fix:
+  description:
+    Increase the key size to the recommended value of 2048 bits or more for the RSA algorithm.
+  file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/smallkeysize/CorrectedKeySize.java
+
+codemetrics:
+  loc: 36
+  cc: 3
+
+capabilities:
+  - object-Sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The size of the generated keys does not conform the recommended minimum of 2048 bits.
+    Smaller key sizes can lead to insecurities when using the RSA algorithm.
