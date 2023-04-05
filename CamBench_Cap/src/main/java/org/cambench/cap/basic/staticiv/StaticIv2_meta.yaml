@@ -14,13 +14,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
     method: main(String[] args)
-    line: 17
+    line: 33
 
     root:
       location:
         file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
         method: main(String[] args)
-        line: 16
+        line: 32
 
 fix:
   description:

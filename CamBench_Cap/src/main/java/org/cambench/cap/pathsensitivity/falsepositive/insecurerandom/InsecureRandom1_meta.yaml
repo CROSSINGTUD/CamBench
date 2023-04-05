@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
-    line: 29
+    line: 45
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 26
+        line: 42
 
 codemetrics:
   loc: 32

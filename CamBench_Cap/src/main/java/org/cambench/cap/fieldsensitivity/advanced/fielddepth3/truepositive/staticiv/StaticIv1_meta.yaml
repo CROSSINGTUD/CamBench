@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth3/truepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 27
+    line: 43
 
     root:
       location:
         file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth3/truepositive/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 24
+        line: 40
 
 fix:
   description:

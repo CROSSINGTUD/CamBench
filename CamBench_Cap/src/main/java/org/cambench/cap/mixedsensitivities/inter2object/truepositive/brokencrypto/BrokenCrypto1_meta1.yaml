@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/brokencrypto/BrokenCrypto1.java
     method: method1(String algo)
-    line: 18
+    line: 34
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/brokencrypto/BrokenCrypto1.java
         method: main(String[] args)
-        line: 12
+        line: 28
 
 fix:
   description:

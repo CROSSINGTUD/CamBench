@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 23
+    line: 39
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/smallkeysize/SmallKeySize1.java
         method: main(String[] args)
-        line: 14
+        line: 30
 
 codemetrics:
   loc: 27

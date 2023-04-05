@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
-    line: 29
+    line: 45
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 21
+        line: 37
 
 fix:
   description:

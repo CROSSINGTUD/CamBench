@@ -14,7 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto5.java
     method: main(String[] args)
-    line: 12
+    line: 28
 
 fix:
   description:

@@ -15,7 +15,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
-    line: 19
+    line: 35
 
 fix:
   description:

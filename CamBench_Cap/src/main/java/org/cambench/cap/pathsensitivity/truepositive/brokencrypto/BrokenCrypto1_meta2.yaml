@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/truepositive/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
-    line: 20
+    line: 36
 
 fix:
   description:

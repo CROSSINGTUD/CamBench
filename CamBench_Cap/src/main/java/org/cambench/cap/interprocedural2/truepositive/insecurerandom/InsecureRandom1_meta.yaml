@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural2/truepositive/insecurerandom/InsecureRandom1.java
     method: method1(byte[] ivBytes)
-    line: 25
+    line: 41
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural2/truepositive/insecurerandom/InsecureRandom1.java
         method: main(String[] args)
-        line: 17
+        line: 33
 
 fix:
   description:

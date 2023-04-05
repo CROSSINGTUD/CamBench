@@ -14,7 +14,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 11
+    line: 27
 
 fix:
   description:

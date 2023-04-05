@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
     method: main(String[] args)
-    line: 22
+    line: 38
 
     root:
       location:
         file: main/java/org/cambench/cap/basic/insecurerandom/InsecureRandom2.java
         method: main(String[] args)
-        line: 19
+        line: 35
 
 fix:
   description:

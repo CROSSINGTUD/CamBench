@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 31
+    line: 47
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 25
+        line: 41
 
 codemetrics:
   loc: 34

@@ -14,13 +14,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto2.java
     method: main(String[] args)
-    line: 13
+    line: 29
 
     root:
       location:
         file: main/java/org/cambench/cap/basic/brokencrypto/BrokenCrypto2.java
         method: main(String[] args)
-        line: 11
+        line: 27
 
 fix:
   description:

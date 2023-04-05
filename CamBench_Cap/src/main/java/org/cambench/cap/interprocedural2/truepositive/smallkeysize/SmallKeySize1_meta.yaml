@@ -14,13 +14,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural2/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 21
+    line: 37
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural2/truepositive/smallkeysize/SmallKeySize1.java
         method: main(String[] args)
-        line: 13
+        line: 29
 
 fix:
   description:

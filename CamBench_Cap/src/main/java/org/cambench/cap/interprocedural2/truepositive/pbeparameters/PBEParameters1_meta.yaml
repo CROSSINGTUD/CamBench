@@ -14,13 +14,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural2/truepositive/pbeparameters/PBEParameters1.java
     method: method1(byte[] saltArray, int iterationCount)
-    line: 14
+    line: 30
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural2/truepositive/pbeparameters/PBEParameters1.java
         method: main(String[] args)
-        line: 8
+        line: 24
 
 fix:
   description:

@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/objectsensitivity/truepositive/pbeparameters/PBEParameters1.java
     method: main(String[] args)
-    line: 17
+    line: 33
 
     root:
       location:
         file: main/java/org/cambench/cap/objectsensitivity/truepositive/pbeparameters/PBEParameters1.java
         method: main(String[] args)
-        line: 13
+        line: 29
 
 fix:
   description:

@@ -14,13 +14,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters1.java
     method: main(String[] args)
-    line: 11
+    line: 27
 
     root:
       location:
         file: main/java/org/cambench/cap/basic/pbeparameters/PBEParameters1.java
         method: main(String[] args)
-        line: 8
+        line: 24
 
 fix:
   description:

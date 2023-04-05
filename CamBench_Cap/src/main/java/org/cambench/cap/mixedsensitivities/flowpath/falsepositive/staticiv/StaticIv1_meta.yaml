@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/staticiv/StaticIv1.java
     method: main(String[] args)
-    line: 31
+    line: 47
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/staticiv/StaticIv1.java
         method: main(String[] args)
-        line: 18
+        line: 34
 
 codemetrics:
   loc: 34

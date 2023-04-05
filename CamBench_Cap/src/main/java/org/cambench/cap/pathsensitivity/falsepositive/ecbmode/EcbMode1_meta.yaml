@@ -16,13 +16,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
-    line: 16
+    line: 32
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/falsepositive/ecbmode/EcbMode1.java
         method: main(String[] args)
-        line: 18
+        line: 34
 
 codemetrics:
   loc: 23

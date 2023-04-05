@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash1.java
     method: method2(String algorithm, String dataString)
-    line: 21
+    line: 37
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural3/truepositive/brokenhash/BrokenHash1.java
         method: main(String[] args)
-        line: 9
+        line: 25
 
 fix:
   description:

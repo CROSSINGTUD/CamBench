@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/smallkeysize/SmallKeySize1.java
     method: method1(int keySize)
-    line: 22
+    line: 38
 
     root:
       location:
         file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/smallkeysize/SmallKeySize1.java
         method: main(String[] args)
-        line: 13
+        line: 29
 
 fix:
   description:

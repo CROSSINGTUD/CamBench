@@ -15,12 +15,12 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/falsepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 15
+    line: 31
 
     root:
       file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/falsepositive/brokenhash/BrokenHash1.java
       method: main(String[] args)
-      line: 8
+      line: 24
 
 codemetrics:
   loc: 23

@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
-    line: 25
+    line: 41
 
     root:
       location:
         file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/brokenhash/BrokenHash1.java
         method: main(String[] args)
-        line: 21
+        line: 37
 
 codemetrics:
   loc: 29

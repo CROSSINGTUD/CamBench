@@ -15,13 +15,13 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/interprocedural2/truepositive/ecbmode/EcbMode1.java
     method: method1(String algo, String algoConfig)
-    line: 17
+    line: 33
 
     root:
       location:
         file: main/java/org/cambench/cap/interprocedural2/truepositive/ecbmode/EcbMode1.java
         method: main(String[] args)
-        line: 13
+        line: 29
 
 fix:
   description:
