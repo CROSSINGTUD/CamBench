@@ -12,6 +12,3 @@ We used gradle as build tool. To build the benchmark, simply run
 ```
 gradlw build
 ```
-
-
-The evaluation folder contains evaluation results of five static analysis tools: CogniCrypt_SAST, CryptoGuard, FindSecBugs, SonarQube, and VisualCodeGrepper.
