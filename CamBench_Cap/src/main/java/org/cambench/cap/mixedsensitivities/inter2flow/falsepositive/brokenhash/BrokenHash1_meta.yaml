@@ -1,0 +1,43 @@
+name:
+  Broken Hash Function 2-Interprocedural Flow-Sensitive True-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  A string containing the name of a broken hash algorithm (MD5) is passed as value to another method where 
+  a MessageDigest object is initialized to compute the hash value of some data, before the original string is
+  overwritten with the name of a secure hash algorithm (SHA-256).
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/brokenhash/BrokenHash1.java
+    method: method1(String algo, String data)
+    line: 32
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 25
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/CorrectedHash.java
+
+codemetrics:
+  loc: 20
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

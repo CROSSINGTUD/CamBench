@@ -1,0 +1,45 @@
+name:
+  Insecure Random 2-Interprocedural Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each contain a random generator (one of Class Random, one of class SecureRandom).
+  The Random object passed to a method to fill a byte array with random values, which is then used to create an initialization
+  vector for cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/insecurerandom/InsecureRandom1.java
+    method: method1(Random randomGenerator)
+    line: 45
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 43
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2object/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 40
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.

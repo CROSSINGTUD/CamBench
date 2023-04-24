@@ -1,0 +1,44 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a broken hash algorithm (MD5) and a secure one (SHA-256) 
+  are stored in variables via the identity function.
+  The secure one is then used in the reachable branch 
+  of the conditional statement to get an instance of the algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 31
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 25
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 27
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

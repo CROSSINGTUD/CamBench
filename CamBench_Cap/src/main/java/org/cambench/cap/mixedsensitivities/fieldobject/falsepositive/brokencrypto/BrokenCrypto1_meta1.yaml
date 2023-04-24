@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Field- & Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (DES) are each stored in the fields of two objects. 
+  One of the fields containing an insecure cipher is then used to initialize the actual cipher object.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 34
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 32
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldobject/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

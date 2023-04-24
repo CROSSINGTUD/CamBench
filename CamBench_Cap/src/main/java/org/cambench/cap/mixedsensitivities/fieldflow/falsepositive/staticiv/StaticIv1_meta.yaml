@@ -1,0 +1,44 @@
+name:
+  Static Initialization Vector Field- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two static (string-based) byte arrays are stored in an object's fields.
+  One of them is replaced with a byte array that was filled by using SecureRandom before the other array is used
+  to create in initialization vector.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 42
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 38
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static byte array for iv creation.
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 34
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static byte array is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

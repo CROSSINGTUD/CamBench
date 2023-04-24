@@ -1,0 +1,44 @@
+name:
+  ECB Mode 2-Interprocedural Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A configuration for the AES algorithm containing the ECB mode of operation is passed to method where a cipher
+  object is initialized with this configuration before the original configuration is overwritten with a more secure 
+  configuration.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/ecbmode/EcbMode1.java
+    method: method1(String algo, String algoConfig)
+    line: 35
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 29
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+  file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 23
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

@@ -1,0 +1,44 @@
+name:
+  ECB Mode Context- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm (one with ECB and one with CBC mode of operation) are stored in variables
+  by using the identity function.
+  The insecure ECB configuration is then used to initialize a cipher object for encryption before the variable
+  containing it is re-assigned with a secure configuration.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/ecbmode/EcbMode1.java
+    method: main(string[] args)
+    line: 30
+
+    root:
+      file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/ecbmode/EcbMode1.java
+      method: main(string[] args)
+      line: 27
+
+fix:
+  description:
+    Replace the ECB mode in the configuration with another, more secure mode like CBC.
+  file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 24
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The AES block cipher is initialized with the ECB mode of operation. This configuration should not be used because
+    blocks with the same value will be encrypted to the same ciphertext with ECB mode, which is insecure.
