@@ -1,0 +1,44 @@
+name:
+  Static Initialization Vector Path- And Field-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static and a random, non-static initialization vector (iv) are stored in an object's fields, 
+  depending on the conditional statement.
+  The static iv is then utilized to initialize an instance of the AES algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 48
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 41
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 40
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

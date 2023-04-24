@@ -1,0 +1,45 @@
+name:
+  Insecure Random Path- And Field-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An object of class Random and one of class SecureRandom are created and stored in another object's fields.
+  The instance of the Random class is chosen in the reachable branch of the conditional statement
+  to fill a byte array which is then used to create an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 47
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/insecurerandom/InsecureRandom1.java
+        method: main(String[] args)
+        line: 44
+
+fix:
+  description:
+    Replace the used object of the "Random" class with an object of the "SecureRandom" class
+    to generate a byte array for an iv.
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/insecurerandom/CorrectedRandom.java
+
+codemetrics:
+  loc: 39
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The "Random" class is used to generate a random byte array, which can lead to insecurities.
+    For cryptographic use cases, the "SecureRandom" class should be used.
