@@ -29,6 +29,6 @@ public class PBEParameters2 {
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterations);
 
-        iterations = 20000;
+        iterations = 10000000;
     }
 }
