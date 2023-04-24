@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Path-Sensitive Path-Depth 3 True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  An instance of an insecure cipher (RC4) is used in the reachable branch of a nested conditional statement with depth 2.
+  In the other branches, of which none are reached, an instances of insecure ciphers (Blowfish, DES) and a secure
+  cipher (AES) would have been used.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 50
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 41
+
+fix:
+  description:
+    Change the condition to use a secure cipher (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 37
+  cc: 4
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

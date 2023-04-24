@@ -1,0 +1,42 @@
+name:
+  Broken Hash Path-Sensitive Path-Depth-2 True-Positive Case 1
+
+api:
+  - java.security.MessageDigest
+
+description:
+  An insecure hash algorithm (MD5) is initialized in a conditional branch.
+  The reached branch initializes an insecure hash algorithm (MD5).
+  The unreached branches hold a secure algorithm (SHA-256) and an insecure one (SHA-1).
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 41
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 30
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 29
+  cc: 3
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
