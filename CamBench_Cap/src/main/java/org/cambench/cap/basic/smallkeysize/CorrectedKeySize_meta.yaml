@@ -1,0 +1,24 @@
+name:
+  Corrected Small Key Size Basic Case
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  The RSA algorithm is initialized with a key size (3072 bits) that is considered insecure.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/basic/smallkeysize/CorrectedKeySize.java
+    method: main(String[] args)
+    line: 31
+
+codemetrics:
+  loc: 20
+  cc: 1
+
+security:
+  issue: false

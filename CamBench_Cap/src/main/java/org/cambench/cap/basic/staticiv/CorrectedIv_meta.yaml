@@ -1,0 +1,30 @@
+name:
+  Corrected Static Initialization Vector Basic Case
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A securely random byte array is used as initialization vector (iv) to initialize a cipher (AES).
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
+    method: main(String[] args)
+    line: 33
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
+        method: main(String[] args)
+        line: 32
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+security:
+  issue: false
