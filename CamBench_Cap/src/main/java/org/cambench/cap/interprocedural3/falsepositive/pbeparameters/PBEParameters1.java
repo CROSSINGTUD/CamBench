@@ -23,7 +23,7 @@ public class PBEParameters1 {
     public static void main(String[] args) {
 
         byte[] salt = {123};
-        int iterations = 20000;
+        int iterations = 10000000;
         method1(salt,iterations);
     }
 

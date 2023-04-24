@@ -31,7 +31,7 @@ public class PBEParameters2 {
     }
 
     public static void method1(byte[] saltArray, int iterationCount) {
-        int newIterations = 20000;
+        int newIterations = 10000000;
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(saltArray,newIterations);
     }
 }
