@@ -26,7 +26,7 @@ public class PBEParameters2 {
 
         secureRandom.nextBytes(salt);
         int iterations1 = Identity(10);
-        int iterations2 = Identity(20000);
+        int iterations2 = Identity(10000000);
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterations2);
     }
