@@ -30,7 +30,7 @@ public class PBEParameters1 {
         paramClass.selfObject.salt1 = new byte[]{123};
         paramClass.selfObject.salt2 = randomSalt;
 
-        int iterations = 20000;
+        int iterations = 10000000;
         PBEParameterSpec pbeParameterSpecSpec = new PBEParameterSpec(paramClass.selfObject.salt1,iterations);
     }
 
