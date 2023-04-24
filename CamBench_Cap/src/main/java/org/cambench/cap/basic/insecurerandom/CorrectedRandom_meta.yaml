@@ -1,0 +1,30 @@
+name:
+  Corrected Insecure Random Basic Case
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An initialization vector (iv) is created with a byte array that was filled by using the SecureRandom class.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+    method: main(String[] args)
+    line: 37
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
+        method: main(String[] args)
+        line: 35
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+security:
+  issue: false

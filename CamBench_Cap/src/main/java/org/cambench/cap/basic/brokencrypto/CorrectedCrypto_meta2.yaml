@@ -1,0 +1,24 @@
+name:
+  Corrected Broken Crypto Basic Case
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The KeyGenerator is used with an insecure algorithm (AES).
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/basic/brokencrypto/CorrectedCrypto.java
+    method: main(String[] args)
+    line: 28
+
+codemetrics:
+  loc: 15
+  cc: 1
+
+security:
+  issue: false

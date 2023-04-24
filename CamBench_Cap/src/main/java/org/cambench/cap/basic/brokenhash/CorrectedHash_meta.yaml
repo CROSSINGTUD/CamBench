@@ -1,0 +1,24 @@
+name:
+  Corrected Broken Hash Function Basic Case
+
+api:
+  java.security.MessageDigest
+
+description:
+  A secure hash algorithm (SHA-256) is initialized to compute the hash value of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/basic/brokenhash/CorrectedHash.java
+    method: main(String[] args)
+    line: 25
+
+codemetrics:
+  loc: 13
+  cc: 1
+
+security:
+  issue: false
