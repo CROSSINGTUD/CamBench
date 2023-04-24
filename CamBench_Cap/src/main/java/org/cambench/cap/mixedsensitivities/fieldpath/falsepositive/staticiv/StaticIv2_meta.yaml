@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Field-Sensitive Case 2
+  Static Initialization Vector Path- And Field-Sensitive False-Positive Case 2
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -30,6 +30,7 @@ codemetrics:
 
 capabilities:
   - field-sensitivity
+  - path-sensitivity
 
 security:
   issue: false

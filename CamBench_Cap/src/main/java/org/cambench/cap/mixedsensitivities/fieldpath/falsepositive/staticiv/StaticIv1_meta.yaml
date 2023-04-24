@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Path- And Field-Sensitive Case 1
+  Static Initialization Vector Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec
