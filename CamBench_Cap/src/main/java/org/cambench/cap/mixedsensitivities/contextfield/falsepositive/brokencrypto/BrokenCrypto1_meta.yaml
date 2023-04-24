@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The names of a secure & an insecure cipher (DES) are stored in an object's fields by using the Identity function.
+  The names of a secure & an insecure cipher (Blowfish) are stored in an object's fields by using the Identity function.
   The secure one is then used to initialize the actual cipher object.
 
 crypto-usage:
