@@ -1,0 +1,43 @@
+name:
+  Broken Crypto Flow-Sensitive Value-Swap True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two variables are created, one containing the name of an insecure cipher (Blowfish) the other one containing 
+  a secure cipher (AES). The values are swapped by using a third variable, s.t. in the end the insecure algorithm is 
+  used to create an actual cipher object.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 35
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 27
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 23
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
+    attacks on 64-bit block ciphers like sweet32.
