@@ -5,7 +5,7 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  Two objects are created that each contain an integer value (10 and 20000). The bigger value
+  Two objects are created that each contain an integer value (10 and 10.000.000). The bigger value
   is then used as integration count for an PBEParameterSpec object.
 
 crypto-usage:
