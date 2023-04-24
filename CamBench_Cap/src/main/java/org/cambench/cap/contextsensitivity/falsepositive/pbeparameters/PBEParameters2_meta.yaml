@@ -5,7 +5,7 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  Two integers (10 and 20.000) are stored in variables by using the Identity function.
+  Two integers (10 and 10.000.000) are stored in variables by using the Identity function.
   The bigger value is then used as iteration count for an PBEParameterSpec object.
 
 crypto-usage:

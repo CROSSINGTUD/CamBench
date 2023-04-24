@@ -39,3 +39,4 @@ security:
   issue-description:
     The key-pair that is used for the RSA algorithm is initialized with a too small size (1024 bits).
     As recommended by NIST, RSA keys should be at least of 2048 bits.
+    Beyond 2023 the minimum key length will be 3072 bits.
