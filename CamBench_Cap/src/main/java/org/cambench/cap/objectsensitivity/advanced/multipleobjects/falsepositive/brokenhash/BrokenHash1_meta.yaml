@@ -1,0 +1,29 @@
+name:
+  Broken Hash Function Object-Sensitive Multiple-Objects False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Five objects are created that each hold the name of a hash algorithm. One contains the secure SHA-256 algorithm, 
+  the others different insecure algorithms. The object with the secure SHA-256 hash algorithm is then used 
+  to initialize a MessageDigest object that is used to generate the hash of some data.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/advanced/multipleobjects/falsepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 31
+
+codemetrics:
+  loc: 27
+  cc: 2
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: false
