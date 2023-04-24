@@ -32,7 +32,7 @@ public class PBEParameters1 {
         array2 = swapper;
         array1 = array2;
 
-        int iterations = 20000;
+        int iterations = 10000000;
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(array1, iterations);
     }
 }

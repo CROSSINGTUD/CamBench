@@ -6,7 +6,7 @@ api:
 
 description:
   A small value of 10 is used as integration count for an PBEParameterSpec object. After the object is created, 
-  the value is increased to 20.000, but not again used as integration count.
+  the value is increased to 10.000.000, but not again used as integration count.
 
 crypto-usage:
   violation: true
@@ -40,4 +40,7 @@ security:
   issue-description:
     The iteration count that is used for the PBEParameterSpec is a small value, which is not sufficient.
     Since the iteration count is meant to increase the difficulty of attacks, its value should be at least
-    1000, as recommended by RFC 2898.
+    10.000.000. This value is an approximation since a concrete value is currently an open discussion for
+    standardization (c.f. https://csrc.nist.gov/news/2023/proposal-to-revise-nist-sp-800-132-pbkdf).
+    We chose this value to reflect a reasonable magnitude with relevance for industry
+    (cf. https://help.apple.com/pdf/security/en_US/apple-platform-security-guide.pdf - p.81).
