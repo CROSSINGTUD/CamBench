@@ -16,6 +16,12 @@ crypto-usage:
     method: main(String[] args)
     line: 33
 
+    root:
+      location:
+        file: main/java/org/cambench/cap/basic/staticiv/StaticIv2.java
+        method: main(String[] args)
+        line: 32
+
 fix:
   description:
     Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
