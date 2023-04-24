@@ -34,4 +34,4 @@ security:
   issue: true
   issue-description:
     Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
-    identical blocks of plaintext will be encrypted to identical blocks of cyphertext.
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

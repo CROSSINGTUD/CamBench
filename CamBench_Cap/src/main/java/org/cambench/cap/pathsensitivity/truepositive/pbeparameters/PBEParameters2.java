@@ -30,7 +30,7 @@ public class PBEParameters2 {
         if(condition > 0) {
             iterations = 10;
         } else {
-            iterations = 10000;
+            iterations = 10000000;
         }
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterations);
