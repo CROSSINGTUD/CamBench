@@ -1,0 +1,44 @@
+name:
+  Password Based Encryption Parameters Path-Sensitive Path-Depth-2 True-Positive Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The salt used to create a PBEParameterSpec object is a static value in the reachable branch of a nested conditional
+  statement with depth 2.
+  The unreached branches hold a static value or is using the SecureRandom class to generate a securely random value.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 40
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/pbeparameters/PBEParameters1.java
+        method: main(String[] args)
+        line: 36
+
+fix:
+  description:
+    Replace the static array that is used as salt with an array that was filled with random values
+    from the SecureRandom class.
+  file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/truepositive/pbeparameters/CorrectedPBE.java
+
+codemetrics:
+  loc: 26
+  cc: 3
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    The salt that is used for the PBEParameterSpec is a small static value, which is predictable and can
+    therefore lead to security issues.

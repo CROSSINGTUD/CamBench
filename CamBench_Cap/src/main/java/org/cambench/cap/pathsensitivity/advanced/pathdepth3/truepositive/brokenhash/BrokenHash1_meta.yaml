@@ -1,0 +1,43 @@
+name:
+  Broken Hash Path-Sensitive Path-Depth-3 True-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  An instance of an insecure hash algorithm (MD4) is used in the reachable 
+  branch of a nested conditional statement with depth 3.
+  In every other branch, of which none are reached,
+  The unreached branches hold a secure algorithm (SHA-256) and an insecure ones (SHA-1, MD5).
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 46
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 38
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
+  file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 34
+  cc: 4
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    MD4 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
