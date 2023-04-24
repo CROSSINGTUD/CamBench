@@ -1,0 +1,44 @@
+name:
+  Static Initialization Vector Flow- & Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects are created that each store a static, string based byte array or a
+  random byte array.These arrays are replaced, however, a static value is used to create an initialization vector for
+  cipher initialization.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 44
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 41
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 35
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.
