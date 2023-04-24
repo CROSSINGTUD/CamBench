@@ -1,0 +1,44 @@
+name:
+  Broken Hash Function Context- & Object-Sensitive True-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two objects that each contain a string with a the name of a hash algorithm
+  as value (MD5 and SHA-256, respectively) are created by calling the GetObject method. 
+  The object with the MD5 string is then used to create an instance of the algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/brokenhash/BrokenHash1.java
+    method: main(String[] args)
+    line: 28
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/brokenhash/BrokenHash1.java
+        method: main(String[] args)
+        line: 24
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256).
+  file: main/java/org/cambench/cap/mixedsensitivities/contextobject/truepositive/brokenhash/CorrectedHash.java
+
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - object-sensitivity
+    
+security:
+  issue: true
+  issue-description:
+    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
