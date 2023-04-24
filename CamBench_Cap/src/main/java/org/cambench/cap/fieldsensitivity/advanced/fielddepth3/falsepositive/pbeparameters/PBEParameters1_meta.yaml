@@ -1,0 +1,28 @@
+name:
+  Password Based Encryption Parameters Field-Sensitive Field-Depth 3 False-Positive Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  The two byte arrays (a random and a static one) are stored in an object's fields which is the end of a chain of
+  three objects (getting a field-depth of 3, e.g. object.field.field.field). The securely random array is then used as
+  salt in for the creation of a PBEParameterSpec.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth3/truepositive/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 35
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: false
