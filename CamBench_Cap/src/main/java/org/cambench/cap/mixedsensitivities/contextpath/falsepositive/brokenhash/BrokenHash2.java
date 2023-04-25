@@ -24,7 +24,7 @@ public class BrokenHash2 {
         String algo1;
         String algo2;
         String data = "some data here";
-        int condition = 1;
+        int condition = 5;
 
         if(condition < 3){
             algo1 = Identity("SHA-1");

@@ -35,7 +35,7 @@ public class InsecureRandom1 {
 
         int condition = 1;
 
-        if(condition == 1){
+        if(condition != 1){
             random1 = Identity(new Random());
             random2 = Identity(new SecureRandom());
         } else {

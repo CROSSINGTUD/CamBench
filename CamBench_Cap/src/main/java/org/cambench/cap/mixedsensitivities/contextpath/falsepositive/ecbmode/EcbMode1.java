@@ -29,7 +29,7 @@ public class EcbMode1 {
         int condition = 1;
         Cipher cipher;
 
-        if(condition != 2){
+        if(condition > 2){
             cipher = Cipher.getInstance(algo1);
         } else {
             cipher = Cipher.getInstance(algo2);

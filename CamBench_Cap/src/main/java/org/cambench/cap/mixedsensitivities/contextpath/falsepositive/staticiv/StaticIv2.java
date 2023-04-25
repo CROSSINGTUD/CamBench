@@ -35,7 +35,7 @@ public class StaticIv2 {
 
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
-        int condition = 1;
+        int condition = 0;
 
         if(condition == 1){
             ivBytes1 = Identity(new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'});
