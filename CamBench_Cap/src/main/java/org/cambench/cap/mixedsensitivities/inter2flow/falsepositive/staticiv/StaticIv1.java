@@ -29,10 +29,10 @@ public class StaticIv1 {
 
     public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         byte[] ivBytes = new byte[16];
+        ivBytes = "abcdefghijklmno".getBytes();
         SecureRandom secureRandom = new SecureRandom();
 
         secureRandom.nextBytes(ivBytes);
-        ivBytes = "abcdefghijklmno".getBytes();
 
         method1(ivBytes);
     }

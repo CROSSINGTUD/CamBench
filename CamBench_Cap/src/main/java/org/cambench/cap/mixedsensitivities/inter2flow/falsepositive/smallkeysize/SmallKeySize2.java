@@ -26,8 +26,8 @@ import java.security.NoSuchAlgorithmException;
 public class SmallKeySize2 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        int keySize = 2048;
-        keySize = 1024;
+        int keySize = 1024;
+        keySize = 2048;
         method1(keySize);
     }
 

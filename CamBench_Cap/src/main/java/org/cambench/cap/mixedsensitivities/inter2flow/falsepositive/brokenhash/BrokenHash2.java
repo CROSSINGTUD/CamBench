@@ -22,9 +22,9 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenHash2 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        String algo = "SHA-256";
+        String algo = "SHA-1";
         String data = "some data here";
-        algo = "SHA-1";
+        algo = "SHA-256";
         method1(algo, data);
     }
 

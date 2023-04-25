@@ -33,9 +33,9 @@ public class InsecureRandom1 {
 
         SecureRandom secRandom = new SecureRandom();
         secRandom.nextBytes(ivBytes);
+        method1(ivBytes);
         Random random = new Random();
         random.nextBytes(ivBytes);
-        method1(ivBytes);
     }
 
     public static void method1(byte[] ivBytes) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {

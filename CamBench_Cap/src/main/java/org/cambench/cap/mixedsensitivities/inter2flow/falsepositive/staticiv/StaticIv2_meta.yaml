@@ -1,32 +1,21 @@
 name:
-  Static Initialization Vector 2-Interprocedural Flow-Sensitive True-Positive Case 2
+  Static Initialization Vector 2-Interprocedural Flow-Sensitive False-Positive Case 2
 
 api:
   javax.crypto.spec.IvParameterSpec
 
 description:
-  A static byte array is passed to a method where it is used to create an initialization vector for cipher initialization
-  before it is overwritten with random values.
+  A securly random byte array is passed to a method where it is used to create an initialization vector for cipher
+  initialization before it is overwritten with static values.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/staticiv/StaticIv2.java
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/staticiv/StaticIv2.java
     method: method1(byte[] ivBytes)
     line: 42
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/staticiv/StaticIv2.java
-        method: main(String[] args)
-        line: 31
-
-fix:
-  description:
-    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
-  file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
   loc: 29
@@ -37,7 +26,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
-    vectors are often required to be random in order to guarantee a secure encryption.
+  issue: false
