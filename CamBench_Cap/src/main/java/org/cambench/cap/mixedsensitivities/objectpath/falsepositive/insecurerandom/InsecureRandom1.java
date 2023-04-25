@@ -33,7 +33,7 @@ public class InsecureRandom1 {
 
         RandomClass randomClass1;
         RandomClass randomClass2;
-        int condition = 1;
+        int condition = 0;
 
         if(condition > 0){
             randomClass1 = new RandomClass(new SecureRandom());

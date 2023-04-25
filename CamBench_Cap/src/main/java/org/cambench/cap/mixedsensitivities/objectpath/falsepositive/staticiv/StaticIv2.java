@@ -45,7 +45,7 @@ public class StaticIv2 {
             ivObject2 = new IvClass(new byte[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'});
         }
 
-        IvParameterSpec iv = new IvParameterSpec(ivObject1.ivBytes);
+        IvParameterSpec iv = new IvParameterSpec(ivObject2.ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 

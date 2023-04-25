@@ -26,7 +26,7 @@ public class BrokenHash1 {
         HashClass hashObject2 = new HashClass("SHA-256");
 
         String data = "some data here";
-        int condition = 1;
+        int condition = 2;
 
         if(condition > 1){
             messageDigest = MessageDigest.getInstance(hashObject2.algorithm);

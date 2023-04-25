@@ -26,7 +26,7 @@ public class BrokenHash2 {
         String data = "some data here";
         int condition = 1;
 
-        if(condition > 0){
+        if(condition > 1){
             hashObject1 = new HashClass("SHA-256");
             hashObject2 = new HashClass("SHA-1");
         } else {

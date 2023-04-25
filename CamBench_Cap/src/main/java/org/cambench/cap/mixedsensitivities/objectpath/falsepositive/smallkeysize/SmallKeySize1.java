@@ -32,7 +32,7 @@ public class SmallKeySize1 {
         SizeClass sizeObject2 = new SizeClass(2048);
         int condition = 1;
 
-        if(condition < 3){
+        if(condition < 1){
             keyGen.initialize(sizeObject1.keySize);
         } else {
             keyGen.initialize(sizeObject2.keySize);
