@@ -1,34 +1,22 @@
 name:
-  Static Initialization Vector Context- & Flow-Sensitive True-Positive Case 1
+  Static Initialization Vector Context- & Flow-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec
 
 description:
-  A static, string based byte array and a random byte array are stored in variables by using the identity function.
-  The static iv is then used to create an initialization vector for the initialization
-  of an instance of the AES cipher, before the variable is re-assigned with a random byte array.
+  A static, string based byte array and a securely random byte array are stored in variables by using the identity function.
+  The securely random iv is then used to create an initialization vector for the initialization
+  of an instance of the AES cipher, before the variable is re-assigned with a static byte array.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/staticiv/StaticIv1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 39
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 37
-
-fix:
-  description:
-    Replace the static initialization vector (iv) with a random iv.
-  file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/staticiv/CorrectedIv.java
-  commit:
 
 codemetrics:
   loc: 31
@@ -39,7 +27,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    Using a static initialization vector (iv) can lead to vulnerabilities regarding the encryption of data. 
-    Therefore, an iv should always be a random value.
+  issue: false

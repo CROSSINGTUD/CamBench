@@ -27,8 +27,8 @@ public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
 
-        int keySize1 = Identity(1024);
-        int keySize2 = Identity(2048);
+        int keySize1 = Identity(2048);
+        int keySize2 = Identity(1024);
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(keySize1);
@@ -36,7 +36,7 @@ public class SmallKeySize1 {
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());
 
-        keySize1 = Identity(2048);
+        keySize1 = Identity(1024);
     }
 
     public static int Identity(int i){

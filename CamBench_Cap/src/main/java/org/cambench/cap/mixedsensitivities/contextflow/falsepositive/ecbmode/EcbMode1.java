@@ -27,11 +27,12 @@ public class EcbMode1 {
         String algo1 = Identity("AES/ECB/PKCS5Padding");
         String algo2 = Identity("AES/CBC/PKCS5Padding");
 
-        Cipher cipher = Cipher.getInstance(algo1);
+        Cipher cipher = Cipher.getInstance(algo2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
         algo1 = Identity("AES/CBC/PKCS5Padding");
+        algo2 = Identity("AES/ECB/PKCS5Padding");
     }
 
     public static String Identity(String s){

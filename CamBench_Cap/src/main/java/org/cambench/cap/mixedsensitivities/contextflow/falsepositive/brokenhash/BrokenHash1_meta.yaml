@@ -1,35 +1,25 @@
 name:
-  Broken Hash Function Context- & Flow-Sensitive True-Positive Case 1
+  Broken Hash Function Context- & Flow-Sensitive False-Positive Case 1
 
 api:
   java.security.MessageDigest
 
 description:
   The names of a broken hash algorithm (MD5) and a secure one (SHA-256) are stored in variables using the identity function.
-  The variable containing the insecure algorithm is used to compute a hash value before the variable is re-assigned 
-  with the name of a secure algorithm.
+  The variable containing the secure algorithm is used to compute a hash value before the variable is re-assigned 
+  with the name of an insecure algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokenhash/BrokenHash1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
     line: 28
 
-    root:
-      file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokenhash/BrokenHash1.java
-      method: main(String[] args)
-      line: 24
-
-fix:
-  description:
-    Replace the insecure hash algorithm with a secure one, e.g. SHA-256.
-  file: main/java/org/cambench/cap/mixedsensitivities/contextflow/truepositive/brokenhash/CorrectedHash.java
-
 codemetrics:
-  loc: 22
+  loc: 23
   cc: 2
 
 capabilities:
@@ -37,6 +27,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    The hash algorithm MD5 is considered broken and should therefore not be used to compute hash values.
+  issue: false

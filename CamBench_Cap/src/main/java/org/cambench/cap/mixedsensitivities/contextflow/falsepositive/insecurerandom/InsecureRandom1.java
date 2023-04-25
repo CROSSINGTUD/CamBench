@@ -35,12 +35,13 @@ public class InsecureRandom1 {
         Random random2 = Identity(new SecureRandom());
 
         byte[] ivBytes = new byte[16];
-        random1.nextBytes(ivBytes);
+        random2.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
 
         random1 = Identity(new SecureRandom());
+        random2 = Identity(new Random());
     }
 
     public static Random Identity(Random r){
