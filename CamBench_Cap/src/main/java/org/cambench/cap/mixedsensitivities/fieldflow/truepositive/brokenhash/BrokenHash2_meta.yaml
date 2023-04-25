@@ -5,7 +5,7 @@ api:
   java.security.MessageDigest
 
 description:
-  The names of a secure (SHA-256) & an insecure hash algorithm (MD2) are stored in an object's fields. The insecure one
+  The names of a secure (SHA-256) & an insecure hash algorithm (SHA-1) are stored in an object's fields. The insecure one
   is then used to get a MessageDigest object and compute the hash of some data before the field is re-assigned with
   the name of a secure algorithm.
 
@@ -16,7 +16,7 @@ crypto-usage:
   location:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokenhash/BrokenHash2.java
     method: main(String[] args)
-    line: 29
+    line: 30
 
     root:
       location:
