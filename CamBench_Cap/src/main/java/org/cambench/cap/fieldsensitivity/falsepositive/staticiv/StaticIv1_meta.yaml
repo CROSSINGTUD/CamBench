@@ -17,12 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 41
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 38
-
 codemetrics:
   loc: 33
   cc: 1

@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 38
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash2.java
-        method: main(String[] args)
-        line: 35
-
 codemetrics:
   loc: 31
   cc: 2

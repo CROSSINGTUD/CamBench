@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 41
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/objectsensitivity/falsepositive/insecurerandom/InsecureRandom1.java
-        method: main(String[] args)
-        line: 35
-
 codemetrics:
   loc: 36
   cc: 2

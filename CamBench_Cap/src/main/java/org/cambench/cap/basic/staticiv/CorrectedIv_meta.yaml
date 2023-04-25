@@ -16,12 +16,6 @@ crypto-usage:
     method: main(String[] args)
     line: 33
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/basic/staticiv/CorrectedIv.java
-        method: main(String[] args)
-        line: 32
-
 codemetrics:
   loc: 24
   cc: 1

@@ -17,12 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 31
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 24
   cc: 1

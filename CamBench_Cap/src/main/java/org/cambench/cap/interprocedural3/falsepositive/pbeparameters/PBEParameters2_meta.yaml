@@ -17,12 +17,6 @@ crypto-usage:
     method: method1(byte[] saltArray, int iterationCount)
     line: 41
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural3/falsepositive/pbeparameters/PBEParameters2.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 27
   cc: 3

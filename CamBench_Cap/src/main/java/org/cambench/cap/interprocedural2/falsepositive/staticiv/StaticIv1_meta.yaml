@@ -17,12 +17,6 @@ crypto-usage:
     method: method1(String ivString)
     line: 43
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural2/falsepositive/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 32
-
 codemetrics:
   loc: 30
   cc: 2

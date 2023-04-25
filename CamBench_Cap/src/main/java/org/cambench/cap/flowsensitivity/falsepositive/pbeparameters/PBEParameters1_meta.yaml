@@ -17,12 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 32
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/pbeparameters/PBEParameters1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 18
   cc: 1

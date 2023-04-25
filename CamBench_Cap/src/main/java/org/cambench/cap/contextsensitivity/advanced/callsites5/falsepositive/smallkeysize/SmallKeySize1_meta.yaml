@@ -17,11 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 37
 
-    root:
-      file: main/java/org/cambench/cap/contextsensitivity/advanced/callsites5/falsepositive/smallkeysize/SmallKeySize1.java
-      method: main(String[] args)
-      line: 30
-
 codemetrics:
   loc: 30
   cc: 2
