@@ -24,7 +24,7 @@ public class BrokenHash1 {
         String algo1 = Identity("MD5");
         String algo2 = Identity("SHA-256");
 
-        method1(algo1,"some data here");
+        method1(algo2,"some data here");
     }
 
     public static String Identity(String s){

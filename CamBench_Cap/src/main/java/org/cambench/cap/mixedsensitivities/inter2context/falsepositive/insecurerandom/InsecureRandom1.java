@@ -32,7 +32,7 @@ public class InsecureRandom1 {
         Random random2 = Identity(new SecureRandom());
 
         byte[] ivBytes = new byte[16];
-        random1.nextBytes(ivBytes);
+        random2.nextBytes(ivBytes);
 
         method1(ivBytes);
     }

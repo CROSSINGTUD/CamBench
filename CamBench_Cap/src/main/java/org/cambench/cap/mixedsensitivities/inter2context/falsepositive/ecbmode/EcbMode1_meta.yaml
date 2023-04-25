@@ -1,5 +1,5 @@
 name:
-  ECB Mode 2-Interprocedural Context-Sensitive True-Positive Case 1
+  ECB Mode 2-Interprocedural Context-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
@@ -7,26 +7,16 @@ api:
 description:
   Two configurations for the AES cipher (one using the ECB and one using the CBC mode of operation) are stored in 
   variables by using the Identity function. 
-  The insecure ECB configuration is then passed to a method and used to initialize a cipher object for encryption.
+  The secure CBC configuration is then passed to a method and used to initialize a cipher object for encryption.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/ecbmode/EcbMode1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/falsepositive/ecbmode/EcbMode1.java
     method: method1(String algoConfig)
     line: 38
-
-    root:
-      file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/ecbmode/EcbMode1.java
-      method: main(string[] args)
-      line: 27
-
-fix:
-  description:
-    Replace the ECB mode in the configuration with another, more secure mode like CBC.
-  file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:
   loc: 26
@@ -37,7 +27,4 @@ capabilities:
   - context-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    The AES block cipher is initialized with the ECB mode of operation. This configuration should not be used because
-    blocks with the same value will be encrypted to the same ciphertext with ECB mode, which is insecure.
+  issue: false

@@ -27,7 +27,7 @@ public class SmallKeySize1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         int keySize1 = Identity(1024);
         int keySize2 = Identity(2048);
-        method1(keySize1);
+        method1(keySize2);
     }
 
     public static int Identity(int i){
