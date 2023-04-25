@@ -1,5 +1,5 @@
 name:
-  Small Key Size Path- And Field-Sensitive True-Negative Case 2
+  Small Key Size Path- And Field-Sensitive False-Positive Case 2
 
 api:
   java.security.KeyPairGenerator
