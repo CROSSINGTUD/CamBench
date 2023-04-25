@@ -35,7 +35,7 @@ public class CorrectedCrypto {
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance(algo);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 }
