@@ -1,5 +1,5 @@
 name:
-  Small Key Size Flow-Sensitive False-Positive Case 1
+  Small Key Size Flow-Sensitive Value-Swap False-Positive Case 1
 
 api:
   java.security.KeyPairGenerator

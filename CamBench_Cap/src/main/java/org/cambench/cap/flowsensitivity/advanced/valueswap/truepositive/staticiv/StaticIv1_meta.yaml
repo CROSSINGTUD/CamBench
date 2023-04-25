@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Flow-Sensitive True-Positive Case 1
+  Static Initialization Vector Flow-Sensitive Value-Swap True-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec

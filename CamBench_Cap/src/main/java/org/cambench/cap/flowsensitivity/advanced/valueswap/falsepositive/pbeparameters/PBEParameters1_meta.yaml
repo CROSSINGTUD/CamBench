@@ -1,5 +1,5 @@
 name:
-  Password Based Encryption Parameters Flow-Sensitive False-Positive Case 1
+  Password Based Encryption Parameters Flow-Sensitive Value-Swap False-Positive Case 1
 
 api:
   javax.crypto.spec.PBEParameterSpec
