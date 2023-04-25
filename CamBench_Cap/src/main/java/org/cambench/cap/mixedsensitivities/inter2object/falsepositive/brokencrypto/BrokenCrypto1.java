@@ -27,12 +27,12 @@ public class BrokenCrypto1 {
         CryptoClass cryptoClass1 = new CryptoClass("AES/CBC/PKCS5Padding");
         CryptoClass cryptoClass2 = new CryptoClass("DES");
 
-        method1(cryptoClass2.algorithm);
+        method1(cryptoClass1.algorithm);
     }
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance(algo);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 

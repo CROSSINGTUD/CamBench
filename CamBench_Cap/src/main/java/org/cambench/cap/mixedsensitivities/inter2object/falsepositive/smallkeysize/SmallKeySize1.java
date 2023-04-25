@@ -28,7 +28,7 @@ public class SmallKeySize1 {
         SizeClass sizeObject1 = new SizeClass(1024);
         SizeClass sizeObject2 = new SizeClass(2048);
 
-        method1(sizeObject1.keySize);
+        method1(sizeObject2.keySize);
     }
 
     public static void method1(int keySize) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {

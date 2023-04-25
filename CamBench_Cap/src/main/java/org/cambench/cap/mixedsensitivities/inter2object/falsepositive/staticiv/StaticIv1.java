@@ -35,7 +35,7 @@ public class StaticIv1 {
         IvClass ivObject1 = new IvClass("abcdefghijklmnop");
         IvClass ivObject2 = new IvClass(randomBytes);
 
-        method1(ivObject1.ivBytes);
+        method1(ivObject2.ivBytes);
     }
 
     public static void method1(byte[] ivBytes) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
