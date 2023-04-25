@@ -31,7 +31,7 @@ public class SmallKeySize1 {
         int keySize2 = Identity(2048);
         int condition = 1;
 
-        if(condition > 1){
+        if(condition > 0){
             keyGen.initialize(keySize1);
         } else {
             keyGen.initialize(keySize2);
