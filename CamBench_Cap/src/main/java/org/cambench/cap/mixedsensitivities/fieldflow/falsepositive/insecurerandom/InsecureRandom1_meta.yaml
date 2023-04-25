@@ -1,5 +1,5 @@
 name:
-  Insecure Random Field- & Flow-Sensitive True-Positive Case 1
+  Insecure Random Field- & Flow-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -7,28 +7,16 @@ api:
 description:
   Two objects of class Random are created and stored in another object's fields.
   One field is re-assigned with an object of the SecureRandom class.
-  The other field is then utilized to create an initialization vector (iv) for a cipher.
+  This field is then utilized to create an initialization vector (iv) for a cipher.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/InsecureRandom1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
     line: 43
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/InsecureRandom1.java
-        method: main(String[] args)
-        line: 41
-
-fix:
-  description:
-    Replace the used object of the "Random" class with an object of the "SecureRandom" class
-    to generate a byte array for an iv.
-  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/insecurerandom/CorrectedRandom.java
 
 codemetrics:
   loc: 35
@@ -39,7 +27,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    The "Random" class is used to generate a random byte array, which can lead to insecurities.
-    For cryptographic use cases, the "SecureRandom" class should be used.
+  issue: false

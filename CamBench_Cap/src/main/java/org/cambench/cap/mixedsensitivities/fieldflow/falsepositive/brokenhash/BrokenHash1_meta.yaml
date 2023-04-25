@@ -1,33 +1,22 @@
 name:
-  Broken Hash Function Field- & Flow-Sensitive True-Positive Case 1
+  Broken Hash Function Field- & Flow-Sensitive False-Positive Case 1
 
 api:
   java.security.MessageDigest
 
 description:
   The names two insecure hash algorithms (MD5 and SHA-1) are stored in an object's fields. The field containing the 
-  SHA-1 value is then sanitized by re-assigning it with a secure algorithm before the other field is used to
-  get an instance of the MD5 algorithm.
+  SHA-1 value is then sanitized by re-assigning it with a secure algorithm before being used to
+  get an instance of the SHA-256 algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokenhash/BrokenHash1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
     line: 30
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokenhash/BrokenHash1.java
-        method: main(String[] args)
-        line: 25
-
-fix:
-  description:
-    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256).
-  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
   loc: 23
@@ -38,6 +27,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+  issue: false

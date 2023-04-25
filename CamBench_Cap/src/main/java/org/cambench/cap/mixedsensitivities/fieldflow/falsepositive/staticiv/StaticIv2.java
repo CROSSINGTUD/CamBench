@@ -38,10 +38,10 @@ public class StaticIv2 {
         ivClass.ivBytes1 = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
         ivClass.ivBytes2 = randomBytes;
 
-        IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes1);
+        IvParameterSpec iv = new IvParameterSpec(ivClass.ivBytes2);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
 
-        ivClass.ivBytes1 = randomBytes;
+        ivClass.ivBytes2 = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
     }
 
     public static class IvClass2{
