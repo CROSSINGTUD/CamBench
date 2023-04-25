@@ -25,7 +25,7 @@ public class CorrectedPBE {
         byte[] salt = new byte[16];
 
         secureRandom.nextBytes(salt);
-        int iterations = 20000;
+        int iterations = 10000000;
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterations);
     }

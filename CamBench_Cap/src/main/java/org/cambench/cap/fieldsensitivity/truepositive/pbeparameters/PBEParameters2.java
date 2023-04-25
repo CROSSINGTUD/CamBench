@@ -26,8 +26,8 @@ public class PBEParameters2 {
         secureRandom.nextBytes(salt);
 
         IterationClass iterationClass = new IterationClass();
-        iterationClass.iterations1 = 10;
-        iterationClass.iterations2 = 20000;
+        iterationClass.iterations1 = 1000;
+        iterationClass.iterations2 = 10000000;
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt,iterationClass.iterations1);
     }

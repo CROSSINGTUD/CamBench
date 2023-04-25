@@ -24,7 +24,7 @@ crypto-usage:
 
 fix:
   description:
-    Increase the iteration count to a value of at least 10000000.
+    Increase the iteration count to a value of at least 10.000.000.
   file: main/java/org/cambench/cap/basic/pbeparameters/CorrectedPBE.java
 
 codemetrics:
