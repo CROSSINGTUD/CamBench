@@ -28,11 +28,11 @@ public class BrokenCrypto2 {
         cryptoClass.cipher1 = "Blowfish";
         cryptoClass.cipher2 = "AES/CBC/PKCS5Padding";
 
-        Cipher cipher = Cipher.getInstance(cryptoClass.cipher1);
-        KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass.cipher1);
+        Cipher cipher = Cipher.getInstance(cryptoClass.cipher2);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        cryptoClass.cipher1 = "AES/CBC/PKCS5Padding";
+        cryptoClass.cipher2 = "Blowfish";
     }
 
     public static class CryptoClass2{

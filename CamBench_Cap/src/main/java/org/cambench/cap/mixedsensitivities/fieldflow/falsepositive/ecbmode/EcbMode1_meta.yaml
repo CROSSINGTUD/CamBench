@@ -1,5 +1,5 @@
 name:
-  ECB Mode Field- & Flow-Sensitive True-Positive Case 1
+  ECB Mode Field- & Flow-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
@@ -7,28 +7,17 @@ api:
 description:
   Two configurations of the AES algorithm are stored in an object's fields. 
   One contains the secure CBC mode of operation, the other the insecure ECB mode. 
-  The field containing the latter one is then used to initialize an instance of the AES cipher before it is re-assigned
-  with a secure configuration.
+  The field containing the secure one is then used to initialize an instance of the AES cipher before it is re-assigned
+  with an insecure configuration.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/ecbmode/EcbMode1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
     line: 31
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
-
-fix:
-  description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
-  file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:
   loc: 26
@@ -39,7 +28,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
-    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.
+  issue: false

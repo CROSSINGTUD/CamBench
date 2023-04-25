@@ -28,11 +28,11 @@ public class EcbMode1 {
         configClass.algoConfig1 = "AES/ECB/PKCS5Padding";
         configClass.algoConfig2 = "AES/CBC/PKCS5Padding";
 
-        Cipher cipher = Cipher.getInstance(configClass.algoConfig1);
+        Cipher cipher = Cipher.getInstance(configClass.algoConfig2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        configClass.algoConfig1 = "AES/CBC/PKCS5Padding";
+        configClass.algoConfig2 = "AES/ECB/PKCS5Padding";
     }
 
     public static class ConfigClass1{

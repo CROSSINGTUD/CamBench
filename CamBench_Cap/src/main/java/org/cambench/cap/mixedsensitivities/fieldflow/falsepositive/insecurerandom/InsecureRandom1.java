@@ -37,7 +37,7 @@ public class InsecureRandom1 {
         randomClass.randomGenerator2 = new SecureRandom();
 
         byte[] ivBytes = new byte[16];
-        Random random = randomClass.randomGenerator1;
+        Random random = randomClass.randomGenerator2;
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);

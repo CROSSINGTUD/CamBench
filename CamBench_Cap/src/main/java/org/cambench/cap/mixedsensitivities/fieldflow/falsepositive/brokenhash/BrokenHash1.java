@@ -27,7 +27,7 @@ public class BrokenHash1 {
         hashClass.hashAlgo2 = "SHA-256";
 
         String data = "some data here";
-        MessageDigest messageDigest = MessageDigest.getInstance(hashClass.hashAlgo1);
+        MessageDigest messageDigest = MessageDigest.getInstance(hashClass.hashAlgo2);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }
