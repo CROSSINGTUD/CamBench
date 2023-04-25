@@ -30,13 +30,13 @@ public class BrokenCrypto1 {
 
         int condition = 1;
 
-        if(condition < 0 ){
+        if(condition < 2 ){
             cipher = Cipher.getInstance(algo2);
         } else {
             cipher = Cipher.getInstance(algo1);
         }
 
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo1);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 

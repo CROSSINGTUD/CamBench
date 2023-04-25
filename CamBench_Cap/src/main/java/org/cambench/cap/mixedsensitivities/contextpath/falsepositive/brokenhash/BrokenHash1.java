@@ -27,7 +27,7 @@ public class BrokenHash1 {
         String data = "some data here";
         int condition = 1;
 
-        if(condition == 1){
+        if(condition == 0){
             messageDigest = MessageDigest.getInstance(algo1);
         } else {
             messageDigest = MessageDigest.getInstance(algo2);

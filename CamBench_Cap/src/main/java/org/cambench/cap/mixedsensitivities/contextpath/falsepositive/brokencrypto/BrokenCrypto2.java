@@ -26,7 +26,7 @@ public class BrokenCrypto2 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo1;
         String algo2;
-        int condition = 1;
+        int condition = 0;
 
         if(condition > 0){
             algo1 = Identity("Blowfish");
@@ -37,7 +37,7 @@ public class BrokenCrypto2 {
         }
 
         Cipher cipher = Cipher.getInstance(algo1);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo1);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 

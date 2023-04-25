@@ -37,7 +37,7 @@ public class StaticIv1 {
 
         byte[] ivBytes1 = Identity("abcdefghijklmnop".getBytes());
         byte[] ivBytes2 = Identity(randomBytes);
-        int condition = 1;
+        int condition = 0;
 
         if(condition > 0){
             iv = new IvParameterSpec(ivBytes1);

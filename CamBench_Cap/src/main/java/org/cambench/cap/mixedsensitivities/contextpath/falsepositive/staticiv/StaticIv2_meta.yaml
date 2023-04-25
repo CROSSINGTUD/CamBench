@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Path- And Context-Sensitive True-Positive Case 2
+  Static Initialization Vector Path- And Context-Sensitive False-Positive Case 2
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -7,27 +7,16 @@ api:
 description:
   A static and a random, non-static byte array are created with the identity function and stored as
   variables, depending on the conditional statement.
-  The static array is then used as initialization vector to initialize an instance of the AES algorithm.
+  The random, non-static array is then used as initialization vector to initialize an instance of the AES algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/staticiv/StaticIv2.java
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/staticiv/StaticIv2.java
     method: main(String[] args)
     line: 48
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/staticiv/StaticIv2.java
-        method: main(String[] args)
-        line: 41
-
-fix:
-  description:
-    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
-  file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/staticiv/CorrectedIv.java
 
 codemetrics:
   loc: 37
@@ -38,7 +27,4 @@ capabilities:
   - path-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
-    vectors are often required to be random in order to guarantee a secure encryption.
+  issue: trandom, non-static

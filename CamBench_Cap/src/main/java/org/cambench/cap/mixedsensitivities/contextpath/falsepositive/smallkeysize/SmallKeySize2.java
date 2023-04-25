@@ -28,7 +28,7 @@ public class SmallKeySize2 {
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
         int keySize1;
         int keySize2;
-        int condition = 1;
+        int condition = 0;
 
         if(condition > 0){
             keySize1 = Identity(1024);

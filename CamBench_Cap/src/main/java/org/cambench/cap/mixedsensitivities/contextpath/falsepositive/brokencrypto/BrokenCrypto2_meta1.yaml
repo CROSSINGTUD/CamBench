@@ -1,5 +1,5 @@
 name:
-  Broken Crypto Path- And Context-Sensitive True-Positive Case 2
+  Broken Crypto Path- And Context-Sensitive False-Positive Case 2
 
 api:
   javax.crypto.Cipher
@@ -7,27 +7,16 @@ api:
 description:
   The names of an insecure (Blowfish) and a secure cipher (AES) are saved into by using the
   Identity function and depending on the branches of the conditional statement.
-  Then the variable containing the Blowfish algorithm is used to get an instance of the cipher.
+  Then the variable containing the AES algorithm is used to get an instance of the cipher.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/BrokenCrypto2.java
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/brokencrypto/BrokenCrypto2.java
     method: main(String[] args)
     line: 39
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/BrokenCrypto2.java
-        method: main(String[] args)
-        line: 32
-
-fix:
-  description:
-    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
-  file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/brokencrypto/CorrectedCrypto.java
 
 codemetrics:
   loc: 31
@@ -38,7 +27,4 @@ capabilities:
   - path-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized since there exist
-    attacks on 64-bit block ciphers like sweet32.
+  issue: false
