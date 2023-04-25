@@ -41,7 +41,7 @@ public class StaticIv1 {
         ivClass2.ivBytes1 = randomBytes;
         ivClass2.ivBytes2 = "abcdefghijklmnop".getBytes();
 
-        IvParameterSpec iv = new IvParameterSpec(ivClass2.ivBytes2);
+        IvParameterSpec iv = new IvParameterSpec(ivClass2.ivBytes1);
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
     }
 

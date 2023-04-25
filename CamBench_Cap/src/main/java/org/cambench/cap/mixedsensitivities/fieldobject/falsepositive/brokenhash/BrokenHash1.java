@@ -29,7 +29,7 @@ public class BrokenHash1 {
         hashClass2.hashAlgo2 = "MD5";
 
         String data = "some data here";
-        MessageDigest messageDigest = MessageDigest.getInstance(hashClass2.hashAlgo2);
+        MessageDigest messageDigest = MessageDigest.getInstance(hashClass1.hashAlgo2);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
     }

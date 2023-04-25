@@ -31,8 +31,8 @@ public class BrokenCrypto1 {
         cryptoClass2.cipher1 = "AES/CBC/PKCS5Padding";
         cryptoClass2.cipher2 = "DES";
 
-        Cipher cipher = Cipher.getInstance(cryptoClass2.cipher2);
-        KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass2.cipher2);
+        Cipher cipher = Cipher.getInstance(cryptoClass2.cipher1);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 
