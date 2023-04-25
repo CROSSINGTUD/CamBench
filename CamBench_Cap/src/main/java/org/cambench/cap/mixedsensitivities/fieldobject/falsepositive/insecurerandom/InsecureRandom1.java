@@ -39,7 +39,7 @@ public class InsecureRandom1 {
         randomClass2.randomGenerator2 = new Random();
 
         byte[] ivBytes = new byte[16];
-        Random random = randomClass2.randomGenerator2;
+        Random random = randomClass2.randomGenerator1;
         random.nextBytes(ivBytes);
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
