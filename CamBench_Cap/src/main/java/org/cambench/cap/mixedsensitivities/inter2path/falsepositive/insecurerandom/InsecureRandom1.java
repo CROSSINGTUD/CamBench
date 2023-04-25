@@ -34,7 +34,7 @@ public class InsecureRandom1 {
         Random random = new Random();
         SecureRandom secureRandom = new SecureRandom();
 
-        if(choice > 1) {
+        if(choice < 1) {
             secureRandom.nextBytes(ivBytes);
         } else {
             random.nextBytes(ivBytes);

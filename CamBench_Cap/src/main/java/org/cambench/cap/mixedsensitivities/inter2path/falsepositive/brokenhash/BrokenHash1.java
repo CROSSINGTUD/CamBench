@@ -23,7 +23,7 @@ public class BrokenHash1 {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         int condition = 0;
 
-        if(condition > 1) {
+        if(condition < 1) {
             method1("SHA-256", "some data here");
         } else {
            method1("MD5","some data here");

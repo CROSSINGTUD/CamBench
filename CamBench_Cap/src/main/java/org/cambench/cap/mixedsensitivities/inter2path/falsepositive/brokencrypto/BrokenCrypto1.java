@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        int condition = 0;
+        int condition = 2;
 
         if(condition > 1) {
             method1("AES","AES/CBC/PKCS5Padding");
