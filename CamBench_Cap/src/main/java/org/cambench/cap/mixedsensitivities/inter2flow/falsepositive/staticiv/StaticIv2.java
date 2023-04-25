@@ -28,11 +28,11 @@ import java.security.SecureRandom;
 public class StaticIv2 {
 
     public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        byte[] ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
-        method1(ivBytes);
-
+        byte[] ivBytes = new byte[16];
         SecureRandom secureRandom = new SecureRandom();
         secureRandom.nextBytes(ivBytes);
+        method1(ivBytes);
+        ivBytes = new byte[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'};
     }
 
     public static void method1(byte[] ivBytes) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException {

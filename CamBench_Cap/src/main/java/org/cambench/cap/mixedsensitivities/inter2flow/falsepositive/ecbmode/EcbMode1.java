@@ -26,9 +26,9 @@ public class EcbMode1 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo = "AES";
-        String algoConfig = "AES/ECB/PKCS5Padding";
+        String algoConfig = "AES/CBC/PKCS5Padding";
         method1(algo, algoConfig);
-        algoConfig = "AES/CBC/PKCS5Padding";
+        algoConfig = "AES/ECB/PKCS5Padding";
     }
 
     public static void method1(String algo, String algoConfig) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {

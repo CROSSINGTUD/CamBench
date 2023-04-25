@@ -25,14 +25,14 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenCrypto2 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algo = "AES/CBC/PKCS5Padding";
-        algo = "Blowfish";
+        String algo = "Blowfish";
+        algo = "AES/CBC/PKCS5Padding";
         method1(algo);
     }
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance(algo);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 }

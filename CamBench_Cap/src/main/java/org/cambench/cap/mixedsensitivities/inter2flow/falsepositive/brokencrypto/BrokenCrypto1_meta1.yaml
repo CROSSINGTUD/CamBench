@@ -1,32 +1,21 @@
 name:
-  Broken Crypto 2-Interprocedural Flow-Sensitive True-Positive Case 1
+  Broken Crypto 2-Interprocedural Flow-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
 
 description:
-  A string containing the name of an insecure cipher (DES) is passed to a method where it is used to initialize
-  a cipher object for encryption, before the string is overwritten with the name of a secure cipher (AES).
+  A string containing the name of a secure cipher (AES) is passed to a method where it is used to initialize
+  a cipher object for encryption, before the string is overwritten with the name of an insecure cipher (DES).
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/brokencrypto/BrokenCrypto1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/brokencrypto/BrokenCrypto1.java
     method: method1(String algo)
     line: 34
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 28
-
-fix:
-  description:
-    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
-  file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/truepositive/brokencrypto/CorrectedCrypto.java
 
 codemetrics:
   loc: 22
@@ -37,7 +26,4 @@ capabilities:
   - flow-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
-    to be broken.
+  issue: false
