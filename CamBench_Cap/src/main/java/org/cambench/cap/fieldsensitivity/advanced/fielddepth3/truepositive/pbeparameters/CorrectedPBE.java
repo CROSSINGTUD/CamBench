@@ -30,7 +30,7 @@ public class CorrectedPBE {
         paramClass.selfObject.selfObject = new ParameterClass();
         paramClass.selfObject.selfObject.salt2 = randomSalt;
 
-        int iterations = 20000;
+        int iterations = 10000000;
         PBEParameterSpec pbeParameterSpecSpec = new PBEParameterSpec(paramClass.selfObject.selfObject.salt2,iterations);
     }
 

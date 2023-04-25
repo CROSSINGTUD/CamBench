@@ -28,7 +28,7 @@ public class PBEParameters2 {
         secureRandom.nextBytes(salt);
 
         if(condition > 1) {
-            iterations = 10;
+            iterations = 1000;
         } else {
             iterations = 10000000;
         }

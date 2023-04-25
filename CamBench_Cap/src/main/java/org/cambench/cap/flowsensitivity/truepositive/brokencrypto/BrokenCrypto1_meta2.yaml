@@ -1,5 +1,5 @@
 name:
-  Broken Crypto Field-Sensitive True-Positive Case 1
+  Broken Crypto Field-Sensitive True-Positive Case 2
 
 api:
   javax.crypto.KeyGenerator

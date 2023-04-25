@@ -5,7 +5,7 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  Two objects are created that each contain an integer value (10 and 20000). The smaller value
+  Two objects are created that each contain an integer value (1.000 and 10.000.000). The smaller value
   is then used as integration count for an PBEParameterSpec object.
 
 crypto-usage:
@@ -25,7 +25,7 @@ crypto-usage:
 
 fix:
   description:
-    Increase the iteration count to a value of at least 1000.
+    Increase the iteration count to a value of at least 10.000.000.
   file: main/java/org/cambench/cap/objectsensitivity/truepositive/pbeparameters/CorrectedPBE.java
 
 codemetrics:
@@ -40,4 +40,7 @@ security:
   issue-description:
     The iteration count that is used for the PBEParameterSpec is a small value, which is not sufficient.
     Since the iteration count is meant to increase the difficulty of attacks, its value should be at least
-    1000, as recommended by RFC 2898.
+    10.000.000. This value is an approximation since a concrete value is currently an open discussion for
+    standardization (c.f. https://csrc.nist.gov/news/2023/proposal-to-revise-nist-sp-800-132-pbkdf).
+    We chose this value to reflect a reasonable magnitude with relevance for industry
+    (cf. https://help.apple.com/pdf/security/en_US/apple-platform-security-guide.pdf - p.81).
