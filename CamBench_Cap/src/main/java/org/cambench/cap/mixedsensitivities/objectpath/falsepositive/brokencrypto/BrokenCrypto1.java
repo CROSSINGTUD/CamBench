@@ -36,7 +36,7 @@ public class BrokenCrypto1 {
             cipher = Cipher.getInstance(cryptoClass2.algorithm);
         }
 
-        KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass2.algorithm);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 

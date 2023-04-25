@@ -28,7 +28,7 @@ public class EcbMode1 {
         ConfigClass algoConfig2 = new ConfigClass("AES/CBC/PKCS5Padding");
         Cipher cipher;
 
-        int condition = 1;
+        int condition = 0;
 
         if(condition == 1){
             cipher = Cipher.getInstance(algoConfig1.algorithmConfig);

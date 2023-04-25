@@ -37,8 +37,8 @@ public class BrokenCrypto2 {
             cryptoClass2 = new CryptoClass("Blowfish");
         }
 
-        Cipher cipher = Cipher.getInstance(cryptoClass1.algorithm);
-        KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass1.algorithm);
+        Cipher cipher = Cipher.getInstance(cryptoClass2.algorithm);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 

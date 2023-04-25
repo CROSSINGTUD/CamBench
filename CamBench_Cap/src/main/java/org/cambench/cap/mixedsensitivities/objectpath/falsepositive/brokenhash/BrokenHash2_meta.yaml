@@ -1,5 +1,5 @@
 name:
-  Broken Hash Function Path- And Object-Sensitive True-Positive Case 2
+  Broken Hash Function Path- And Object-Sensitive False-Positive Case 2
 
 api:
   java.security.MessageDigest
@@ -10,24 +10,13 @@ description:
   used to create an instance of the algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/brokenhash/BrokenHash2.java
+    file: main/java/org/cambench/cap/mixedsensitivities/objectpath/falsepositive/brokenhash/BrokenHash2.java
     method: main(String[] args)
     line: 37
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/brokenhash/BrokenHash2.java
-        method: main(String[] args)
-        line: 31
-
-fix:
-  description:
-    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
-  file: main/java/org/cambench/cap/mixedsensitivities/objectpath/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
   loc: 33
@@ -38,6 +27,4 @@ capabilities:
   - path-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    SHA-1 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+  issue: false

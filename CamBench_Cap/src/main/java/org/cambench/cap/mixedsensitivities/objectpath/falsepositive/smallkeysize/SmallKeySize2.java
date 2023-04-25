@@ -31,7 +31,7 @@ public class SmallKeySize2 {
         SizeClass sizeObject2;
         int condition = 1;
 
-        if(condition < 2){
+        if(condition < 1){
             sizeObject1 = new SizeClass(1024);
             sizeObject2 = new SizeClass(2048);
         } else {

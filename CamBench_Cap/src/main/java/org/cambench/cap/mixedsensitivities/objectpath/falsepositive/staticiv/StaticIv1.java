@@ -37,7 +37,7 @@ public class StaticIv1 {
 
         IvClass ivObject1 = new IvClass("abcdefghijklmnop");
         IvClass ivObject2 = new IvClass(randomBytes);
-        int condition = 1;
+        int condition = 0;
 
         if(condition == 1){
             iv = new IvParameterSpec(ivObject1.ivBytes);
