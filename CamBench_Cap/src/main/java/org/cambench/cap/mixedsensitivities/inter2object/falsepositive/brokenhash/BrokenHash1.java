@@ -25,7 +25,7 @@ public class BrokenHash1 {
         HashClass hashObject2 = new HashClass("SHA-256");
         String data = "some data here";
 
-        method1(hashObject1.algorithm, data);
+        method1(hashObject2.algorithm, data);
     }
 
     public static void method1(String algo, String data) throws NoSuchAlgorithmException {
