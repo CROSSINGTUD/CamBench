@@ -25,11 +25,12 @@ public class BrokenHash1 {
         String algo2 = Identity("SHA-256");
 
         String data = "some data here";
-        MessageDigest messageDigest = MessageDigest.getInstance(algo1);
+        MessageDigest messageDigest = MessageDigest.getInstance(algo2);
         messageDigest.update(data.getBytes());
         System.out.println(messageDigest.digest());
 
         algo1 = Identity("SHA-256");
+        algo2 = Identity("MD5");
     }
 
     public static String Identity(String s){

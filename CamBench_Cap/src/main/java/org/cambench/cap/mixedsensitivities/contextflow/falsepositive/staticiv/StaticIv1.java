@@ -34,13 +34,13 @@ public class StaticIv1 {
         byte[] randomBytes = new byte[16];
         secureRandom.nextBytes(randomBytes);
 
-        byte[] ivBytes1 = Identity("abcdefghijklmnop".getBytes());
-        byte[] ivBytes2 = Identity(randomBytes);
+        byte[] ivBytes1 = Identity(randomBytes);
+        byte[] ivBytes2 = Identity("abcdefghijklmnop".getBytes());
         IvParameterSpec iv = new IvParameterSpec(ivBytes1);
 
         cipher.init(Cipher.ENCRYPT_MODE, keyGen.generateKey(), iv);
 
-        ivBytes1 = Identity(randomBytes);
+        ivBytes1 = Identity("abcdefghijklmnop".getBytes());
     }
 
     public static byte[] Identity(byte[] b) {return b;}
