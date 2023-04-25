@@ -30,6 +30,7 @@ codemetrics:
   cc: 1
 
 capabilities:
+  - flow-sensitivity
   - object-sensitivity
 
 security:
