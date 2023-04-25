@@ -1,31 +1,21 @@
 name:
-  Broken Hash Function 2-Interprocedural Context-Sensitive True-Positive Basic Case 1
+  Broken Hash Function 2-Interprocedural Context-Sensitive False-Positive Basic Case 1
 
 api:
   java.security.MessageDigest
 
 description:
   A broken hash algorithm (MD5) and a secure one (SHA-256) are stored in variables using the Identity function.
-  The insecure one is then passed to a method and used to compute a hash value.
+  The secure one is then passed to a method and used to compute a hash value.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/falsepositive/brokenhash/BrokenHash1.java
     method: method1(String algo, String data)
     line: 35
-
-    root:
-      file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/BrokenHash1.java
-      method: main(String[] args)
-      line: 24
-
-fix:
-  description:
-    Replace the insecure hash algorithm with a secure one, e.g. SHA-256.
-  file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
   loc: 23
@@ -36,6 +26,4 @@ capabilities:
   - context-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    The hash algorithm MD2 is considered broken and should therefore not be used to compute hash values.
+  issue: false

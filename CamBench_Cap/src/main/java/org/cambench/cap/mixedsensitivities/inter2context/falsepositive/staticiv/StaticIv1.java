@@ -35,7 +35,7 @@ public class StaticIv1 {
         byte[] ivBytes1 = Identity("abcdefghijklmnop".getBytes());
         byte[] ivBytes2 = Identity(randomBytes);
 
-        method1(ivBytes1);
+        method1(ivBytes2);
     }
 
     public static byte[] Identity(byte[] b) {return b;}

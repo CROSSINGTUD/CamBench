@@ -26,7 +26,7 @@ public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo1 = Identity("DES");
         String algo2 = Identity("AES/CBC/PKCS5Padding");
-        method1(algo1);
+        method1(algo2);
     }
 
     public static String Identity(String s){
@@ -35,7 +35,7 @@ public class BrokenCrypto1 {
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance(algo);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 }

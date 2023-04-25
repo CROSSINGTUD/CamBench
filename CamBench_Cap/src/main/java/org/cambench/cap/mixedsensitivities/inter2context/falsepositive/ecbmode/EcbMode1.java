@@ -27,7 +27,7 @@ public class EcbMode1 {
         String algo1 = Identity("AES/ECB/PKCS5Padding");
         String algo2 = Identity("AES/CBC/PKCS5Padding");
 
-        method1(algo1);
+        method1(algo2);
     }
 
     public static String Identity(String s){
