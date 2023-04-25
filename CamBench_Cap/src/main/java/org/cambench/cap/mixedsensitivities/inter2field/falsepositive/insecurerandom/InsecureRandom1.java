@@ -32,7 +32,7 @@ public class InsecureRandom1 {
         randomClass.randomGenerator1 = new Random();
         randomClass.randomGenerator2 = new SecureRandom();
 
-        method1(randomClass.randomGenerator1);
+        method1(randomClass.randomGenerator2);
     }
 
     public static void method1(Random randomGenerator) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {

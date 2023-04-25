@@ -26,14 +26,14 @@ public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.cipher1 = "DES";
-        cryptoClass.cipher2 = "AES";
+        cryptoClass.cipher2 = "AES/CBC/PKCS5Padding";
 
-        method1(cryptoClass.cipher1);
+        method1(cryptoClass.cipher2);
     }
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher = Cipher.getInstance(algo);
-        KeyGenerator keyGen = KeyGenerator.getInstance(algo);
+        KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }
 
