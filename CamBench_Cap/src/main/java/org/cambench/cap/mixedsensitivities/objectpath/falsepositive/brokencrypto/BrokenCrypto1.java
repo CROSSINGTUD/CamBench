@@ -30,7 +30,7 @@ public class BrokenCrypto1 {
 
         int condition = 1;
 
-        if(condition > 2){
+        if(condition > 0){
             cipher = Cipher.getInstance(cryptoClass1.algorithm);
         } else {
             cipher = Cipher.getInstance(cryptoClass2.algorithm);
