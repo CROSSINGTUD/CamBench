@@ -16,12 +16,6 @@ crypto-usage:
     method: main(String[] args)
     line: 37
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/basic/insecurerandom/CorrectedRandom.java
-        method: main(String[] args)
-        line: 35
-
 codemetrics:
   loc: 24
   cc: 1

@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 30
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/objectsensitivity/falsepositive/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 26
   cc: 2

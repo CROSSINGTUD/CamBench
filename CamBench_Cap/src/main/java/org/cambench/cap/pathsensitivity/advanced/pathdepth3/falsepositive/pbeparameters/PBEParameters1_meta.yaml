@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 44
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/falsepositive/pbeparameters/PBEParameters1.java
-        method: main(String[] args)
-        line: 34
-
 codemetrics:
   loc: 30
   cc: 4

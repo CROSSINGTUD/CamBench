@@ -17,12 +17,6 @@ crypto-usage:
     method: method2(String algorithm)
     line: 38
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural3/falsepositive/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 26
   cc: 3

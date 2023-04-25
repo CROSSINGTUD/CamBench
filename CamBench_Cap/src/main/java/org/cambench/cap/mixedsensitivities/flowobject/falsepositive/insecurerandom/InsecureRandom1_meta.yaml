@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 43
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/falsepositive/insecurerandom/InsecureRandom1.java
-        method: main(String[] args)
-        line: 36
-
 codemetrics:
   loc: 34
   cc: 1

@@ -17,12 +17,6 @@ crypto-usage:
     method: method2(int keySize)
     line: 42
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural3/falsepositive/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 29
-
 codemetrics:
   loc: 31
   cc: 3

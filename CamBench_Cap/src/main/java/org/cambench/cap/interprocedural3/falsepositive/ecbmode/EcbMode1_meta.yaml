@@ -17,12 +17,6 @@ crypto-usage:
     method: method2(String algorithm, String algorithmConfig)
     line: 40
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural3/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 28
   cc: 3

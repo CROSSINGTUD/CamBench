@@ -17,12 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 34
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/flowsensitivity/falsepositive/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 31
-
 codemetrics:
   loc: 23
   cc: 1

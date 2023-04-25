@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 38
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
-
 codemetrics:
   loc: 25
   cc: 2

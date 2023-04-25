@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 38
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/smallkeysize/SmallKeySize2.java
-        method: main(String[] args)
-        line: 32
-
 codemetrics:
   loc: 35
   cc: 2

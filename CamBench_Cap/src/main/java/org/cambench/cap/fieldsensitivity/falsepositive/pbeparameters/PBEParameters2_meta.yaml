@@ -17,12 +17,6 @@ crypto-usage:
     method: main(String[] args)
     line: 32
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/fieldsensitivity/falsepositive/pbeparameters/PBEParameters2.java
-        method: main(String[] args)
-        line: 29
-
 codemetrics:
   loc: 23
   cc: 1
