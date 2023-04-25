@@ -1,8 +1,8 @@
 name:
-  Corrected Broken Crypto Basic Case
+  Corrected Broken Crypto Basic Case 2
 
 api:
-  javax.crypto.Cipher
+  javax.crypto.KeyGenerator
 
 description:
   The KeyGenerator is used with an insecure algorithm (AES).
