@@ -1,5 +1,5 @@
 name:
-  Insecure Random Path- And Field-Sensitive True-Negative Case 1
+  Insecure Random Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec

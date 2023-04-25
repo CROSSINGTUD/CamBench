@@ -1,5 +1,5 @@
 name:
-  Broken Hash Function Path- And Field-Sensitive True-Negative Case 2
+  Broken Hash Function Path- And Field-Sensitive False-Positive Case 2
 
 api:
   java.security.MessageDigest

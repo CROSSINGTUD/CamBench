@@ -1,5 +1,5 @@
 name:
-  ECB Mode Path- And Field-Sensitive True-Negative Case 1
+  ECB Mode Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
