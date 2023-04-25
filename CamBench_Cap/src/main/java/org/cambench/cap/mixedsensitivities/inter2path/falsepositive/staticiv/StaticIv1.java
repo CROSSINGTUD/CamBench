@@ -33,7 +33,7 @@ public class StaticIv1 {
         String ivString = "abcdefghijklmnop";
         byte[] ivBytes = new byte[16];
 
-        if(condition > 1) {
+        if(condition == 0) {
             secureRandom.nextBytes(ivBytes);
         } else {
             ivBytes = ivString.getBytes();

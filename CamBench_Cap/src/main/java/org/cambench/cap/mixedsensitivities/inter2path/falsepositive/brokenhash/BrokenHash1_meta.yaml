@@ -1,33 +1,22 @@
 name:
-  Broken Hash Function 2-Interprocedural Path-Sensitive True-Positive Case 1
+  Broken Hash Function 2-Interprocedural Path-Sensitive False-Positive Case 1
 
 api:
   java.security.MessageDigest
 
 description:
-  An insecure hash algorithm (MD5) is passed to a method in the reachable branch of a conditional statement, where it
+  A secure hash algorithm (SHA-256) is passed to a method in the reachable branch of a conditional statement, where it
   is used to create a MessageDigest object and compute the hash value of some data.
-  The other branch passes a secure algorithm (SHA-256) to the same method, but is never reached.
+  The other branch passes an insecure algorithm (MD5) to the same method, but is never reached.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
-    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokenhash/BrokenHash1.java
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/falsepositive/brokenhash/BrokenHash1.java
     method: method1(String algo, String data)
     line: 34
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokenhash/BrokenHash1.java
-        method: main(String[] args)
-        line: 29
-
-fix:
-  description:
-    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256)
-  file: main/java/org/cambench/cap/mixedsensitivities/inter2path/truepositive/brokenhash/CorrectedHash.java
 
 codemetrics:
   loc: 22
@@ -38,6 +27,4 @@ capabilities:
   - path-sensitivity
 
 security:
-  issue: true
-  issue-description:
-    MD5 is a broken hash algorithm and should therefore not be used for its cryptographic properties.
+  issue:false

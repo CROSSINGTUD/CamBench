@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class EcbMode1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        int choice = 0;
+        int choice = 2;
 
         if(choice > 1) {
             method1("AES/CBC/PKCS5Padding");
