@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class CorrectedCrypto {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         Cipher cipher;
-        CryptoClass cryptoClass1 = new CryptoClass("AES/CBC/PKCS5Padding");
+        CryptoClass cryptoClass1 = new CryptoClass("AES/GCM/NoPadding");
 
         cipher = Cipher.getInstance(cryptoClass1.algorithm);
 

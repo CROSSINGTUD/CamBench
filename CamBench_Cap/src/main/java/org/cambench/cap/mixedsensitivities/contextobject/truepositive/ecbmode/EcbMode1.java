@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class EcbMode1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         ConfigClass algoConfig1 = GetObject("AES/ECB/PKCS5Padding");
-        ConfigClass algoConfig2 = GetObject("AES/CBC/PKCS5Padding");
+        ConfigClass algoConfig2 = GetObject("AES/GCM/NoPadding");
 
         Cipher cipher = Cipher.getInstance(algoConfig1.algorithmConfig);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

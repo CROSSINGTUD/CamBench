@@ -29,7 +29,7 @@ public class EcbMode1 {
         int choice = 0;
 
         if(choice > 1) {
-            cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher = Cipher.getInstance("AES/GCM/NoPadding");
         } else {
             cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         }

@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  A string containing the name of an secure cipher (AES) is passed to a in the reachable branch of a 
+  A string containing the name of a secure cipher (AES) is passed to a in the reachable branch of a 
   conditional statement, where it is used to create an instance of that cipher.
   The other branch, which is never reached, passes the name of an insecure cipher (DES) to that method.
 

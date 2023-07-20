@@ -27,7 +27,7 @@ public class BrokenCrypto1 {
         CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.selfObject = new CryptoClass();
         cryptoClass.selfObject.selfObject = new CryptoClass();
-        cryptoClass.selfObject.selfObject.cipher1 = "AES/CBC/PKCS5Padding";
+        cryptoClass.selfObject.selfObject.cipher1 = "AES/GCM/NoPadding";
         cryptoClass.selfObject.selfObject.cipher2 = "DES";
 
         Cipher cipher = Cipher.getInstance(cryptoClass.selfObject.selfObject.cipher2);

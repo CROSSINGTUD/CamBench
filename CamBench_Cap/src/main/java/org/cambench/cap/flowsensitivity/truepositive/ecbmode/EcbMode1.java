@@ -30,6 +30,6 @@ public class EcbMode1 {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        algorithm = "AES/CBC/PKCS5Padding";
+        algorithm = "AES/GCM/NoPadding";
     }
 }

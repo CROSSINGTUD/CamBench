@@ -28,7 +28,7 @@ public class BrokenCrypto1 {
         CryptoClass cryptoClass2 = new CryptoClass("Blowfish");
         CryptoClass cryptoClass3 = new CryptoClass("RC4");
         CryptoClass cryptoClass4 = new CryptoClass("DES");
-        CryptoClass cryptoClass5 = new CryptoClass("AES/CBC/PKCS5Padding");
+        CryptoClass cryptoClass5 = new CryptoClass("AES/GCM/NoPadding");
 
         Cipher cipher = Cipher.getInstance(cryptoClass4.algorithm);
         KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass4.algorithm);

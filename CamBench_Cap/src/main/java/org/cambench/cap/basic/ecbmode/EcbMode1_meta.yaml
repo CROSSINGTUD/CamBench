@@ -18,7 +18,7 @@ crypto-usage:
 
 fix:
   description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as CBC.
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
   file: main/java/org/cambench/cap/basic/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

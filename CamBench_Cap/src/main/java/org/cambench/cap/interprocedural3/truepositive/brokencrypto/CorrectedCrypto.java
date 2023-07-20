@@ -35,7 +35,7 @@ public class CorrectedCrypto {
     }
 
     public static void method2(String algorithm) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algoConfig = String.join("/", algorithm,"CBC","PKCS5Padding");
+        String algoConfig = String.join("/", algorithm,"GCM","PKCS5Padding");
         Cipher cipher = Cipher.getInstance(algoConfig);
         KeyGenerator keyGen = KeyGenerator.getInstance(algorithm);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());

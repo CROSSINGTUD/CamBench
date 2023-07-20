@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each store a string with a configuration of the AES algorithm (one with EBC mode, 
-  the other with CBC mode). The object with the CBC configuration is then used in the
+  the other with GCM mode). The object with the GCM configuration is then used in the
   reachable branch of the conditional statement to get an instance of a cipher object.
 
 crypto-usage:

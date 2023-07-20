@@ -6,7 +6,7 @@ api:
 
 description:
   A configuration for the AES algorithm containing the ECB mode of operation is passed over two methods where a cipher
-  object is then initialized with the more secure CBC mode of operation.
+  object is then initialized with the more secure GCM mode of operation.
 
 crypto-usage:
   violation: false

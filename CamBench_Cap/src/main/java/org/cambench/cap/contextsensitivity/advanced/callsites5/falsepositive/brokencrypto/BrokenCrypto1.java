@@ -25,9 +25,9 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo1 = Identity("Blowfish");
-        String algo2 = Identity("AES/CBC/PKCS5Padding");
+        String algo2 = Identity("AES/GCM/NoPadding");
         String algo3 = Identity("DES");
-        String algo4 = Identity("AES/CBC/PKCS5Padding");
+        String algo4 = Identity("AES/GCM/NoPadding");
         String algo5 = Identity("RC2");
 
 

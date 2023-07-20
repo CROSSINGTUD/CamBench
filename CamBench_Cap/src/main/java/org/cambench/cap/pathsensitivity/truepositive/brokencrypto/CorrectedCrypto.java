@@ -27,7 +27,7 @@ public class CorrectedCrypto {
         Cipher cipher;
         KeyGenerator keyGen;
 
-        cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher = Cipher.getInstance("AES/GCM/NoPadding");
         keyGen = KeyGenerator.getInstance("AES");
 
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());

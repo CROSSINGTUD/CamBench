@@ -30,7 +30,7 @@ public class BrokenCrypto1 {
         int condition = 1;
 
         if(condition == 1){
-            algorithm = "AES/CBC/PKCS5Padding";
+            algorithm = "AES/GCM/NoPadding";
         } else {
             algorithm = "Blowfish";
         }

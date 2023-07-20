@@ -30,9 +30,9 @@ public class BrokenCrypto2 {
 
         if(condition > 0){
             algo1 = Identity("Blowfish");
-            algo2 = Identity("AES/CBC/PKCS5Padding");
+            algo2 = Identity("AES/GCM/NoPadding");
         } else {
-            algo1 = Identity("AES/CBC/PKCS5Padding");
+            algo1 = Identity("AES/GCM/NoPadding");
             algo2 = Identity("Blowfish");
         }
 

@@ -26,7 +26,7 @@ public class CorrectedEcbMode {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         ConfigClass configClass = new ConfigClass();
         configClass.algoConfig1 = Identity("AES/ECB/PKCS5Padding");
-        configClass.algoConfig2 = Identity("AES/CBC/PKCS5Padding");
+        configClass.algoConfig2 = Identity("AES/GCM/NoPadding");
 
         Cipher cipher = Cipher.getInstance(configClass.algoConfig2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

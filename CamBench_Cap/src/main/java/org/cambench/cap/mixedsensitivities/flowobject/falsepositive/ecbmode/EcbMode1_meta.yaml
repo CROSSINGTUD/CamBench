@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each store a string with a configuration of the AES algorithm that uses 
-  the ECB mode of operation. One of these strings is re-assigned with a configuration that uses the more secure CBC mode
+  the ECB mode of operation. One of these strings is re-assigned with a configuration that uses the more secure GCM mode
   before it is utilized to initialize a cipher object.
 
 

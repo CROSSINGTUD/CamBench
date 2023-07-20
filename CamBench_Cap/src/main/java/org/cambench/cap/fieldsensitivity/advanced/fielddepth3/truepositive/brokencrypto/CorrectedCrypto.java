@@ -27,7 +27,7 @@ public class CorrectedCrypto {
         CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.selfObject = new CryptoClass();
         cryptoClass.selfObject.selfObject = new CryptoClass();
-        cryptoClass.selfObject.selfObject.cipher1 = "AES/CBC/PKCS5Padding";
+        cryptoClass.selfObject.selfObject.cipher1 = "AES/GCM/NoPadding";
 
         Cipher cipher = Cipher.getInstance(cryptoClass.selfObject.selfObject.cipher1);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
