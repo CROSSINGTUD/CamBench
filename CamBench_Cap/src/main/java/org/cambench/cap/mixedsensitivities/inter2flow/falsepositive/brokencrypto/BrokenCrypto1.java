@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class BrokenCrypto1 {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algo = "AES/CBC/PKCS5Padding";
+        String algo = "AES/GCM/NoPadding";
         method1(algo);
         algo = "DES";
     }

@@ -28,7 +28,7 @@ import java.util.Random;
 
 public class CorrectedRandom {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
         byte[] ivBytes = new byte[16];

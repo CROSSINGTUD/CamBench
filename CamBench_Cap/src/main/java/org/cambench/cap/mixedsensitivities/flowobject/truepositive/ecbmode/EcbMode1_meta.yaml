@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each store a string with a configuration of the AES algorithm that uses 
-  the ECB or CBC mode of operation. These strings are re-assigned, however, ECB is utilized to initialize a cipher object.
+  the ECB or GCM mode of operation. These strings are re-assigned, however, ECB is utilized to initialize a cipher object.
 
 
 crypto-usage:
@@ -26,7 +26,7 @@ crypto-usage:
 
 fix:
   description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as CBC.
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
   file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

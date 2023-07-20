@@ -6,7 +6,7 @@ api:
 
 description:
   A variable is set to a AES configuration containing the insecure ECB mode. The variable is then re-assigned with 
-  a more secure configuration containing the CBC mode of operation and used to create a cipher object.
+  a more secure configuration containing the GCM mode of operation and used to create a cipher object.
 
 crypto-usage:
   violation: false

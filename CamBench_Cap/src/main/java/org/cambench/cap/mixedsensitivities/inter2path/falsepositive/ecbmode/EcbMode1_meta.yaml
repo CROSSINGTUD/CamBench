@@ -5,7 +5,7 @@ api:
   java.security.Cipher
 
 description:
-  A configuration for the AES cipher using the CBC mode is passed to a method in the reachable branch of a conditional 
+  A configuration for the AES cipher using the GCM mode is passed to a method in the reachable branch of a conditional 
   statement, where it is used initialize a cipher object with this configuration.
   The other branch passes an insecure configuration (using ECB mode) to the same method, but is never reached.
 

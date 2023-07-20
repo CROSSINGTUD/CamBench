@@ -34,7 +34,7 @@ public class BrokenCrypto1 {
                 algorithm = "DES";
             }
             else{
-                algorithm = "AES/CBC/PKCS5Padding";
+                algorithm = "AES/GCM/NoPadding";
             }
         }
         else{

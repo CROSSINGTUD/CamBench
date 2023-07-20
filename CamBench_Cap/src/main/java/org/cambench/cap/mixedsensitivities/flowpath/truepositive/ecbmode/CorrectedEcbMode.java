@@ -32,7 +32,7 @@ public class CorrectedEcbMode {
         if(condition != 1){
             algorithm = "AES/ECB/PKCS5Padding";
         } else {
-            algorithm = "AES/CBC/PKCS5Padding";
+            algorithm = "AES/GCM/NoPadding";
         }
 
         cipher = Cipher.getInstance(algorithm);

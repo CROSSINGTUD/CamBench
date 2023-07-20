@@ -27,9 +27,9 @@ public class CorrectedCrypto {
         CryptoClass cryptoClass1 = new CryptoClass();
         CryptoClass cryptoClass2 = new CryptoClass();
         cryptoClass1.algorithm = "DES";
-        cryptoClass2.algorithm = "AES/CBC/PKCS5Padding";
+        cryptoClass2.algorithm = "AES/GCM/NoPadding";
         cryptoClass2.algorithm = "DES";
-        cryptoClass1.algorithm = "AES/CBC/PKCS5Padding";
+        cryptoClass1.algorithm = "AES/GCM/NoPadding";
 
         Cipher cipher = Cipher.getInstance(cryptoClass1.algorithm);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

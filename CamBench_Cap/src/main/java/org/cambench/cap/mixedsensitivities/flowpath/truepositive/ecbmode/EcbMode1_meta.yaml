@@ -6,7 +6,7 @@ api:
 
 description:
   A variable is set to a configuration of the AES cipher with the insecure ECB mode used. 
-  The variable is then re-assigned, however, the secure configuration of the AES cipher that uses the secure CBC mode is
+  The variable is then re-assigned, however, the secure configuration of the AES cipher that uses the secure GCM mode is
   unreachable. Therefore, the cipher is initialized with ECB mode.
 
 crypto-usage:
@@ -26,7 +26,7 @@ crypto-usage:
 
 fix:
   description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as CBC.
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
   file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

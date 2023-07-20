@@ -6,8 +6,8 @@ api:
 
 description:
   Two objects are created by using the GetObject method. Each object stores a string with a configuration of the AES 
-  algorithm (one with ECB mode, the other with CBC mode). 
-  The object with the CBC configuration is then used to initialize a cipher object.
+  algorithm (one with ECB mode, the other with GCM mode). 
+  The object with the GCM configuration is then used to initialize a cipher object.
 
 
 crypto-usage:

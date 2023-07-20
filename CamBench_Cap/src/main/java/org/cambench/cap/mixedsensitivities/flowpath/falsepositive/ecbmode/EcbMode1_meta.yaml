@@ -7,7 +7,7 @@ api:
 description:
   A variable is set to a configuration of the AES cipher with the insecure ECB mode used. 
   The variable is then re-assigned in the reachable branch of the conditional statement with a new configuration 
-  of the AES cipher that uses the secure CBC mode, before the cipher is initialized.
+  of the AES cipher that uses the secure GCM mode, before the cipher is initialized.
 
 crypto-usage:
   violation: false

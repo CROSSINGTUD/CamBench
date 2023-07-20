@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class CorrectedCrypto {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algorithm1 = "AES/CBC/PKCS5Padding";
+        String algorithm1 = "AES/GCM/NoPadding";
         String algorithm2 = "Blowfish";
         String swapper;
 

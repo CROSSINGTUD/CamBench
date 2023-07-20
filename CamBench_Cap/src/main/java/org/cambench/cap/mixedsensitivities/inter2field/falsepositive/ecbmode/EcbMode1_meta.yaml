@@ -6,7 +6,7 @@ api:
 
 description:
   Two configurations of the AES algorithm are stored in an object's fields. 
-  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
+  One contains the secure GCM mode of operation, the other the insecure ECB mode. 
   The secure one is then passed to a method and used to initialize an instance of the AES cipher.
 
 crypto-usage:

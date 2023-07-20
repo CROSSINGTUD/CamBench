@@ -27,7 +27,7 @@ public class CorrectedEcbMode {
         Cipher cipher;
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
-        cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher = Cipher.getInstance("AES/GCM/NoPadding");
 
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
     }

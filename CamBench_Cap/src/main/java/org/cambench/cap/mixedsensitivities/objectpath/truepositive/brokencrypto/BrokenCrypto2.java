@@ -31,9 +31,9 @@ public class BrokenCrypto2 {
 
         if(condition < 2){
             cryptoClass1 = new CryptoClass("Blowfish");
-            cryptoClass2 = new CryptoClass("AES/CBC/PKCS5Padding");
+            cryptoClass2 = new CryptoClass("AES/GCM/NoPadding");
         } else {
-            cryptoClass1 = new CryptoClass("AES/CBC/PKCS5Padding");
+            cryptoClass1 = new CryptoClass("AES/GCM/NoPadding");
             cryptoClass2 = new CryptoClass("Blowfish");
         }
 

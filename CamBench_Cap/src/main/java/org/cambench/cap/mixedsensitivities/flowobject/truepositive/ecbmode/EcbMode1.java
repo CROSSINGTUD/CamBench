@@ -27,9 +27,9 @@ public class EcbMode1 {
         ConfigClass algoConfig1 = new ConfigClass();
         ConfigClass algoConfig2 = new ConfigClass();
         algoConfig1.algorithmConfig = "AES/ECB/PKCS5Padding";
-        algoConfig2.algorithmConfig = "AES/CBC/PKCS5Padding";
+        algoConfig2.algorithmConfig = "AES/GCM/NoPadding";
         algoConfig2.algorithmConfig = "AES/ECB/PKCS5Padding";
-        algoConfig1.algorithmConfig = "AES/CBC/PKCS5Padding";
+        algoConfig1.algorithmConfig = "AES/GCM/NoPadding";
 
         Cipher cipher = Cipher.getInstance(algoConfig2.algorithmConfig);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

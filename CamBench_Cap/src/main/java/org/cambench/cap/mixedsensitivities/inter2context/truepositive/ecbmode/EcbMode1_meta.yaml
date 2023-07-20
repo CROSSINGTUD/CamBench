@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  Two configurations for the AES cipher (one using the ECB and one using the CBC mode of operation) are stored in 
+  Two configurations for the AES cipher (one using the ECB and one using the GCM mode of operation) are stored in 
   variables by using the Identity function. 
   The insecure ECB configuration is then passed to a method and used to initialize a cipher object for encryption.
 
@@ -25,7 +25,7 @@ crypto-usage:
 
 fix:
   description:
-    Replace the ECB mode in the configuration with another, more secure mode like CBC.
+    Replace the ECB mode in the configuration with another, more secure mode like GCM.
   file: main/java/org/cambench/cap/mixedsensitivities/inter2context/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

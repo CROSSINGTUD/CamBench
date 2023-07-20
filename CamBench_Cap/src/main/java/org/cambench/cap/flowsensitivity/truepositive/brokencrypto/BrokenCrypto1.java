@@ -30,6 +30,6 @@ public class BrokenCrypto1 {
         KeyGenerator keyGen = KeyGenerator.getInstance(algorithm);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        algorithm = "AES/CBC/PKCS5Padding";
+        algorithm = "AES/GCM/NoPadding";
     }
 }

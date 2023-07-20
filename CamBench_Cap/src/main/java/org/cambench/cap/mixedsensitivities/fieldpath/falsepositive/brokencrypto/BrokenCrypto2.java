@@ -30,9 +30,9 @@ public class BrokenCrypto2 {
 
         if (condition > 0) {
             cryptoClass.cipher1 = "Blowfish";
-            cryptoClass.cipher2 = "AES/CBC/PKCS5Padding";
+            cryptoClass.cipher2 = "AES/GCM/NoPadding";
         } else {
-            cryptoClass.cipher1 = "AES/CBC/PKCS5Padding";
+            cryptoClass.cipher1 = "AES/GCM/NoPadding";
             cryptoClass.cipher2 = "Blowfish";
         }
 

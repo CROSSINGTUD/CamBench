@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each contain a configuration for the AES cipher. One with the ECB mode of operation,
-  the other with CBC mode of operation. The object with the secure CBC configuration is then passed to a method and
+  the other with GCM mode of operation. The object with the secure GCM configuration is then passed to a method and
   utilized to initialize a cipher object for encryption.
 
 crypto-usage:

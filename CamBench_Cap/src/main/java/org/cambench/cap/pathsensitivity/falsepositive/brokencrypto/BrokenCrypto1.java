@@ -29,7 +29,7 @@ public class BrokenCrypto1 {
         int condition = 1;
 
         if(condition > 0) {
-            cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher = Cipher.getInstance("AES/GCM/NoPadding");
             keyGen = KeyGenerator.getInstance("AES");
         } else {
             cipher = Cipher.getInstance("DES");

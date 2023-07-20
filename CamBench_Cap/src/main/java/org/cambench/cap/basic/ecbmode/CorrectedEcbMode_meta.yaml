@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  The AES algorithm is configured and initialized securely with the CBC mode of operation.
+  The AES algorithm is configured and initialized securely with the GCM mode of operation.
 
 crypto-usage:
   violation: false

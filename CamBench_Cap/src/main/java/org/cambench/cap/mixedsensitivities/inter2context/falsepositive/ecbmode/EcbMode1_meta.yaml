@@ -5,9 +5,9 @@ api:
   javax.crypto.Cipher
 
 description:
-  Two configurations for the AES cipher (one using the ECB and one using the CBC mode of operation) are stored in 
+  Two configurations for the AES cipher (one using the ECB and one using the GCM mode of operation) are stored in 
   variables by using the Identity function. 
-  The secure CBC configuration is then passed to a method and used to initialize a cipher object for encryption.
+  The secure GCM configuration is then passed to a method and used to initialize a cipher object for encryption.
 
 crypto-usage:
   violation: false
