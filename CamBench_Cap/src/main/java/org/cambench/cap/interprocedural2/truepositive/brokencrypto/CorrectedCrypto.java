@@ -29,7 +29,7 @@ public class CorrectedCrypto {
         method1(algo);
     }
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        String algoConfig = String.join("/", algo,"GCM","PKCS5Padding");
+        String algoConfig = String.join("/", algo,"GCM","NoPadding");
         Cipher cipher = Cipher.getInstance(algoConfig);
         KeyGenerator keyGen = KeyGenerator.getInstance(algo);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
