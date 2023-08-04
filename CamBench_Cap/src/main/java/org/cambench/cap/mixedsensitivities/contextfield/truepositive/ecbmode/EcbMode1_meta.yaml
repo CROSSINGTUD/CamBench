@@ -1,0 +1,44 @@
+name:
+  ECB Mode Context- & Field-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm are stored in an object's fields by using the Identity function. 
+  One contains the insecure ECB mode of operation, the other the secure GCM mode. 
+  The ECB configuration is then used to initialize an instance of the AES cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 31
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 28
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
+  file: main/java/org/cambench/cap/mixedsensitivities/contextfield/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 28
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - field-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

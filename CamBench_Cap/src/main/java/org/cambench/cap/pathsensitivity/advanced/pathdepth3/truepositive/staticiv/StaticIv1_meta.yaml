@@ -1,0 +1,43 @@
+name:
+  Static Initialization Vector Path-Sensitive Path-Depth-3 True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  The byte array used for iv creation is filled with static values in the 
+  reachable branch of a nested conditional statement with depth 3.
+  In the unreachable branches insecure static values or securely random values would have been used.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 51
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/staticiv/StaticIv1.java
+        method: main(String[] args)
+        line: 42
+
+fix:
+  description:
+    Use the SecureRandom class to create a pseudorandom byte array instead of using a static value for iv creation.
+  file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/truepositive/staticiv/CorrectedIv.java
+
+codemetrics:
+  loc: 38
+  cc: 4
+
+capabilities:
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A static value is used to create an initialization vector. This can lead to insecurities, since initialization
+    vectors are often required to be random in order to guarantee a secure encryption.

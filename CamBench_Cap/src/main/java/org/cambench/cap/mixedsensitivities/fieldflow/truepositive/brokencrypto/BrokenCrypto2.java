@@ -26,13 +26,13 @@ public class BrokenCrypto2 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         CryptoClass2 cryptoClass = new CryptoClass2();
         cryptoClass.cipher1 = "Blowfish";
-        cryptoClass.cipher2 = "AES/CBC/PKCS5Padding";
+        cryptoClass.cipher2 = "AES/GCM/NoPadding";
 
         Cipher cipher = Cipher.getInstance(cryptoClass.cipher1);
         KeyGenerator keyGen = KeyGenerator.getInstance(cryptoClass.cipher1);
         cipher.init(Cipher.ENCRYPT_MODE,keyGen.generateKey());
 
-        cryptoClass.cipher1 = "AES/CBC/PKCS5Padding";
+        cryptoClass.cipher1 = "AES/GCM/NoPadding";
     }
 
     public static class CryptoClass2{

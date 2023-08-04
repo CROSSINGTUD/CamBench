@@ -1,0 +1,44 @@
+name:
+  ECB Mode Path- And Flow-Sensitive True-Positive Case 1
+
+api:
+  java.security.Cipher
+
+description:
+  A variable is set to a configuration of the AES cipher with the insecure ECB mode used. 
+  The variable is then re-assigned, however, the secure configuration of the AES cipher that uses the secure GCM mode is
+  unreachable. Therefore, the cipher is initialized with ECB mode.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 38
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 28
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
+  file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 25
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

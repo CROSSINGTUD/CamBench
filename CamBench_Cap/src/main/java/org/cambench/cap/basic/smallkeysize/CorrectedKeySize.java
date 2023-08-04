@@ -28,7 +28,7 @@ public class CorrectedKeySize {
         Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(2048);
+        keyGen.initialize(3072);
         KeyPair keyPair = keyGen.generateKeyPair();
 
         cipher.init(Cipher.ENCRYPT_MODE,keyPair.getPublic());

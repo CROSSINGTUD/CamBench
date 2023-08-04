@@ -1,5 +1,5 @@
 name:
-  Broken Crypto Path- And Field-Sensitive True-Negative Case 1
+  Broken Crypto Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
@@ -16,12 +16,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokencrypto/BrokenCrypto1.java
     method: main(String[] args)
     line: 35
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokencrypto/BrokenCrypto1.java
-        method: main(String[] args)
-        line: 28
 
 codemetrics:
   loc: 31

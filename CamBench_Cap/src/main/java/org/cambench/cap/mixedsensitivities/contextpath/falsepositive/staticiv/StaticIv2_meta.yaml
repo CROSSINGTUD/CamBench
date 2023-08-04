@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector Path- And Context-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static and a random, non-static byte array are created with the identity function and stored as
+  variables, depending on the conditional statement.
+  The random, non-static array is then used as initialization vector to initialize an instance of the AES algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 48
+
+codemetrics:
+  loc: 37
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: trandom, non-static

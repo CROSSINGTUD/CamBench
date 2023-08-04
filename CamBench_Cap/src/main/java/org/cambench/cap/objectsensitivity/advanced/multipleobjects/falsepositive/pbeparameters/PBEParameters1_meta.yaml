@@ -1,0 +1,28 @@
+name:
+  Password Based Encryption Parameters Object-Sensitive Multiple-Objects False-Positive Case 1
+
+api:
+  javax.crypto.spec.PBEParameterSpec
+
+description:
+  Five objects are created that each contain a byte array; either filled with a static value or random values. 
+  The securely random value is then used as salt for an PBEParameterSpec object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/advanced/multipleobjects/falsepositive/pbeparameters/PBEParameters1.java
+    method: main(String[] args)
+    line: 36
+
+codemetrics:
+  loc: 27
+  cc: 2
+
+capabilities:
+  - object-Sensitivity
+
+security:
+  issue: false

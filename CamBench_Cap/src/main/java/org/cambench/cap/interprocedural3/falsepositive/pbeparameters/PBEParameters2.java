@@ -25,7 +25,7 @@ public class PBEParameters2 {
         byte[] salt = new byte[16];
 
         secureRandom.nextBytes(salt);
-        int iterations = 10;
+        int iterations = 1000;
 
         method1(salt,iterations);
     }
@@ -37,7 +37,7 @@ public class PBEParameters2 {
     }
 
     public static void method2(byte[] saltArray, int iterationCount) {
-        int newIterations = 20000;
+        int newIterations = 10000000;
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(saltArray,newIterations);
     }
 }

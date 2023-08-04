@@ -7,7 +7,7 @@ api:
 description:
   An instance of a secure cipher (AES) is used with ECB mode of operation
   in the reachable branch of a conditional statement.
-  The other branch, which is never reached, gets an instance of the cipher with CBC mode of operation configured.
+  The other branch, which is never reached, gets an instance of the cipher with GCM mode of operation configured.
 
 crypto-usage:
   violation: true
@@ -20,7 +20,7 @@ crypto-usage:
 
 fix:
   description:
-    Replace the ECB mode of operation through another, secure mode, e.g. CBC mode.
+    Replace the ECB mode of operation through another, secure mode, e.g. GCM mode.
   file: main/java/org/cambench/cap/pathsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:
@@ -34,4 +34,4 @@ security:
   issue: true
   issue-description:
     Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
-    identical blocks of plaintext will be encrypted to identical blocks of cyphertext.
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

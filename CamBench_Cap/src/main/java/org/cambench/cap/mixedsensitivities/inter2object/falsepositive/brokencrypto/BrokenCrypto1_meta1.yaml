@@ -1,0 +1,30 @@
+name:
+  Broken Crypto 2-Interprocedural Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each hold the name of a single cipher. One contains the insecure DES cipher, the other
+  the secure AES cipher. The object with the secure cipher is then passed to a method and 
+  used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String algo)
+    line: 34
+
+codemetrics:
+  loc: 30
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: false

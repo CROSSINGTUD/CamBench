@@ -1,0 +1,44 @@
+name:
+  ECB Mode Flow- & Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each store a string with a configuration of the AES algorithm that uses 
+  the ECB or GCM mode of operation. These strings are re-assigned, however, ECB is utilized to initialize a cipher object.
+
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 34
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/ecbmode/EcbMode1.java
+        method: main(String[] args)
+        line: 31
+
+fix:
+  description:
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
+  file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/ecbmode/CorrectedEcbMode.java
+
+codemetrics:
+  loc: 26
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    Block ciphers should not be used with the ECB mode of operation. ECB mode is considered to be insecure since
+    identical blocks of plaintext will be encrypted to identical blocks of ciphertext.

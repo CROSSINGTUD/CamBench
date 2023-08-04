@@ -6,7 +6,7 @@ api:
 
 description:
   A configuration for the AES algorithm containing the ECB mode of operation is passed over two methods where a cipher
-  object is then initialized with the more secure CBC mode of operation.
+  object is then initialized with the more secure GCM mode of operation.
 
 crypto-usage:
   violation: false
@@ -16,12 +16,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/interprocedural3/falsepositive/ecbmode/EcbMode1.java
     method: method2(String algorithm, String algorithmConfig)
     line: 40
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/interprocedural3/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
 
 codemetrics:
   loc: 28

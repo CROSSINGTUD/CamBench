@@ -1,0 +1,29 @@
+name:
+  Broken Crypto 2-Interprocedural Field-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The names of a secure (AES) & an insecure cipher (DES) are stored in an object's fields. The secure one is then 
+  passed to a method and used to initialize the actual cipher object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2field/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String[] algo)
+    line: 35
+
+codemetrics:
+  loc: 28
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - field-sensitivity
+
+security:
+  issue: false

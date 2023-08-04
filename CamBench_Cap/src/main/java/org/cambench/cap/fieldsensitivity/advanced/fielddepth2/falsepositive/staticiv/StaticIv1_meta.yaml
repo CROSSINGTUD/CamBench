@@ -1,0 +1,29 @@
+name:
+  Static Initialization Vector Field-Sensitive Field-Depth 2 False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static and a pseudorandom byte array are stored in an object's fields that is stored in an object's
+  field itself (getting a field-depth of 2, e.g. object.field.field).
+  The securely random one is then utilized to create an initialization vector and initialize an instance of the AES algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth2/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 42
+
+codemetrics:
+  loc: 35
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: false

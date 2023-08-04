@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Field-Sensitive Case 2
+  Static Initialization Vector Path- And Field-Sensitive False-Positive Case 2
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -18,18 +18,13 @@ crypto-usage:
     method: main(String[] args)
     line: 45
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/staticiv/StaticIv2.java
-        method: main(String[] args)
-        line: 39
-
 codemetrics:
   loc: 40
   cc: 2
 
 capabilities:
   - field-sensitivity
+  - path-sensitivity
 
 security:
   issue: false

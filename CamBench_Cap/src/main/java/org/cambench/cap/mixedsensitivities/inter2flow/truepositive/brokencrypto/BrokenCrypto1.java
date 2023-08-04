@@ -27,7 +27,7 @@ public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         String algo = "DES";
         method1(algo);
-        algo = "AES/CBC/PKCS5Padding";
+        algo = "AES/GCM/NoPadding";
     }
 
     public static void method1(String algo) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {

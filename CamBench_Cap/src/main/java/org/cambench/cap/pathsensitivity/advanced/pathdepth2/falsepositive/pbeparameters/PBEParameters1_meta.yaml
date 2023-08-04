@@ -5,8 +5,8 @@ api:
   javax.crypto.spec.PBEParameterSpec
 
 description:
-  The salt used to create a PBEParameterSpec object created by using the SecureRandom class
-  in the reachable branch of a nested conditional statement with depth 2.
+  The salt used to create a PBEParameterSpec object is created by using the SecureRandom class in the reachable branch
+  of a nested conditional statement with depth 2.
   In every other branch, of which none are reached, the salt would have been set to a static value.
 
 crypto-usage:
@@ -18,15 +18,12 @@ crypto-usage:
     method: main(String[] args)
     line: 40
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth2/falsepositive/pbeparameters/PBEParameters1.java
-        method: main(String[] args)
-        line: 36
-
 codemetrics:
   loc: 26
   cc: 3
 
 capabilities:
   - path-sensitivity
+
+security:
+  issue: false

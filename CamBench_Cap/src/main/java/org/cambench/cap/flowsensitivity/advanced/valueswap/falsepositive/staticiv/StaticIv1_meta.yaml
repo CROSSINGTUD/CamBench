@@ -1,5 +1,5 @@
 name:
-  Static Initialization Vector Flow-Sensitive False-Positive Case 1
+  Static Initialization Vector Flow-Sensitive Value-Swap False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/staticiv/StaticIv1.java
     method: main(String[] args)
     line: 45
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 37
 
 codemetrics:
   loc: 32

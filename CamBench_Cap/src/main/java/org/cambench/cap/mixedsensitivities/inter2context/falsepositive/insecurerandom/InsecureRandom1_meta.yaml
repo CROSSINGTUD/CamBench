@@ -1,0 +1,30 @@
+name:
+  Insecure Random 2-Interprocedural Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An instance of the Random class and one of the SecureRandom class are created by using the Identity function.
+  The second one is then used to create a byte array with random values
+  which is then passed to a method and used to create an initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/falsepositive/insecurerandom/InsecureRandom1.java
+    method: method1(byte[] ivBytes)
+    line: 48
+
+codemetrics:
+  loc: 35
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - context-sensitivity
+
+security:
+  issue: false

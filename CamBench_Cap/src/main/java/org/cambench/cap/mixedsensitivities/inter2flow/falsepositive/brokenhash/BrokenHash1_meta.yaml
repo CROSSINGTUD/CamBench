@@ -1,0 +1,30 @@
+name:
+  Broken Hash Function 2-Interprocedural Flow-Sensitive False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  A string containing the name of a secure hash algorithm (SHA-256) is passed as value to another method where 
+  a MessageDigest object is initialized to compute the hash value of some data, before the original string is
+  overwritten with the name of a broken hash algorithm (MD5).
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/brokenhash/BrokenHash1.java
+    method: method1(String algo, String data)
+    line: 32
+
+codemetrics:
+  loc: 20
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: false

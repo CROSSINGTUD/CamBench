@@ -1,0 +1,31 @@
+name:
+  Broken Crypto Path- And Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The algo variables are set to the names of an insecure (DES) and a secure cipher (AES) by using the
+  Identity function.
+  Then the variable with the AES algorithm is used in the reachable branch of the 
+  conditional statement to get an instance of the cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 34
+
+codemetrics:
+  loc: 30
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

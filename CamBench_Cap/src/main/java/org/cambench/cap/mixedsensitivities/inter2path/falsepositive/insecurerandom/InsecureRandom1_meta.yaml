@@ -1,0 +1,31 @@
+name:
+  Insecure Random 2-Interprocedural Path-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  The byte array used for the creation of an initialization vector is filled with random values in a secure way 
+  in the reachable branch of the conditional statement by using the SecureRandom class. 
+  The other branch, which is not reached, uses the standard Random class to fill the byte array in an insecure way.
+  The array is then passed to a method where it is used to create an initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/falsepositive/insecurerandom/InsecureRandom1.java
+    method: method1(byte[] ivBytes)
+    line: 48
+
+codemetrics:
+  loc: 35
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: false

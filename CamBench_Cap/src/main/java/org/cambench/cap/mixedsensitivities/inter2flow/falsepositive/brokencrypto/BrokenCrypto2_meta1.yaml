@@ -1,0 +1,29 @@
+name:
+  Broken Crypto 2-Interprocedural Flow-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A string containing the name of an insecure cipher (Blowfish) is overwritten with the name of an insecure cipher (AES) 
+  before it is passed to a method where it is used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/brokencrypto/BrokenCrypto2.java
+    method: method1(String algo)
+    line: 34
+
+codemetrics:
+  loc: 22
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: false

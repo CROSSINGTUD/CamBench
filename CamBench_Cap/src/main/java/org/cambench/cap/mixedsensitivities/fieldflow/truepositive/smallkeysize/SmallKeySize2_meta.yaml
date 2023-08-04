@@ -41,3 +41,4 @@ security:
   issue-description:
     The size of the generated keys does not conform the recommended minimum of 2048 bits.
     Smaller key sizes can lead to insecurities when using the RSA algorithm.
+    Beyond 2023 the minimum key length will be 3072 bits.

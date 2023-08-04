@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector Field- & Flow-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static and a pseudorandom byte array are stored in an object's fields.
+  The pseudorandom one is then utilized to create an initialization vector and initialize an instance of the AES
+  algorithm before it is overwritten with a static byte array.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/staticiv/StaticIv2.java
+    method: main(String[] args)
+    line: 41
+
+codemetrics:
+  loc: 35
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

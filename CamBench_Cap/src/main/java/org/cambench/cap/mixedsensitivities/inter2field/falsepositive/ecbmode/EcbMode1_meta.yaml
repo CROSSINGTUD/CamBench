@@ -1,0 +1,30 @@
+name:
+  ECB Mode 2-Interprocedural Filed-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm are stored in an object's fields. 
+  One contains the secure GCM mode of operation, the other the insecure ECB mode. 
+  The secure one is then passed to a method and used to initialize an instance of the AES cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2field/falsepositive/ecbmode/EcbMode1.java
+    method: method1(String algoConfig)
+    line: 35
+
+codemetrics:
+  loc: 28
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - field-sensitivity
+
+security:
+  issue: false

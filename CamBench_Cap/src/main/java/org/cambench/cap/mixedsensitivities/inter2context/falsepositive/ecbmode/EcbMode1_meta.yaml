@@ -1,0 +1,30 @@
+name:
+  ECB Mode 2-Interprocedural Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations for the AES cipher (one using the ECB and one using the GCM mode of operation) are stored in 
+  variables by using the Identity function. 
+  The secure GCM configuration is then passed to a method and used to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/falsepositive/ecbmode/EcbMode1.java
+    method: method1(String algoConfig)
+    line: 38
+
+codemetrics:
+  loc: 26
+  cc: 3
+
+capabilities:
+  - interprocdural
+  - context-sensitivity
+
+security:
+  issue: false

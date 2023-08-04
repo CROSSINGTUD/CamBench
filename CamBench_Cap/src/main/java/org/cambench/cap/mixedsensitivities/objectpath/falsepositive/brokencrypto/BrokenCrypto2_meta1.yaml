@@ -1,0 +1,30 @@
+name:
+  Broken Crypto Path- And Object-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created in each branch of the conditional statement that each have a string with 
+  the name of a cryptographic cipher as value (Blowfish and AES, respectively). 
+  The object containing the AES string is then used to create an instance of the cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/objectpath/falsepositive/brokencrypto/BrokenCrypto2.java
+    method: main(String[] args)
+    line: 40
+
+codemetrics:
+  loc: 36
+  cc: 3
+
+capabilities:
+  - object-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

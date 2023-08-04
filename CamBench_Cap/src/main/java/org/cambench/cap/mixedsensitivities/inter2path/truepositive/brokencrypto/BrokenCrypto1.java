@@ -27,7 +27,7 @@ public class BrokenCrypto1 {
         int condition = 0;
 
         if(condition > 1) {
-            method1("AES","AES/CBC/PKCS5Padding");
+            method1("AES","AES/GCM/NoPadding");
         } else {
             method1("DES","DES");
         }

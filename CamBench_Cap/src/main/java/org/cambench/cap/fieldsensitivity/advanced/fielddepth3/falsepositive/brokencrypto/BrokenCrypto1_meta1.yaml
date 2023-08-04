@@ -1,0 +1,29 @@
+name:
+  Broken Crypto Field-Sensitive Field-Depth 3 False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The names of a secure & an insecure cipher (DES) are stored in an object's fields which is the end of a chain of
+  three objects (getting a field-depth of 3, e.g. object.field.field.field). The secure one is then used 
+  to initialize the actual cipher object.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/fieldsensitivity/advanced/fielddepth3/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 33
+
+codemetrics:
+  loc: 27
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+
+security:
+  issue: false

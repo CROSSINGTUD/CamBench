@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each store a string with a configuration of the AES algorithm (one with EBC mode, 
-  the other with CBC mode). The object with the CBC configuration is then used to initialize a cipher object.
+  the other with GCM mode). The object with the GCM configuration is then used to initialize a cipher object.
 
 
 crypto-usage:
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/objectsensitivity/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
     line: 30
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/objectsensitivity/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 27
 
 codemetrics:
   loc: 26

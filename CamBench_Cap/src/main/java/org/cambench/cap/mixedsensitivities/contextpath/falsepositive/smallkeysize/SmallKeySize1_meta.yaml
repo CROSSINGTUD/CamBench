@@ -1,0 +1,30 @@
+name:
+  Small Key Size Path- And Context-Sensitive False-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Two different key sizes (1024 and 2048) are stored in variables via the identity function.
+  The larger key size is then used in the reachable branch of the conditional statement 
+  to create a key pair and initialize an instance of the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/truepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 37
+
+codemetrics:
+  loc: 31
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

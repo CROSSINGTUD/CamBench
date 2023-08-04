@@ -1,0 +1,31 @@
+name:
+  ECB Mode Context- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm (one with ECB and one with GCM mode of operation) are stored in variables
+  by using the identity function.
+  The secure GCM configuration is then used to initialize a cipher object for encryption before the variable
+  containing it is re-assigned with an insecure configuration.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/ecbmode/EcbMode1.java
+    method: main(string[] args)
+    line: 30
+
+codemetrics:
+  loc: 25
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

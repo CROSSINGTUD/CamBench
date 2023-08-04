@@ -1,5 +1,5 @@
 name:
-  Insecure Random Path- And Field-Sensitive True-Negative Case 1
+  Insecure Random Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.spec.IvParameterSpec
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/insecurerandom/InsecureRandom1.java
     method: main(String[] args)
     line: 47
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/insecurerandom/InsecureRandom1.java
-        method: main(String[] args)
-        line: 44
 
 codemetrics:
   loc: 39

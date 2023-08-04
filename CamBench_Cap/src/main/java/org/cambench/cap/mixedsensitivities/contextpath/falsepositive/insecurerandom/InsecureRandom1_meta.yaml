@@ -1,0 +1,30 @@
+name:
+  Insecure Random Path- And Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An object of class Random and one of class SecureRandom are created and stored in a variable 
+  each via the identity function and depending on the conditional statement.
+  The instance of the SecureRandom class is then chosen to create an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 49
+
+codemetrics:
+  loc: 40
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

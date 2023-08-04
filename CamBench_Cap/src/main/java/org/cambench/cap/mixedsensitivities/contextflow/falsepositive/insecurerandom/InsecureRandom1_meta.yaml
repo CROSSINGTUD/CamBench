@@ -1,0 +1,31 @@
+name:
+  Insecure Random Centext- & Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  An instance of the Random class and one of the SecureRandom class are created and stored in variables by using 
+  the identity function.
+  The second one is then used to create an initialization vector (iv) for the cipher initialization before it is re-assigned
+  with an instance of the Random class.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 40
+
+codemetrics:
+  loc: 34
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

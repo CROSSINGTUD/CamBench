@@ -35,7 +35,7 @@ public class CorrectedRandom {
     }
 
     public static void method1(byte[] ivBytes) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
 
         IvParameterSpec iv = new IvParameterSpec(ivBytes);

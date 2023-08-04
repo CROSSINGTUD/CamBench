@@ -1,0 +1,30 @@
+name:
+  Ecb Mode 2-Interprocedural Path-Sensitive False-Positive Case 1
+
+api:
+  java.security.Cipher
+
+description:
+  A configuration for the AES cipher using the GCM mode is passed to a method in the reachable branch of a conditional 
+  statement, where it is used initialize a cipher object with this configuration.
+  The other branch passes an insecure configuration (using ECB mode) to the same method, but is never reached.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/falsepositive/ecbmode/EcbMode1.java
+    method: method1(String algoConfig)
+    line: 37
+
+codemetrics:
+  loc: 25
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: false

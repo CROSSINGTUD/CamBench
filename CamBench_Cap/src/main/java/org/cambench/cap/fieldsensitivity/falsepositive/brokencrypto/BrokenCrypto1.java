@@ -26,7 +26,7 @@ public class BrokenCrypto1 {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
         CryptoClass cryptoClass = new CryptoClass();
         cryptoClass.cipher1 = "DES";
-        cryptoClass.cipher2 = "AES/CBC/PKCS5Padding";
+        cryptoClass.cipher2 = "AES/GCM/NoPadding";
 
         Cipher cipher = Cipher.getInstance(cryptoClass.cipher2);
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");

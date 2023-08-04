@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class CorrectedEcbMode {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException {
-        ConfigClass algoConfig = new ConfigClass("AES/CBC/PKCS5Padding");
+        ConfigClass algoConfig = new ConfigClass("AES/GCM/NoPadding");
 
         method1(algoConfig.algorithmConfig);
     }

@@ -1,0 +1,29 @@
+name:
+  Small Key Size 2-Interprocedural Object-Sensitive False-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Two objects are created each contain an integer defining a key size in bits (1024 and 2048). The larger
+  key size is then passed to a method and used to create a KeyPair for initialization of the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/falsepositive/smallkeysize/SmallKeySize1.java
+    method: method1(int keySize)
+    line: 37
+
+codemetrics:
+  loc: 34
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: false

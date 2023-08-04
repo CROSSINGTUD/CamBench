@@ -1,0 +1,28 @@
+name:
+  Small Key Size Object-Sensitive Multiple-Objects False-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  Five objects are created that each contain an integer defining a key size in bits. The object with keySize 2048
+  is then used to create a KeyPair for initialization of the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/falsepositive/smallkeysize/SmallKeySize1.java
+    method: main(String[] args)
+    line: 37
+
+codemetrics:
+  loc: 34
+  cc: 2
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: false

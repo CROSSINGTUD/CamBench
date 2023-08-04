@@ -1,5 +1,5 @@
 name:
-  Small Key Size Flow-Sensitive False-Positive Case 1
+  Small Key Size Flow-Sensitive Value-Swap False-Positive Case 1
 
 api:
   java.security.KeyPairGenerator
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
     line: 40
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/flowsensitivity/advanced/valueswap/falsepositive/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 31
 
 codemetrics:
   loc: 29

@@ -1,0 +1,30 @@
+name:
+  Broken Crypto Field- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The names of two insecure ciphers (Blowfish and DES) are stored in an object's fields. 
+  The field containing the Blowfish value is then sanitized by re-assigning it with the name of a secure
+  algorithm (AES) before being used to create an instance of the AES cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 32
+
+codemetrics:
+  loc: 25
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

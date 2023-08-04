@@ -1,5 +1,5 @@
 name:
-  Broken Hash Function Path- And Field-Sensitive True-Negative Case 1
+  Broken Hash Function Path- And Field-Sensitive False-Positive Case 1
 
 api:
   java.security.MessageDigest
@@ -16,12 +16,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash1.java
     method: main(String[] args)
     line: 33
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/brokenhash/BrokenHash1.java
-        method: main(String[] args)
-        line: 25
 
 codemetrics:
   loc: 30

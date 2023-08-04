@@ -1,0 +1,30 @@
+name:
+  ECB Mode 2-Interprocedural Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each contain a configuration for the AES cipher. One with the ECB mode of operation,
+  the other with GCM mode of operation. The object with the secure GCM configuration is then passed to a method and
+  utilized to initialize a cipher object for encryption.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/falsepositive/ecbmode/EcbMode1.java
+    method: method1(String algorithmConfig)
+    line: 34
+
+codemetrics:
+  loc: 30
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: false

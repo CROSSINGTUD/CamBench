@@ -1,0 +1,44 @@
+name:
+  Broken Crypto Path- And Flow-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A variable is assigned with the name of the insecure DES cipher. The variable is then re-assigned with
+  an instance of the Blowfish cipher in the reachable branch of the conditional statement instead of the unreachable 
+  branch with AES, before the cipher is initialized.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 38
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 35
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/flowpath/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 26
+  cc: 2
+
+capabilities:
+  - flow-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the Blowfish algorithm, which should not be utilized as it is considered
+    to be broken.

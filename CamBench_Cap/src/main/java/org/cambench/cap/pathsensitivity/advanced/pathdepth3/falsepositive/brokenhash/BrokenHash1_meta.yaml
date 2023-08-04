@@ -19,12 +19,6 @@ crypto-usage:
     method: main(String[] args)
     line: 46
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/advanced/pathdepth3/falsepositive/brokenhash/BrokenHash1.java
-        method: main(String[] args)
-        line: 38
-
 codemetrics:
   loc: 34
   cc: 4

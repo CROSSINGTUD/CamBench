@@ -7,7 +7,7 @@ api:
 description:
   A variable is set to an insecure AES configuration that contains the ECB mode of operation. 
   The variable is used to create a cipher object before it is re-assigned with a more secure
-  configuration (containing the CBC mode of operation).
+  configuration (containing the GCM mode of operation).
 
 crypto-usage:
   violation: true
@@ -26,7 +26,7 @@ crypto-usage:
 
 fix:
   description:
-    Edit the AES configuration to use the CBC mode of operation, instead of ECB mode.
+    Edit the AES configuration to use the GCM mode of operation, instead of ECB mode.
   file: main/java/org/cambench/cap/flowsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

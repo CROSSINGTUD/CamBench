@@ -23,7 +23,7 @@ public class PBEParameters1 {
     public static void main(String[] args) {
         SecureRandom secureRandom = new SecureRandom();
         byte[] salt;
-        int iterations = 20000;
+        int iterations = 10000000;
         int condition = 1;
 
         if(condition > 0) {

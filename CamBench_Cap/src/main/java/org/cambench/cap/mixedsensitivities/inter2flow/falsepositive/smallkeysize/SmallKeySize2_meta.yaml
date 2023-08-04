@@ -1,0 +1,29 @@
+name:
+  Small Key Size 2-Interprocedural Flow-Sensitive False-Positive Case 2
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  A variable is set to an insufficient key size (1024 bits) before it is overwritten with a secure key size (2048 bits) 
+  and passed as argument to a method where it is used to generate a KeyPair for the RSA algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/smallkeysize/SmallKeySize2.java
+    method: method1(int keySize)
+    line: 38
+
+codemetrics:
+  loc: 27
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: false

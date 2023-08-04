@@ -1,0 +1,31 @@
+name:
+  ECB Mode Path- And Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two configurations of the AES algorithm are stored in variables via the identity function.
+  One contains the secure GCM mode of operation, the other the insecure ECB mode.
+  The secure configuration is then used in the reachable branch of the conditional statement to get an instance of the
+  cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextpath/falsepositive/ecbmode/EcbMode1.java
+    method: main(String[] args)
+    line: 33
+
+codemetrics:
+  loc: 29
+  cc: 3
+
+capabilities:
+  - context-sensitivity
+  - path-sensitivity
+
+security:
+  issue: false

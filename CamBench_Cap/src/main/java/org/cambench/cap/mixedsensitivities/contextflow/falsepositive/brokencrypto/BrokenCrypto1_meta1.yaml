@@ -1,0 +1,30 @@
+name:
+  Broken Crypto Context- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  The algo variables are set to the names of an insecure (DES) and a secure cipher (AES) by using the
+  identity function.
+  The secure one is then utilized to initialize the cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 30
+
+codemetrics:
+  loc: 25
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

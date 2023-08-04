@@ -5,7 +5,7 @@ api:
   javax.crypto.Cipher
 
 description:
-  Two configurations (one with ECB and one with CBC mode of operation) are stored in variables. 
+  Two configurations (one with ECB and one with GCM mode of operation) are stored in variables. 
   The insecure ECB configuration is then used to initialize a cipher object for encryption.
 
 crypto-usage:
@@ -24,7 +24,7 @@ crypto-usage:
 
 fix:
   description:
-    Replace the ECB mode in the configuration with another, more secure mode like CBC.
+    Replace the ECB mode in the configuration with another, more secure mode like GCM.
   file: main/java/org/cambench/cap/contextsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created that each contain a configuration for the AES cipher. One with the ECB mode of operation,
-  the other with CBC mode of operation. The object with the insecure ECB configuration is then utilized to
+  the other with GCM mode of operation. The object with the insecure ECB configuration is then utilized to
   initialize a cipher object for encryption.
 
 crypto-usage:
@@ -26,7 +26,7 @@ crypto-usage:
 
 fix:
   description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
   file: main/java/org/cambench/cap/objectsensitivity/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

@@ -1,0 +1,29 @@
+name:
+  Static Initialization Vector 2-Interprocedural Flow-Sensitive False-Positive Case 2
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A securly random byte array is passed to a method where it is used to create an initialization vector for cipher
+  initialization before it is overwritten with static values.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/staticiv/StaticIv2.java
+    method: method1(byte[] ivBytes)
+    line: 42
+
+codemetrics:
+  loc: 29
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: false

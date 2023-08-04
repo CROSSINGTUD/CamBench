@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector Field- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two static (string-based) byte arrays are stored in an object's fields.
+  One of them is replaced with a byte array that was filled by using SecureRandom before being used
+  to create in initialization vector.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 42
+
+codemetrics:
+  loc: 34
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

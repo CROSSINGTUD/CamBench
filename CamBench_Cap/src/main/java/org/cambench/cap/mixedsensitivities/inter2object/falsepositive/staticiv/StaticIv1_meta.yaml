@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector 2-Interprocedural Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects are created that each contain a byte array. One byte array is filled with securely random values, the other
+  is filled based on a static string. The securely random array is then passed to a method and used to
+  create an initialization vector for cipher initialization.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/falsepositive/staticiv/StaticIv1.java
+    method: method1(byte[] ivBytes)
+    line: 45
+
+codemetrics:
+  loc: 44
+  cc: 4
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: false

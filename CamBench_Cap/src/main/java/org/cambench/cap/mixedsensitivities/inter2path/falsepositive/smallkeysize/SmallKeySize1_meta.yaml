@@ -1,0 +1,31 @@
+name:
+  Small Key Size 2-Interprocedural Path-Sensitive False-Positive Case 1
+
+api:
+  java.security.KeyPairGenerator
+
+description:
+  A sufficiently large key size (2048 bit) is passed to a method in the reachable branch of the conditional statement,
+  where it is used to crate a KeyPair for the RSA algorithm.
+  In the other branch of the conditional statement, which is never reached, an insufficiently large key size (1024 bit) 
+  is passed to the method.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/number_range
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/falsepositive/smallkeysize/SmallKeySize1.java
+    method: method1(int keySize)
+    line: 41
+
+codemetrics:
+  loc: 29
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: false

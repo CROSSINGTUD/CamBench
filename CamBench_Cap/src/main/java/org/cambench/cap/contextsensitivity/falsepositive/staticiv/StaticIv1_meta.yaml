@@ -18,12 +18,6 @@ crypto-usage:
     method: main(String[] args)
     line: 40
 
-    root:
-      location:
-        file: main/java/org/cambench/cap/contextsensitivity/falsepositive/staticiv/StaticIv1.java
-        method: main(String[] args)
-        line: 37
-
 codemetrics:
   loc: 29
   cc: 2

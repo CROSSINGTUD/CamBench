@@ -6,7 +6,7 @@ api:
 
 description:
   Two objects are created in each branch of the conditional statement that each contain a string with the name
-  of a hash algorithm as value (SHA-1 and SHA-256, respectively). The object with the SHA-256 string is then
+  of a hash algorithm as value (SHA-1 and SHA-256, respectively). The object with the SHA-1 string is then
   used to create an instance of the algorithm.
 
 crypto-usage:

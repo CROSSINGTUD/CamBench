@@ -28,7 +28,7 @@ public class PBEParameters1 {
         byte[] salt1 = Identity(new byte[]{123});
         byte[] salt2 = Identity(randomBytes);
 
-        int iterations = 20000;
+        int iterations = 10000000;
 
         PBEParameterSpec pbeParameterSpec = new PBEParameterSpec(salt2,iterations);
     }

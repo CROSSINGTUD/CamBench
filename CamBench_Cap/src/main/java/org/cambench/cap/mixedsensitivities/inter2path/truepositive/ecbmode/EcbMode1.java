@@ -27,7 +27,7 @@ public class EcbMode1 {
         int choice = 0;
 
         if(choice > 1) {
-            method1("AES/CBC/PKCS5Padding");
+            method1("AES/GCM/NoPadding");
         } else {
             method1("AES/ECB/PKCS5Padding");
         }

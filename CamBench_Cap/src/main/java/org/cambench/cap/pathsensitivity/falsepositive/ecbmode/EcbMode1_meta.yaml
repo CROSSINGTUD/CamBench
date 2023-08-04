@@ -5,7 +5,7 @@ api:
   java.security.Cipher
 
 description:
-  An instance of a secure cipher (AES) is used with CBC mode of operation
+  An instance of a secure cipher (AES) is used with GCM mode of operation
   in the reachable branch of a conditional statement.
   The other branch, which is never reached, gets an instance of the cipher with ECB mode of operation configured.
 
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/pathsensitivity/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
     line: 32
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/pathsensitivity/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 34
 
 codemetrics:
   loc: 23

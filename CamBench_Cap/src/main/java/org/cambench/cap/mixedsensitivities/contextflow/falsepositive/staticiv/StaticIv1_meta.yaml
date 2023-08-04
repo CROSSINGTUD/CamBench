@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector Context- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  A static, string based byte array and a securely random byte array are stored in variables by using the identity function.
+  The securely random iv is then used to create an initialization vector for the initialization
+  of an instance of the AES cipher, before the variable is re-assigned with a static byte array.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/contextflow/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 39
+
+codemetrics:
+  loc: 31
+  cc: 2
+
+capabilities:
+  - context-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

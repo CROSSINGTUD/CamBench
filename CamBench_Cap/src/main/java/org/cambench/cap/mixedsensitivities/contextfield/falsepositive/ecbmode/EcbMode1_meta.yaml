@@ -6,8 +6,8 @@ api:
 
 description:
   Two configurations of the AES algorithm are stored in an object's fields by using the Identity function. 
-  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
-  The CBC configuration is then used to initialize an instance of the AES cipher.
+  One contains the secure GCM mode of operation, the other the insecure ECB mode. 
+  The GCM configuration is then used to initialize an instance of the AES cipher.
 
 crypto-usage:
   violation: false
@@ -17,12 +17,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
     line: 31
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/contextfield/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
 
 codemetrics:
   loc: 28

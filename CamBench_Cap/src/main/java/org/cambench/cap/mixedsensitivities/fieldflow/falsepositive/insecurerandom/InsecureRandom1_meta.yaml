@@ -1,0 +1,30 @@
+name:
+  Insecure Random Field- & Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Two objects of class Random are created and stored in another object's fields.
+  One field is re-assigned with an object of the SecureRandom class.
+  This field is then utilized to create an initialization vector (iv) for a cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/insecurerandom/InsecureRandom1.java
+    method: main(String[] args)
+    line: 43
+
+codemetrics:
+  loc: 35
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

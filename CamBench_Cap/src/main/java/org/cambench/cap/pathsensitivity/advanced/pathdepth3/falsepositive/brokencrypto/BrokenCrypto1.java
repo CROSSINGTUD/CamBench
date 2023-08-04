@@ -35,7 +35,7 @@ public class BrokenCrypto1 {
         else{
             if(condition > 0) {
                 if(condition > 3) {
-                    algorithm = "AES/CBC/PKCS5Padding";
+                    algorithm = "AES/GCM/NoPadding";
                 }
                 else{
                     algorithm = "RC4";

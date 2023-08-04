@@ -1,0 +1,29 @@
+name:
+  Static Initialization Vector Object-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.spec.IvParameterSpec
+
+description:
+  Five objects are created that each contain a byte array. The byte arrays are eiter filled with random values, or
+  based on a static string. The securely random value is then used for creating an initialization vector for
+  cipher initialization.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/objectsensitivity/falsepositive/staticiv/StaticIv1.java
+    method: main(String[] args)
+    line: 43
+
+codemetrics:
+  loc: 42
+  cc: 3
+
+capabilities:
+  - object-sensitivity
+
+security:
+  issue: false

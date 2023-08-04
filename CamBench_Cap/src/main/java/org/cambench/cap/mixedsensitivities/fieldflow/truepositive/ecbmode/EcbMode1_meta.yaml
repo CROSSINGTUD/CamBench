@@ -6,7 +6,7 @@ api:
 
 description:
   Two configurations of the AES algorithm are stored in an object's fields. 
-  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
+  One contains the secure GCM mode of operation, the other the insecure ECB mode. 
   The field containing the latter one is then used to initialize an instance of the AES cipher before it is re-assigned
   with a secure configuration.
 
@@ -27,7 +27,7 @@ crypto-usage:
 
 fix:
   description:
-    Do not utilize the ECB mode of operation. Instead, use a more secure mode, like CBC.
+    Do not utilize the ECB mode of operation. Instead, use a more secure mode, such as GCM.
   file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/truepositive/ecbmode/CorrectedEcbMode.java
 
 codemetrics:

@@ -1,0 +1,30 @@
+name:
+  ECB Mode 2-Interprocedural Flow-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A configuration for the AES algorithm containing the GCM mode of operation is passed to method where a cipher
+  object is initialized with this configuration before the original configuration is overwritten with an insecure 
+  configuration (ECB).
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2flow/falsepositive/ecbmode/EcbMode1.java
+    method: method1(String algo, String algoConfig)
+    line: 35
+
+codemetrics:
+  loc: 23
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - flow-sensitivity
+
+security:
+  issue: false

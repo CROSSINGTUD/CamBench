@@ -1,12 +1,12 @@
 name:
-  ECB Mode Path- And Field-Sensitive True-Negative Case 1
+  ECB Mode Path- And Field-Sensitive False-Positive Case 1
 
 api:
   javax.crypto.Cipher
 
 description:
   Two configurations of the AES algorithm are stored in an objects fields. 
-  One contains the secure CBC mode of operation, the other the insecure ECB mode. 
+  One contains the secure GCM mode of operation, the other the insecure ECB mode. 
   The secure configuration is then used in the reachable branch of the conditional statement to get an instance of the
   cipher.
 
@@ -18,12 +18,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/ecbmode/EcbMode1.java
     method: main(String[] args)
     line: 37
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/ecbmode/EcbMode1.java
-        method: main(String[] args)
-        line: 28
 
 codemetrics:
   loc: 31

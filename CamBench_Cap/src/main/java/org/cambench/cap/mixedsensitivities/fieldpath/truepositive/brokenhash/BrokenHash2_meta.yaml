@@ -1,0 +1,43 @@
+name:
+  Broken Hash Function Path- And Field-Sensitive True-Positive Case 2
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure (SHA-256) & an insecure hash algorithm (SHA-1) are stored in an object's fields, depending
+  on the conditional statement.
+  An insecure one is then used to get an instance of the hash algorithm.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 38
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/brokenhash/BrokenHash2.java
+        method: main(String[] args)
+        line: 35
+
+fix:
+  description:
+    Replace the insecure hash algorithm with a secure hash algorithm (e.g. SHA-256).
+  file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/truepositive/brokenhash/CorrectedHash.java
+
+codemetrics:
+  loc: 31
+  cc: 2
+
+capabilities:
+  - field-sensitivity
+  - path-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    SHA-1 is a broken hash algorithm and should therefore not be used for its cryptographic properties.

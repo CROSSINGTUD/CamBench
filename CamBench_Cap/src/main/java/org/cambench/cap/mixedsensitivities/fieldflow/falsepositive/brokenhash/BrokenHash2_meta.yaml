@@ -1,0 +1,30 @@
+name:
+  Broken Hash Function Field- & Flow-Sensitive False-Positive Case 2
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure (SHA-256) & an insecure hash algorithm (SHA-1) are stored in an object's fields. The secure one
+  is then used to get a MessageDigest object and compute the hash of some data before the field is re-assigned with
+  the name of an insecure algorithm.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/fieldflow/falsepositive/brokenhash/BrokenHash2.java
+    method: main(String[] args)
+    line: 30
+
+codemetrics:
+  loc: 24
+  cc: 1
+
+capabilities:
+  - field-sensitivity
+  - flow-sensitivity
+
+security:
+  issue: false

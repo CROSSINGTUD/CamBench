@@ -1,0 +1,44 @@
+name:
+  Broken Crypto Flow- & Object-Sensitive True-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  Two objects are created that each have a field that is set to the name of a cipher (DES, AES).
+  These fields are then re-assigned with the name of a secure or insecure cipher configuration and an insecure algorithm
+  is used to create an instance of the cipher.
+
+crypto-usage:
+  violation: true
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/brokencrypto/BrokenCrypto1.java
+    method: main(String[] args)
+    line: 34
+
+    root:
+      location:
+        file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/brokencrypto/BrokenCrypto1.java
+        method: main(String[] args)
+        line: 31
+
+fix:
+  description:
+    Replace the insecure cipher with a secure one (e.g. AES with an appropriate configuration).
+  file: main/java/org/cambench/cap/mixedsensitivities/flowobject/truepositive/brokencrypto/CorrectedCrypto.java
+
+codemetrics:
+  loc: 26
+  cc: 1
+
+capabilities:
+  - flow-sensitivity
+  - object-sensitivity
+
+security:
+  issue: true
+  issue-description:
+    A cipher object is initialized based on the DES algorithm, which should not be utilized as it is considered
+    to be broken.

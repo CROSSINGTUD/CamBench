@@ -1,0 +1,30 @@
+name:
+  Static Initialization Vector 2-Interprocedural Context-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A static and a securely random byte array are stored in a variable by using the Identity function.
+  The securely random array is then passed to a method and used to create an initialization vector for the initialization
+  of an instance of the AES cipher.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2context/falsepositive/staticiv/StaticIv1.java
+    method: method1(byte[] ivBytes)
+    line: 47
+
+codemetrics:
+  loc: 34
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - context-sensitivity
+
+security:
+  issue: false

@@ -1,0 +1,29 @@
+name:
+  Broken Hash Function 2-Interprocedural Field-Sensitive False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  The names of a secure (SHA-256) & an insecure hash algorithm (MD5) are stored in an object's fields. The insecure one 
+  is then passed to a method and used to get a MessageDigest object and compute the hash of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2field/falsepositive/brokenhash/BrokenHash1.java
+    method: method1(String algo, String data)
+    line: 33
+
+codemetrics:
+  loc: 27
+  cc: 2
+
+capabilities:
+  - interprocedural
+  - field-sensitivity
+
+security:
+  issue: false

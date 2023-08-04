@@ -1,0 +1,30 @@
+name:
+  Broken Hash Function 2-Interprocedural Object-Sensitive False-Positive Case 1
+
+api:
+  java.security.MessageDigest
+
+description:
+  Two objects are created that each hold the name of a hash algorithm. One contains the insecure MD5 algorithm, the 
+  other one the secure SHA-256 algorithm. The object with the secure hash algorithm is then passed to a method and is
+  used to initialize a MessageDigest object that generates the hash of some data.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2object/falsepositive/brokenhash/BrokenHash1.java
+    method: method1(String algo, String data)
+    line: 32
+
+codemetrics:
+  loc: 28
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - object-sensitivity
+
+security:
+  issue: false

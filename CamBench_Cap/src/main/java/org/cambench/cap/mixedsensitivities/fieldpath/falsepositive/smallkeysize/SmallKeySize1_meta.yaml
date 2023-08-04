@@ -1,5 +1,5 @@
 name:
-  Small Key Size Path- And Field-Sensitive True-Negative Case 1
+  Small Key Size Path- And Field-Sensitive False-Positive Case 1
 
 api:
   java.security.KeyPairGenerator
@@ -16,12 +16,6 @@ crypto-usage:
     file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/smallkeysize/SmallKeySize1.java
     method: main(String[] args)
     line: 41
-
-    root:
-      location:
-        file: main/java/org/cambench/cap/mixedsensitivities/fieldpath/falsepositive/smallkeysize/SmallKeySize1.java
-        method: main(String[] args)
-        line: 37
 
 codemetrics:
   loc: 35

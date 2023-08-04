@@ -1,0 +1,30 @@
+name:
+  Broken Crypto 2-Interprocedural Path-Sensitive False-Positive Case 1
+
+api:
+  javax.crypto.Cipher
+
+description:
+  A string containing the name of a secure cipher (AES) is passed to a in the reachable branch of a 
+  conditional statement, where it is used to create an instance of that cipher.
+  The other branch, which is never reached, passes the name of an insecure cipher (DES) to that method.
+
+crypto-usage:
+  violation: false
+  FUM:
+    - argument_state/string_format
+  location:
+    file: main/java/org/cambench/cap/mixedsensitivities/inter2path/falsepositive/brokencrypto/BrokenCrypto1.java
+    method: method1(String algoName, String algoConfig)
+    line: 37
+
+codemetrics:
+  loc: 25
+  cc: 3
+
+capabilities:
+  - interprocedural
+  - path-sensitivity
+
+security:
+  issue: false
