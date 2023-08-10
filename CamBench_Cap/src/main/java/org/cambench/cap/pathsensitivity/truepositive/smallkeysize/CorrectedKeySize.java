@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.pathsensitivity.truepositive.smallkeysize;
+package org.cambench.cap.pathsensitivity.truepositive.smallkeysize;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;

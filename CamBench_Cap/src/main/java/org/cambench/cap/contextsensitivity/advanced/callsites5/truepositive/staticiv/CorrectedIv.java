@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.contextsensitivity.advanced.callsites5.truepositive.staticiv;
+package org.cambench.cap.contextsensitivity.advanced.callsites5.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

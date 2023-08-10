@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.inter2object.truepositive.staticiv;
+package org.cambench.cap.mixedsensitivities.inter2object.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

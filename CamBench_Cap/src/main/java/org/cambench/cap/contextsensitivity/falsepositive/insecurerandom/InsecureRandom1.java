@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.contextsensitivity.falsepositive.insecurerandom;
+package org.cambench.cap.contextsensitivity.falsepositive.insecurerandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

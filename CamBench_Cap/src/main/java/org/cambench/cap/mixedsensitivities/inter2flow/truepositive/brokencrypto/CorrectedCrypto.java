@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.inter2flow.truepositive.brokencrypto;
+package org.cambench.cap.mixedsensitivities.inter2flow.truepositive.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

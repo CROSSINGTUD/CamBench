@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.fieldsensitivity.advanced.fielddepth3.truepositive.staticiv;
+package org.cambench.cap.fieldsensitivity.advanced.fielddepth3.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

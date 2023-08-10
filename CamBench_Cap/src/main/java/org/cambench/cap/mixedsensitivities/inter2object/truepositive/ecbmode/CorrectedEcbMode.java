@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.inter2object.truepositive.ecbmode;
+package org.cambench.cap.mixedsensitivities.inter2object.truepositive.ecbmode;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

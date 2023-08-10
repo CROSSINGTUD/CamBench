@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.fieldflow.truepositive.insecurerandom;
+package org.cambench.cap.mixedsensitivities.fieldflow.truepositive.insecurerandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

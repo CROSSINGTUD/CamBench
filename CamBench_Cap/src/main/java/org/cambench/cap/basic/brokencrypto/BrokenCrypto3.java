@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.basic.brokencrypto;
+package org.cambench.cap.basic.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

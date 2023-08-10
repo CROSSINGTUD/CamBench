@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.basic.pbeparameters;
+package org.cambench.cap.basic.pbeparameters;
 
 import javax.crypto.spec.PBEParameterSpec;
 

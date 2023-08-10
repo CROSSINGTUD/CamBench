@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.contextfield.falsepositive.brokencrypto;
+package org.cambench.cap.mixedsensitivities.contextfield.falsepositive.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

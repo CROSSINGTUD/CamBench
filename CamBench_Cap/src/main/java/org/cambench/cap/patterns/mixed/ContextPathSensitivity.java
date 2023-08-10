@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.patterns.mixed;
+package org.cambench.cap.patterns.mixed;
 
 public class ContextPathSensitivity {
     public static void main(String[] args){

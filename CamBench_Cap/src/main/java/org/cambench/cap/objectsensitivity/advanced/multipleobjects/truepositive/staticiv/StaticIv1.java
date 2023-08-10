@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.objectsensitivity.advanced.multipleobjects.truepositive.staticiv;
+package org.cambench.cap.objectsensitivity.advanced.multipleobjects.truepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

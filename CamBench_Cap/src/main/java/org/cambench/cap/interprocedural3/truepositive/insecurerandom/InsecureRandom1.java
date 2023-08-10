@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.interprocedural3.truepositive.insecurerandom;
+package org.cambench.cap.interprocedural3.truepositive.insecurerandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

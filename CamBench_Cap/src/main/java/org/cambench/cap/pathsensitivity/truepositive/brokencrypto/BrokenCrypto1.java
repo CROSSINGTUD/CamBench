@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.pathsensitivity.truepositive.brokencrypto;
+package org.cambench.cap.pathsensitivity.truepositive.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

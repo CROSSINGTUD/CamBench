@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.contextsensitivity.truepositive.brokenhash;
+package org.cambench.cap.contextsensitivity.truepositive.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

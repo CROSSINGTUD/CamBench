@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.flowpath.falsepositive.staticiv;
+package org.cambench.cap.mixedsensitivities.flowpath.falsepositive.staticiv;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

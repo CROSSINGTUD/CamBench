@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.contextsensitivity.advanced.callsites5.falsepositive.brokencrypto;
+package org.cambench.cap.contextsensitivity.advanced.callsites5.falsepositive.brokencrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

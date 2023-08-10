@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.patterns.pure;
+package org.cambench.cap.patterns.pure;
 
 public class ObjectSensitivity {
     public void main(String[] args) {

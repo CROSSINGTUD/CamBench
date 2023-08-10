@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.flowpath.falsepositive.smallkeysize;
+package org.cambench.cap.mixedsensitivities.flowpath.falsepositive.smallkeysize;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.patterns.mixed.interprocedural2;
+package org.cambench.cap.patterns.mixed.interprocedural2;
 
 public class Inter2Context {
     public void main(String[] args){

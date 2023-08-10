@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.mixedsensitivities.contextfield.falsepositive.ecbmode;
+package org.cambench.cap.mixedsensitivities.contextfield.falsepositive.ecbmode;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

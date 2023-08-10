@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.fieldsensitivity.advanced.fielddepth3.truepositive.brokenhash;
+package org.cambench.cap.fieldsensitivity.advanced.fielddepth3.truepositive.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.flowsensitivity.advanced.valueswap.falsepositive.pbeparameters;
+package org.cambench.cap.flowsensitivity.advanced.valueswap.falsepositive.pbeparameters;
 
 import javax.crypto.spec.PBEParameterSpec;
 import java.security.SecureRandom;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.pathsensitivity.advanced.pathdepth3.falsepositive.pbeparameters;
+package org.cambench.cap.pathsensitivity.advanced.pathdepth3.falsepositive.pbeparameters;
 
 import javax.crypto.spec.PBEParameterSpec;
 import java.security.SecureRandom;

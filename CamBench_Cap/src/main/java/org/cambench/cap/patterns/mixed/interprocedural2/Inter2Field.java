@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.patterns.mixed.interprocedural2;
-
-import main.java.org.cambench.cap.patterns.pure.FieldSensitivity;
+package org.cambench.cap.patterns.mixed.interprocedural2;
 
 public class Inter2Field {
     public void main(String[] args) {

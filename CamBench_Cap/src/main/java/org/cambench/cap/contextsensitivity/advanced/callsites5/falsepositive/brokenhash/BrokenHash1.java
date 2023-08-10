@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.contextsensitivity.advanced.callsites5.falsepositive.brokenhash;
+package org.cambench.cap.contextsensitivity.advanced.callsites5.falsepositive.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

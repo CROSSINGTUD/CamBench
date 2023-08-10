@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.interprocedural2.truepositive.pbeparameters;
+package org.cambench.cap.interprocedural2.truepositive.pbeparameters;
 
 import javax.crypto.spec.PBEParameterSpec;
 import java.security.SecureRandom;

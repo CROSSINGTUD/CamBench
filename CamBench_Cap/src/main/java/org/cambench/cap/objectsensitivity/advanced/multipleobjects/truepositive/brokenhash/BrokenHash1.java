@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.objectsensitivity.advanced.multipleobjects.truepositive.brokenhash;
+package org.cambench.cap.objectsensitivity.advanced.multipleobjects.truepositive.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

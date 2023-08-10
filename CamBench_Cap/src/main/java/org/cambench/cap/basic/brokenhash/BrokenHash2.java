@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.basic.brokenhash;
+package org.cambench.cap.basic.brokenhash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

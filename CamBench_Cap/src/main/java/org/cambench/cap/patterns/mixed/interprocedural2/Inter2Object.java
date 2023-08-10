@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package main.java.org.cambench.cap.patterns.mixed.interprocedural2;
-
-import main.java.org.cambench.cap.patterns.pure.ObjectSensitivity;
+package org.cambench.cap.patterns.mixed.interprocedural2;
 
 public class Inter2Object {
     public void main(String[] args) {
