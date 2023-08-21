@@ -27,4 +27,4 @@ capabilities:
   - path-sensitivity
 
 security:
-  issue:false
+  issue: false
