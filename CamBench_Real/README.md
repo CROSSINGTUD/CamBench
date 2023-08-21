@@ -542,7 +542,7 @@ We present the results in the Table below.
 | 45 | :heavy_check_mark: | :x: | :x: | :x: |
 | *Usage of String for Sensitive Information* | | | | 
 | 33 | :heavy_check_mark: | :x: | :x: | :x: | 
-| 45-1 | :heavy_check_mark: | :x: |: x: | :x: | 
+| 45-1 | :heavy_check_mark: | :x: | :x: | :x: | 
 | 99 | :heavy_check_mark: | :x: | :x: | :x: |
 | 151 | :heavy_check_mark: | :x: | :x: | :x: |
 | **Total all (15)** |13 | 6 | 2 | 3 | 
