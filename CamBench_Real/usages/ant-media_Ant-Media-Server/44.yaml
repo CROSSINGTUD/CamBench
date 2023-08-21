@@ -1,0 +1,15 @@
+name: 44 - Secure Security Usage
+api: java.security.Security
+api_call: INVOKESTATIC(java.security.Security{ java.security.Provider[] getProviders() })
+description: Secure call of *getProviders*. While a provider may be insecure, the call to get all is the correct appraoch to retrieve all available providers.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Ant-Media-Server/src/main/java/org/red5/server/net/rtmps/RTMPSMinaIoHandler.java
+        method: '-'
+        line: "118"
+        root:
+            file: ""
+            method: ""
+            line: ""

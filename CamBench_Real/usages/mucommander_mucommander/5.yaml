@@ -1,0 +1,15 @@
+name: 5 - Secure Usage of CertificateFactory
+api: java.security.cert.CertificateFactory
+api_call: INVOKESTATIC(java.security.cert.CertificateFactory{ java.security.cert.CertificateFactory getInstance(java.lang.String) })
+description: Secure call of *CertificateFactory* constructor. X509 is an accepted standard for public key certificates.
+crypto-usage:
+    violation: false
+    FUM: Argument_State/String_Format
+    location:
+        file: mucommander/mucommander-protocol-ovirt/src/main/java/com/mucommander/commons/file/protocol/ovirt/Utils.java
+        method: public static SSLSocketFactory setTrustStore(String certificate) throws IOException
+        line: "265"
+        root:
+            file: ""
+            method: ""
+            line: ""

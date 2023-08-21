@@ -1,0 +1,15 @@
+name: 96 - Secure Usage of PublicKey
+api: java.security.PublicKey
+api_call: INVOKEINTERFACE(java.security.PublicKey{ java.lang.String getFormat() })
+description: Compares the format of a *PublicKey* against a hard-coded string.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/DNSSEC.java
+        method: static byte[] fromPublicKey(PublicKey key, int alg) throws DNSSECException
+        line: "749"
+        root:
+            file: ""
+            method: ""
+            line: ""

@@ -1,0 +1,15 @@
+name: 80 - Get TrustAnchor
+api: java.security.cert.TrustAnchor
+api_call: INVOKEVIRTUAL(java.security.cert.TrustAnchor{ java.security.cert.X509Certificate getTrustedCert() })
+description: Only retrieve a *TrustAnchor*. Retrieving the *TrustAnchor* should not cause a vulnerability.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/net/ClientTrustManager.java
+        method: public void checkClientTrusted(X509Certificate[] x509Certificates, String string) throws CertificateException
+        line: "290"
+        root:
+            file: ""
+            method: ""
+            line: ""

@@ -1,0 +1,15 @@
+name: 23 - Secure Usage of ECPublicKey
+api: java.security.interfaces.ECPublicKey
+api_call: INVOKEINTERFACE(java.security.interfaces.ECPublicKey{ java.lang.String getFormat() })
+description: Secure method invocation on *ECPublicKey* object to retrieve the format of a key.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: pushy/pushy/src/main/java/com/eatthepath/pushy/apns/auth/ApnsVerificationKey.java
+        method: public String getFormat()
+        line: "86"
+        root:
+            file: ""
+            method: ""
+            line: ""

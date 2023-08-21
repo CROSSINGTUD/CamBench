@@ -1,0 +1,15 @@
+name: 103 - Secure Usage of X509EncodedKeySpec
+api: java.security.spec.X509EncodedKeySpec
+api_call: INVOKESPECIAL(java.security.spec.X509EncodedKeySpec{ void <init>(byte[]) })
+description: Secure Usage of *X509EncodedKeySpec* that get public information of a key.
+crypto-usage:
+    violation: false
+    FUM: Argument_State
+    location:
+        file: JGroups/src/org/jgroups/protocols/ASYM_ENCRYPT.java
+        method: protected PublicKey makePublicKey(byte[] encodedKey)
+        line: "636"
+        root:
+            file: ""
+            method: ""
+            line: ""

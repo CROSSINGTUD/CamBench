@@ -1,0 +1,15 @@
+name: 93 - Secure Usage of Private Key
+api: java.security.PrivateKey
+api_call: INVOKEINTERFACE(java.security.PrivateKey{ java.lang.String getAlgorithm() })
+description: Retrieve the algorithm and format of a private key. Both information should be safe to share.
+crypto-usage:
+    violation: false
+    FUM: "High-Level_Constraints"
+    location:
+        file: pwm/server/src/main/java/password/pwm/util/secure/X509CertInfo.java
+        method: public static Map<String, String> makeDebugInfoMap( final PrivateKey key )
+        line: "107"
+        root:
+            file: ""
+            method: ""
+            line: ""

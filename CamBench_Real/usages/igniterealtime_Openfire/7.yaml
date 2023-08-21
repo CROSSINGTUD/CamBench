@@ -1,0 +1,15 @@
+name: 7 - Secure Usage of CertPathValidator
+api: java.security.cert.CertPathValidator
+api_call: INVOKESTATIC(java.security.cert.CertPathValidator{ java.security.cert.CertPathValidator getInstance(java.lang.String) })
+description: Secure instantiation of *CertPathValidator*.
+crypto-usage:
+    violation: false
+    FUM: Argument_State/String_Format
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/net/ClientTrustManager.java
+        method: public void checkClientTrusted(X509Certificate[] x509Certificates, String string) throws CertificateException
+        line: "270"
+        root:
+            file: ""
+            method: ""
+            line: ""

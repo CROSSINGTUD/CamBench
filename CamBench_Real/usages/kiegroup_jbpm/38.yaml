@@ -1,0 +1,15 @@
+name: 38 - Secure Usage of Principal
+api: java.security.Principal
+api_call: INVOKEINTERFACE(java.security.Principal{ java.lang.String getName() })
+description: The method invocation and call sequence on *Principal* is secure. The invocation want to retrieve the name and is not considered as an insecure usage.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: jbpm/jbpm-human-task/jbpm-human-task-core/src/main/java/org/jbpm/services/task/identity/JAASUserGroupCallbackImpl.java
+        method: public List<String> getGroupsForUser(String userId)
+        line: "123"
+        root:
+            file: ""
+            method: ""
+            line: ""

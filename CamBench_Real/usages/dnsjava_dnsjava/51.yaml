@@ -1,0 +1,15 @@
+name: 51 - Secure Usage of elliptic curves
+api: java.security.spec.EllipticCurve
+api_call: INVOKEVIRTUAL(java.security.spec.EllipticCurve{ java.security.spec.ECField getField() })
+description: The call sequence on *EllipticCurve* is secure and retrieves the fields based on a public key.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java
+        method: private boolean validIterations(SRRset nsec, KeyCache keyCache)
+        line: "348"
+        root:
+            file: ""
+            method: ""
+            line: ""

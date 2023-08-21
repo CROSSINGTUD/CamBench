@@ -1,0 +1,15 @@
+name: 94 - Secure ProtectionDomain
+api: java.security.ProtectionDomain
+api_call: INVOKEVIRTUAL(java.security.ProtectionDomain{ java.security.CodeSource getCodeSource() })
+description: Call to get a *ProtectionDomain* and retrieve further information such as the location. Thus, we consider the usage as secure.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/auth/NativeAuthProvider.java
+        method: public class NativeAuthProvider implements AuthProvider {
+        line: "86"
+        root:
+            file: ""
+            method: ""
+            line: ""

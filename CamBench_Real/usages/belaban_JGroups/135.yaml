@@ -1,0 +1,15 @@
+name: '135 - Invocation isEqual of MessageDigest' 
+api: java.security.MessageDigest
+api_call: INVOKESTATIC(java.security.MessageDigest{ boolean isEqual(byte[]|byte[]) })
+description: "Secure call of method *isEqual* to compare information from an input stream with a pascode digest."
+crypto-usage:
+    violation: false
+    FUM: Argument_State
+    location:
+        file: JGroups/src/org/jgroups/stack/DiagnosticsHandler.java
+        method: 'protected int authorizeProbeRequest(DatagramPacket packet) throws Exception'
+        line: "332"
+        root:
+            file: ""
+            method: ""
+            line: ""

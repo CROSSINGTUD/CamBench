@@ -1,0 +1,15 @@
+name: 64 - Secure Generation of AES-192 Key
+api: javax.crypto.KeyGenerator
+api_call: INVOKEVIRTUAL(javax.crypto.KeyGenerator{ javax.crypto.SecretKey generateKey() })
+description: Secure generation of AES-192 key for the call sequence. Note, that not all providers support a AES-192 key size [more details](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/javax/crypto/KeyGenerator.html)
+crypto-usage:
+    violation: false
+    FUM: Argument_State
+    location:
+        file: pdfbox/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/encryption/PublicKeySecurityHandler.java
+        method: public void prepareDocumentForEncryption(PDDocument doc) throws IOException
+        line: "356"
+        root:
+            file: ""
+            method: ""
+            line: ""

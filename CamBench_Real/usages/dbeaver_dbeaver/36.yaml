@@ -1,0 +1,15 @@
+name: 36 - Secure Usage of Permissions
+api: java.security.Permissions
+api_call: INVOKESPECIAL(java.security.Permissions{ void <init>() })
+description: Secure instantiation of *Permissions*.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dbeaver/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/utils/SecurityManagerUtils.java
+        method: public static AccessControlContext controlContextOf(List<Permission> permissions)
+        line: "72"
+        root:
+            file: ""
+            method: ""
+            line: ""

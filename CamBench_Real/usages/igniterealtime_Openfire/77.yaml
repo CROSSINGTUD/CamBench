@@ -1,0 +1,15 @@
+name: 77 - Secure Usage of CertStore
+api: java.security.cert.CertStore
+api_call: INVOKESTATIC(java.security.cert.CertStore{ java.security.cert.CertStore getInstance(java.lang.String|java.security.cert.CertStoreParameters) })
+description: Secure constructor call of *CertStore* for a collection, the only supported on every Java plattform.
+crypto-usage:
+    violation: false
+    FUM: Argument_State
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/keystore/TrustStore.java
+        method: public X509Certificate getEndEntityCertificate( Certificate chain[] )
+        line: "163"
+        root:
+            file: ""
+            method: ""
+            line: ""

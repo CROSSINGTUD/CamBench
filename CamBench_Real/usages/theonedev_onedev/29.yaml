@@ -1,0 +1,15 @@
+name: 29 - Secure KeyPair Usage
+api: java.security.KeyPair
+api_call: INVOKEVIRTUAL(java.security.KeyPair{ java.security.PrivateKey getPrivate() })
+description: Secure generation of a key pair and secure method invocation to retrieve the encoded private key.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: onedev/server-core/src/main/java/io/onedev/server/ssh/SshKeyUtils.java
+        method: public static String generatePEMPrivateKey()
+        line: "58"
+        root:
+            file: ""
+            method: ""
+            line: ""

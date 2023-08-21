@@ -1,0 +1,15 @@
+name: 14 - Secure X509CertSelector Usage
+api: java.security.cert.X509CertSelector
+api_call: INVOKEVIRTUAL(java.security.cert.X509CertSelector{ void setCertificate(java.security.cert.X509Certificate) })
+description: Secure usage of the *X509CertSelector*.
+crypto-usage:
+    violation: false
+    FUM: Argument_Type
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/keystore/TrustStore.java
+        method: public X509Certificate getEndEntityCertificate( Certificate chain[] )
+        line: "165"
+        root:
+            file: ""
+            method: ""
+            line: ""

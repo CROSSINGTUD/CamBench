@@ -1,0 +1,15 @@
+name: 47 - Secure Usage of ECParameterSpec
+api: java.security.spec.ECParameterSpec
+api_call: INVOKEVIRTUAL(java.security.spec.ECParameterSpec{ java.security.spec.EllipticCurve getCurve() })
+description: The call on *ECParameterSpec* is secure and only retrieves the *EllipticCurve* based on a public key.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java
+        method: private boolean validIterations(SRRset nsec, KeyCache keyCache)
+        line: "347"
+        root:
+            file: ""
+            method: ""
+            line: ""

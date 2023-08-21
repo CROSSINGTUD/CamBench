@@ -1,0 +1,15 @@
+name: 22 - Secure Usage of ECPrivateKey
+api: java.security.interfaces.ECPrivateKey
+api_call: INVOKEINTERFACE(java.security.interfaces.ECPrivateKey{ byte[] getEncoded() })
+description: Secure method invocation on *ECPrivateKey* object to retrieve the encoding of a key.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: pushy/pushy/src/main/java/com/eatthepath/pushy/apns/auth/ApnsSigningKey.java
+        method: public byte[] getEncoded()
+        line: "84"
+        root:
+            file: ""
+            method: ""
+            line: ""

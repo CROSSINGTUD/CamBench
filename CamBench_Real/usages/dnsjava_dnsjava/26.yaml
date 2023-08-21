@@ -1,0 +1,15 @@
+name: 26 - Secure Usage of RSAPublicKey
+api: java.security.interfaces.RSAPublicKey
+api_call: INVOKEINTERFACE(java.security.interfaces.RSAPublicKey{ java.math.BigInteger getModulus() })
+description: The call sequence to retrieve a RSA public key is secure.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/dnssec/NSEC3ValUtils.java
+        method: private boolean validIterations(SRRset nsec, KeyCache keyCache)
+        line: "336"
+        root:
+            file: ""
+            method: ""
+            line: ""

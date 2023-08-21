@@ -1,0 +1,15 @@
+name: 97 - Secure Usage of ECPoint
+api: java.security.spec.ECPoint
+api_call: INVOKEVIRTUAL(java.security.spec.ECPoint{ java.math.BigInteger getAffineY() })
+description: Creates a public *ECPoint* for a passed key. Sharing a secure public point should not cause a security risk.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/DNSSEC.java
+        method: private static byte[] fromECGOSTPublicKey(ECPublicKey key, ECKeyInfo keyinfo)
+        line: "688"
+        root:
+            file: ""
+            method: ""
+            line: ""

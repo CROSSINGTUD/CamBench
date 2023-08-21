@@ -1,0 +1,15 @@
+name: 35 - Secure Usage Permission
+api: java.security.Permission
+api_call: INVOKEVIRTUAL(java.security.Permission{ java.lang.String getActions() })
+description: Secure method call and usage of *Permission*.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: evosuite/runtime/src/main/java/org/evosuite/runtime/sandbox/MSecurityManager.java
+        method: private boolean checkIfEvoSuiteRMI(Permission perm)
+        line: "746"
+        root:
+            file: ""
+            method: ""
+            line: ""

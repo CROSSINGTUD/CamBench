@@ -1,0 +1,15 @@
+name: 60 - Secure Usage of EncryptedPrivateKeyInfo
+api: javax.crypto.EncryptedPrivateKeyInfo
+api_call: INVOKEVIRTUAL(javax.crypto.EncryptedPrivateKeyInfo{ java.security.AlgorithmParameters getAlgParameters() })
+description: Method invocation on *EncryptedPrivateKeyInfo* gets the algorithm parameters to instantiate a cipher object. The algorithm itself is not security critical.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: jooby/jooby/src/main/java/io/jooby/internal/x509/SslContext.java
+        method: protected static PKCS8EncodedKeySpec generateKeySpec(final char[] password, final byte[] key) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, InvalidKeyException, InvalidAlgorithmParameterException
+        line: "146"
+        root:
+            file: ""
+            method: ""
+            line: ""

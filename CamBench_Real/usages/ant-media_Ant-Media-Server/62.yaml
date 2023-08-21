@@ -1,0 +1,15 @@
+name: 62 - Secure DHPublicKey Usage
+api: javax.crypto.interfaces.DHPublicKey
+api_call: INVOKEINTERFACE(javax.crypto.interfaces.DHPublicKey{ java.math.BigInteger getY() })
+description: Secure call of *getY()*. Y is part of the ephemeral key Y, y, and result in a DH public key. While the key may be too small, this characteristic is not reflected in this call sequence.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Ant-Media-Server/src/main/java/org/red5/server/net/rtmp/RTMPHandshake.java
+        method: protected byte[] getPublicKey(KeyPair keyPair)
+        line: "270"
+        root:
+            file: ""
+            method: ""
+            line: ""

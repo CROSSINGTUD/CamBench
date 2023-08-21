@@ -1,0 +1,15 @@
+name: 43 - Secure Usage of Secure Random
+api: java.security.SecureRandom
+api_call: INVOKESPECIAL(java.security.SecureRandom{ void <init>() })
+description: Secure initialization of a *SecureRandom* object.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: struts/core/src/main/java/org/apache/struts2/interceptor/csp/DefaultCspSettings.java
+        method: public class DefaultCspSettings implements CspSettings
+        line: "40"
+        root:
+            file: ""
+            method: ""
+            line: ""

@@ -1,0 +1,15 @@
+name: 19 - Secure Usage of DSAParams
+api: java.security.interfaces.DSAParams
+api_call: INVOKEINTERFACE(java.security.interfaces.DSAParams{ java.math.BigInteger getP() })
+description: Secure call sequence of *DSAParams*.
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: dnsjava/src/main/java/org/xbill/DNS/DNSSEC.java
+        method: private static byte[] fromDSAPublicKey(DSAPublicKey key)
+        line: "670"
+        root:
+            file: ""
+            method: ""
+            line: ""

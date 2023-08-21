@@ -1,0 +1,15 @@
+name: 100 - Create RSAPrivateCrtKeySpec from DER
+api: java.security.spec.RSAPrivateCrtKeySpec
+api_call: INVOKESPECIAL(java.security.spec.RSAPrivateCrtKeySpec{ void <init>(java.math.BigInteger|java.math.BigInteger|java.math.BigInteger|java.math.BigInteger|java.math.BigInteger|java.math.BigInteger|java.math.BigInteger|java.math.BigInteger) })
+description: Initialization of *RSAPrivateCrtKeySpec* based on key bytes in der-format.
+crypto-usage:
+    violation: false
+    FUM: High-Level_Constraints
+    location:
+        file: vert.x/src/main/java/io/vertx/core/net/impl/pkcs1/PrivateKeyParser.java
+        method: public static RSAPrivateCrtKeySpec getRSAKeySpec(byte[] keyBytes) throws VertxException
+        line: "232"
+        root:
+            file: ""
+            method: ""
+            line: ""

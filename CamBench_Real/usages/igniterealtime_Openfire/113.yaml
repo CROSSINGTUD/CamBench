@@ -1,0 +1,15 @@
+name: '113 - Secure Usage of CollectionCertStoreParameters'
+api: java.security.cert.CollectionCertStoreParameters
+api_call: INVOKESPECIAL(java.security.cert.CollectionCertStoreParameters{ void <init>(java.util.Collection) })
+description: "Secure initialization and usage of *CollectionCertStoreParameters*."
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/net/ClientTrustManager.java
+        method: public ClientTrustManager(KeyStore trustTrust)
+        line: "103"
+        root:
+            file: ""
+            method: ""
+            line: ""

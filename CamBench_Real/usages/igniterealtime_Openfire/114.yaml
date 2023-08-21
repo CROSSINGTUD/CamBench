@@ -1,0 +1,15 @@
+name: '114 - Secure Call to Retrieve TrustAnchors'
+api: java.security.cert.PKIXParameters
+api_call: INVOKEVIRTUAL(java.security.cert.PKIXParameters{ java.util.Set getTrustAnchors() })
+description: "Retrieve trust anchors from PKIXParameters."
+crypto-usage:
+    violation: false
+    FUM: No_constraint
+    location:
+        file: Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/net/OCSPChecker.java
+        method: public void check(Certificate cert, Collection<String> unresolvedCritExts) throws CertPathValidatorException
+        line: "153"
+        root:
+            file: ""
+            method: ""
+            line: ""

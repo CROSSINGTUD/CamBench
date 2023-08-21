@@ -1,0 +1,15 @@
+name: 31 - Secure Usage of KeyStore
+api: java.security.KeyStore
+api_call: INVOKEVIRTUAL(java.security.KeyStore{ java.security.cert.Certificate getCertificate(java.lang.String) })
+description: Secure call sequence of *KeyStore* that gets a certificate.
+crypto-usage:
+    violation: false
+    FUM: Argument_State/String_Format
+    location:
+        file: 'Openfire/xmppserver/src/main/java/org/jivesoftware/openfire/keystore/TrustStore.java '
+        method: public X509Certificate getEndEntityCertificate( Certificate chain[] )
+        line: "155"
+        root:
+            file: ""
+            method: ""
+            line: ""
