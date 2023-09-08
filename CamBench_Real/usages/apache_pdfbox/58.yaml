@@ -1,0 +1,16 @@
+name: 58 - Missing Call to Close
+api: javax.crypto.CipherInputStream
+api_call: INVOKESPECIAL(javax.crypto.CipherInputStream{ void <init>(java.io.InputStream|javax.crypto.Cipher) })
+description: >
+  The call to *close* for the call sequence to *CipherInputStream* happens in the try-with-resource statement <https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html>. 
+crypto-usage:
+    violation: false
+    FUM: Method_Call_Sequence
+    location:
+        file: pdfbox/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/encryption/SecurityHandler.java
+        method: private void encryptDataAES256(InputStream data, OutputStream output, boolean decrypt) throws IOException
+        line: "379"
+        root:
+            file: ""
+            method: ""
+            line: ""
