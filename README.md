@@ -5,7 +5,7 @@
 CamBench envisions to be a comprehensive benchmark for cryptographic API misuse detection tools consisting of three components: 
 - CamBench_Real includes real-world Java applications with manually labeled usages. 
 - CamBench_Cap includes synthetic test cases to cover analysis capabilities.
-CamBench_Cov is a heuristic for crypto API coverage. 
+- CamBench_Cov is a heuristic for crypto API coverage. 
 
 CamBench is accepted as [a registered report at MSR 22](https://conf.researchr.org/track/msr-2022/msr-2022-registered-reports?#event-overview) [^1].
 If you are interested in the progress of CamBench, please watch the repository or reach out to us. 
