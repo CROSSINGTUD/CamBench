@@ -10,7 +10,7 @@ description:
   The securely random one is then utilized to create an initialization vector and initialize an instance of the AES algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state
   location:

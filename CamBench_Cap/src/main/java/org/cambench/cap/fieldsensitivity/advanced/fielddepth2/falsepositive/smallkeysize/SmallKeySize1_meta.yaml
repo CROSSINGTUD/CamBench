@@ -10,7 +10,7 @@ description:
   create a KeyPair and initialize an instance of the RSA algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/number_range
   location:
