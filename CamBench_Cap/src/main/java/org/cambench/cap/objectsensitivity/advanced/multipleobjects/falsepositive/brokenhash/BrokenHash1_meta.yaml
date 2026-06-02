@@ -10,7 +10,7 @@ description:
   to initialize a MessageDigest object that is used to generate the hash of some data.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:

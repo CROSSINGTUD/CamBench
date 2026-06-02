@@ -10,7 +10,7 @@ description:
   The larger key size is then used to create a key pair and initialize an instance of the RSA algorithm.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/number_range
   location:

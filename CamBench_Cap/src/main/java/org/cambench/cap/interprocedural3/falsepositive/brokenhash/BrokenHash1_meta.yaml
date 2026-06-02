@@ -9,7 +9,7 @@ description:
   based on a secure hash algorithm (SHA-256). The object is then utilized to compute the hash value of some data.
 
 crypto-usage:
-  violation: true
+  violation: false
   FUM:
     - argument_state/string_format
   location:
