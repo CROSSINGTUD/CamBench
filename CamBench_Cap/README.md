@@ -1,6 +1,6 @@
 # CamBench_Cap - A benchmark to test the analysis capabilities of cryptographic API misuse detectors
 
-CamBench\_Cap contains 280 true- and false-positive test cases that cover context-, field-, flow-, path-, and object-sensitivity as well as interprocedurality and mixed-sensitivities.
+CamBench\_Cap contains 623 cases (219 true- and 404 false-positive test cases) that cover context-, field-, flow-, path-, and object-sensitivity as well as interprocedurality and mixed-sensitivities.
 Furthermore, every test case is accompanied by a metadata file with additional information.
 <br>
 <br>
